@@ -1,2 +1,1 @@
-"""Tools for mobility-edge experiments on sparse random graphs."""
-
+"""Random-regular baseline tools for the mobility-edge project."""

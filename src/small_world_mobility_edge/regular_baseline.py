@@ -14,6 +14,15 @@ class UnfoldingResult:
     mean_counting_function: np.ndarray
 
 
+@dataclass(frozen=True)
+class UnfoldingComparison:
+    exact_spacings: np.ndarray
+    local_spacings: np.ndarray
+    spacing_midpoints: np.ndarray
+    absolute_difference: np.ndarray
+    relative_difference: np.ndarray
+
+
 def generate_random_regular_graph(
     n: int,
     degree: int,
@@ -163,6 +172,58 @@ def unfold_with_kesten_mckay(
 def unfolded_spacings(unfolded_eigenvalues: np.ndarray) -> np.ndarray:
     """Return spacings in unfolded coordinates."""
     return np.diff(np.sort(np.asarray(unfolded_eigenvalues, dtype=float)))
+
+
+def local_density_unfolded_spacings(
+    eigenvalues: np.ndarray,
+    degree: int,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Approximate unfolded spacings by local-density normalization.
+
+    If delta_i = lambda_{i+1} - lambda_i, then Cook's description is
+
+        s_i^(local) ~= n * rho(lambda_i^*) * delta_i,
+
+    where rho is the local mean density and lambda_i^* is a representative
+    energy in the gap. We use the midpoint of the gap.
+    """
+    eigenvalues = np.sort(np.asarray(eigenvalues, dtype=float))
+    gaps = np.diff(eigenvalues)
+    midpoints = 0.5 * (eigenvalues[:-1] + eigenvalues[1:])
+    local_density = kesten_mckay_density(midpoints, degree)
+    spacings = len(eigenvalues) * local_density * gaps
+    return spacings, midpoints
+
+
+def compare_unfolding_methods(
+    eigenvalues: np.ndarray,
+    degree: int,
+) -> UnfoldingComparison:
+    """Compare exact counting-function unfolding to Cook's local rule.
+
+    The exact McKay-law unfolding gives
+
+        s_i^(exact) = N_bar(lambda_{i+1}) - N_bar(lambda_i)
+                     = n * integral_{lambda_i}^{lambda_{i+1}} rho(t) dt.
+
+    The local-density approximation gives
+
+        s_i^(local) ~= n * rho(midpoint_i) * (lambda_{i+1} - lambda_i).
+
+    For bulk gaps in a large random regular graph, these should be very close.
+    """
+    eigenvalues = np.sort(np.asarray(eigenvalues, dtype=float))
+    exact = unfolded_spacings(unfold_with_kesten_mckay(eigenvalues, degree=degree).unfolded)
+    local, midpoints = local_density_unfolded_spacings(eigenvalues, degree=degree)
+    absolute_difference = np.abs(exact - local)
+    relative_difference = absolute_difference / np.maximum(np.abs(exact), 1e-12)
+    return UnfoldingComparison(
+        exact_spacings=exact,
+        local_spacings=local,
+        spacing_midpoints=midpoints,
+        absolute_difference=absolute_difference,
+        relative_difference=relative_difference,
+    )
 
 
 def wigner_surmise_goe(s: np.ndarray | float) -> np.ndarray:
