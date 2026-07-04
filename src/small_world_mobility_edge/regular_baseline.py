@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import warnings
 
 import networkx as nx
 import numpy as np
@@ -21,6 +22,24 @@ class UnfoldingComparison:
     spacing_midpoints: np.ndarray
     absolute_difference: np.ndarray
     relative_difference: np.ndarray
+
+
+@dataclass(frozen=True)
+class LocalWindowSpacingResult:
+    spacings: np.ndarray
+    selected_eigenvalues: np.ndarray
+    raw_gaps: np.ndarray
+    rho_at_E: float
+    window_min: float
+    window_max: float
+    energy: float
+    num_eigenvalues: int
+    num_gaps: int
+    density_method: str
+    reweight_within_window: bool
+    midpoint_locations: np.ndarray
+    midpoint_densities: np.ndarray
+    mean_spacing: float
 
 
 def generate_random_regular_graph(
@@ -193,6 +212,139 @@ def local_density_unfolded_spacings(
     local_density = kesten_mckay_density(midpoints, degree)
     spacings = len(eigenvalues) * local_density * gaps
     return spacings, midpoints
+
+
+def remove_trivial_regular_eigenvalue(
+    eigenvalues: np.ndarray,
+    degree: int,
+    atol: float = 1e-10,
+) -> np.ndarray:
+    """Remove one trivial adjacency eigenvalue equal to ``degree`` if present."""
+    eigenvalues = np.sort(np.asarray(eigenvalues, dtype=float))
+    if len(eigenvalues) == 0:
+        return eigenvalues
+
+    index = int(np.argmin(np.abs(eigenvalues - degree)))
+    if np.isclose(eigenvalues[index], degree, atol=atol, rtol=0.0):
+        return np.delete(eigenvalues, index)
+    return eigenvalues
+
+
+def adjacent_gap_ratios_from_spacings(spacings: np.ndarray) -> np.ndarray:
+    """Return adjacent gap ratios computed from an existing spacing sequence."""
+    spacings = np.asarray(spacings, dtype=float)
+    if len(spacings) < 2:
+        return np.array([], dtype=float)
+
+    left = spacings[:-1]
+    right = spacings[1:]
+    denom = np.maximum(left, right)
+    numer = np.minimum(left, right)
+    valid = denom > 0
+    return numer[valid] / denom[valid]
+
+
+def local_window_spacings(
+    eigenvalues: np.ndarray,
+    E: float,
+    window_half_width: float,
+    density_at_E: float | None = None,
+    degree: int | None = None,
+    density_method: str = "kesten_mckay",
+    reweight_within_window: bool = False,
+    normalize_mean: bool = False,
+    min_eigenvalues: int = 6,
+) -> LocalWindowSpacingResult:
+    """Return locally rescaled spacings from a spectral window around ``E``.
+
+    The default Cook-style normalization uses the fixed density at the chosen
+    energy:
+
+        s_i(E) = n * rho(E) * (lambda_{i+1} - lambda_i).
+
+    When ``reweight_within_window=True``, the density is instead evaluated at
+    each gap midpoint:
+
+        s_i = n * rho(lambda_i^*) * (lambda_{i+1} - lambda_i),
+        lambda_i^* = 0.5 * (lambda_i + lambda_{i+1}).
+    """
+    if window_half_width <= 0:
+        raise ValueError("window_half_width must be positive")
+
+    eigenvalues = np.sort(np.asarray(eigenvalues, dtype=float))
+    if degree is not None:
+        eigenvalues = remove_trivial_regular_eigenvalue(eigenvalues, degree=degree)
+
+    window_min = float(E - window_half_width)
+    window_max = float(E + window_half_width)
+    selected = eigenvalues[(eigenvalues >= window_min) & (eigenvalues <= window_max)]
+
+    if len(selected) < min_eigenvalues:
+        raise ValueError(
+            f"Window [{window_min:.6f}, {window_max:.6f}] around E={E:.6f} "
+            f"contains only {len(selected)} eigenvalues; need at least {min_eigenvalues}."
+        )
+
+    gaps = np.diff(selected)
+    if len(gaps) != len(selected) - 1:
+        raise AssertionError("number of gaps must be one less than number of selected eigenvalues")
+
+    midpoint_locations = 0.5 * (selected[:-1] + selected[1:])
+    n_effective = len(eigenvalues)
+
+    if density_method != "kesten_mckay":
+        raise ValueError(f"unsupported density_method={density_method!r}")
+    if degree is None:
+        raise ValueError("degree is required for density_method='kesten_mckay'")
+
+    if density_at_E is None:
+        rho_at_E = float(kesten_mckay_density(E, degree))
+    else:
+        rho_at_E = float(density_at_E)
+
+    if rho_at_E <= 0:
+        raise ValueError(
+            f"rho(E)={rho_at_E:.6e} at E={E:.6f}; choose an energy in the Kesten-McKay bulk."
+        )
+    if rho_at_E < 1e-3:
+        warnings.warn(
+            f"rho(E)={rho_at_E:.6e} at E={E:.6f} is very small; local spacing estimates may be unstable.",
+            RuntimeWarning,
+            stacklevel=2,
+        )
+
+    if reweight_within_window:
+        midpoint_densities = kesten_mckay_density(midpoint_locations, degree)
+        spacings = n_effective * midpoint_densities * gaps
+    else:
+        midpoint_densities = np.full_like(midpoint_locations, rho_at_E, dtype=float)
+        spacings = n_effective * rho_at_E * gaps
+
+    if normalize_mean:
+        mean_spacing = float(np.mean(spacings))
+        if mean_spacing <= 0 or not np.isfinite(mean_spacing):
+            raise ValueError("cannot normalize local spacings with non-finite or non-positive mean")
+        spacings = spacings / mean_spacing
+
+    if not np.all(np.isfinite(spacings)):
+        raise ValueError("local_window_spacings produced non-finite values")
+
+    return LocalWindowSpacingResult(
+        spacings=spacings,
+        selected_eigenvalues=selected,
+        raw_gaps=gaps,
+        rho_at_E=rho_at_E,
+        window_min=window_min,
+        window_max=window_max,
+        energy=float(E),
+        num_eigenvalues=len(selected),
+        num_gaps=len(gaps),
+        density_method=density_method,
+        reweight_within_window=reweight_within_window,
+        midpoint_locations=midpoint_locations,
+        midpoint_densities=np.asarray(midpoint_densities, dtype=float),
+        mean_spacing=float(np.mean(spacings)),
+    )
 
 
 def compare_unfolding_methods(

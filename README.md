@@ -28,3 +28,10 @@ Run the baseline experiment:
 cd /Users/xihe/Developer/small_world_mobility_edge
 python3 src/small_world_mobility_edge/regular_baseline_experiments.py
 ```
+
+Run the local-by-energy spacing scan:
+
+```bash
+cd /Users/xihe/Developer/small_world_mobility_edge
+python3 src/small_world_mobility_edge/local_spacing_by_energy.py
+```
