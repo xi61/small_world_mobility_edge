@@ -29,6 +29,7 @@ class LocalWindowSpacingResult:
     spacings: np.ndarray
     selected_eigenvalues: np.ndarray
     raw_gaps: np.ndarray
+    analyzed_dimension: int
     rho_at_E: float
     window_min: float
     window_max: float
@@ -251,6 +252,7 @@ def local_window_spacings(
     density_at_E: float | None = None,
     degree: int | None = None,
     density_method: str = "kesten_mckay",
+    analyzed_dimension: int | None = None,
     reweight_within_window: bool = False,
     normalize_mean: bool = False,
     min_eigenvalues: int = 6,
@@ -290,17 +292,25 @@ def local_window_spacings(
         raise AssertionError("number of gaps must be one less than number of selected eigenvalues")
 
     midpoint_locations = 0.5 * (selected[:-1] + selected[1:])
-    n_effective = len(eigenvalues)
+    n_effective = len(eigenvalues) if analyzed_dimension is None else int(analyzed_dimension)
+    if n_effective <= 0:
+        raise ValueError("analyzed_dimension must be positive")
 
-    if density_method != "kesten_mckay":
-        raise ValueError(f"unsupported density_method={density_method!r}")
-    if degree is None:
-        raise ValueError("degree is required for density_method='kesten_mckay'")
-
-    if density_at_E is None:
-        rho_at_E = float(kesten_mckay_density(E, degree))
-    else:
+    if density_method == "kesten_mckay":
+        if degree is None:
+            raise ValueError("degree is required for density_method='kesten_mckay'")
+        if density_at_E is None:
+            rho_at_E = float(kesten_mckay_density(E, degree))
+        else:
+            rho_at_E = float(density_at_E)
+    elif density_method == "empirical":
+        if density_at_E is None:
+            raise ValueError("density_at_E is required for density_method='empirical'")
+        if reweight_within_window:
+            raise ValueError("reweight_within_window is not supported for density_method='empirical'")
         rho_at_E = float(density_at_E)
+    else:
+        raise ValueError(f"unsupported density_method={density_method!r}")
 
     if rho_at_E <= 0:
         raise ValueError(
@@ -333,6 +343,7 @@ def local_window_spacings(
         spacings=spacings,
         selected_eigenvalues=selected,
         raw_gaps=gaps,
+        analyzed_dimension=n_effective,
         rho_at_E=rho_at_E,
         window_min=window_min,
         window_max=window_max,

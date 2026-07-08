@@ -18,16 +18,17 @@ from regular_baseline import (
     remove_trivial_regular_eigenvalue,
 )
 from regular_baseline_experiments import local_spacing_scan_plots
+from regular_baseline_experiments import plot_density_with_energy_windows
 
 
-N = 2000
+N = 10000
 DEGREE = 3
 SEED = 7
-E_VALUES = [-2.0, -1.0, 0.0, 1.0, 2.0]
-WINDOW_HALF_WIDTH = 0.20
+E_VALUES = [-2.5, -2.2, -2.0, -1.5, -1.0, -0.5, 0.0, 0.5, 1.0, 1.5, 2.0, 2.2, 2.5]
+WINDOW_HALF_WIDTH = 0.30
 NUM_BINS = 30
 MIN_EIGENVALUES = 12
-REWEIGHT_WITHIN_WINDOW = False
+REWEIGHT_WITHIN_WINDOW = True
 NORMALIZE_MEAN = False
 ALLOW_EDGE_ENERGIES = False
 COMPUTE_KS_DISTANCES = True
@@ -77,15 +78,15 @@ def run_validation_checks(eigenvalues: np.ndarray, degree: int) -> None:
 
 
 def print_results_table(results: list[dict[str, object]]) -> None:
-    print("E | window | num eigenvalues | num gaps | rho(E) | mean spacing | mean r | status")
+    print(f"{'E':>6}  {'window':<22}  {'num eigs':>8}  {'num gaps':>8}  {'rho(E)':>8}  {'mean s':>8}  {'mean r':>8}  status")
     for item in results:
         window = f"[{item['window_min']:.3f}, {item['window_max']:.3f}]"
         mean_spacing = "nan" if np.isnan(item["mean_spacing"]) else f"{item['mean_spacing']:.4f}"
         mean_r = "nan" if np.isnan(item["mean_r"]) else f"{item['mean_r']:.4f}"
         print(
-            f"{item['E']:>5.2f} | {window} | {int(item['num_eigenvalues']):>14d} | "
-            f"{int(item['num_gaps']):>8d} | {item['rho_at_E']:.6f} | {mean_spacing:>12} | "
-            f"{mean_r:>6} | {item['status']}"
+            f"{item['E']:>6.2f}  {window:<22}  {int(item['num_eigenvalues']):>8d}  "
+            f"{int(item['num_gaps']):>8d}  {item['rho_at_E']:>8.5f}  {mean_spacing:>8}  "
+            f"{mean_r:>8}  {item['status']}"
         )
 
 
@@ -111,17 +112,26 @@ def main() -> None:
         ks_sample_size=KS_SAMPLE_SIZE,
         rng_seed=SEED,
     )
+    fig_density = plot_density_with_energy_windows(
+        degree=DEGREE,
+        E_values=E_VALUES,
+        window_half_width=WINDOW_HALF_WIDTH,
+    )
 
     mode_label = "midpoint_reweight" if REWEIGHT_WITHIN_WINDOW else "fixed_density"
     grid_path = OUTPUT_DIR / f"local_spacing_grid_{mode_label}.png"
     summary_path = OUTPUT_DIR / f"local_spacing_summary_{mode_label}.png"
+    density_path = OUTPUT_DIR / f"local_density_windows_{mode_label}.png"
     fig_grid.savefig(grid_path, dpi=200, bbox_inches="tight")
     fig_summary.savefig(summary_path, dpi=200, bbox_inches="tight")
+    fig_density.savefig(density_path, dpi=200, bbox_inches="tight")
     plt.close(fig_grid)
     plt.close(fig_summary)
+    plt.close(fig_density)
 
     print(f"Saved histogram grid to {grid_path}")
     print(f"Saved summary figure to {summary_path}")
+    print(f"Saved density-window figure to {density_path}")
     print_results_table(results)
 
 

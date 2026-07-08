@@ -137,6 +137,38 @@ def poisson_spacing_density(s: np.ndarray | float) -> np.ndarray:
     return density
 
 
+def plot_density_with_energy_windows(
+    degree: int,
+    E_values: list[float] | np.ndarray,
+    window_half_width: float,
+) -> plt.Figure:
+    """Plot the Kesten-McKay density and mark the chosen energy windows."""
+    support_radius = 2.0 * np.sqrt(degree - 1.0)
+    x_grid = np.linspace(-support_radius, support_radius, 1200)
+    density = kesten_mckay_density(x_grid, degree)
+
+    fig, ax = plt.subplots(figsize=(10, 4.8))
+    ax.plot(x_grid, density, color="black", lw=2, label="Kesten-McKay density")
+
+    colors = plt.cm.viridis(np.linspace(0.12, 0.88, len(E_values)))
+    for color, E in zip(colors, np.asarray(E_values, dtype=float)):
+        rho_E = float(kesten_mckay_density(E, degree))
+        left = E - window_half_width
+        right = E + window_half_width
+        ax.axvspan(left, right, color=color, alpha=0.15)
+        ax.axvline(E, color=color, lw=1.8)
+        ax.scatter([E], [rho_E], color=color, s=35, zorder=3)
+        ax.text(E, rho_E + 0.008, f"E={E:.2f}\nrho={rho_E:.3f}", color=color, ha="center", va="bottom")
+
+    ax.set_title(f"Kesten-McKay Density with Local Windows, degree={degree}")
+    ax.set_xlabel("eigenvalue / energy E")
+    ax.set_ylabel(r"$\rho(E)$")
+    ax.set_xlim(-support_radius, support_radius)
+    ax.legend()
+    fig.tight_layout()
+    return fig
+
+
 def local_spacing_scan_plots(
     eigenvalues: np.ndarray,
     degree: int,
