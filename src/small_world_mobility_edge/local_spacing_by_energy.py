@@ -1,24 +1,39 @@
 from __future__ import annotations
 
 import os
+import tempfile
 from pathlib import Path
 
-os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/matplotlib-cache")
-os.environ.setdefault("XDG_CACHE_HOME", "/private/tmp")
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "small-world-mobility-edge-matplotlib"))
+os.environ.setdefault("XDG_CACHE_HOME", tempfile.gettempdir())
 
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from regular_baseline import (
-    adjacency_eigendecomposition,
-    generate_random_regular_graph,
-    local_window_spacings,
-    remove_trivial_regular_eigenvalue,
-)
-from regular_baseline_experiments import local_spacing_scan_plots
-from regular_baseline_experiments import plot_density_with_energy_windows
+try:
+    from .regular_baseline import (
+        adjacency_eigendecomposition,
+        generate_random_regular_graph,
+        local_window_spacings,
+        remove_trivial_regular_eigenvalue,
+    )
+    from .regular_baseline_experiments import (
+        local_spacing_scan_plots,
+        plot_density_with_energy_windows,
+    )
+except ImportError:  # pragma: no cover - script-style fallback
+    from regular_baseline import (
+        adjacency_eigendecomposition,
+        generate_random_regular_graph,
+        local_window_spacings,
+        remove_trivial_regular_eigenvalue,
+    )
+    from regular_baseline_experiments import (
+        local_spacing_scan_plots,
+        plot_density_with_energy_windows,
+    )
 
 
 N = 10000

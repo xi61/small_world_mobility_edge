@@ -6,13 +6,14 @@ import hashlib
 import json
 import math
 import os
+import tempfile
 from dataclasses import dataclass
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
-os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/matplotlib-cache")
-os.environ.setdefault("XDG_CACHE_HOME", "/private/tmp")
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "small-world-mobility-edge-matplotlib"))
+os.environ.setdefault("XDG_CACHE_HOME", tempfile.gettempdir())
 
 import matplotlib
 matplotlib.use("Agg")
@@ -136,7 +137,7 @@ class PaperScalingDiagnostic:
 
 
 def timestamp_slug() -> str:
-    return datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
 
 def poisson_spacing_density(s: np.ndarray | float) -> np.ndarray:

@@ -108,8 +108,8 @@ def power_law_quantile_sequence(
     n: int,
     tau: float,
 ) -> np.ndarray:
-    if tau <= 2.0:
-        raise ValueError("tau must exceed 2 so the target mean degree is well-defined")
+    if tau <= 1.0:
+        raise ValueError("tau must exceed 1 so the Pareto tail exponent is positive")
     quantiles = (np.arange(n, dtype=float) + 0.5) / n
     raw = quantiles ** (-1.0 / (tau - 1.0))
     return np.asarray(raw, dtype=float)
@@ -120,8 +120,8 @@ def sampled_pareto_sequence(
     tau: float,
     seed: int | np.random.Generator | None,
 ) -> np.ndarray:
-    if tau <= 2.0:
-        raise ValueError("tau must exceed 2 so the target mean degree is well-defined")
+    if tau <= 1.0:
+        raise ValueError("tau must exceed 1 so the Pareto tail exponent is positive")
     rng = np.random.default_rng(seed)
     shape = tau - 1.0
     # NumPy Pareto with shape a has CCDF exponent a, so this matches
@@ -238,8 +238,8 @@ def generate_power_law_expected_weights(
 ) -> tuple[np.ndarray, WeightSequenceDiagnostics]:
     if n <= 1:
         raise ValueError("n must be at least 2")
-    if tau <= 2.0:
-        raise ValueError("tau must exceed 2")
+    if tau <= 1.0:
+        raise ValueError("tau must exceed 1")
     if target_mean_degree <= 0:
         raise ValueError("target_mean_degree must be positive")
     if w_min <= 0:

@@ -4,12 +4,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import ks_2samp
 
-from regular_baseline import (
-    generate_random_regular_graph,
-    adjacency_eigendecomposition,
-    compare_unfolding_methods,
-    wigner_surmise_goe,
-)
+try:
+    from .regular_baseline import (
+        generate_random_regular_graph,
+        adjacency_eigendecomposition,
+        compare_unfolding_methods,
+        wigner_surmise_goe,
+    )
+except ImportError:  # pragma: no cover - script-style fallback
+    from regular_baseline import (
+        generate_random_regular_graph,
+        adjacency_eigendecomposition,
+        compare_unfolding_methods,
+        wigner_surmise_goe,
+    )
 
 
 def main() -> None:

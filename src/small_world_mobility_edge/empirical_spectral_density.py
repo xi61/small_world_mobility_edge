@@ -31,6 +31,80 @@ class EmpiricalSpectralDensity:
         return np.interp(quantiles, self.cdf, self.grid)
 
 
+@dataclass(frozen=True)
+class CrossFittedEmpiricalSpectralDensity:
+    """One graph-level cross-fitting fold and its training-only density."""
+
+    fold: int
+    training_graph_ids: tuple[int, ...]
+    held_out_graph_ids: tuple[int, ...]
+    density_model: EmpiricalSpectralDensity
+
+
+def estimate_cross_fitted_variable_local_count_densities(
+    eigenvalue_samples: list[np.ndarray],
+    graph_ids: list[int] | np.ndarray,
+    *,
+    num_folds: int = 5,
+    bulk_local_count_half_width: float = 0.20,
+    tail_local_count_half_width: float = 0.08,
+    tail_quantile_cutoff: float = 0.95,
+    num_points: int = 2001,
+) -> list[CrossFittedEmpiricalSpectralDensity]:
+    """Fit deterministic graph-level folds without train/test leakage.
+
+    Graph ``g`` belongs to fold ``g % num_folds``. Every density model is
+    estimated only from graphs outside its held-out fold.
+    """
+    if num_folds < 2:
+        raise ValueError("num_folds must be at least two")
+    ids = np.asarray(graph_ids, dtype=int)
+    if len(eigenvalue_samples) != len(ids):
+        raise ValueError("eigenvalue_samples and graph_ids must have equal length")
+    if len(np.unique(ids)) != len(ids):
+        raise ValueError("graph_ids must be unique")
+    if len(ids) < num_folds:
+        raise ValueError("at least one graph per fold is required")
+    models: list[CrossFittedEmpiricalSpectralDensity] = []
+    for fold in range(num_folds):
+        held_mask = ids % num_folds == fold
+        train_mask = ~held_mask
+        held_ids = tuple(int(value) for value in ids[held_mask])
+        train_ids = tuple(int(value) for value in ids[train_mask])
+        if not held_ids or not train_ids:
+            raise ValueError(f"fold {fold} has an empty train or held-out set")
+        training_samples = [
+            np.asarray(sample, dtype=float)
+            for sample, keep in zip(eigenvalue_samples, train_mask)
+            if keep
+        ]
+        mean_dimension = float(np.mean([len(sample) for sample in training_samples]))
+        density = estimate_variable_local_count_density(
+            eigenvalue_samples=training_samples,
+            num_graphs=len(training_samples),
+            per_graph_dimension=mean_dimension,
+            bulk_local_count_half_width=bulk_local_count_half_width,
+            tail_local_count_half_width=tail_local_count_half_width,
+            tail_quantile_cutoff=tail_quantile_cutoff,
+            num_points=num_points,
+        )
+        if not np.isclose(density.cdf[0], 0.0, atol=1e-12):
+            raise AssertionError("cross-fitted CDF must start at zero")
+        if not np.isclose(density.cdf[-1], 1.0, atol=1e-12):
+            raise AssertionError("cross-fitted CDF must end at one")
+        if np.any(np.diff(density.cdf) < -1e-12):
+            raise AssertionError("cross-fitted CDF must be nondecreasing")
+        models.append(
+            CrossFittedEmpiricalSpectralDensity(
+                fold=fold,
+                training_graph_ids=train_ids,
+                held_out_graph_ids=held_ids,
+                density_model=density,
+            )
+        )
+    return models
+
+
 def pool_eigenvalues(eigenvalue_samples: list[np.ndarray]) -> np.ndarray:
     if not eigenvalue_samples:
         raise ValueError("eigenvalue_samples must be non-empty")
@@ -141,6 +215,44 @@ def estimate_local_count_density(
     )
 
 
+def estimate_variable_local_count_density(
+    eigenvalue_samples: list[np.ndarray],
+    num_graphs: int,
+    per_graph_dimension: float,
+    bulk_local_count_half_width: float,
+    tail_local_count_half_width: float,
+    tail_quantile_cutoff: float,
+    num_points: int = 2001,
+) -> EmpiricalSpectralDensity:
+    if bulk_local_count_half_width <= 0:
+        raise ValueError("bulk_local_count_half_width must be positive")
+    if tail_local_count_half_width <= 0:
+        raise ValueError("tail_local_count_half_width must be positive")
+    if not 0.5 <= tail_quantile_cutoff < 1.0:
+        raise ValueError("tail_quantile_cutoff must lie in [0.5, 1)")
+    pooled = pool_eigenvalues(eigenvalue_samples)
+    grid = _density_grid_from_samples(pooled, num_points=num_points)
+    sorted_values = pooled
+    empirical_quantiles = np.searchsorted(sorted_values, grid, side="right") / len(sorted_values)
+    tail_mask = (empirical_quantiles <= 1.0 - tail_quantile_cutoff) | (empirical_quantiles >= tail_quantile_cutoff)
+    half_widths = np.where(tail_mask, tail_local_count_half_width, bulk_local_count_half_width)
+    left = np.searchsorted(sorted_values, grid - half_widths, side="left")
+    right = np.searchsorted(sorted_values, grid + half_widths, side="right")
+    counts = right - left
+    density = counts / (num_graphs * per_graph_dimension * 2.0 * half_widths)
+    density, cdf = _normalize_density_on_grid(grid, density)
+    return EmpiricalSpectralDensity(
+        method="variable_local_count",
+        grid=grid,
+        density=density,
+        cdf=cdf,
+        pooled_eigenvalues=pooled,
+        num_graphs=num_graphs,
+        per_graph_dimension=per_graph_dimension,
+        local_count_half_width=bulk_local_count_half_width,
+    )
+
+
 def estimate_empirical_spectral_density(
     eigenvalue_samples: list[np.ndarray],
     num_graphs: int,
@@ -150,6 +262,8 @@ def estimate_empirical_spectral_density(
     num_bins: int = 120,
     bandwidth_scale: float = 1.0,
     local_count_half_width: float = 0.20,
+    tail_local_count_half_width: float | None = None,
+    tail_quantile_cutoff: float = 0.95,
 ) -> EmpiricalSpectralDensity:
     if method == "kde":
         return estimate_ensemble_kde_density(
@@ -173,6 +287,18 @@ def estimate_empirical_spectral_density(
             num_graphs=num_graphs,
             per_graph_dimension=per_graph_dimension,
             local_count_half_width=local_count_half_width,
+            num_points=num_points,
+        )
+    if method == "variable_local_count":
+        return estimate_variable_local_count_density(
+            eigenvalue_samples=eigenvalue_samples,
+            num_graphs=num_graphs,
+            per_graph_dimension=per_graph_dimension,
+            bulk_local_count_half_width=local_count_half_width,
+            tail_local_count_half_width=tail_local_count_half_width
+            if tail_local_count_half_width is not None
+            else local_count_half_width,
+            tail_quantile_cutoff=tail_quantile_cutoff,
             num_points=num_points,
         )
     raise ValueError(f"unsupported empirical density method {method!r}")

@@ -4,13 +4,14 @@ import csv
 import hashlib
 import json
 import os
+import tempfile
 import subprocess
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Callable
 
-os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/matplotlib-cache")
-os.environ.setdefault("XDG_CACHE_HOME", "/private/tmp")
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "small-world-mobility-edge-matplotlib"))
+os.environ.setdefault("XDG_CACHE_HOME", tempfile.gettempdir())
 
 import matplotlib
 matplotlib.use("Agg")
@@ -71,7 +72,7 @@ def code_version() -> str | None:
 
 
 def timestamp_slug() -> str:
-    return datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
 
 def config_hash(config: dict[str, object]) -> str:

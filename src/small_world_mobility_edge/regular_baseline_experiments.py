@@ -5,20 +5,36 @@ import matplotlib.pyplot as plt
 import warnings
 from scipy.stats import ks_2samp
 
-from regular_baseline import (
-    generate_random_regular_graph,
-    adjacency_eigendecomposition,
-    inverse_participation_ratio,
-    adjacent_gap_ratios,
-    kesten_mckay_grid,
-    unfold_with_kesten_mckay,
-    unfolded_spacings,
-    wigner_surmise_goe,
-    bin_average_by_eigenvalue,
-    adjacent_gap_ratios_from_spacings,
-    kesten_mckay_density,
-    local_window_spacings,
-)
+try:
+    from .regular_baseline import (
+        generate_random_regular_graph,
+        adjacency_eigendecomposition,
+        inverse_participation_ratio,
+        adjacent_gap_ratios,
+        kesten_mckay_grid,
+        unfold_with_kesten_mckay,
+        unfolded_spacings,
+        wigner_surmise_goe,
+        bin_average_by_eigenvalue,
+        adjacent_gap_ratios_from_spacings,
+        kesten_mckay_density,
+        local_window_spacings,
+    )
+except ImportError:  # pragma: no cover - script-style fallback
+    from regular_baseline import (
+        generate_random_regular_graph,
+        adjacency_eigendecomposition,
+        inverse_participation_ratio,
+        adjacent_gap_ratios,
+        kesten_mckay_grid,
+        unfold_with_kesten_mckay,
+        unfolded_spacings,
+        wigner_surmise_goe,
+        bin_average_by_eigenvalue,
+        adjacent_gap_ratios_from_spacings,
+        kesten_mckay_density,
+        local_window_spacings,
+    )
 
 
 def main() -> None:

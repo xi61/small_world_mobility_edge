@@ -3,12 +3,13 @@ from __future__ import annotations
 import csv
 import json
 import os
+import tempfile
 import subprocess
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
-os.environ.setdefault("MPLCONFIGDIR", "/private/tmp/matplotlib-cache")
-os.environ.setdefault("XDG_CACHE_HOME", "/private/tmp")
+os.environ.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "small-world-mobility-edge-matplotlib"))
+os.environ.setdefault("XDG_CACHE_HOME", tempfile.gettempdir())
 
 import matplotlib
 matplotlib.use("Agg")
@@ -30,20 +31,24 @@ except ImportError:  # pragma: no cover
 
 
 N = 5000
-ALL_TAU_VALUES = [3.0, 3.5, 4.0]
-ALL_TARGET_MEAN_DEGREES = [6.0, 10.0, 20.0]
-ACTIVE_PARAMETER_PAIRS = [(3.0, 6.0), (3.0, 10.0)]
+ALL_TAU_VALUES = [1.5]
+ALL_TARGET_MEAN_DEGREES = [20.0]  # desired avg expected degrees, only works for tau >= 1
+ACTIVE_PARAMETER_PAIRS = [(2.1, 20.0)]
 RUN_FULL_GRID = True
-NUM_DENSITY_GRAPHS = 30
-NUM_SPACING_GRAPHS = 30
+NUM_DENSITY_GRAPHS = 0
+NUM_SPACING_GRAPHS = 500
+REUSE_SPACING_GRAPHS_FOR_DENSITY = True
 FULL_RECOMMENDED_NUM_GRAPHS_maybe= 50
 DENSITY_GRAPH_SEED = 31415
 SPACING_GRAPH_SEED = 27182
 DENSITY_SEQUENCE_SEED = 16180
 SPACING_SEQUENCE_SEED = 14142
 COMPONENT_MODE = "full"
-DENSITY_METHOD = "local_count"
+DENSITY_METHOD = "variable_local_count"
 LOCAL_COUNT_HALF_WIDTH = 0.20
+TAIL_LOCAL_COUNT_HALF_WIDTH = 0.08
+TAIL_DENSITY_QUANTILE_CUTOFF = 0.95
+DENSITY_SENSITIVITY_LOCAL_COUNT_HALF_WIDTHS = [0.05, 0.10, 0.20]
 DENSITY_NUM_POINTS = 2001
 DENSITY_NUM_BINS = 120
 DENSITY_BANDWIDTH_SCALE = 1.0
@@ -55,9 +60,23 @@ LOCAL_QUANTILES = [
     0.95, 0.975, 0.99, 0.995,
 ]
 ENABLE_EXTRA_EXTREME_EDGE_QUANTILES = False
-EXTRA_EXTREME_EDGE_QUANTILES = [0.0025, 0.9975]
+EXTRA_EXTREME_EDGE_QUANTILES = [0.995, 0.996, 0.997, 0.998, 0.999, 0.9995, 0.9999, 0.99995]
+LOCAL_QUANTILE_BINS = [
+    # Deeper upper-tail zoom calibrated from the 100-graph run. The bins from
+    # 0.998 to 0.999 use width 0.0002; with 500 spacing graphs this should keep
+    # roughly 100+ pooled gaps per bin. Beyond 0.999, wider 0.0003 bins are used
+    # because the tail has fewer contributing graphs.
+    (0.9980, 0.9982),
+    (0.9982, 0.9984),
+    (0.9984, 0.9986),
+    (0.9986, 0.9988),
+    (0.9988, 0.9990),
+    (0.9990, 0.9993),
+    (0.9993, 0.9996),
+    (0.9996, 0.9999),
+]
 EXPLICIT_E_VALUES: list[float] = []
-WINDOW_MODE = "adaptive_quantile_mass"
+WINDOW_MODE = "nonoverlapping_quantile_bins"
 TARGET_EIGENVALUES_PER_GRAPH_BULK = 25
 TARGET_EIGENVALUES_PER_GRAPH_EDGE = 20
 LOCAL_TARGET_EIGENVALUES_PER_GRAPH = 25
@@ -66,6 +85,9 @@ EDGE_UNFOLDING_METHOD = "cdf"
 LOCAL_UNFOLDING_METHOD = "cdf"
 NUM_BINS = 30
 MIN_EIGENVALUES = 10
+LOCAL_BIN_MIN_EIGENVALUES = 2
+REMOVE_EXACT_ZERO_EIGENVALUES = True
+ZERO_EIGENVALUE_ATOL = 1e-8
 SMALL_SPACING_THRESHOLD = 0.20
 KS_SAMPLE_SIZE = 4096
 SEQUENCE_MODE = "quantile"
@@ -76,7 +98,7 @@ CUTOFF_COEFFICIENT = 1.0
 FIXED_RANK_EDGE_K_VALUES = [20]
 OUTPUT_PROFILE = "local_spacing_only"
 SUPPORTED_OUTPUT_PROFILES = {"local_spacing_only", "full_diagnostics"}
-OUTPUT_DIR = Path(__file__).resolve().parents[2] / "outputs" / "chung_lu" / "power_law"
+OUTPUT_DIR = Path(__file__).resolve().parents[2] / "outputs" / "chung_lu" / "power_law_tail_zoom_500"
 
 
 def active_parameter_pairs() -> list[tuple[float, float]]:
@@ -109,8 +131,8 @@ def run_slug(tau: float, target_mean_degree: float) -> str:
     return f"tau_{str(tau).replace('.', 'p')}_avgdeg_{str(target_mean_degree).replace('.', 'p')}"
 
 
-def parameter_output_dir(tau: float, target_mean_degree: float) -> Path:
-    return OUTPUT_DIR / run_slug(tau=tau, target_mean_degree=target_mean_degree)
+def parameter_output_dir(tau: float, target_mean_degree: float, n: int = N) -> Path:
+    return OUTPUT_DIR / f"n_{n}" / run_slug(tau=tau, target_mean_degree=target_mean_degree)
 
 
 def clear_output_directory_files(output_dir: Path) -> None:
@@ -125,24 +147,9 @@ def build_parameter_pair_ensembles(
     target_mean_degree: float,
 ) -> tuple[list[ChungLuSpectrum], list[ChungLuSpectrum]]:
     seed_offset = parameter_seed_offset(tau=tau, target_mean_degree=target_mean_degree)
-    density_graph_seeds = make_seeds(NUM_DENSITY_GRAPHS, DENSITY_GRAPH_SEED + seed_offset)
     spacing_graph_seeds = make_seeds(NUM_SPACING_GRAPHS, SPACING_GRAPH_SEED + seed_offset)
-    density_sequence_seeds = make_seeds(NUM_DENSITY_GRAPHS, DENSITY_SEQUENCE_SEED + seed_offset)
     spacing_sequence_seeds = make_seeds(NUM_SPACING_GRAPHS, SPACING_SEQUENCE_SEED + seed_offset)
 
-    density_spectra = generate_power_law_chung_lu_ensemble_from_seeds(
-        n=N,
-        tau=tau,
-        target_mean_degree=target_mean_degree,
-        w_min=W_MIN,
-        w_max=W_MAX,
-        cutoff_mode=CUTOFF_MODE,
-        cutoff_coefficient=CUTOFF_COEFFICIENT,
-        sequence_mode=SEQUENCE_MODE,
-        graph_seeds=density_graph_seeds,
-        sequence_seeds=density_sequence_seeds,
-        component_mode=COMPONENT_MODE,
-    )
     spacing_spectra = generate_power_law_chung_lu_ensemble_from_seeds(
         n=N,
         tau=tau,
@@ -154,6 +161,24 @@ def build_parameter_pair_ensembles(
         sequence_mode=SEQUENCE_MODE,
         graph_seeds=spacing_graph_seeds,
         sequence_seeds=spacing_sequence_seeds,
+        component_mode=COMPONENT_MODE,
+    )
+    if REUSE_SPACING_GRAPHS_FOR_DENSITY:
+        return spacing_spectra, spacing_spectra
+
+    density_graph_seeds = make_seeds(NUM_DENSITY_GRAPHS, DENSITY_GRAPH_SEED + seed_offset)
+    density_sequence_seeds = make_seeds(NUM_DENSITY_GRAPHS, DENSITY_SEQUENCE_SEED + seed_offset)
+    density_spectra = generate_power_law_chung_lu_ensemble_from_seeds(
+        n=N,
+        tau=tau,
+        target_mean_degree=target_mean_degree,
+        w_min=W_MIN,
+        w_max=W_MAX,
+        cutoff_mode=CUTOFF_MODE,
+        cutoff_coefficient=CUTOFF_COEFFICIENT,
+        sequence_mode=SEQUENCE_MODE,
+        graph_seeds=density_graph_seeds,
+        sequence_seeds=density_sequence_seeds,
         component_mode=COMPONENT_MODE,
     )
     return density_spectra, spacing_spectra
@@ -178,37 +203,87 @@ def run_manifest(
         "component_mode": COMPONENT_MODE,
         "density_method": DENSITY_METHOD,
         "density_local_count_half_width": LOCAL_COUNT_HALF_WIDTH,
+        "tail_local_count_half_width": TAIL_LOCAL_COUNT_HALF_WIDTH,
+        "tail_density_quantile_cutoff": TAIL_DENSITY_QUANTILE_CUTOFF,
+        "density_sensitivity_local_count_half_widths": DENSITY_SENSITIVITY_LOCAL_COUNT_HALF_WIDTHS,
         "density_num_points": DENSITY_NUM_POINTS,
         "density_num_bins": DENSITY_NUM_BINS,
         "density_bandwidth_scale": DENSITY_BANDWIDTH_SCALE,
         "local_quantiles": LOCAL_QUANTILES,
+        "local_quantile_bins": LOCAL_QUANTILE_BINS,
         "local_target_eigenvalues_per_graph": LOCAL_TARGET_EIGENVALUES_PER_GRAPH,
         "local_unfolding_method": LOCAL_UNFOLDING_METHOD,
         "window_mode": WINDOW_MODE,
         "min_eigenvalues": MIN_EIGENVALUES,
+        "remove_exact_zero_eigenvalues": REMOVE_EXACT_ZERO_EIGENVALUES,
+        "zero_eigenvalue_atol": ZERO_EIGENVALUE_ATOL,
         "density_graph_seed": DENSITY_GRAPH_SEED + parameter_seed_offset(tau, target_mean_degree),
         "spacing_graph_seed": SPACING_GRAPH_SEED + parameter_seed_offset(tau, target_mean_degree),
         "density_sequence_seed": DENSITY_SEQUENCE_SEED + parameter_seed_offset(tau, target_mean_degree),
         "spacing_sequence_seed": SPACING_SEQUENCE_SEED + parameter_seed_offset(tau, target_mean_degree),
+        "reuse_spacing_graphs_for_density": REUSE_SPACING_GRAPHS_FOR_DENSITY,
         "num_density_graphs": NUM_DENSITY_GRAPHS,
         "num_spacing_graphs": NUM_SPACING_GRAPHS,
-        "timestamp": datetime.now(UTC).isoformat().replace("+00:00", "Z"),
+        "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "code_version": code_version(),
+    }
+
+
+def zero_eigenvalue_mask(eigenvalues: np.ndarray) -> np.ndarray:
+    values = np.asarray(eigenvalues, dtype=float)
+    return np.isclose(values, 0.0, atol=ZERO_EIGENVALUE_ATOL, rtol=0.0)
+
+
+def bulk_zero_eigenvalue_count(spectrum: ChungLuSpectrum) -> int:
+    return int(np.sum(zero_eigenvalue_mask(spectrum.bulk_eigenvalues)))
+
+
+def continuous_bulk_eigenvalues(spectrum: ChungLuSpectrum) -> np.ndarray:
+    values = np.sort(np.asarray(spectrum.bulk_eigenvalues, dtype=float))
+    if not REMOVE_EXACT_ZERO_EIGENVALUES:
+        return values
+    return values[~zero_eigenvalue_mask(values)]
+
+
+def continuous_bulk_dimension(spectrum: ChungLuSpectrum) -> int:
+    return int(len(continuous_bulk_eigenvalues(spectrum)))
+
+
+def zero_eigenvalue_summary(spectra: list[ChungLuSpectrum]) -> dict[str, float]:
+    if not spectra:
+        return {
+            "mean_zero_eigenvalue_count": np.nan,
+            "mean_zero_eigenvalue_fraction": np.nan,
+            "max_zero_eigenvalue_count": np.nan,
+        }
+    counts = np.array([bulk_zero_eigenvalue_count(spectrum) for spectrum in spectra], dtype=float)
+    dimensions = np.array([max(len(spectrum.bulk_eigenvalues), 1) for spectrum in spectra], dtype=float)
+    return {
+        "mean_zero_eigenvalue_count": float(np.mean(counts)),
+        "mean_zero_eigenvalue_fraction": float(np.mean(counts / dimensions)),
+        "max_zero_eigenvalue_count": float(np.max(counts)),
     }
 
 
 def build_empirical_density(
     spectra: list[ChungLuSpectrum],
+    method: str | None = None,
+    local_count_half_width: float | None = None,
 ) -> EmpiricalSpectralDensity:
+    samples = [continuous_bulk_eigenvalues(spectrum) for spectrum in spectra]
     return estimate_empirical_spectral_density(
-        eigenvalue_samples=[spectrum.bulk_eigenvalues for spectrum in spectra],
+        eigenvalue_samples=samples,
         num_graphs=len(spectra),
-        per_graph_dimension=float(np.mean([spectrum.analyzed_dimension for spectrum in spectra])),
-        method=DENSITY_METHOD,
+        per_graph_dimension=float(np.mean([len(sample) for sample in samples])),
+        method=method or DENSITY_METHOD,
         num_points=DENSITY_NUM_POINTS,
         num_bins=DENSITY_NUM_BINS,
         bandwidth_scale=DENSITY_BANDWIDTH_SCALE,
-        local_count_half_width=LOCAL_COUNT_HALF_WIDTH,
+        local_count_half_width=LOCAL_COUNT_HALF_WIDTH
+        if local_count_half_width is None
+        else local_count_half_width,
+        tail_local_count_half_width=TAIL_LOCAL_COUNT_HALF_WIDTH,
+        tail_quantile_cutoff=TAIL_DENSITY_QUANTILE_CUTOFF,
     )
 
 
@@ -223,7 +298,7 @@ def estimate_power_mass(
     target_eigenvalues_per_graph: int,
     spectra: list[ChungLuSpectrum],
 ) -> float:
-    analyzed_dimension = float(np.mean([spectrum.analyzed_dimension for spectrum in spectra]))
+    analyzed_dimension = float(np.mean([continuous_bulk_dimension(spectrum) for spectrum in spectra]))
     return float(min(0.15, max(2.0 / analyzed_dimension, target_eigenvalues_per_graph / analyzed_dimension)))
 
 
@@ -294,10 +369,12 @@ def compute_quantile_rows(
     unfolding_method: str,
     region_label: str,
     rng_seed: int,
+    min_eigenvalues: int = MIN_EIGENVALUES,
 ) -> list[dict[str, object]]:
     rng = np.random.default_rng(rng_seed)
-    analyzed_dimension = float(np.mean([spectrum.analyzed_dimension for spectrum in spectra]))
+    analyzed_dimension = float(np.mean([continuous_bulk_dimension(spectrum) for spectrum in spectra]))
     window_mass = estimate_power_mass(target_eigenvalues_per_graph=target_eigenvalues_per_graph, spectra=spectra)
+    zero_summary = zero_eigenvalue_summary(spectra)
     rows: list[dict[str, object]] = []
 
     for q in quantiles:
@@ -311,8 +388,9 @@ def compute_quantile_rows(
         skipped_graphs = 0
 
         for spectrum in spectra:
-            selected = select_window_eigenvalues(spectrum.bulk_eigenvalues, float(E_low), float(E_high))
-            if len(selected) < MIN_EIGENVALUES:
+            continuous_values = continuous_bulk_eigenvalues(spectrum)
+            selected = select_window_eigenvalues(continuous_values, float(E_low), float(E_high))
+            if len(selected) < min_eigenvalues:
                 skipped_graphs += 1
                 continue
             gaps = np.diff(selected)
@@ -322,7 +400,7 @@ def compute_quantile_rows(
             spacings = unfold_selected_spacings(
                 selected=selected,
                 density=density,
-                analyzed_dimension=spectrum.analyzed_dimension,
+                analyzed_dimension=len(continuous_values),
                 unfolding_method=unfolding_method,
                 energy_center=E_center,
             )
@@ -345,7 +423,7 @@ def compute_quantile_rows(
                     "E": E_center,
                     "E_low": float(E_low),
                     "E_high": float(E_high),
-                    "spacing_window_mode": WINDOW_MODE,
+                    "spacing_window_mode": "adaptive_quantile_mass",
                     "spacing_window_half_width": np.nan,
                     "target_eigenvalues_per_graph": target_eigenvalues_per_graph,
                     "unfolding_method": unfolding_method,
@@ -355,6 +433,7 @@ def compute_quantile_rows(
                     "number_of_eigenvalues": 0,
                     "number_of_gaps": 0,
                     "number_of_gap_ratios": 0,
+                    **zero_summary,
                     "rho_hat_E": float(density.evaluate(E_center)),
                     "mean_spacing": np.nan,
                     "pooled_mean_gap_ratio": np.nan,
@@ -386,7 +465,7 @@ def compute_quantile_rows(
                 "E": E_center,
                 "E_low": float(E_low),
                 "E_high": float(E_high),
-                "spacing_window_mode": WINDOW_MODE,
+                "spacing_window_mode": "adaptive_quantile_mass",
                 "spacing_window_half_width": 0.5 * float(E_high - E_low),
                 "target_eigenvalues_per_graph": target_eigenvalues_per_graph,
                 "unfolding_method": unfolding_method,
@@ -396,7 +475,139 @@ def compute_quantile_rows(
                 "number_of_eigenvalues": int(sum(graph_eigenvalue_counts)),
                 "number_of_gaps": int(sum(len(values) for values in graph_spacings)),
                 "number_of_gap_ratios": gap_ratio_count,
+                **zero_summary,
                 "rho_hat_E": float(density.evaluate(E_center)),
+                "mean_spacing": float(np.mean(spacings)),
+                "pooled_mean_gap_ratio": pooled_mean_r,
+                "graph_equal_mean_gap_ratio": graph_equal_mean_r,
+                "gap_ratio_standard_error": r_se,
+                "small_gap_probability": float(np.mean(spacings < SMALL_SPACING_THRESHOLD)),
+                "KS_to_GOE": float(ks_2samp(spacings, goe_sample).statistic),
+                "KS_to_Poisson": float(ks_2samp(spacings, poisson_sample).statistic),
+                "status": "ok",
+                "spacings": spacings,
+            }
+        )
+    return rows
+
+
+def validate_quantile_bins(quantile_bins: list[tuple[float, float]]) -> None:
+    previous_high = 0.0
+    for q_low, q_high in quantile_bins:
+        if not 0.0 <= q_low < q_high <= 1.0:
+            raise ValueError(f"invalid quantile bin {(q_low, q_high)!r}")
+        if q_low < previous_high - 1e-12:
+            raise ValueError("quantile bins must be non-overlapping and sorted")
+        previous_high = q_high
+
+
+def quantile_bin_midpoint(q_low: float, q_high: float) -> float:
+    return 0.5 * (q_low + q_high)
+
+
+def compute_quantile_bin_rows(
+    spectra: list[ChungLuSpectrum],
+    density: EmpiricalSpectralDensity,
+    tau: float,
+    target_mean_degree: float,
+    quantile_bins: list[tuple[float, float]],
+    unfolding_method: str,
+    region_label: str,
+    rng_seed: int,
+    min_eigenvalues: int,
+) -> list[dict[str, object]]:
+    validate_quantile_bins(quantile_bins)
+    rng = np.random.default_rng(rng_seed)
+    zero_summary = zero_eigenvalue_summary(spectra)
+    rows: list[dict[str, object]] = []
+
+    for q_low, q_high in quantile_bins:
+        q_mid = quantile_bin_midpoint(q_low, q_high)
+        E_low, E_center, E_high = density.quantiles_to_energies([q_low, q_mid, q_high])
+        graph_spacings: list[np.ndarray] = []
+        graph_gap_ratios: list[np.ndarray] = []
+        graph_eigenvalue_counts: list[int] = []
+        skipped_graphs = 0
+
+        for spectrum in spectra:
+            continuous_values = continuous_bulk_eigenvalues(spectrum)
+            selected = select_window_eigenvalues(continuous_values, float(E_low), float(E_high))
+            if len(selected) < min_eigenvalues:
+                skipped_graphs += 1
+                continue
+            gaps = np.diff(selected)
+            if len(gaps) == 0:
+                skipped_graphs += 1
+                continue
+            spacings = unfold_selected_spacings(
+                selected=selected,
+                density=density,
+                analyzed_dimension=len(continuous_values),
+                unfolding_method=unfolding_method,
+                energy_center=float(E_center),
+            )
+            if not np.all(np.isfinite(spacings)):
+                skipped_graphs += 1
+                continue
+            graph_spacings.append(spacings)
+            graph_gap_ratios.append(adjacent_gap_ratios_from_spacings(gaps))
+            graph_eigenvalue_counts.append(len(selected))
+
+        base_row = {
+            "tau": tau,
+            "target_mean_degree": target_mean_degree,
+            "spectral_region": region_label,
+            "quantile": q_mid,
+            "quantile_low": q_low,
+            "quantile_high": q_high,
+            "E": float(E_center),
+            "E_low": float(E_low),
+            "E_high": float(E_high),
+            "spacing_window_mode": "nonoverlapping_quantile_bins",
+            "spacing_window_half_width": 0.5 * float(E_high - E_low),
+            "target_eigenvalues_per_graph": np.nan,
+            "unfolding_method": unfolding_method,
+            "number_of_graphs": len(spectra),
+            **zero_summary,
+            "rho_hat_E": float(density.evaluate(E_center)),
+        }
+
+        if not graph_spacings:
+            rows.append(
+                {
+                    **base_row,
+                    "graphs_used": 0,
+                    "graphs_skipped": len(spectra),
+                    "number_of_eigenvalues": 0,
+                    "number_of_gaps": 0,
+                    "number_of_gap_ratios": 0,
+                    "mean_spacing": np.nan,
+                    "pooled_mean_gap_ratio": np.nan,
+                    "graph_equal_mean_gap_ratio": np.nan,
+                    "gap_ratio_standard_error": np.nan,
+                    "small_gap_probability": np.nan,
+                    "KS_to_GOE": np.nan,
+                    "KS_to_Poisson": np.nan,
+                    "status": "no_graph_has_enough_eigenvalues",
+                    "spacings": np.array([], dtype=float),
+                }
+            )
+            continue
+
+        spacings = np.concatenate(graph_spacings)
+        pooled_mean_r, graph_equal_mean_r, r_se = summarize_graph_level_ratios(graph_gap_ratios)
+        gap_ratio_count = int(sum(len(ratios) for ratios in graph_gap_ratios))
+        sample_size = max(KS_SAMPLE_SIZE, len(spacings))
+        goe_sample = rng.rayleigh(scale=np.sqrt(2.0 / np.pi), size=sample_size)
+        poisson_sample = rng.exponential(scale=1.0, size=sample_size)
+        rows.append(
+            {
+                **base_row,
+                "graphs_used": len(graph_spacings),
+                "graphs_skipped": skipped_graphs,
+                "number_of_eigenvalues": int(sum(graph_eigenvalue_counts)),
+                "number_of_gaps": int(sum(len(values) for values in graph_spacings)),
+                "number_of_gap_ratios": gap_ratio_count,
                 "mean_spacing": float(np.mean(spacings)),
                 "pooled_mean_gap_ratio": pooled_mean_r,
                 "graph_equal_mean_gap_ratio": graph_equal_mean_r,
@@ -524,6 +735,79 @@ def plot_global_density(
     return fig
 
 
+def make_density_sensitivity_estimates(
+    spectra: list[ChungLuSpectrum],
+) -> dict[str, EmpiricalSpectralDensity]:
+    densities = {
+        f"refined tail h={TAIL_LOCAL_COUNT_HALF_WIDTH:.2f}": build_empirical_density(spectra),
+    }
+    for half_width in DENSITY_SENSITIVITY_LOCAL_COUNT_HALF_WIDTHS:
+        densities[f"fixed h={half_width:.2f}"] = build_empirical_density(
+            spectra,
+            method="local_count",
+            local_count_half_width=half_width,
+        )
+    return densities
+
+
+def plot_density_sensitivity(
+    density_estimates: dict[str, EmpiricalSpectralDensity],
+    quantile_bins: list[tuple[float, float]],
+    tau: float,
+    target_mean_degree: float,
+) -> plt.Figure:
+    primary_density = next(iter(density_estimates.values()))
+    q90_energy = float(primary_density.quantiles_to_energies([0.90])[0])
+    q9998_energy = float(primary_density.quantiles_to_energies([0.9998])[0])
+    fig, axes = plt.subplots(1, 2, figsize=(14, 4.8))
+    for label, density in density_estimates.items():
+        axes[0].plot(density.grid, density.density, lw=1.8, label=label)
+        axes[1].plot(density.grid, density.density, lw=1.8, label=label)
+    for q_low, q_high in quantile_bins:
+        E_low, E_high = primary_density.quantiles_to_energies([q_low, q_high])
+        axes[1].axvspan(float(E_low), float(E_high), color="gray", alpha=0.08)
+    axes[0].set_title("Full Empirical Density Sensitivity")
+    axes[0].set_xlabel("eigenvalue")
+    axes[0].set_ylabel("density")
+    axes[1].set_title("Upper-Tail Density Sensitivity")
+    axes[1].set_xlabel("eigenvalue")
+    axes[1].set_ylabel("density")
+    axes[1].set_xlim(q90_energy, q9998_energy)
+    axes[0].legend(frameon=False, fontsize=8)
+    axes[1].legend(frameon=False, fontsize=8)
+    fig.suptitle(
+        f"Density Estimate Sensitivity, tau={tau:.2f}, mean degree={target_mean_degree:.1f}",
+        y=1.02,
+    )
+    fig.tight_layout()
+    return fig
+
+
+def density_sensitivity_rows(
+    density_estimates: dict[str, EmpiricalSpectralDensity],
+    quantile_bins: list[tuple[float, float]],
+) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    for label, density in density_estimates.items():
+        for q_low, q_high in quantile_bins:
+            q_mid = quantile_bin_midpoint(q_low, q_high)
+            E_low, E_mid, E_high = density.quantiles_to_energies([q_low, q_mid, q_high])
+            rows.append(
+                {
+                    "density_estimate": label,
+                    "density_method": density.method,
+                    "quantile_low": q_low,
+                    "quantile_mid": q_mid,
+                    "quantile_high": q_high,
+                    "E_low": float(E_low),
+                    "E_mid": float(E_mid),
+                    "E_high": float(E_high),
+                    "rho_hat_E_mid": float(density.evaluate(E_mid)),
+                }
+            )
+    return rows
+
+
 def plot_local_histogram_grid(
     rows: list[dict[str, object]],
     title: str,
@@ -554,7 +838,7 @@ def plot_local_histogram_grid(
         ax.plot(s_grid, wigner_surmise_goe(s_grid), color="black", lw=2, label="GOE")
         ax.plot(s_grid, poisson_spacing_density(s_grid), color="firebrick", lw=2, ls="--", label="Poisson")
         ax.set_title(
-            f"q={row['quantile']:.4f}\n"
+            f"q=[{row['quantile_low']:.4f},{row['quantile_high']:.4f}]\n"
             f"E=[{row['E_low']:.2f},{row['E_high']:.2f}] n_gaps={row['number_of_gaps']}"
         )
         ax.set_xlabel("s")
@@ -579,17 +863,17 @@ def plot_quantile_summary(rows: list[dict[str, object]], title: str) -> plt.Figu
     axes[0].fill_between(quantiles, mean_r - mean_r_se, mean_r + mean_r_se, color="gray", alpha=0.2)
     axes[0].axhline(0.53590, color="black", ls="--", label="GOE mean r")
     axes[0].axhline(0.38629, color="firebrick", ls="--", label="Poisson mean r")
-    axes[0].set_title("Gap Ratio vs Quantile")
-    axes[0].set_xlabel("quantile")
+    axes[0].set_title("Gap Ratio vs Quantile Window")
+    axes[0].set_xlabel("quantile midpoint")
     axes[0].set_ylabel("graph-equal mean r")
     axes[0].legend()
     axes[1].plot(quantiles, small_gap, marker="o", color="seagreen")
     axes[1].set_title(f"P(s < {SMALL_SPACING_THRESHOLD:.2f})")
-    axes[1].set_xlabel("quantile")
+    axes[1].set_xlabel("quantile midpoint")
     axes[1].set_ylabel("probability")
     axes[2].plot(quantiles, gap_counts, marker="o", color="steelblue")
     axes[2].set_title("Sample Sizes")
-    axes[2].set_xlabel("quantile")
+    axes[2].set_xlabel("quantile midpoint")
     axes[2].set_ylabel("number of gaps")
     fig.suptitle(title, y=1.02)
     fig.tight_layout()
@@ -624,6 +908,7 @@ def spacing_summary_fieldnames() -> list[str]:
         "tau", "target_mean_degree", "spectral_region", "quantile", "quantile_low", "quantile_high", "E", "E_low", "E_high",
         "spacing_window_mode", "spacing_window_half_width", "target_eigenvalues_per_graph", "unfolding_method",
         "number_of_graphs", "graphs_used", "graphs_skipped", "number_of_eigenvalues", "number_of_gaps", "number_of_gap_ratios",
+        "mean_zero_eigenvalue_count", "mean_zero_eigenvalue_fraction", "max_zero_eigenvalue_count",
         "rho_hat_E", "mean_spacing", "pooled_mean_gap_ratio", "graph_equal_mean_gap_ratio", "gap_ratio_standard_error",
         "small_gap_probability", "KS_to_GOE", "KS_to_Poisson", "status",
     ]
@@ -645,8 +930,10 @@ def validate_power_law_run(
     realized_mean_degree = float(np.mean([spectrum.realized_mean_degree for spectrum in density_spectra]))
     assert abs(realized_mean_degree - target_mean_degree) < max(0.5 * target_mean_degree, 1.0)
     for spectrum in density_spectra:
-        assert len(spectrum.bulk_eigenvalues) == spectrum.analyzed_dimension - 1
-        assert float(np.max(spectrum.bulk_eigenvalues)) < spectrum.perron_eigenvalue
+        continuous_values = continuous_bulk_eigenvalues(spectrum)
+        assert len(continuous_values) <= spectrum.analyzed_dimension - 1
+        assert len(continuous_values) > 0
+        assert float(np.max(continuous_values)) < spectrum.perron_eigenvalue
     tau_before = [diagnostic.estimated_tau_before_cutoff for diagnostic in diagnostics if diagnostic.estimated_tau_before_cutoff is not None]
     tau_after = [diagnostic.estimated_tau_after_cutoff for diagnostic in diagnostics if diagnostic.estimated_tau_after_cutoff is not None]
     if tau_before:
@@ -668,18 +955,32 @@ def run_local_spacing_only_for_parameter_pair(
         target_mean_degree=target_mean_degree,
     )
     density = build_empirical_density(density_spectra)
-    local_rows = compute_quantile_rows(
-        spectra=spacing_spectra,
-        density=density,
-        tau=tau,
-        target_mean_degree=target_mean_degree,
-        quantiles=LOCAL_QUANTILES,
-        target_eigenvalues_per_graph=LOCAL_TARGET_EIGENVALUES_PER_GRAPH,
-        unfolding_method=LOCAL_UNFOLDING_METHOD,
-        region_label="local_quantiles",
-        rng_seed=SPACING_GRAPH_SEED + parameter_seed_offset(tau=tau, target_mean_degree=target_mean_degree),
-    )
+    if WINDOW_MODE == "nonoverlapping_quantile_bins":
+        local_rows = compute_quantile_bin_rows(
+            spectra=spacing_spectra,
+            density=density,
+            tau=tau,
+            target_mean_degree=target_mean_degree,
+            quantile_bins=LOCAL_QUANTILE_BINS,
+            unfolding_method=LOCAL_UNFOLDING_METHOD,
+            region_label="local_quantile_bins",
+            rng_seed=SPACING_GRAPH_SEED + parameter_seed_offset(tau=tau, target_mean_degree=target_mean_degree),
+            min_eigenvalues=LOCAL_BIN_MIN_EIGENVALUES,
+        )
+    else:
+        local_rows = compute_quantile_rows(
+            spectra=spacing_spectra,
+            density=density,
+            tau=tau,
+            target_mean_degree=target_mean_degree,
+            quantiles=LOCAL_QUANTILES,
+            target_eigenvalues_per_graph=LOCAL_TARGET_EIGENVALUES_PER_GRAPH,
+            unfolding_method=LOCAL_UNFOLDING_METHOD,
+            region_label="local_quantiles",
+            rng_seed=SPACING_GRAPH_SEED + parameter_seed_offset(tau=tau, target_mean_degree=target_mean_degree),
+        )
 
+    density_estimates = make_density_sensitivity_estimates(density_spectra)
     all_E_values = [float(row["E"]) for row in local_rows]
     density_fig = plot_global_density(
         spacing_spectra,
@@ -696,15 +997,31 @@ def run_local_spacing_only_for_parameter_pair(
         local_rows,
         title=f"Local Quantile Summary, tau={tau:.2f}, mean degree={target_mean_degree:.1f}",
     )
+    density_sensitivity_fig = plot_density_sensitivity(
+        density_estimates,
+        quantile_bins=LOCAL_QUANTILE_BINS,
+        tau=tau,
+        target_mean_degree=target_mean_degree,
+    )
 
     density_fig.savefig(output_dir / "global_empirical_density.png", dpi=200, bbox_inches="tight")
     spacing_grid_fig.savefig(output_dir / "local_spacing_grid_quantiles.png", dpi=200, bbox_inches="tight")
     spacing_summary_fig.savefig(output_dir / "local_spacing_summary_quantiles.png", dpi=200, bbox_inches="tight")
+    density_sensitivity_fig.savefig(output_dir / "local_density_sensitivity.png", dpi=200, bbox_inches="tight")
     plt.close(density_fig)
     plt.close(spacing_grid_fig)
     plt.close(spacing_summary_fig)
+    plt.close(density_sensitivity_fig)
 
     write_csv(local_rows, output_dir / "spacing_summary.csv", spacing_summary_fieldnames())
+    write_csv(
+        density_sensitivity_rows(density_estimates, LOCAL_QUANTILE_BINS),
+        output_dir / "density_sensitivity_summary.csv",
+        [
+            "density_estimate", "density_method", "quantile_low", "quantile_mid", "quantile_high",
+            "E_low", "E_mid", "E_high", "rho_hat_E_mid",
+        ],
+    )
     with (output_dir / "run_manifest.json").open("w") as handle:
         json.dump(
             run_manifest(tau=tau, target_mean_degree=target_mean_degree, output_profile=OUTPUT_PROFILE),
