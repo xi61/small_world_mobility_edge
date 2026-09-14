@@ -1,0 +1,23 @@
+{
+  "attachment_offset": 0.0,
+  "attachment_zeta": 1.0,
+  "degree_ccdf_alpha": 2.0,
+  "expected_num_edges": 49945,
+  "graph_seed": 3479052237,
+  "initial_graph_convention": "complete_graph_on_m_plus_1_nodes",
+  "is_simple_undirected": true,
+  "labels_are_zero_to_n_minus_one": true,
+  "largest_component_size": 5000,
+  "m": 10,
+  "max_realized_degree": 355,
+  "min_realized_degree": 10,
+  "model": "Affine linear preferential attachment",
+  "n_requested": 5000,
+  "num_components": 1,
+  "num_edges": 49945,
+  "num_isolated_vertices": 0,
+  "num_nodes": 5000,
+  "realized_mean_degree": 19.978,
+  "theoretical_degree_ccdf_tau": 2.0,
+  "triad_probability": 0.0
+}

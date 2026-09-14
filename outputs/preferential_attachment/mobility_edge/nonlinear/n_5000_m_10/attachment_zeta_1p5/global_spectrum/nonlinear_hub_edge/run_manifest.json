@@ -1,0 +1,28 @@
+{
+  "analysis": "nonlinear_hub_spectral_edge_diagnostic_v1",
+  "analysis_version": "pa_mobility_edge_production_cache_v1",
+  "canonical_parameter": {
+    "name": "attachment_zeta",
+    "value": 1.5
+  },
+  "exact_resonance_atol": 1e-08,
+  "full_dense_eigenvectors_saved": false,
+  "graph_seed_base": 28100,
+  "legacy_parameter": null,
+  "m": 10,
+  "model_family": "nonlinear",
+  "n": 5000,
+  "num_graphs": 500,
+  "per_eigenpair_localization_scalars_saved": true,
+  "perron_removed": true,
+  "quantile_width": 0.002,
+  "result": {
+    "fit_rows": 3000,
+    "fixed_rank_rows": 6500,
+    "interpretation": "empirical test; square-root scaling is not assumed",
+    "summary_file": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_10/attachment_zeta_1p5/global_spectrum/nonlinear_hub_edge/hub_edge_summary.csv"
+  },
+  "reuse_classification": "REPOSTPROCESS_ONLY",
+  "source_cache": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_10/attachment_zeta_1p5/partials",
+  "zero_eigenvalue_atol": 1e-08
+}

@@ -1,0 +1,26 @@
+{
+  "N": 5000,
+  "analysis_version": "pa_abnormal_edge_followup_v1",
+  "augmentation_graph_count": 1240,
+  "authoritative_results_modified": false,
+  "base_graph_count": 500,
+  "crossfit_folds": 5,
+  "files": [
+    "base_augmentation_replication/affine_alpha_1p25_base_augmentation.csv",
+    "fixed_rank/affine_alpha_1p25_n5000_fixed_rank.csv",
+    "raw_vs_unfolded_r/affine_alpha_1p25_same_triplet_records.csv.gz",
+    "sliding_windows/affine_alpha_1p25_r_q.png",
+    "sliding_windows/affine_alpha_1p25_sliding_windows.csv",
+    "solver_validation/affine_alpha_1p25_n5000_near_degeneracy.csv"
+  ],
+  "fixed_rank_ratio_rule": "ratio assigned to middle eigenvalue edge rank; rank 1 undefined",
+  "m": 10,
+  "model_key": "affine_alpha_1p25",
+  "model_label": "affine alpha=1.25",
+  "output_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/diagnostics/abnormal_band_microscope",
+  "same_triplet_rule": "raw and unfolded ratios use the exact same three eigenvalues",
+  "sge_job_id": "14541581",
+  "sge_task_id": "2",
+  "source_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge",
+  "total_graph_count": 1740
+}

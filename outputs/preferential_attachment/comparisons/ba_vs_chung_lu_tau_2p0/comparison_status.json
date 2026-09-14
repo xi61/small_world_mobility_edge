@@ -1,0 +1,57 @@
+{
+  "available": true,
+  "checks": {
+    "component_mode": {
+      "actual": "full",
+      "expected": "full",
+      "matches": true
+    },
+    "n": {
+      "actual": 5000,
+      "expected": 5000,
+      "matches": true
+    },
+    "num_graphs": {
+      "actual": 5,
+      "expected": 5,
+      "matches": true
+    },
+    "spectral_selection_method": {
+      "actual": "sparse_algebraic_edges_perron_excluded",
+      "expected": "sparse_algebraic_edges_perron_excluded",
+      "matches": true
+    },
+    "summary_file": {
+      "actual": "<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match/n_5000/tau_2p0_avgdeg_20p0/threshold_stability_summary.csv",
+      "expected": "<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match/n_5000/tau_2p0_avgdeg_20p0/threshold_stability_summary.csv",
+      "matches": true
+    },
+    "target_mean_degree": {
+      "actual": 20.0,
+      "expected": 20.0,
+      "matches": true
+    },
+    "tau": {
+      "actual": 2.0,
+      "expected": 2.0,
+      "matches": true
+    },
+    "tau_convention": {
+      "actual": "experimental_ccdf_exponent",
+      "expected": "experimental_ccdf_exponent",
+      "matches": true
+    },
+    "zero_removal_rule": {
+      "actual": "central zeros are not computed or removed; positive-threshold spectral CCDFs use denominator N-1",
+      "expected": "central zeros are not computed or removed; positive-threshold spectral CCDFs use denominator N-1",
+      "matches": true
+    }
+  },
+  "chung_lu_directory": "<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match/n_5000/tau_2p0_avgdeg_20p0",
+  "comparison_scope": "degree and sparse spectral tails only; no matched Chung-Lu spacing/localization output is loaded",
+  "comparison_type": "unpaired_ensemble",
+  "compatible": true,
+  "generation_command": "PYTHONPATH=src python3 -m small_world_mobility_edge.chung_lu_degree_spectral_tail_match --tau 2.0 --n 5000 --degree 20 --num-graphs 5 --k-per-side 180 --target-tail-count 120 --no-run-fixed-degree-control",
+  "reason": "all controlled variables match",
+  "requested": true
+}

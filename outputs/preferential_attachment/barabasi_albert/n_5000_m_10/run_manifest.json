@@ -1,0 +1,287 @@
+{
+  "all_labeled_degrees_preserved": true,
+  "chung_lu_comparison": {
+    "available": true,
+    "checks": {
+      "component_mode": {
+        "actual": "full",
+        "expected": "full",
+        "matches": true
+      },
+      "n": {
+        "actual": 5000,
+        "expected": 5000,
+        "matches": true
+      },
+      "num_graphs": {
+        "actual": 5,
+        "expected": 5,
+        "matches": true
+      },
+      "spectral_selection_method": {
+        "actual": "sparse_algebraic_edges_perron_excluded",
+        "expected": "sparse_algebraic_edges_perron_excluded",
+        "matches": true
+      },
+      "summary_file": {
+        "actual": "<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match/n_5000/tau_2p0_avgdeg_20p0/threshold_stability_summary.csv",
+        "expected": "<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match/n_5000/tau_2p0_avgdeg_20p0/threshold_stability_summary.csv",
+        "matches": true
+      },
+      "target_mean_degree": {
+        "actual": 20.0,
+        "expected": 20.0,
+        "matches": true
+      },
+      "tau": {
+        "actual": 2.0,
+        "expected": 2.0,
+        "matches": true
+      },
+      "tau_convention": {
+        "actual": "experimental_ccdf_exponent",
+        "expected": "experimental_ccdf_exponent",
+        "matches": true
+      },
+      "zero_removal_rule": {
+        "actual": "central zeros are not computed or removed; positive-threshold spectral CCDFs use denominator N-1",
+        "expected": "central zeros are not computed or removed; positive-threshold spectral CCDFs use denominator N-1",
+        "matches": true
+      }
+    },
+    "chung_lu_directory": "<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match/n_5000/tau_2p0_avgdeg_20p0",
+    "comparison_scope": "degree and sparse spectral tails only; no matched Chung-Lu spacing/localization output is loaded",
+    "comparison_type": "unpaired_ensemble",
+    "compatible": true,
+    "generation_command": "PYTHONPATH=src python3 -m small_world_mobility_edge.chung_lu_degree_spectral_tail_match --tau 2.0 --n 5000 --degree 20 --num-graphs 5 --k-per-side 180 --target-tail-count 120 --no-run-fixed-degree-control",
+    "reason": "all controlled variables match",
+    "requested": true
+  },
+  "component_mode": "full",
+  "dense_full_spectrum": false,
+  "edge_overlap_max": 0.0189208128941836,
+  "edge_overlap_mean": 0.018476323956351987,
+  "edge_overlap_min": 0.018200020022024227,
+  "eigsh_maxiter": 20000,
+  "eigsh_ncv_factor": 3,
+  "eigsh_tolerance": 1e-08,
+  "elapsed_seconds_sum_over_graph_partials": 21.89988716703374,
+  "estimated_realized_degree_tau_mean": 2.035741632942241,
+  "estimated_realized_degree_tau_standard_error": 0.030047965966174817,
+  "git_commit": "00a2c251371886d1ec8e7798bfdf1dd21995ac21",
+  "global_density_warning": "global_spectral_density.png contains retained sparse edge eigenvalues only and is explicitly labeled as non-global",
+  "graph_seed_base": 424242,
+  "graph_seeds": [
+    3722119591,
+    701590210,
+    1702803663,
+    2346716494,
+    3210855338
+  ],
+  "graphs_generated": 5,
+  "initial_graph_convention": "complete_graph_on_m_plus_1_nodes",
+  "k_per_side": 180,
+  "m": 10,
+  "max_tries_factor": 20,
+  "minimum_consecutive_gaps_per_graph": 5,
+  "model": "Barabasi-Albert",
+  "model_generator": "networkx.barabasi_albert_graph",
+  "n": 5000,
+  "number_of_graphs": 5,
+  "observed_minimum_pooled_gaps_per_window": 100,
+  "peak_process_rss_mb_max": 403.203125,
+  "perron_rule": "largest algebraic eigenvalue saved separately and excluded from primary tails and spacing windows",
+  "pooled_gap_requirement_enforced": true,
+  "primary_tail_lower_quantile": 0.976,
+  "rank_window_rule": "disjoint_positive_nonperron_edge_gap_ranks",
+  "rank_windows": [
+    [
+      1,
+      20
+    ],
+    [
+      21,
+      40
+    ],
+    [
+      41,
+      60
+    ],
+    [
+      61,
+      80
+    ],
+    [
+      81,
+      100
+    ],
+    [
+      101,
+      120
+    ]
+  ],
+  "realized_mean_degree_max": 19.978,
+  "realized_mean_degree_mean": 19.978,
+  "realized_mean_degree_min": 19.978,
+  "remove_exact_zero_eigenvalues": true,
+  "rewire_seed_base": 525252,
+  "rewire_seeds": [
+    3593297313,
+    3723357936,
+    1515301005,
+    3532997322,
+    3571847051
+  ],
+  "rewiring_implementation": "networkx double_edge_swap via rewire_graph_preserving_degrees",
+  "rewiring_sampling_caveat": "finite double-edge-swap chain is an approximate randomized simple graph conditional on the exact labeled degree sequence; uniformity is not claimed",
+  "run_rewired_control": true,
+  "spacing_normalization": "within_graph_within_fixed_rank_window_mean",
+  "spacing_sample_counts": [
+    {
+      "edge_gap_rank_start": 1,
+      "edge_gap_rank_stop": 20,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert"
+    },
+    {
+      "edge_gap_rank_start": 21,
+      "edge_gap_rank_stop": 40,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert"
+    },
+    {
+      "edge_gap_rank_start": 41,
+      "edge_gap_rank_stop": 60,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert"
+    },
+    {
+      "edge_gap_rank_start": 61,
+      "edge_gap_rank_stop": 80,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert"
+    },
+    {
+      "edge_gap_rank_start": 81,
+      "edge_gap_rank_stop": 100,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert"
+    },
+    {
+      "edge_gap_rank_start": 101,
+      "edge_gap_rank_stop": 120,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert"
+    },
+    {
+      "edge_gap_rank_start": 1,
+      "edge_gap_rank_stop": 20,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert degree-preserving rewired"
+    },
+    {
+      "edge_gap_rank_start": 21,
+      "edge_gap_rank_stop": 40,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert degree-preserving rewired"
+    },
+    {
+      "edge_gap_rank_start": 41,
+      "edge_gap_rank_stop": 60,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert degree-preserving rewired"
+    },
+    {
+      "edge_gap_rank_start": 61,
+      "edge_gap_rank_stop": 80,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert degree-preserving rewired"
+    },
+    {
+      "edge_gap_rank_start": 81,
+      "edge_gap_rank_stop": 100,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert degree-preserving rewired"
+    },
+    {
+      "edge_gap_rank_start": 101,
+      "edge_gap_rank_stop": 120,
+      "eigenvalues": 105,
+      "gap_ratios": 95,
+      "gaps": 100,
+      "graphs": 5,
+      "localization_eigenvectors": 105,
+      "model_variant": "Barabasi-Albert degree-preserving rewired"
+    }
+  ],
+  "spectral_selection_method": "sparse_algebraic_edges_perron_excluded",
+  "spectral_solver": "scipy.sparse.linalg.eigsh",
+  "spectral_solver_sides": [
+    "LA",
+    "SA"
+  ],
+  "swaps_per_edge": 10,
+  "tail_lower_quantiles": [
+    0.95,
+    0.96,
+    0.97,
+    0.976,
+    0.98
+  ],
+  "tail_zero_removal_rule": "central zeros are not computed or removed; positive-threshold spectral CCDFs use denominator N-1",
+  "target_mean_degree": 20.0,
+  "target_minimum_pooled_gaps_per_primary_window": 100,
+  "target_tail_observations": 120,
+  "tau_convention": "P(D >= k) approximately k^(-tau)",
+  "theoretical_degree_ccdf_tau": 2.0,
+  "timestamp": "2026-08-04T13:44:24.830963Z",
+  "triad_probability": 0.0,
+  "valid_graphs": 5,
+  "validate_dense": false,
+  "zero_eigenvalue_atol": 1e-08,
+  "zero_removal_rule": "exact multiplicity recorded before removal in dense smoke; sparse production edge selection does not compute central zeros"
+}

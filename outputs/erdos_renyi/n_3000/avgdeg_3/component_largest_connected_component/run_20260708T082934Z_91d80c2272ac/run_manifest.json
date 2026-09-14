@@ -1,0 +1,48 @@
+{
+  "average_degree": 3,
+  "bulk_quantiles": [
+    0.05,
+    0.1,
+    0.2,
+    0.35,
+    0.5,
+    0.65,
+    0.8,
+    0.9,
+    0.95
+  ],
+  "code_version": "6981bb5315c24b98c5066882c7ea1c485db3c388",
+  "component_mode": "largest_connected_component",
+  "density_base_seed": 31415,
+  "density_local_count_half_width": 0.15,
+  "density_method": "local_count",
+  "density_seed": 31715,
+  "edge_quantiles": [
+    0.005,
+    0.01,
+    0.025,
+    0.05,
+    0.95,
+    0.975,
+    0.99,
+    0.995
+  ],
+  "explicit_E_values": [
+    -2.5,
+    -1.5,
+    0.0,
+    1.5,
+    2.5
+  ],
+  "model": "erdos_renyi",
+  "n_requested": 3000,
+  "num_density_graphs": 30,
+  "num_spacing_graphs": 30,
+  "p": 0.0010003334444814939,
+  "run_id": "20260708T082934Z_e96925c10243",
+  "spacing_base_seed": 27182,
+  "spacing_seed": 27482,
+  "spacing_window_half_width": 0.15,
+  "spacing_window_mode": "fixed_energy_half_width",
+  "timestamp": "20260708T082934Z"
+}

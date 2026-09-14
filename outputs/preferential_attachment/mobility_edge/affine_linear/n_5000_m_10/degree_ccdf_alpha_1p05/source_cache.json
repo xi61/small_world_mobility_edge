@@ -1,0 +1,2837 @@
+{
+  "analysis_version": "pa_legacy_cache_audit_v1",
+  "audited_at_utc": "2026-08-23T06:02:55.328128+00:00",
+  "canonical_parameter": {
+    "name": "degree_ccdf_alpha",
+    "value": 1.05
+  },
+  "chunk_size": 5,
+  "complete_graph_index_coverage": true,
+  "errors": [],
+  "expected_files": 300,
+  "files": [
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0000_0005.csv.gz",
+      "sha256": "6ebdd4ee6de560e4f9e91af5543eb1d4dd7b48a29214aa5d855556608731be0b",
+      "size_bytes": 287263
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0000_0005.csv.gz",
+      "sha256": "71372c085deb5fce55fccdf2e7f4feab8e4b48fe7a575905f946fda6345610f4",
+      "size_bytes": 456
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0000_0005.npz",
+      "sha256": "9233947f2c5cb69da0c397ed19d91da9c637465c3ec5ffdaa3eaca4004ad23d8",
+      "size_bytes": 1710237
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0005_0010.csv.gz",
+      "sha256": "85b12a43d21f0786609ad59b5ea7418cef9eb7f67a68d641c0fff03869e02f85",
+      "size_bytes": 288218
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0005_0010.csv.gz",
+      "sha256": "2b24009269430beca2052d2fe2cb8689cf786240d19debc6a6a339b97ef42ccc",
+      "size_bytes": 457
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0005_0010.npz",
+      "sha256": "9f959619022f0c48f0996cc228ca3f7ba50d0acc3915080199e38228fe273c09",
+      "size_bytes": 1710333
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0010_0015.csv.gz",
+      "sha256": "93e4e936ce9bf7bc0c9bddd48840f5198263b08af605b6adb6ce0932c0fd5f86",
+      "size_bytes": 287937
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0010_0015.csv.gz",
+      "sha256": "3895b0cce7e5f60146a3c0c3fede5f0f02844bdc08b82f7365c09d0bcf764972",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0010_0015.npz",
+      "sha256": "cdc8320b6e1958e8907a5289a946fff55d1df4f0084eacdcff455c8e2416464c",
+      "size_bytes": 1710468
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0015_0020.csv.gz",
+      "sha256": "cf178a5bea7e2ab6072a3f2d2993b78efdd8dc86e6affd464349d05398de8d65",
+      "size_bytes": 287471
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0015_0020.csv.gz",
+      "sha256": "bd37f8620a7964a7a307248872f39fc79521cfac76c87e0d57e691697fc59dfe",
+      "size_bytes": 457
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0015_0020.npz",
+      "sha256": "b9f3347dc6704c829b82b1751894fb734ffbe5ce65474f47ba606962a867f4ee",
+      "size_bytes": 1710386
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0020_0025.csv.gz",
+      "sha256": "5c6f61b4f27d8007aae3d4b3160e511460bc5592cf746b82017d8b407d552f05",
+      "size_bytes": 287953
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0020_0025.csv.gz",
+      "sha256": "8a81d26bec819f0f2e4828dd8cfeb01dfac8026d151bee67a997e866f7f777c0",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0020_0025.npz",
+      "sha256": "e409057d32491b1debef020b352e777caffba1c25ec5c28dc2d09a4c01d644d3",
+      "size_bytes": 1710616
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0025_0030.csv.gz",
+      "sha256": "fc9ae638d811bfe3fc9fca4bccc80c4dd61572a88b7a79c497d4794402cb6d8f",
+      "size_bytes": 288140
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0025_0030.csv.gz",
+      "sha256": "3e836171298ab0215ef51bb7a059d6b3a9cdbb7a06f9449021bf08b53d41f86a",
+      "size_bytes": 446
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0025_0030.npz",
+      "sha256": "0e438501296919f48dabd48a2f11c59e7a743989d7da4d5067ebcb19ee7c1330",
+      "size_bytes": 1710362
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0030_0035.csv.gz",
+      "sha256": "865509bdd38b7cc29c9ad7dd2f8155bf3f9ffa089711850b0a95c74b706fd331",
+      "size_bytes": 288351
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0030_0035.csv.gz",
+      "sha256": "99fa13cefca94f8048118a37ff665320ab3dee25831ab273b8d050c155d63f3a",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0030_0035.npz",
+      "sha256": "19011ad1c7343a2f0501794c0c5453189a92dd465dde4b53b7c01d82bd071516",
+      "size_bytes": 1710413
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0035_0040.csv.gz",
+      "sha256": "59ca0e0e09444dfe740ea4895160a10fde6b5d8817c9612f2dd1e5a23f2a2f92",
+      "size_bytes": 287465
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0035_0040.csv.gz",
+      "sha256": "00b62639de529dd868dd623d0c00e1a32f700b2c4ab116517df84bcd23b5d385",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0035_0040.npz",
+      "sha256": "7c21ea641b658473002a7134bd4d8ddbf49f8ea75d8b1b5aac7682a23eebe969",
+      "size_bytes": 1710377
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0040_0045.csv.gz",
+      "sha256": "03746819dc28732ec037cc2c346b36b45aee52f81184b553b1c8072cc47729dd",
+      "size_bytes": 287276
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0040_0045.csv.gz",
+      "sha256": "9c642a3bcb96c62c75c8ef5b6376c957bf46442d25f9b884e44b7a0f068112d0",
+      "size_bytes": 454
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0040_0045.npz",
+      "sha256": "67bab58e3ab63861ec4cd531dbb2545329ff1e3768830e8ddbf51d02c1d35890",
+      "size_bytes": 1710162
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0045_0050.csv.gz",
+      "sha256": "36c5c477afb66708d55e84855b36b503d097a4fbb3505cfe4a0ca8ae64b22fdc",
+      "size_bytes": 287503
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0045_0050.csv.gz",
+      "sha256": "a84c94ed0b9deae1850ce9c86cb63d55c5bc489792f4aeb8f81e238e741aeb0e",
+      "size_bytes": 459
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0045_0050.npz",
+      "sha256": "dfde7b71c2a9a4ff87a38c0789a02259a7f399da9a9303429492cc65541550aa",
+      "size_bytes": 1710353
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0050_0055.csv.gz",
+      "sha256": "62c4127ddc0122ccbac4b4f964255d85b201d2d87344c8383e6708ed25c8647b",
+      "size_bytes": 287411
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0050_0055.csv.gz",
+      "sha256": "b4aca571acf61c8257b5a22bcb49834d0ccbc40cd7eb00ace1ed53ebb337bbc1",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0050_0055.npz",
+      "sha256": "7493718e9fd673e2f21685dbea2205cbfe698d58b3e71c741141e9f62593dbe7",
+      "size_bytes": 1710370
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0055_0060.csv.gz",
+      "sha256": "e310d6ee019d8ae321d3cc4e58d027cb7c1dede8b768f454733cf42e45ffd1fe",
+      "size_bytes": 287456
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0055_0060.csv.gz",
+      "sha256": "344119c355f636a73eec29e1fc88dd15b5faf2b39388867569db51c1cc811dee",
+      "size_bytes": 459
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0055_0060.npz",
+      "sha256": "9623475d45dde4ccf06d49c578d42901cb9cf1fa56876f4e66c794e5cb1956b4",
+      "size_bytes": 1710533
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0060_0065.csv.gz",
+      "sha256": "58c39f6af99f2e256c5b6a080bace994d247f833941c85683264b2302bad47f5",
+      "size_bytes": 287693
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0060_0065.csv.gz",
+      "sha256": "ef29ee9cec9b3f36b1448f422edc250c52f431e939b55916f9645fdc86725a13",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0060_0065.npz",
+      "sha256": "2a91c7698f1a803e29d6386dc81042cfd19e0300c046c4a625c02c0722f0f098",
+      "size_bytes": 1710459
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0065_0070.csv.gz",
+      "sha256": "6eea045f51859493b0e9cea0cfbc933e4e453e9c48885e986b6f505acb0dd225",
+      "size_bytes": 287446
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0065_0070.csv.gz",
+      "sha256": "d5a13c2a9d05e02026415c979190a66a5e6e00a10299c7a672411db5f83e77ee",
+      "size_bytes": 445
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0065_0070.npz",
+      "sha256": "9b78d778a78c26d5339cccc0e2e689ca9aeff2bf4f8da5d4be8c10420c9c276f",
+      "size_bytes": 1710343
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0070_0075.csv.gz",
+      "sha256": "56f4d6601f50ccad9f75fdebe7eac92e852aad670abe990e8360ce9801f17f19",
+      "size_bytes": 287624
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0070_0075.csv.gz",
+      "sha256": "fbec2c996c4dace76ca26f034a24267dd4f4d2ffa6796f7e78e62d6779b19307",
+      "size_bytes": 449
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0070_0075.npz",
+      "sha256": "ba7c6533b7e4864b6154314a3457d156163639d0aadcef0a80d5275f280fe09c",
+      "size_bytes": 1710165
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0075_0080.csv.gz",
+      "sha256": "79d7534a170bb1ad5ffe82808a3ecf04b5ccb226937713dc948a074016a5ffff",
+      "size_bytes": 287559
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0075_0080.csv.gz",
+      "sha256": "d766c114bebbee14d034f57c739bdea6098b25a087b3c15d2105853320a573df",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0075_0080.npz",
+      "sha256": "bc83913d63b729608b7b3a6bd1921d6533499498fd069992eace50116aed53c6",
+      "size_bytes": 1710273
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0080_0085.csv.gz",
+      "sha256": "3a01ed1068348a468b7de6d7dcee51865acde3aa5c1d4ec6f87830577da08015",
+      "size_bytes": 287505
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0080_0085.csv.gz",
+      "sha256": "c46c3abb2c0e45fda1120f98fa96028ebabac57cd12ca02ab0cce1b020a36b98",
+      "size_bytes": 452
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0080_0085.npz",
+      "sha256": "41501ffe4b1542741df02ab0c997822e842136f1b57cb4a3666842cc78424f1c",
+      "size_bytes": 1710203
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0085_0090.csv.gz",
+      "sha256": "8718244a54e6f25f30674d3079943f667220b12dc75c22008c5508540155b8d4",
+      "size_bytes": 287782
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0085_0090.csv.gz",
+      "sha256": "a31e757e92bfd3108f4e30fcfb521122e3069024699e33a56a2f9b15e9993c46",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0085_0090.npz",
+      "sha256": "6447b3fb7bccd7a40801a2496a08b116da98627f56e92fb80cf21663a7667b2b",
+      "size_bytes": 1710374
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0090_0095.csv.gz",
+      "sha256": "46910edebace02637bbd3279d9b962374bfbb4df9515f15def82ac184c76fc67",
+      "size_bytes": 287041
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0090_0095.csv.gz",
+      "sha256": "3eee39442745ce1654ea443631e05d5e5b25c72f26d4ded7db540a3f564b4d50",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0090_0095.npz",
+      "sha256": "3132569600485b2914af05a2817fc9e8648d21e5f63edd3c165815b95f684f25",
+      "size_bytes": 1710180
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0095_0100.csv.gz",
+      "sha256": "2d41b34007088c7d04510b76d5c2ae7b61e5011e04cec6ab8e81a3983b3ac846",
+      "size_bytes": 287217
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0095_0100.csv.gz",
+      "sha256": "f1ba9d1d0178796a4c91271dc0c0c8720d7915227c3dd04152805f7b41190c78",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0095_0100.npz",
+      "sha256": "af34452453b7e005edf1a00d1fa1665eff58e099f42b5c23106d780cc37061c0",
+      "size_bytes": 1710238
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0100_0105.csv.gz",
+      "sha256": "cc5511c4f50548de7bed1b177877b3087797d7cc3c45867c14a533565205611d",
+      "size_bytes": 288177
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0100_0105.csv.gz",
+      "sha256": "baf108fc865438c996bc870c258067b1d4e14620f7bbbd3501b2bb2454d2a66c",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0100_0105.npz",
+      "sha256": "8ba616af9126b3ea8e854c02646df9cb33c919d5ff85663646969a44a80c78a3",
+      "size_bytes": 1710625
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0105_0110.csv.gz",
+      "sha256": "203dfa19eef5e34be59e76c24bc4148d4030b49725a4c3c84ee12893793a4cad",
+      "size_bytes": 287173
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0105_0110.csv.gz",
+      "sha256": "ced32368aa6c31e8553bc7cb0e7850bcfd31dad5620c5062895faf32fa674621",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0105_0110.npz",
+      "sha256": "57f12d02678faf2038b1c43f8f55d6c1bcb14b8f95bae3a73fc4ce59c893599b",
+      "size_bytes": 1710032
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0110_0115.csv.gz",
+      "sha256": "d7dfc69e782a9c8dcaeb1987cdcf078f460c7300a3c8117ada1fa80c59f3baac",
+      "size_bytes": 287153
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0110_0115.csv.gz",
+      "sha256": "ab85fc747862f12c16de6ca3e7e24cfface369bff0be2639d9004e9d61310659",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0110_0115.npz",
+      "sha256": "ed16fb2a0e2f017106face24de6a594e2a9788a919d7426a9e36226e6a30ff3b",
+      "size_bytes": 1710084
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0115_0120.csv.gz",
+      "sha256": "e73b0b860a2ef730fc988a64965722a5f1f57b69349de880f82f08eb0acb5a9d",
+      "size_bytes": 287636
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0115_0120.csv.gz",
+      "sha256": "611e59fcfe1b7da2969a3e101b700c741461b675e10e260c982494f6467c51cd",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0115_0120.npz",
+      "sha256": "e37d718986210031e9263a993ae24905248585797235d7d4b8b9193ac4f72523",
+      "size_bytes": 1710549
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0120_0125.csv.gz",
+      "sha256": "2c52a923f9264ad0bf0be2ad7ca6d396302d6676341d0c0c4825d8fa9bd41f76",
+      "size_bytes": 287339
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0120_0125.csv.gz",
+      "sha256": "42bfbb0fc1a49e0427adf0cdc7e1437596cd80b96bb71c01bede25ade2be10ad",
+      "size_bytes": 459
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0120_0125.npz",
+      "sha256": "f58fba6287c340e2e1c219587142d7d66ae8a046be57851f9ae2a9d22c916efe",
+      "size_bytes": 1710393
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0125_0130.csv.gz",
+      "sha256": "c59d10b6f356bbe8accabc53e7b85c1458f490adb4c420f0bd67d45ac007017b",
+      "size_bytes": 288257
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0125_0130.csv.gz",
+      "sha256": "302a6f4e347208b3b9ddbb175cb55ab4a76a5f6ade8b1ee857035fdabf24de6e",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0125_0130.npz",
+      "sha256": "72222be158ed69534d17c36ad709a6fc3c00269f563b0850dc36311497acd1dd",
+      "size_bytes": 1710596
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0130_0135.csv.gz",
+      "sha256": "e79dd4224088eaff20ae95f92a60b508585193b9b3726d3fdd6eb6c57906b396",
+      "size_bytes": 287344
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0130_0135.csv.gz",
+      "sha256": "53fb25521b46267f8778e7450a5b57b95e666d2f98a59e889e94b3c93f06b560",
+      "size_bytes": 447
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0130_0135.npz",
+      "sha256": "c3898dda3920b76f05d9a94ce027632d437a4cb95f3df4aca6a43a00c6e4cffb",
+      "size_bytes": 1710200
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0135_0140.csv.gz",
+      "sha256": "fde8c88e60d86a2521742b90515f5a1f93cce255fde49e5b35187cbc598bfaed",
+      "size_bytes": 287997
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0135_0140.csv.gz",
+      "sha256": "757f4106e32714b24d5d16d83bb1473ba2f6f6a423dcdc5aae9b686ee73f9ac6",
+      "size_bytes": 457
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0135_0140.npz",
+      "sha256": "8eb8fc2c95c0d688e8fd816d2fc26be717dee795a5ddb9f0216867c7ab0e346e",
+      "size_bytes": 1710377
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0140_0145.csv.gz",
+      "sha256": "4c65bf15951b92d3a6c4b2a31e081aaaa9545d07d7b2c213acf49de3919b7818",
+      "size_bytes": 287550
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0140_0145.csv.gz",
+      "sha256": "0bb2b5953b430d9e37c6022ffeb65f080c27f1f2424645941ac66d316901863a",
+      "size_bytes": 452
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0140_0145.npz",
+      "sha256": "b0b0505ff1d1942d04bc4afc15ae96bc008bb2f38badf4814a0d3395ed18883a",
+      "size_bytes": 1710374
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0145_0150.csv.gz",
+      "sha256": "c0569b4da969231413f7aa1251d6e32f601f89fd4945257e6f6a5199590ad7ed",
+      "size_bytes": 287226
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0145_0150.csv.gz",
+      "sha256": "1f650fba7a70b1d24bae589123699337e3807b58416e5fa908f7fb180f9054f6",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0145_0150.npz",
+      "sha256": "081fe72ccdc6ffa55253e3e235f470b25cd67f4708f7288094a9bcd758846146",
+      "size_bytes": 1710387
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0150_0155.csv.gz",
+      "sha256": "ca97ccce2014d4f29e7f687a8c33f4d30f705ebcaf3303f9482e22b489ccbc70",
+      "size_bytes": 287646
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0150_0155.csv.gz",
+      "sha256": "374fa569ed3761c44b9f24442fda6416e5906e45d901f26310865201d1d172b0",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0150_0155.npz",
+      "sha256": "780e5196e770aa50a94587123f7dd03fe994e26d3ce3306f765a42acc48c91c3",
+      "size_bytes": 1710396
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0155_0160.csv.gz",
+      "sha256": "fc3c66428e1c7698a48648bd54e1397c69d0a1481c0e170ef5f0d31acf8f7f9d",
+      "size_bytes": 287828
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0155_0160.csv.gz",
+      "sha256": "aa905a73ff7620ab00d030d60b8a8f89be358ca33f5e60a58a95e442ea97d9a7",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0155_0160.npz",
+      "sha256": "ea14fbec02cd9920a08764c0634950f403b284fb5087626e40d3d059a275222f",
+      "size_bytes": 1710601
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0160_0165.csv.gz",
+      "sha256": "d22f01ee8b1c1af6bb5a18ad8c4e597da27c456437fb8573e50ecc5030f5eaec",
+      "size_bytes": 289059
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0160_0165.csv.gz",
+      "sha256": "3c6828058a43c263160a0d2d3935491e3d6ce558d7bcf946c675ebf242c6f270",
+      "size_bytes": 464
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0160_0165.npz",
+      "sha256": "debf96b3b61c45958d1730ca79c5a87432edbff167d5bbcd43f10a8e95a4a5e2",
+      "size_bytes": 1710508
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0165_0170.csv.gz",
+      "sha256": "2b33e228d069b827ab25c89f81022bbffa6c5e891ca6b0bbe125da303aa170fe",
+      "size_bytes": 287318
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0165_0170.csv.gz",
+      "sha256": "3c423f97d30cf37db61a0e180f5fbaa7cf3b660b3c8b682da997b8e3754e72cc",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0165_0170.npz",
+      "sha256": "90c56a62c2dd7ee79ad7f8175ea6bec6aff19cb25e1b48580d01d97c27e3ecdc",
+      "size_bytes": 1710524
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0170_0175.csv.gz",
+      "sha256": "8f56ebe722ac2bc87dac8044fe91a010913521edba08708e883c201261ec1e4d",
+      "size_bytes": 287695
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0170_0175.csv.gz",
+      "sha256": "77cc992399f9b0fca64674855c8ef23b0bee1ab663c0ecce6bb548ee7b4de447",
+      "size_bytes": 451
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0170_0175.npz",
+      "sha256": "3509ba384b21d8298e38815ee13231a155a9cd57fbddad4e1c55318647944b5c",
+      "size_bytes": 1710530
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0175_0180.csv.gz",
+      "sha256": "12adba22d74f9f2c4787358b216966870d1a2eebe533cdc04f63ebbd18a453e1",
+      "size_bytes": 288169
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0175_0180.csv.gz",
+      "sha256": "bb2b5ff3e47a3e37b6727074bc6889cc828994b2d96760dbb75ca092c9e675d0",
+      "size_bytes": 457
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0175_0180.npz",
+      "sha256": "a2de632c592834a4b8e74e69d00c307cd72971e42de0f7a0fc92979ca8eca2ba",
+      "size_bytes": 1710632
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0180_0185.csv.gz",
+      "sha256": "2c9dc764037f4cfa680b807fe4520beb18e2f85e5a052a3e766ac7c7f9ca0b44",
+      "size_bytes": 287796
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0180_0185.csv.gz",
+      "sha256": "7460f7fbf4506d6b711651279d398a6f355f4cc6d399a1b8c0dceda02c35d1f2",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0180_0185.npz",
+      "sha256": "14a275902f714f1e7560f3fb93d6c8b6aa104793b6727b541ec95f1b7972f5b1",
+      "size_bytes": 1710311
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0185_0190.csv.gz",
+      "sha256": "3f7f65a8e1aa51b1366cf7114aeb8dc2bd8623b7a169e490de844fdc4838cb7a",
+      "size_bytes": 287866
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0185_0190.csv.gz",
+      "sha256": "24cdfa8d7050de15badfc139498477ff6c63857cd9083a70b9afac735ddcf1d5",
+      "size_bytes": 462
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0185_0190.npz",
+      "sha256": "94d2edef7fbbb1c3384fb35de768273d9ebc6ea3bf43189591a9c94fb30bba78",
+      "size_bytes": 1710501
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0190_0195.csv.gz",
+      "sha256": "623359104c209e858941401e66bf7ef4320d9cf0fcb382172d4b9584e700f08c",
+      "size_bytes": 287548
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0190_0195.csv.gz",
+      "sha256": "39214c2aff7a80da38b259954ca7b1385348dd87cae0e3fc0aae4cbb4df3fd7c",
+      "size_bytes": 459
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0190_0195.npz",
+      "sha256": "d85b0984049743d50f7b9e3534871c9d990bedb9b57b776109b686c78856c260",
+      "size_bytes": 1710425
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0195_0200.csv.gz",
+      "sha256": "5a735f72e96b4b05f743796f6e225314714ba8441259bf66c0ff667c226f59c3",
+      "size_bytes": 287353
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0195_0200.csv.gz",
+      "sha256": "38b7a57c3b06c4966e16652b5f7476a64bf01eb93fedfb5d673309b12f51247d",
+      "size_bytes": 455
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0195_0200.npz",
+      "sha256": "8c639a8a5dffdf80091e51bfdcf7bff741bb3d1e6f63051e0204bab4e56cee1b",
+      "size_bytes": 1710378
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0200_0205.csv.gz",
+      "sha256": "5a9d47d6cabce503040a810240e196bd2928bbe185d66fe8871b7d9f97eae600",
+      "size_bytes": 287226
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0200_0205.csv.gz",
+      "sha256": "0485208f95e058e638232f7efd439ea3d0dea1c6b4ad2a6fc7c07eb3827d7164",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0200_0205.npz",
+      "sha256": "35849e32082933d5a8c6bbe557f99ad8d7dbab92856ed4922bcd99d179235a86",
+      "size_bytes": 1710301
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0205_0210.csv.gz",
+      "sha256": "854faf2020081a40a553f74b70264b1013fb7f2336b28b7416b86467a76b1aaf",
+      "size_bytes": 288210
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0205_0210.csv.gz",
+      "sha256": "bf011f468a6fb3f6271a26831d12f804df502d9049bee1c7c8b61ff20e7e6c72",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0205_0210.npz",
+      "sha256": "c4339a7b463d013862ce06e3fc83a3e1d98a58aa727f99d4679d2bd5ebda064e",
+      "size_bytes": 1710472
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0210_0215.csv.gz",
+      "sha256": "78b7e73071e9a6d4050bc48e346345ed593c1dc34cba7900d17bd38122d64ea5",
+      "size_bytes": 287780
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0210_0215.csv.gz",
+      "sha256": "a96e509c9a3c5d5cf64706de8201278dc6b758001330e184157a57a031f88cec",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0210_0215.npz",
+      "sha256": "cd160a9d2c998156b6022c163d809644876ac339323e7ecc2d4ca3c5cb3ee15e",
+      "size_bytes": 1710512
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0215_0220.csv.gz",
+      "sha256": "403dd06fbdb085695db86f68900a6716c3ed58bf653c62153e2dacc6754a6db8",
+      "size_bytes": 288271
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0215_0220.csv.gz",
+      "sha256": "48985408f78117d681be7624efb0ef078faf3434ec16b7b17ce61bb9ccce88ec",
+      "size_bytes": 464
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0215_0220.npz",
+      "sha256": "be4043a2c8b034639dc87844c3341091c4adff1216907ae302a6038c03180887",
+      "size_bytes": 1710471
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0220_0225.csv.gz",
+      "sha256": "814a16c0d2c00607a6d7dccd6a05ad9db7c32d916f677f1095ff8787eb12233d",
+      "size_bytes": 288224
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0220_0225.csv.gz",
+      "sha256": "8e994e453f8e0d5b80f18767f4735f59c28aa1e1784a85e49a2ed081c915d111",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0220_0225.npz",
+      "sha256": "8ed038bce174d8cc303fc796d0e727c8e1db1caac5673e3bab8ef749107e7eff",
+      "size_bytes": 1710406
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0225_0230.csv.gz",
+      "sha256": "82e8dd158900b5d71d09bb383f220b5a0ddd110b8ec86d453b2d4be17be9f207",
+      "size_bytes": 288093
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0225_0230.csv.gz",
+      "sha256": "b7fad070c45b5edadbbf7c05625b87a97b558aca5fc79280ef8d5eb9046d2cb7",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0225_0230.npz",
+      "sha256": "3da540514a746e29dab47507025e7bb550c5d4cbd232a2ef8d26fcc1eb80fe7f",
+      "size_bytes": 1710461
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0230_0235.csv.gz",
+      "sha256": "1a1aeb3fe4be15541171762938e3b1259e4556bb7b052d91120f6ae0c552d222",
+      "size_bytes": 287133
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0230_0235.csv.gz",
+      "sha256": "ebb890a1c8f1d4bfc7fcf45b8657fed2aa3cf052e8804644fe186ac0f0341b9a",
+      "size_bytes": 459
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0230_0235.npz",
+      "sha256": "2d54e3102fcf5ffece05482de678517d4d4c178473956997b0aeda05dfe5088e",
+      "size_bytes": 1710215
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0235_0240.csv.gz",
+      "sha256": "36d9ec3e3c73988b90030fbfad97ef824ba153da023abaa9f556e1779d84888a",
+      "size_bytes": 287151
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0235_0240.csv.gz",
+      "sha256": "274b869c0cce9415e606db8ba3560f8a1a52818d26f101b69a4551615a81f969",
+      "size_bytes": 465
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0235_0240.npz",
+      "sha256": "611a79e4882df0f1a91c721f4efd62b356401b5a05d33d7d1430d2aeb6e92b0b",
+      "size_bytes": 1710148
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0240_0245.csv.gz",
+      "sha256": "f98c67a94c0cc8aec1dc3473d8c4d45e21f1bdd107de48e2d03ae24aad7308bd",
+      "size_bytes": 288051
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0240_0245.csv.gz",
+      "sha256": "1c90a8049902893846215bbc79daf4dc8c6e5026aac3f9ebcb721ea356135616",
+      "size_bytes": 464
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0240_0245.npz",
+      "sha256": "78e5e495b385589dc0966313ff333a59398fe91682b2f825fc4f7e4f6f7c9cf8",
+      "size_bytes": 1710450
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0245_0250.csv.gz",
+      "sha256": "6cf1557629cc3ac9c7be4fbd8cdff01285d616abb75e3716139c51388dc22e3c",
+      "size_bytes": 287607
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0245_0250.csv.gz",
+      "sha256": "6d8a01198efe5e02f12521b605347cac9ad4dde5118df54dcc617a0406c914a7",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0245_0250.npz",
+      "sha256": "323a3a6cf47288c92163706851a76af092acd096e488e3fd47f364cb554f2a0c",
+      "size_bytes": 1710499
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0250_0255.csv.gz",
+      "sha256": "d0a683dc67c2d82b5238fe2ad56647282a384db04b7e0480be32f48f79b5998e",
+      "size_bytes": 288762
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0250_0255.csv.gz",
+      "sha256": "14099d3e56da5951469ac506e9d64147b878f689c2a7ffacfedf2e1dc03e7f2c",
+      "size_bytes": 453
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0250_0255.npz",
+      "sha256": "dbd54b9e900f3e22c8b0132052467b99477004157fb5bc003d8359c30257bb35",
+      "size_bytes": 1710529
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0255_0260.csv.gz",
+      "sha256": "274326122ba8aab98a9885aa5ebfa4b47e51f75e8bc9ac8f6f2aa7967e2d514b",
+      "size_bytes": 287525
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0255_0260.csv.gz",
+      "sha256": "3199f57c90ca9ca1ad6e45b35f673e98d94274b0614df0052f98d1e6ce03d924",
+      "size_bytes": 459
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0255_0260.npz",
+      "sha256": "ac6c77b67494bad3a322c787089630f55abd8113f9bf56f8c6922eedfea75efd",
+      "size_bytes": 1710136
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0260_0265.csv.gz",
+      "sha256": "c7e624fdd48e0f1d93c44a944b04353f2136a37351967a7617a7f5e5d55a4734",
+      "size_bytes": 287557
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0260_0265.csv.gz",
+      "sha256": "622ded1911c04f43f4499c6de344f6f7b0766fd870966e162b4c5e743d35100e",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0260_0265.npz",
+      "sha256": "f7b18fbb2b950cc9297afa6a928f254c95aa75afbf6482179516cea0a75c714a",
+      "size_bytes": 1710327
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0265_0270.csv.gz",
+      "sha256": "5ec63aa517279ea2583ec6042a55d23756aff42598728f701d1ec71e8593e4d0",
+      "size_bytes": 287372
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0265_0270.csv.gz",
+      "sha256": "28f67edbe0b2f95fe7559b4f9a2b9eb7b229c9883bf5b41b282efe9c9f618444",
+      "size_bytes": 464
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0265_0270.npz",
+      "sha256": "737a7e4ec3f3827def0a841252436f106b3bcc76de395c8115f598c6316734e2",
+      "size_bytes": 1710387
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0270_0275.csv.gz",
+      "sha256": "8986cb5006689120d7933e4d02289624925d2aeeb98599d128969584f6586288",
+      "size_bytes": 288548
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0270_0275.csv.gz",
+      "sha256": "cbcc5958a79f6a3ce9d1e0b8b2743e7e1c464601cbbb3e6bcade9c6038145518",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0270_0275.npz",
+      "sha256": "769d24cde36a27ad3757907fbd0fa0304f02697f69b80c0235aa0b218ecc8334",
+      "size_bytes": 1710348
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0275_0280.csv.gz",
+      "sha256": "c441c2d7b2ea2c344bd1c1683680adc1dd3a3fc66854cc4112160b95e463b54c",
+      "size_bytes": 287859
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0275_0280.csv.gz",
+      "sha256": "6c4f8f056f0353bb68e8fd0db1f6988edf31c5d46941098230ca85401cbe1670",
+      "size_bytes": 462
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0275_0280.npz",
+      "sha256": "9067baed8db34d8531ea2f59f7bff3a729e2365a778a02cc9d312d64e5fb6c97",
+      "size_bytes": 1710460
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0280_0285.csv.gz",
+      "sha256": "b83ff89bba0cbcf59171f1a38634c97aa9dd6ce71c4aa049b6360bc5feafc6f5",
+      "size_bytes": 287161
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0280_0285.csv.gz",
+      "sha256": "4fd113743ac03d8c0ee04f1343b3c62de307f50143195dc06d414032dc3d4d1e",
+      "size_bytes": 462
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0280_0285.npz",
+      "sha256": "1e8e27fe7c3dd89661c9f4f902960fa590034a3ef34f620008e08472b44b1a94",
+      "size_bytes": 1710369
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0285_0290.csv.gz",
+      "sha256": "c980c8e13f596b942bdce8d214e8fe7fa1714ab1e79466351db568d16487bda3",
+      "size_bytes": 287797
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0285_0290.csv.gz",
+      "sha256": "5ea11397058c6c7de0ff830f19ce0fbad2d16ea6852eb9e28bdd3467319c94ad",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0285_0290.npz",
+      "sha256": "f30ba13069df794f9d684af3999e7481a52c8f1f3aefb7231435ad2fe342cddd",
+      "size_bytes": 1710452
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0290_0295.csv.gz",
+      "sha256": "e99e31e3556f593fb55a055fc7d5a70ba470ab35970ba6a48412a0aff31cdfda",
+      "size_bytes": 287811
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0290_0295.csv.gz",
+      "sha256": "26d5ccd8912a9424fb4194008e6f6512d1016bb8f67895623c10544d8df24a01",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0290_0295.npz",
+      "sha256": "ec24a6c09ef1c66447bcc22bbd96e5a67ade0989b75b7bdfeee1c3360742f21f",
+      "size_bytes": 1710583
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0295_0300.csv.gz",
+      "sha256": "f88305cd6a1676aef121850a7ae0953969ba347d406751f44d493d9321633c68",
+      "size_bytes": 288876
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0295_0300.csv.gz",
+      "sha256": "255e9d09a3132d515d7f0a560f7d9f9fb04675ca4b122e5c48cef8d874aa2f20",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0295_0300.npz",
+      "sha256": "1a0f25fb7581ba190f7a7deb89bdc5da5b5161adef98ebf09f9799e7b87fe76f",
+      "size_bytes": 1710405
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0300_0305.csv.gz",
+      "sha256": "e8b585e573cb38727b8a31e411d91bc130aead2e6ef85559277a9f289f5a002a",
+      "size_bytes": 288012
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0300_0305.csv.gz",
+      "sha256": "2e6911a852ead445bb8be2ee3deafbfea5029e53c1c58f3cc0f9dd646adc83b0",
+      "size_bytes": 465
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0300_0305.npz",
+      "sha256": "e693a42ff9b475d612925670267a155d9cf8a855bd6fd2163afc42ceeb65a2c3",
+      "size_bytes": 1710333
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0305_0310.csv.gz",
+      "sha256": "d39d66557bb708821ab70882b877780af5bf0d0f0ec35f7a291b4b2db7a4b00c",
+      "size_bytes": 287432
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0305_0310.csv.gz",
+      "sha256": "bbd47d4d5bedf0d88c5f2ab6d8d41a8e4c4af00bfef9a4bd12fe5e3f65c9c4a4",
+      "size_bytes": 466
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0305_0310.npz",
+      "sha256": "0963a14b48bf39755c647da491830cbe914d820ec034a79ca4dd595b15e2829b",
+      "size_bytes": 1710469
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0310_0315.csv.gz",
+      "sha256": "ed26f91f62a3da29aa3d66a1480955040db186557faa7451dc48e47c8de6ccfc",
+      "size_bytes": 287080
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0310_0315.csv.gz",
+      "sha256": "0e13b2016e4665abb26ba0e08f7fb325e6310400cdb667d9f29660e76ce62a6d",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0310_0315.npz",
+      "sha256": "80e3431740a9e22063318897978f3e391dba8848fc6e995f4f6281a35eab4ac1",
+      "size_bytes": 1710500
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0315_0320.csv.gz",
+      "sha256": "050b138f6e469cb678fa1b1b031e358ed83cda12ab8a4df653b9caa092541814",
+      "size_bytes": 287954
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0315_0320.csv.gz",
+      "sha256": "f62facd354bb2ef3b14af60011e739fc6b2ee66ff8bfdaff7c7248eeda350fc0",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0315_0320.npz",
+      "sha256": "23b49a3f9631e17736fcac4f9815ef465d15dd6e6d26d7bb5f39587bd1106557",
+      "size_bytes": 1710723
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0320_0325.csv.gz",
+      "sha256": "55bd98fd6bca7ce6b8bef4483339384bb41808e545d8586cb6e0ea1b6c671a21",
+      "size_bytes": 288304
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0320_0325.csv.gz",
+      "sha256": "5640e911a39ad669230ca27ae3e711241e80c476aa29d586e140351c18d0261e",
+      "size_bytes": 467
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0320_0325.npz",
+      "sha256": "8a1758427f8d676940ae4857cfffac220241c1d1ef94e8367bc2d82cc2a418c0",
+      "size_bytes": 1710555
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0325_0330.csv.gz",
+      "sha256": "6fbe068b480cbad30ef96ee32394c29cd4a1c78ad10fc0790e5c80ff51844ede",
+      "size_bytes": 288033
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0325_0330.csv.gz",
+      "sha256": "d4c052c7fdb289d60247545842d37bd70712b8c16e9c0190e08bf262f16011c7",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0325_0330.npz",
+      "sha256": "d5f28e74abb0acbb7df57b6b655aacfd85eddd3b0e72ee1a579360c304b884f3",
+      "size_bytes": 1710267
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0330_0335.csv.gz",
+      "sha256": "28cd95e2c206b8ac787cdc38182d893bd4a80b24ea12cd1f23cd657d5af0fd8e",
+      "size_bytes": 287752
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0330_0335.csv.gz",
+      "sha256": "5311d000e364ebf78d65167bf6997567f8b996b2652a2464395972cb5dbc3a66",
+      "size_bytes": 465
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0330_0335.npz",
+      "sha256": "0344be4c38c1dc573c03baf831a4c4d88e05e5a0ad1c470ed90d97a7bee792a1",
+      "size_bytes": 1710271
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0335_0340.csv.gz",
+      "sha256": "809230df7b1a68d760508dbc366a834c0158be650ad22fa4432d2c2fe506b544",
+      "size_bytes": 286891
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0335_0340.csv.gz",
+      "sha256": "778155b3cc996499ae06df121a2ff407bc8397d9eb01ec26bdd68e0d2b2e7cae",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0335_0340.npz",
+      "sha256": "b6f78baef68c1efca7b4aef54030f1a4879540b26daa8d450dc0a462fd1bae00",
+      "size_bytes": 1710194
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0340_0345.csv.gz",
+      "sha256": "c0f6f3d595d0d9a726a8df775ff2971193c49a17e3e376e4ad1c73c9e9206d87",
+      "size_bytes": 287748
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0340_0345.csv.gz",
+      "sha256": "4c00b22d1eb3c7440c7de2821f6edb3e63fb0ba8b1eec7b5d2e460cf9c3367b7",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0340_0345.npz",
+      "sha256": "c151b4122296c17578bae4e5f83cf466cb5160a1de9cae510dae99f4f389f295",
+      "size_bytes": 1710175
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0345_0350.csv.gz",
+      "sha256": "2605e2d3dc716435b7651609dc4f2ba233cea5bb726147f2fa2307e0089c222a",
+      "size_bytes": 287312
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0345_0350.csv.gz",
+      "sha256": "aabaa4168f248827a7a2f533896212478a47dd363cd962044fe9b37391bf3e5b",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0345_0350.npz",
+      "sha256": "e557d471bd908b566957884d695f908240cf6f5d687fefaeb2d2034e4d51e063",
+      "size_bytes": 1710355
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0350_0355.csv.gz",
+      "sha256": "7cb46d19ef56a56a8ff93d21c212d3bef9d64b7b0d10c9f32af88c964a0e8360",
+      "size_bytes": 287617
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0350_0355.csv.gz",
+      "sha256": "626609ebd117d58782b947e7a397d68c05210e1ad39637e42b558ff398f55739",
+      "size_bytes": 464
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0350_0355.npz",
+      "sha256": "db8bbceb09fff18859cc5d27c97635acf47fc02fa2db2b91406e9fcc52730b05",
+      "size_bytes": 1710192
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0355_0360.csv.gz",
+      "sha256": "5a200c20e5abdaccd9c752de466efa106197ed3ea4dd7b6816960eee47585f8f",
+      "size_bytes": 287525
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0355_0360.csv.gz",
+      "sha256": "938d1eacbd7ab8b5f905397308f25521106c2502f0b977f6d08b523782a6db42",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0355_0360.npz",
+      "sha256": "0d7661878aea7b827073fe31578e88aa5755536ef17328c583278bff5177f3de",
+      "size_bytes": 1710331
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0360_0365.csv.gz",
+      "sha256": "39a8c98f2335a15e6805517f088824a68c500a6a73cb78db9f31ea6bd1d8e3a7",
+      "size_bytes": 287297
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0360_0365.csv.gz",
+      "sha256": "43ef46eb06ad3a3d34c6e5d40655320bf487699f505a4c507bd157579acc9b93",
+      "size_bytes": 449
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0360_0365.npz",
+      "sha256": "1ed7446ec8ac37039c66bac134b87d903b0372b8ff91e5e4a8011c5cb318ef66",
+      "size_bytes": 1710576
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0365_0370.csv.gz",
+      "sha256": "d0e00271d5b7cac59431ac654e45c1d96aa13768da6496df8b00257d256ba31c",
+      "size_bytes": 287281
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0365_0370.csv.gz",
+      "sha256": "85d884e3bde5bb188580678f6dfe86ac1e81571a1d7bc235d724687d686db5a0",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0365_0370.npz",
+      "sha256": "8ea1edf4cb94ffded6c3673ba3faeb350d8d6c9ba7e7cafd10fec38df290064e",
+      "size_bytes": 1709993
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0370_0375.csv.gz",
+      "sha256": "983f1a1b7552a347bd86a968594d6a8a785804239e9f32db8afb4a779a0078cd",
+      "size_bytes": 287841
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0370_0375.csv.gz",
+      "sha256": "984042925af6af6e014218b48d53dc7279d35ff456e2eb53a32f0b689eb10b02",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0370_0375.npz",
+      "sha256": "ee7243e5170e9195311f2934c430ca96527ff9bf44ef3af1df50fb6297f27f5e",
+      "size_bytes": 1710219
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0375_0380.csv.gz",
+      "sha256": "24fb4bb4d94297530db401cab2342a07db10bd5ef08029862c5c697d7dd7d70a",
+      "size_bytes": 287285
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0375_0380.csv.gz",
+      "sha256": "684ce46a4153708c910d07b878887de2c0e6cff3869a0182a947057988be21ed",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0375_0380.npz",
+      "sha256": "86dd8c2ce8d2835f0e801f84433f407acc5d68dcc9d17763b297f9c76767a323",
+      "size_bytes": 1710261
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0380_0385.csv.gz",
+      "sha256": "9d0b4cf1ed5bdf866da7d0b4482168ffd9f74b4314c32e8d6a9909667af15224",
+      "size_bytes": 287567
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0380_0385.csv.gz",
+      "sha256": "bba513c7a7903cc12219daf21cbb6071a271c65fb45ffb5f6cd1c38e76dfca3e",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0380_0385.npz",
+      "sha256": "8ddb615552012019523f3b069511139f2114dd666fc098ece72b0900a68034bc",
+      "size_bytes": 1710408
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0385_0390.csv.gz",
+      "sha256": "f8d717a55a8339595fd143806b3d04085df2ab26c7978fa08cc9959b5767a28b",
+      "size_bytes": 287793
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0385_0390.csv.gz",
+      "sha256": "8ea1056905f8e135cdf7fcafdbd9eae9f2cd8fe95bca764095a83d0d57d16879",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0385_0390.npz",
+      "sha256": "95554874cc3fa3b51638cdbe845c9e1d3c5f4040e6800ce37455d754c8f441d4",
+      "size_bytes": 1710539
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0390_0395.csv.gz",
+      "sha256": "856e9de3c2e34f3eeb1856ec7057f2c69d57efc3180d60440c5eeece47d3d5cd",
+      "size_bytes": 287656
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0390_0395.csv.gz",
+      "sha256": "593c87b6579785273d7af6d4d96ce5ed7fb362ea1a6d1dff6f2126772504e04f",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0390_0395.npz",
+      "sha256": "3532142657b88d575d1ceca24e4f1c2d3cc2e1e30887b46369468fe0789af693",
+      "size_bytes": 1710510
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0395_0400.csv.gz",
+      "sha256": "d6beffed944c3a4a0c018e83ce1563f0b1c83a7cba45e67ae3659764fd88751a",
+      "size_bytes": 287604
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0395_0400.csv.gz",
+      "sha256": "401a61595742dbdee112e2b615c8ffa1d4c6b6c0403bbd0ee9dfb176e7d7e47d",
+      "size_bytes": 445
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0395_0400.npz",
+      "sha256": "f33aa8489303dfe12780bfb8c5175dde97e27fb84b1127d6f4585af37992a49d",
+      "size_bytes": 1710428
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0400_0405.csv.gz",
+      "sha256": "b83d096195adb67b690fa435c8528be5d3270653f0e1be87c7aab45e5e97f38f",
+      "size_bytes": 288049
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0400_0405.csv.gz",
+      "sha256": "b08df57bd1f6a69de355ec5e2ceefd684bd121223a08d2889a71e5a12c41ae22",
+      "size_bytes": 466
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0400_0405.npz",
+      "sha256": "3961431a4051c65a28b7212a72c8aa7ec244baebe0bc05be84cc229b0f2c5bcc",
+      "size_bytes": 1710599
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0405_0410.csv.gz",
+      "sha256": "0852f1f9a122e1f2251ba39578404b456a53f74e8b6d72f824a54bd60fb33840",
+      "size_bytes": 287241
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0405_0410.csv.gz",
+      "sha256": "ac5e925615ff4428bf6ad7143a5f18cfcc00fad64c1a8faaaab5f39223ab6ca0",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0405_0410.npz",
+      "sha256": "80732c517d42ec7460288140ac495a049b0ae08bb0757a4f0fa90fd4cf00ad82",
+      "size_bytes": 1710135
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0410_0415.csv.gz",
+      "sha256": "d02346d0270964f8a9f5050e7201c6bc80a4a961ce9b36488d0311b07961f575",
+      "size_bytes": 287061
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0410_0415.csv.gz",
+      "sha256": "dd235052bf943c0bb1fe56b0d70a93f3616b6238e3b0722343546b2b9aee6e02",
+      "size_bytes": 467
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0410_0415.npz",
+      "sha256": "acf8d956d660d3eb406749477fee79d53b972ff59c6d6e670ce953d8bb56b76f",
+      "size_bytes": 1710150
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0415_0420.csv.gz",
+      "sha256": "beba5ace5976eb3c547aebe76e02e8896f47b255e5336c39d5c28f325463e21f",
+      "size_bytes": 289205
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0415_0420.csv.gz",
+      "sha256": "d6bc79842f04da45d8f9331c6c5e5ffb86f0a1aec10b3f1693c80b021fb5c16e",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0415_0420.npz",
+      "sha256": "a6c5854919de56ccc4b09462eefffe29cd9a5cb5835e24392843086ce88db6e2",
+      "size_bytes": 1710585
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0420_0425.csv.gz",
+      "sha256": "090d5bb3a6727e0f8333bebc39d24ecc4f83697c1272da93874bf4f25f2cd34b",
+      "size_bytes": 287843
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0420_0425.csv.gz",
+      "sha256": "92d2af4e43449db300192b827ff9c611ad64f22b706aa0cc1241d1710f1ce81f",
+      "size_bytes": 454
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0420_0425.npz",
+      "sha256": "d58af65844cf915a26dc5cbf51725028de14ec2a52dfc8a0644936021b4d430c",
+      "size_bytes": 1710512
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0425_0430.csv.gz",
+      "sha256": "86043f7b339033ba54d9919dacc87d0934d6384fa9f3acf3d7461f99c469349f",
+      "size_bytes": 288979
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0425_0430.csv.gz",
+      "sha256": "92326329e2d0688d3f0bf582608da7154b58bea342f3c31b92ae71cea407de49",
+      "size_bytes": 443
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0425_0430.npz",
+      "sha256": "019ae580c990215e97fff4afd0df567cf3d5afe25f40854522c1aba959cdb1df",
+      "size_bytes": 1710404
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0430_0435.csv.gz",
+      "sha256": "c24ec6a42610671953fb300e5fbb1974fa2d4dec2ec4176c8a21f5ec16aeca5b",
+      "size_bytes": 287910
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0430_0435.csv.gz",
+      "sha256": "05839dfe22078a08080eeb7316aabd6afee605df9c7898c93d1b0656b6112c79",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0430_0435.npz",
+      "sha256": "4010654f1fa09abca54f19b22e453773e14f752587e5eb2860d79bdfcb940345",
+      "size_bytes": 1710274
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0435_0440.csv.gz",
+      "sha256": "338b37cfcee397775378d3086891d89864dcec81418b641ef12654affcabbc77",
+      "size_bytes": 287847
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0435_0440.csv.gz",
+      "sha256": "e44f375b4df62682d4fc211cd294396debfcb929cf9fe4917e2fdcb89a872bce",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0435_0440.npz",
+      "sha256": "34b04cf37195a88200417f5a672959413c98f1606456fdde22c21670122343aa",
+      "size_bytes": 1710282
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0440_0445.csv.gz",
+      "sha256": "62b85187415bb09ba58a22c3c689e842f54b2959808b7a7f06748968510a5e6e",
+      "size_bytes": 287530
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0440_0445.csv.gz",
+      "sha256": "389a3627f4761c39bfcdebb37cfb44c5a3c6b2d04fe114d93160a8ca7edef402",
+      "size_bytes": 465
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0440_0445.npz",
+      "sha256": "4304dc304fb7b939daaaafb1eecea500fc92990cbe526e671bc71046de3f2ff1",
+      "size_bytes": 1710606
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0445_0450.csv.gz",
+      "sha256": "781c1cffd99de6ff0195245a7f2cfa120e495c859263f8f359509977a6c6f616",
+      "size_bytes": 288252
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0445_0450.csv.gz",
+      "sha256": "b923f8dad278887e5b7822644873bff0d326f2d62e07dee53adbe4f44e5eacaa",
+      "size_bytes": 447
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0445_0450.npz",
+      "sha256": "af92db9c74a316dc148ca9ccd5229ecda3e4ebc0f59365b6b33c5076b019c7fa",
+      "size_bytes": 1710346
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0450_0455.csv.gz",
+      "sha256": "bb37d08687869194491cb0c4de296095589b29bb9de28d885f0b88a6fc1a8b92",
+      "size_bytes": 287849
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0450_0455.csv.gz",
+      "sha256": "13a9ff95d45a61329807de03eef1d01fbcf79ea4511169d97279211a48b206f5",
+      "size_bytes": 457
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0450_0455.npz",
+      "sha256": "adbe58c93fc2b36cc1ce361e8f7843f66ad87c34204016f749fda423123c27e0",
+      "size_bytes": 1710490
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0455_0460.csv.gz",
+      "sha256": "48e9efc461a34409e0a5a77533f56d19f52b98af79b335e0b69e08432cc3a1a8",
+      "size_bytes": 287870
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0455_0460.csv.gz",
+      "sha256": "adabe77c83e5b542c41de02c89ddf545b8869da4d22deaabc0662b562e5b3949",
+      "size_bytes": 463
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0455_0460.npz",
+      "sha256": "8dfd7d826f9d1fed5fed85d84bbff65230f53dd8ea8c54bbdab89b4a0b951f57",
+      "size_bytes": 1710584
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0460_0465.csv.gz",
+      "sha256": "dc16c065bc65dc936980cc903475babe581bf3af9ecd8e88e76a199b8b100db3",
+      "size_bytes": 288742
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0460_0465.csv.gz",
+      "sha256": "384930c955b9ad01ad6102282a59606ef9ecb6917d639b1343ce5d4b2325e3be",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0460_0465.npz",
+      "sha256": "da2d59f279f232169dc3972075b787428ffd8612b3505b0eb6027ef58474eed4",
+      "size_bytes": 1710370
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0465_0470.csv.gz",
+      "sha256": "af72032c96b551feba3e5b85c467dbbf09ae1069ac9167955aa92fa2789fbf46",
+      "size_bytes": 287618
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0465_0470.csv.gz",
+      "sha256": "cfaa846d334fea99a991ffe56b82ee7a5626fb94961652261375af190d683762",
+      "size_bytes": 460
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0465_0470.npz",
+      "sha256": "f397b81830d95b0393d59dc6aff0254af4d46fa34441e82680dca4928847def5",
+      "size_bytes": 1710398
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0470_0475.csv.gz",
+      "sha256": "fbeb616ea71216c80a9911f3b9ae797046d08b07e0db7c13e0320452f419599b",
+      "size_bytes": 288139
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0470_0475.csv.gz",
+      "sha256": "8e076597aad88f161d02ab276701777bbada77712c6a4c89208042b334ab27ff",
+      "size_bytes": 452
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0470_0475.npz",
+      "sha256": "9591492b0e76b1bf73fd1c37aef5570df78fd2da9f63776ee2986d6350715049",
+      "size_bytes": 1710630
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0475_0480.csv.gz",
+      "sha256": "77b02e632cfbb397780bbcd18a3dfb6d435773e327031d02dda037cc73513258",
+      "size_bytes": 287405
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0475_0480.csv.gz",
+      "sha256": "9a56f57cbbb8f8743fafc4a17ebef7d8f1af2ea9731b59e91bc8f69d752bf19a",
+      "size_bytes": 458
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0475_0480.npz",
+      "sha256": "c649978f97e48410a03e385ff6ab756d75a740bcdeb8bcdf2c871c9b15b623f9",
+      "size_bytes": 1710289
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0480_0485.csv.gz",
+      "sha256": "deddfecc3d6f2d2ee4e9368b982b66c41214b9adf6c62ce0c46798c14c2417b7",
+      "size_bytes": 287240
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0480_0485.csv.gz",
+      "sha256": "36962a8aeb935b3c74bf3673cf812a5040ce3f23427b8725d3a50cc579c101a0",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0480_0485.npz",
+      "sha256": "6d07ffdae0b78a056382db35f91a7050f88fb9307189144be554beb2de005b5e",
+      "size_bytes": 1710329
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0485_0490.csv.gz",
+      "sha256": "42a6bb78725aed0a96c2bad108a6754c2d073f6963853a7df7cc764c52058219",
+      "size_bytes": 288251
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0485_0490.csv.gz",
+      "sha256": "36288e932d4af394ea7e272278ecbc2f3efa7baf106a7d2c8c1b9355d139e827",
+      "size_bytes": 459
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0485_0490.npz",
+      "sha256": "a4baf28aaab83f56d10636eb8c9e01fe91a282f269003e99ea13a1a46fb4edf0",
+      "size_bytes": 1710297
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0490_0495.csv.gz",
+      "sha256": "48ede1fa5b518db4c96b22060ab8bd2ea757c27773b15b68d71028c81aff3782",
+      "size_bytes": 288560
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0490_0495.csv.gz",
+      "sha256": "e67e0828f1d7370f95afd1bf01deac353eec92e4464832a84e583261a9c351a9",
+      "size_bytes": 457
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0490_0495.npz",
+      "sha256": "78578465f88033f7de0fe878bdc8ac7000f5005fa3f441f4249052fec0dfe80a",
+      "size_bytes": 1710294
+    },
+    {
+      "kind": "eigenvector_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/eigenvector_graphs_0495_0500.csv.gz",
+      "sha256": "b03d39fa23dd6952e9ab7aa645c7bfd9740e131da375d2d4631a83f35c0f0ff5",
+      "size_bytes": 288098
+    },
+    {
+      "kind": "fragment_rows",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/fragment_graphs_0495_0500.csv.gz",
+      "sha256": "0a89a90844359c8eea7f42bf7bc990f0904a9313b9ed9971b94b325c7fd51c87",
+      "size_bytes": 461
+    },
+    {
+      "kind": "spectral_arrays",
+      "relative_path": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978/partials/spectral_arrays_0495_0500.npz",
+      "sha256": "a0f3b30bb97bea3f14fd55a2b3a5f70015296b9320fc5c225b63c6e0ba3bdb3a",
+      "size_bytes": 1710423
+    }
+  ],
+  "graph_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127,
+    128,
+    129,
+    130,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139,
+    140,
+    141,
+    142,
+    143,
+    144,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    241,
+    242,
+    243,
+    244,
+    245,
+    246,
+    247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
+    268,
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280,
+    281,
+    282,
+    283,
+    284,
+    285,
+    286,
+    287,
+    288,
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357,
+    358,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364,
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    377,
+    378,
+    379,
+    380,
+    381,
+    382,
+    383,
+    384,
+    385,
+    386,
+    387,
+    388,
+    389,
+    390,
+    391,
+    392,
+    393,
+    394,
+    395,
+    396,
+    397,
+    398,
+    399,
+    400,
+    401,
+    402,
+    403,
+    404,
+    405,
+    406,
+    407,
+    408,
+    409,
+    410,
+    411,
+    412,
+    413,
+    414,
+    415,
+    416,
+    417,
+    418,
+    419,
+    420,
+    421,
+    422,
+    423,
+    424,
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431,
+    432,
+    433,
+    434,
+    435,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    448,
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455,
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464,
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473,
+    474,
+    475,
+    476,
+    477,
+    478,
+    479,
+    480,
+    481,
+    482,
+    483,
+    484,
+    485,
+    486,
+    487,
+    488,
+    489,
+    490,
+    491,
+    492,
+    493,
+    494,
+    495,
+    496,
+    497,
+    498,
+    499
+  ],
+  "graph_seed_base": 27307,
+  "graph_seed_rule": "numpy.default_rng(base).integers(0, 2**32-1, dtype=uint32)",
+  "graph_seeds": [
+    4011773341,
+    2009856762,
+    1103533667,
+    593697757,
+    1446894654,
+    844561353,
+    1216836403,
+    2475570690,
+    3047972372,
+    798338777,
+    2963999540,
+    582092513,
+    721907761,
+    4059676354,
+    57649010,
+    1250274570,
+    2783366457,
+    3656424076,
+    3955079774,
+    1036602169,
+    414197778,
+    1875575092,
+    3047293744,
+    2570680572,
+    2308411177,
+    2032539705,
+    4255615136,
+    1203429635,
+    1021385427,
+    3758042490,
+    3690934994,
+    19993485,
+    484374196,
+    3759548356,
+    2186053262,
+    3604320714,
+    1137839670,
+    1338279130,
+    2075824522,
+    2986116728,
+    3047229439,
+    984636468,
+    1559964785,
+    85068682,
+    571865372,
+    2138270921,
+    1122159573,
+    949588423,
+    3013469926,
+    1657360437,
+    735167585,
+    1769252664,
+    1735680170,
+    216467178,
+    3305845422,
+    4101891468,
+    3576361158,
+    1696909981,
+    3152849100,
+    4082512179,
+    617447577,
+    1613218689,
+    755793209,
+    3379718973,
+    365290304,
+    45851916,
+    1353656182,
+    1989521144,
+    173736174,
+    1111452744,
+    528143910,
+    276876536,
+    2949102208,
+    691505964,
+    1579581247,
+    988870068,
+    1508706026,
+    2607842415,
+    4045781894,
+    2292976281,
+    294856839,
+    3762641109,
+    3810134595,
+    3493824546,
+    3315408005,
+    3984625935,
+    2400015632,
+    3833243552,
+    2922863475,
+    2623768209,
+    3229867721,
+    2904322291,
+    1369933054,
+    3710333276,
+    53291739,
+    2680230752,
+    315361130,
+    850853138,
+    2630914772,
+    304310800,
+    4171939834,
+    4056469534,
+    1320985251,
+    654913980,
+    3209066265,
+    1385193127,
+    4166997972,
+    1009573478,
+    470707587,
+    2237475844,
+    3508063533,
+    2645419195,
+    2925370590,
+    2410344500,
+    21038928,
+    1383134760,
+    3746240891,
+    4053812705,
+    3540958473,
+    1469091953,
+    2813781886,
+    2171144677,
+    4214462265,
+    3029337309,
+    3904127259,
+    124560452,
+    2182795013,
+    3223761236,
+    3942063605,
+    2382310033,
+    1523731800,
+    3655732616,
+    3636715777,
+    974864895,
+    1256875131,
+    90990596,
+    1830950928,
+    440103260,
+    3321659402,
+    3710034831,
+    3856042739,
+    3131338803,
+    3293174772,
+    3822757793,
+    3623251387,
+    3738958462,
+    3358548312,
+    654306902,
+    3556141701,
+    515241311,
+    2202419975,
+    615316309,
+    3471468494,
+    379222813,
+    2314841857,
+    2002813330,
+    2732812779,
+    3810242638,
+    3608901915,
+    3347977436,
+    2771728796,
+    3101593042,
+    3265469980,
+    4158122448,
+    2271119680,
+    1533967885,
+    3871679070,
+    2326323192,
+    1176592855,
+    1599107684,
+    921193527,
+    728185090,
+    752850548,
+    102844055,
+    1772342976,
+    793676895,
+    3937687611,
+    3494218079,
+    3134822690,
+    2063705245,
+    2740496933,
+    2570170057,
+    4188033986,
+    3430622355,
+    326401154,
+    4277215467,
+    315160259,
+    292626475,
+    85166901,
+    3871249230,
+    2655102401,
+    3121229847,
+    2551146846,
+    2276079018,
+    2746207827,
+    1016909378,
+    3435808451,
+    2027330427,
+    3438779990,
+    2859986274,
+    4288449598,
+    2614988945,
+    2516438853,
+    742599773,
+    1552066871,
+    2125879118,
+    778643889,
+    3355584436,
+    3218956455,
+    822433570,
+    1369423391,
+    3643397323,
+    238080286,
+    2454429806,
+    671831773,
+    2417181501,
+    1173943586,
+    3644663690,
+    1645670425,
+    3588089030,
+    1936806184,
+    3045810377,
+    2092729298,
+    38525156,
+    3784109808,
+    2610935064,
+    634904581,
+    1494574700,
+    4070882004,
+    3875502300,
+    2397429781,
+    225229820,
+    1862873897,
+    3186002853,
+    626375878,
+    2040066444,
+    3075315199,
+    3707365791,
+    3592509821,
+    3434336276,
+    561811383,
+    739164249,
+    3002817997,
+    2272057094,
+    1315370090,
+    292101431,
+    2260909198,
+    362196898,
+    4007860852,
+    2614681789,
+    3089594027,
+    112643526,
+    623136564,
+    134482910,
+    4068176908,
+    1337396222,
+    690240720,
+    3933889100,
+    1281271386,
+    3305832427,
+    1267871491,
+    3016199823,
+    3802229349,
+    37909525,
+    1360082624,
+    4117468191,
+    4078827573,
+    2612347646,
+    28712749,
+    1243588044,
+    888716135,
+    351313361,
+    1368368600,
+    2383540472,
+    1974583935,
+    2590398970,
+    1027984177,
+    3021851760,
+    2445297105,
+    3934096617,
+    302647422,
+    3761779477,
+    4094255629,
+    240785083,
+    3663979755,
+    2935639831,
+    3840154324,
+    3774663907,
+    2545239200,
+    2644799203,
+    2199528772,
+    1457629695,
+    1458901210,
+    2687405991,
+    4178035149,
+    3562813830,
+    2923747476,
+    2843796459,
+    2863510977,
+    1496595188,
+    3190488643,
+    1957379540,
+    4237868449,
+    186725681,
+    3173041658,
+    3553643905,
+    599970201,
+    4120779742,
+    4033290607,
+    1035823212,
+    4131959426,
+    2534077341,
+    2137960624,
+    4035725139,
+    4221439225,
+    812405620,
+    2711219782,
+    206609393,
+    1748407161,
+    3856873697,
+    3366999841,
+    3643627594,
+    2708522523,
+    3735035363,
+    4106729846,
+    2499590879,
+    514785667,
+    2756087145,
+    3350458071,
+    2508276252,
+    2601273360,
+    1248119605,
+    881532240,
+    3855508237,
+    770409101,
+    3778281343,
+    900811376,
+    1202100569,
+    2837903167,
+    4219474491,
+    140682925,
+    3952293880,
+    994349299,
+    1713819507,
+    3392818068,
+    426716344,
+    2491820460,
+    3028945326,
+    515184119,
+    1567989847,
+    4083156671,
+    1752595393,
+    253823334,
+    1514833456,
+    2340984188,
+    332410926,
+    3080188855,
+    883792774,
+    3275595502,
+    308124123,
+    3077174288,
+    923452221,
+    1371010642,
+    752605559,
+    357905066,
+    403670377,
+    2112446457,
+    670501894,
+    1445386630,
+    3256844935,
+    4244771839,
+    3393937194,
+    3385381586,
+    1750452680,
+    2488562855,
+    4180902641,
+    17973143,
+    2219273681,
+    4056129861,
+    651536304,
+    1758027961,
+    3791210359,
+    1845728664,
+    2583221973,
+    1691330738,
+    561923894,
+    2315066048,
+    2258581984,
+    2473561381,
+    330005142,
+    1347670746,
+    3995524431,
+    2099920363,
+    360127718,
+    4042114719,
+    1707279550,
+    3383392320,
+    89970622,
+    673980805,
+    1470094552,
+    1829911913,
+    4035786997,
+    1856350319,
+    542193542,
+    1109443797,
+    150193270,
+    1369271650,
+    1437488965,
+    1534888826,
+    2205592807,
+    1529746069,
+    4160758443,
+    1377400436,
+    2826651012,
+    2418162186,
+    1190562974,
+    2257827303,
+    3555339159,
+    1993905260,
+    3265315104,
+    2406843711,
+    2283143562,
+    2244162780,
+    154232372,
+    4086496007,
+    185119737,
+    3344714937,
+    1615683014,
+    1915634560,
+    817949314,
+    3497736318,
+    407614256,
+    4193175451,
+    3311036832,
+    3100617135,
+    279723515,
+    2643607979,
+    2237721884,
+    265653023,
+    3765303019,
+    2796308936,
+    759014583,
+    3199146671,
+    458450107,
+    1582623425,
+    886301940,
+    1310991566,
+    3302338241,
+    2930874616,
+    317036418,
+    639343325,
+    3980288862,
+    1196198361,
+    542156729,
+    499190414,
+    3008945290,
+    2029683893,
+    3223291270,
+    1984285832,
+    2426225173,
+    476898087,
+    3062741730,
+    4177038574,
+    1640342533,
+    3925543092,
+    1263231202,
+    995296176,
+    1222589273,
+    2120372463,
+    4173836540,
+    1187991965,
+    1985136964,
+    470697171,
+    3120091076,
+    4213119362,
+    2219344865,
+    3372054963,
+    3999928136,
+    1168351999,
+    1233222136,
+    1248301450,
+    689982780,
+    4032177185,
+    2533912004,
+    3899017122,
+    3793153417,
+    2849787881,
+    3987674129,
+    1245773500,
+    3995788502,
+    1803531777,
+    1280634548,
+    527587731,
+    1167242855,
+    1052112088,
+    2129173875,
+    2717987706,
+    1244589483,
+    1112106943,
+    1488300408
+  ],
+  "legacy_directory_name": "n_5000_m_10_preference_tau_1p05_avgdeg_19p978",
+  "legacy_gap_assignment": "select eigenvalues by ensemble-CDF energy window, then difference within graph",
+  "legacy_parameter": {
+    "name": "attachment_tail_exponent",
+    "value": 1.05
+  },
+  "legacy_unfolding": "same-ensemble empirical CDF",
+  "m": 10,
+  "n": 5000,
+  "new_postprocessing_required": "gap-first raw-r and five-fold graph-level cross-fitted unfolding",
+  "num_graphs": 500,
+  "observed_files": 300,
+  "source_cache": "<HOFFMAN_HOME>/small_world_mobility_edge_cache/pa_full_20260813/n_5000_m_10_preference_tau_1p05_avgdeg_19p978",
+  "source_cache_read_only": true,
+  "spectral_array_semantics": "sorted full non-Perron adjacency eigenvalues; exact zeros retained",
+  "status": "VALID",
+  "total_size_bytes": 199859529
+}

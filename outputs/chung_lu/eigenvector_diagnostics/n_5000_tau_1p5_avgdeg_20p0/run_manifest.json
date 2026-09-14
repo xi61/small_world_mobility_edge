@@ -1,0 +1,53 @@
+{
+  "active_parameter_pairs": [
+    [
+      1.5,
+      20.0
+    ]
+  ],
+  "code_version": null,
+  "diagnostic": "eigenvector_localization_chunked_aggregate",
+  "local_quantile_bins": [
+    [
+      0.998,
+      0.9982
+    ],
+    [
+      0.9982,
+      0.9984
+    ],
+    [
+      0.9984,
+      0.9986
+    ],
+    [
+      0.9986,
+      0.9988
+    ],
+    [
+      0.9988,
+      0.999
+    ],
+    [
+      0.999,
+      0.9993
+    ],
+    [
+      0.9993,
+      0.9996
+    ],
+    [
+      0.9996,
+      0.9999
+    ]
+  ],
+  "model": "power_law_chung_lu",
+  "n": 5000,
+  "num_graphs": 500,
+  "num_partial_files": 100,
+  "run_full_grid": false,
+  "target_mean_degree": 20.0,
+  "tau": 1.5,
+  "timestamp": "2026-07-14T08:35:23.362485Z",
+  "window_mode": "nonoverlapping_quantile_bins"
+}

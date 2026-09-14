@@ -1,0 +1,23 @@
+{
+  "controlled_parameter": "degree_ccdf_alpha",
+  "family": "affine_linear",
+  "m": 10,
+  "n": 5000,
+  "one_factor_at_a_time": true,
+  "source_directories": [
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_2p0",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_1p8",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_1p5",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_1p25",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_1p1",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_1p05"
+  ],
+  "values": [
+    2.0,
+    1.8,
+    1.5,
+    1.25,
+    1.1,
+    1.05
+  ]
+}

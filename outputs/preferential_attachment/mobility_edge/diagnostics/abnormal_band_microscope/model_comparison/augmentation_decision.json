@@ -1,0 +1,8 @@
+{
+  "aggregate_version": "pa_abnormal_band_microscope_aggregate_v1",
+  "all_requested_main_region_cells_supported": true,
+  "automatic_augmentation_submitted": false,
+  "decision": "NO_AUGMENTATION_REQUIRED",
+  "rule": "ceil(100 / observed_ratio_yield_per_graph * 1.25)",
+  "upper_cap_graphs": 10000
+}

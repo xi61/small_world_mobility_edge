@@ -1,0 +1,23 @@
+{
+  "controlled_parameter": "m",
+  "family": "nonlinear",
+  "fixed_parameter": {
+    "name": "attachment_zeta",
+    "value": 1.3
+  },
+  "interpretation": "m changes the graph density (mean degree approximately 2m); this is not degree matched",
+  "m_values": [
+    2,
+    5,
+    10,
+    20
+  ],
+  "n": 5000,
+  "one_factor_at_a_time": true,
+  "source_directories": [
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_2/attachment_zeta_1p3",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_5/attachment_zeta_1p3",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_10/attachment_zeta_1p3",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_20/attachment_zeta_1p3"
+  ]
+}

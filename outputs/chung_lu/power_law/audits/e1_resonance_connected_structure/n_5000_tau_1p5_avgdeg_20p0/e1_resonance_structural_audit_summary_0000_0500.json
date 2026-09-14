@@ -1,0 +1,55 @@
+{
+  "correlation_q_0p683_atom_fraction_with_n_times_ipr": 0.9811031560244052,
+  "correlation_zero_fraction_with_q_0p683_atom_fraction": 0.02489049487534534,
+  "displayed_tau": 1.5,
+  "fraction_of_full_plus_1_multiplicity_outside_giant": 0.9430548163916977,
+  "fraction_of_giant_plus_1_multiplicity_explained_by_repeated_p2_arms": 0.8878504672897196,
+  "fraction_of_graphs_with_any_exact_plus_1_mode": 1.0,
+  "fraction_of_graphs_with_giant_component_exact_plus_1_mode": 0.334,
+  "fraction_of_graphs_with_non_giant_exact_plus_1_mode": 1.0,
+  "interpretation_guardrail": "Exact zero modes were removed before quantile assignment. Exact +1 multiplicity is basis-invariant, but IPRs of individual vectors in a degenerate +1 eigenspace are not.",
+  "metrics": {
+    "full_graph_exact_plus_1_multiplicity": {
+      "mean": 7.516,
+      "standard_error": 0.12355573657293357
+    },
+    "giant_pendant_p2_plus_1_lower_bound": {
+      "mean": 0.38,
+      "standard_error": 0.028720196715879186
+    },
+    "isolated_edge_count": {
+      "mean": 7.088,
+      "standard_error": 0.11952021655071017
+    },
+    "isolated_vertex_count": {
+      "mean": 1048.274,
+      "standard_error": 1.1936429176389642
+    },
+    "largest_component_size": {
+      "mean": 3937.15,
+      "standard_error": 1.1835643832502722
+    },
+    "non_giant_exact_plus_1_multiplicity": {
+      "mean": 7.088,
+      "standard_error": 0.11952021655071017
+    },
+    "q_0p683_mean_n_times_ipr": {
+      "mean": 1204.6474080528494,
+      "standard_error": 39.72505988281186
+    },
+    "q_0p683_selected_atom_fraction": {
+      "mean": 0.5032666666666666,
+      "standard_error": 0.017356620449723508
+    },
+    "residual_giant_exact_plus_1_multiplicity": {
+      "mean": 0.428,
+      "standard_error": 0.030651444045005256
+    },
+    "zero_eigenvalue_fraction": {
+      "mean": 0.5832326465293058,
+      "standard_error": 0.00024296929890131377
+    }
+  },
+  "number_of_graphs": 500,
+  "target_quantile": 0.683
+}

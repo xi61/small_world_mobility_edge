@@ -1,0 +1,6 @@
+degree_match,edge_overlap_fraction,graph_index,graph_seed,max_degree_match,max_realized_degree,max_tries,max_tries_factor,mean_degree_match,number_of_edges,realized_mean_degree,requested_swaps,rewire_seed,rewiring_seconds,same_node_labels,same_number_of_edges,same_number_of_vertices,swaps_per_edge
+True,0.0189208128941836,0,3722119591,True,364,9989000,20,True,49945,19.978,499450,3593297313,2.2062992909923196,True,True,True,10
+True,0.018500350385423966,1,701590210,True,376,9989000,20,True,49945,19.978,499450,3723357936,2.279975416022353,True,True,True,10
+True,0.01836019621583742,2,1702803663,True,415,9989000,20,True,49945,19.978,499450,1515301005,2.271840750006959,True,True,True,10
+True,0.018200020022024227,3,2346716494,True,346,9989000,20,True,49945,19.978,499450,3532997322,2.24892041599378,True,True,True,10
+True,0.01840024026429072,4,3210855338,True,342,9989000,20,True,49945,19.978,499450,3571847051,2.294454582966864,True,True,True,10

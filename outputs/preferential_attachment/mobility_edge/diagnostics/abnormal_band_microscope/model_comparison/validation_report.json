@@ -1,0 +1,97 @@
+{
+  "augmentation_decision": {
+    "aggregate_version": "pa_abnormal_band_microscope_aggregate_v1",
+    "all_requested_main_region_cells_supported": true,
+    "automatic_augmentation_submitted": false,
+    "decision": "NO_AUGMENTATION_REQUIRED",
+    "rule": "ceil(100 / observed_ratio_yield_per_graph * 1.25)",
+    "upper_cap_graphs": 10000
+  },
+  "file_count": 628,
+  "grid_checks": [
+    {
+      "histogram_supported_cells": 25,
+      "level": "dq_0p0002",
+      "model": "alpha_2p0",
+      "ratio_supported_cells": 25,
+      "shifted_rows": 24,
+      "standard_rows": 25
+    },
+    {
+      "histogram_supported_cells": 40,
+      "level": "dq_0p0001",
+      "model": "alpha_2p0",
+      "ratio_supported_cells": 40,
+      "shifted_rows": 39,
+      "standard_rows": 40
+    },
+    {
+      "histogram_supported_cells": 25,
+      "level": "dq_0p0002",
+      "model": "alpha_1p25",
+      "ratio_supported_cells": 25,
+      "shifted_rows": 24,
+      "standard_rows": 25
+    },
+    {
+      "histogram_supported_cells": 40,
+      "level": "dq_0p0001",
+      "model": "alpha_1p25",
+      "ratio_supported_cells": 40,
+      "shifted_rows": 39,
+      "standard_rows": 40
+    },
+    {
+      "histogram_supported_cells": 25,
+      "level": "dq_0p0002",
+      "model": "alpha_1p05",
+      "ratio_supported_cells": 25,
+      "shifted_rows": 24,
+      "standard_rows": 25
+    },
+    {
+      "histogram_supported_cells": 40,
+      "level": "dq_0p0001",
+      "model": "alpha_1p05",
+      "ratio_supported_cells": 40,
+      "shifted_rows": 39,
+      "standard_rows": 40
+    },
+    {
+      "histogram_supported_cells": 50,
+      "level": "dq_0p00005",
+      "model": "alpha_1p05",
+      "ratio_supported_cells": 50,
+      "shifted_rows": 49,
+      "standard_rows": 50
+    },
+    {
+      "histogram_supported_cells": 25,
+      "level": "dq_0p0002",
+      "model": "zeta_1p50",
+      "ratio_supported_cells": 25,
+      "shifted_rows": 24,
+      "standard_rows": 25
+    },
+    {
+      "histogram_supported_cells": 40,
+      "level": "dq_0p0001",
+      "model": "zeta_1p50",
+      "ratio_supported_cells": 40,
+      "shifted_rows": 39,
+      "standard_rows": 40
+    },
+    {
+      "histogram_supported_cells": 70,
+      "level": "dq_0p00005",
+      "model": "zeta_1p50",
+      "ratio_supported_cells": 70,
+      "shifted_rows": 69,
+      "standard_rows": 70
+    }
+  ],
+  "issue_count": 0,
+  "issues": [],
+  "status": "PASS",
+  "validation_version": "pa_abnormal_band_microscope_validation_v1"
+}

@@ -1,0 +1,76 @@
+{
+  "code_version": "00a2c251371886d1ec8e7798bfdf1dd21995ac21",
+  "component_mode": "full",
+  "cutoff_coefficient": 1.0,
+  "cutoff_mode": "structural",
+  "density_bandwidth_scale": 1.0,
+  "density_graph_seed": 31685,
+  "density_local_count_half_width": 0.2,
+  "density_method": "variable_local_count",
+  "density_num_bins": 120,
+  "density_num_points": 2001,
+  "density_sensitivity_local_count_half_widths": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "density_sequence_seed": 16450,
+  "local_quantile_bins": [
+    [
+      0.995,
+      0.996
+    ],
+    [
+      0.996,
+      0.997
+    ],
+    [
+      0.997,
+      0.998
+    ],
+    [
+      0.998,
+      0.999
+    ],
+    [
+      0.999,
+      0.9998
+    ]
+  ],
+  "local_quantiles": [
+    0.005,
+    0.01,
+    0.025,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.95,
+    0.975,
+    0.99,
+    0.995
+  ],
+  "local_target_eigenvalues_per_graph": 25,
+  "local_unfolding_method": "cdf",
+  "min_eigenvalues": 10,
+  "model": "power_law_chung_lu",
+  "n": 5000,
+  "num_density_graphs": 100,
+  "num_spacing_graphs": 100,
+  "output_profile": "local_spacing_only",
+  "remove_exact_zero_eigenvalues": true,
+  "sequence_mode": "quantile",
+  "spacing_graph_seed": 27452,
+  "spacing_sequence_seed": 14412,
+  "tail_density_quantile_cutoff": 0.95,
+  "tail_local_count_half_width": 0.08,
+  "target_mean_degree": 20.0,
+  "tau": 2.5,
+  "timestamp": "2026-07-14T07:46:25.162191Z",
+  "w_max": null,
+  "w_min": 1.0,
+  "window_mode": "nonoverlapping_quantile_bins",
+  "zero_eigenvalue_atol": 1e-08
+}

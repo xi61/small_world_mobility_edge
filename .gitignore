@@ -9,8 +9,6 @@ dist/
 results/
 outputs/
 output/
-reports/
+/reports/
 migration_archive/
 postponed_work/
-tools/*
-!tools/hoffman_pa_abnormal_band_microscope.py

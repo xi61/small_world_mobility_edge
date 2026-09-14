@@ -1,0 +1,4 @@
+graph_index,nodes_analyzed,edges_analyzed,mean_degree_analyzed,num_eigenvalues_retained,num_raw_gaps,num_gap_ratios,requested_degree,all_degrees_exact
+0,160,480,6.0,159,158,157,6,True
+1,160,480,6.0,159,158,157,6,True
+2,160,480,6.0,159,158,157,6,True

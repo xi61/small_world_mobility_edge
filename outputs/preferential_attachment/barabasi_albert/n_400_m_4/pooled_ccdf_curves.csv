@@ -1,0 +1,301 @@
+curve,denominator,graph_index,model_variant,rank,tail_probability,value
+realized_degree_ccdf,400,0,realized degree sequence,1,0.0025,61.0
+realized_degree_ccdf,400,0,realized degree sequence,2,0.005,52.0
+realized_degree_ccdf,400,0,realized degree sequence,3,0.0075,45.0
+realized_degree_ccdf,400,0,realized degree sequence,4,0.01,44.0
+realized_degree_ccdf,400,0,realized degree sequence,5,0.0125,42.0
+realized_degree_ccdf,400,0,realized degree sequence,6,0.015,39.0
+realized_degree_ccdf,400,0,realized degree sequence,7,0.0175,37.0
+realized_degree_ccdf,400,0,realized degree sequence,8,0.02,34.0
+realized_degree_ccdf,400,0,realized degree sequence,9,0.0225,31.0
+realized_degree_ccdf,400,0,realized degree sequence,10,0.025,30.0
+realized_degree_ccdf,400,0,realized degree sequence,11,0.0275,30.0
+realized_degree_ccdf,400,0,realized degree sequence,12,0.03,30.0
+realized_degree_ccdf,400,0,realized degree sequence,13,0.0325,28.0
+realized_degree_ccdf,400,0,realized degree sequence,14,0.035,28.0
+realized_degree_ccdf,400,0,realized degree sequence,15,0.0375,28.0
+realized_degree_ccdf,400,0,realized degree sequence,16,0.04,27.0
+realized_degree_ccdf,400,0,realized degree sequence,17,0.0425,26.0
+realized_degree_ccdf,400,0,realized degree sequence,18,0.045,25.0
+realized_degree_ccdf,400,0,realized degree sequence,19,0.0475,23.0
+realized_degree_ccdf,400,0,realized degree sequence,20,0.05,23.0
+absolute_spectral_ccdf,399,0,Barabasi-Albert,1,0.002506265664160401,8.466980666268638
+absolute_spectral_ccdf,399,0,Barabasi-Albert,2,0.005012531328320802,7.908520158490995
+absolute_spectral_ccdf,399,0,Barabasi-Albert,3,0.007518796992481203,7.602437637735417
+absolute_spectral_ccdf,399,0,Barabasi-Albert,4,0.010025062656641603,7.4366451554726485
+absolute_spectral_ccdf,399,0,Barabasi-Albert,5,0.012531328320802004,7.184231489934432
+absolute_spectral_ccdf,399,0,Barabasi-Albert,6,0.015037593984962405,6.928255604230043
+absolute_spectral_ccdf,399,0,Barabasi-Albert,7,0.017543859649122806,6.922514234912386
+absolute_spectral_ccdf,399,0,Barabasi-Albert,8,0.020050125313283207,6.756959644801783
+absolute_spectral_ccdf,399,0,Barabasi-Albert,9,0.022556390977443608,6.657412966873557
+absolute_spectral_ccdf,399,0,Barabasi-Albert,10,0.02506265664160401,6.512423167630085
+absolute_spectral_ccdf,399,0,Barabasi-Albert,11,0.02756892230576441,6.4704872024668525
+absolute_spectral_ccdf,399,0,Barabasi-Albert,12,0.03007518796992481,6.365689530721172
+absolute_spectral_ccdf,399,0,Barabasi-Albert,13,0.03258145363408521,6.22923584261314
+absolute_spectral_ccdf,399,0,Barabasi-Albert,14,0.03508771929824561,6.156192168749404
+absolute_spectral_ccdf,399,0,Barabasi-Albert,15,0.03759398496240601,6.095659695753228
+absolute_spectral_ccdf,399,0,Barabasi-Albert,16,0.040100250626566414,5.978261353624917
+absolute_spectral_ccdf,399,0,Barabasi-Albert,17,0.042606516290726815,5.93154772017974
+absolute_spectral_ccdf,399,0,Barabasi-Albert,18,0.045112781954887216,5.808216386521431
+absolute_spectral_ccdf,399,0,Barabasi-Albert,19,0.047619047619047616,5.79733479242031
+absolute_spectral_ccdf,399,0,Barabasi-Albert,20,0.05012531328320802,5.672249579282113
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,1,0.002506265664160401,71.68976160296691
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,2,0.005012531328320802,62.54469109725843
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,3,0.007518796992481203,57.797058035656065
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,4,0.010025062656641603,55.303691168414815
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,5,0.012531328320802004,51.61318210096551
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,6,0.015037593984962405,48.000725717544995
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,7,0.017543859649122806,47.921203332564616
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,8,0.020050125313283207,45.65650364147984
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,9,0.022556390977443608,44.32114741149618
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,10,0.02506265664160401,42.41165551428507
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,11,0.02756892230576441,41.867204637287315
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,12,0.03007518796992481,40.52200320153313
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,13,0.03258145363408521,38.803379182896236
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,14,0.03508771929824561,37.898702018571484
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,15,0.03759398496240601,37.157067126430334
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,16,0.040100250626566414,35.73960881224522
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,17,0.042606516290726815,35.18325835676947
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,18,0.045112781954887216,33.735377592656064
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,19,0.047619047619047616,33.60909069540704
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert,20,0.05012531328320802,32.17441528966611
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,1,0.002506265664160401,8.298788663026123
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,2,0.005012531328320802,7.982580741387479
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,3,0.007518796992481203,7.927392261513166
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,4,0.010025062656641603,7.264176701456983
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,5,0.012531328320802004,6.982604986396925
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,6,0.015037593984962405,6.973367634145312
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,7,0.017543859649122806,6.925306741295645
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,8,0.020050125313283207,6.866632830845509
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,9,0.022556390977443608,6.75951656801228
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,10,0.02506265664160401,6.550172042543285
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,11,0.02756892230576441,6.538244948542676
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,12,0.03007518796992481,6.302773491625236
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,13,0.03258145363408521,6.246545806412344
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,14,0.03508771929824561,6.051809460729763
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,15,0.03759398496240601,5.972859918483954
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,16,0.040100250626566414,5.941092071648528
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,17,0.042606516290726815,5.920348211099131
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,18,0.045112781954887216,5.795781940280733
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,19,0.047619047619047616,5.790783495760951
+absolute_spectral_ccdf,399,0,Barabasi-Albert degree-preserving rewired,20,0.05012531328320802,5.644596692724919
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,1,0.002506265664160401,68.86989327357091
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,2,0.005012531328320802,63.721595292770274
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,3,0.007518796992481203,62.84354806789883
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,4,0.010025062656641603,52.76826314999045
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,5,0.012531328320802004,48.756772396055204
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,6,0.015037593984962405,48.627856160945385
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,7,0.017543859649122806,47.95987346103491
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,8,0.020050125313283207,47.150646433645406
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,9,0.022556390977443608,45.69106423323252
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,10,0.02506265664160401,42.90475378691567
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,11,0.02756892230576441,42.74864700714382
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,12,0.03007518796992481,39.72495368673377
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,13,0.03258145363408521,39.019334511607646
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,14,0.03508771929824561,36.62439774897827
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,15,0.03759398496240601,35.67505560583215
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,16,0.040100250626566414,35.296575003805
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,17,0.042606516290726815,35.05052294066468
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,18,0.045112781954887216,33.5910882992843
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,19,0.047619047619047616,33.533173494777415
+squared_eigenvalue_ccdf,399,0,Barabasi-Albert degree-preserving rewired,20,0.05012531328320802,31.861471823521097
+realized_degree_ccdf,400,1,realized degree sequence,1,0.0025,71.0
+realized_degree_ccdf,400,1,realized degree sequence,2,0.005,66.0
+realized_degree_ccdf,400,1,realized degree sequence,3,0.0075,54.0
+realized_degree_ccdf,400,1,realized degree sequence,4,0.01,47.0
+realized_degree_ccdf,400,1,realized degree sequence,5,0.0125,45.0
+realized_degree_ccdf,400,1,realized degree sequence,6,0.015,44.0
+realized_degree_ccdf,400,1,realized degree sequence,7,0.0175,39.0
+realized_degree_ccdf,400,1,realized degree sequence,8,0.02,37.0
+realized_degree_ccdf,400,1,realized degree sequence,9,0.0225,36.0
+realized_degree_ccdf,400,1,realized degree sequence,10,0.025,35.0
+realized_degree_ccdf,400,1,realized degree sequence,11,0.0275,35.0
+realized_degree_ccdf,400,1,realized degree sequence,12,0.03,30.0
+realized_degree_ccdf,400,1,realized degree sequence,13,0.0325,28.0
+realized_degree_ccdf,400,1,realized degree sequence,14,0.035,28.0
+realized_degree_ccdf,400,1,realized degree sequence,15,0.0375,25.0
+realized_degree_ccdf,400,1,realized degree sequence,16,0.04,24.0
+realized_degree_ccdf,400,1,realized degree sequence,17,0.0425,24.0
+realized_degree_ccdf,400,1,realized degree sequence,18,0.045,24.0
+realized_degree_ccdf,400,1,realized degree sequence,19,0.0475,21.0
+realized_degree_ccdf,400,1,realized degree sequence,20,0.05,21.0
+absolute_spectral_ccdf,399,1,Barabasi-Albert,1,0.002506265664160401,8.704850336566784
+absolute_spectral_ccdf,399,1,Barabasi-Albert,2,0.005012531328320802,8.298706735433553
+absolute_spectral_ccdf,399,1,Barabasi-Albert,3,0.007518796992481203,8.040724843488697
+absolute_spectral_ccdf,399,1,Barabasi-Albert,4,0.010025062656641603,7.630982987853121
+absolute_spectral_ccdf,399,1,Barabasi-Albert,5,0.012531328320802004,7.40079989255538
+absolute_spectral_ccdf,399,1,Barabasi-Albert,6,0.015037593984962405,7.295524809857017
+absolute_spectral_ccdf,399,1,Barabasi-Albert,7,0.017543859649122806,7.280803061643751
+absolute_spectral_ccdf,399,1,Barabasi-Albert,8,0.020050125313283207,6.991810150894816
+absolute_spectral_ccdf,399,1,Barabasi-Albert,9,0.022556390977443608,6.913087489089531
+absolute_spectral_ccdf,399,1,Barabasi-Albert,10,0.02506265664160401,6.74938699986181
+absolute_spectral_ccdf,399,1,Barabasi-Albert,11,0.02756892230576441,6.691839498422765
+absolute_spectral_ccdf,399,1,Barabasi-Albert,12,0.03007518796992481,6.542146092622674
+absolute_spectral_ccdf,399,1,Barabasi-Albert,13,0.03258145363408521,6.541448975684348
+absolute_spectral_ccdf,399,1,Barabasi-Albert,14,0.03508771929824561,6.4230366215709145
+absolute_spectral_ccdf,399,1,Barabasi-Albert,15,0.03759398496240601,6.234313864562582
+absolute_spectral_ccdf,399,1,Barabasi-Albert,16,0.040100250626566414,6.155388728836486
+absolute_spectral_ccdf,399,1,Barabasi-Albert,17,0.042606516290726815,5.9036534922426736
+absolute_spectral_ccdf,399,1,Barabasi-Albert,18,0.045112781954887216,5.806052689051598
+absolute_spectral_ccdf,399,1,Barabasi-Albert,19,0.047619047619047616,5.757324234419775
+absolute_spectral_ccdf,399,1,Barabasi-Albert,20,0.05012531328320802,5.714246968945937
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,1,0.002506265664160401,75.77441938202685
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,2,0.005012531328320802,68.86853348073022
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,3,0.007518796992481203,64.65325600869633
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,4,0.010025062656641603,58.23190136090374
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,5,0.012531328320802004,54.771839049647724
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,6,0.015037593984962405,53.22468225123927
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,7,0.017543859649122806,53.01009322244102
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,8,0.020050125313283207,48.88540918615579
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,9,0.022556390977443608,47.79077863180619
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,10,0.02506265664160401,45.5542248739036
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,11,0.02756892230576441,44.780715872651044
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,12,0.03007518796992481,42.79967549721812
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,13,0.03258145363408521,42.79055470148181
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,14,0.03508771929824561,41.25539944204111
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,15,0.03759398496240601,38.866669361877236
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,16,0.040100250626566414,37.88881040308725
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,17,0.042606516290726815,34.85312455646911
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,18,0.045112781954887216,33.71024782804329
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,19,0.047619047619047616,33.146782340237245
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert,20,0.05012531328320802,32.65261842210783
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,1,0.002506265664160401,8.788848425673855
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,2,0.005012531328320802,8.305067038688533
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,3,0.007518796992481203,8.2025566424892
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,4,0.010025062656641603,7.782912256085128
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,5,0.012531328320802004,7.385239091225119
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,6,0.015037593984962405,7.374222832506811
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,7,0.017543859649122806,7.32483432248521
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,8,0.020050125313283207,7.1248700168343
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,9,0.022556390977443608,6.908339076109204
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,10,0.02506265664160401,6.843396039508752
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,11,0.02756892230576441,6.702150504813924
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,12,0.03007518796992481,6.571065666107693
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,13,0.03258145363408521,6.428363856924487
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,14,0.03508771929824561,6.277644356848706
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,15,0.03759398496240601,6.236655507001887
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,16,0.040100250626566414,6.2067172759911315
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,17,0.042606516290726815,5.9891400127675
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,18,0.045112781954887216,5.848604392754258
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,19,0.047619047619047616,5.843525396638617
+absolute_spectral_ccdf,399,1,Barabasi-Albert degree-preserving rewired,20,0.05012531328320802,5.6883427398537085
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,1,0.002506265664160401,77.2438566494698
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,2,0.005012531328320802,68.97413851711072
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,3,0.007518796992481203,67.28193547324368
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,4,0.010025062656641603,60.573723185920095
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,5,0.012531328320802004,54.54175643455962
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,6,0.015037593984962405,54.37916238346477
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,7,0.017543859649122806,53.65319785185737
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,8,0.020050125313283207,50.7637727567844
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,9,0.022556390977443608,47.72514879049737
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,10,0.02506265664160401,46.83206935356407
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,11,0.02756892230576441,44.91882138917753
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,12,0.03007518796992481,43.178903988299346
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,13,0.03258145363408521,41.323861877013066
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,14,0.03508771929824561,39.4088186710744
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,15,0.03759398496240601,38.89587191301697
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,16,0.040100250626566414,38.52333934408677
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,17,0.042606516290726815,35.86979809253269
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,18,0.045112781954887216,34.20617334294441
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,19,0.047619047619047616,34.146789061160504
+squared_eigenvalue_ccdf,399,1,Barabasi-Albert degree-preserving rewired,20,0.05012531328320802,32.3572431260464
+realized_degree_ccdf,400,2,realized degree sequence,1,0.0025,66.0
+realized_degree_ccdf,400,2,realized degree sequence,2,0.005,48.0
+realized_degree_ccdf,400,2,realized degree sequence,3,0.0075,48.0
+realized_degree_ccdf,400,2,realized degree sequence,4,0.01,45.0
+realized_degree_ccdf,400,2,realized degree sequence,5,0.0125,43.0
+realized_degree_ccdf,400,2,realized degree sequence,6,0.015,38.0
+realized_degree_ccdf,400,2,realized degree sequence,7,0.0175,35.0
+realized_degree_ccdf,400,2,realized degree sequence,8,0.02,33.0
+realized_degree_ccdf,400,2,realized degree sequence,9,0.0225,33.0
+realized_degree_ccdf,400,2,realized degree sequence,10,0.025,30.0
+realized_degree_ccdf,400,2,realized degree sequence,11,0.0275,30.0
+realized_degree_ccdf,400,2,realized degree sequence,12,0.03,29.0
+realized_degree_ccdf,400,2,realized degree sequence,13,0.0325,28.0
+realized_degree_ccdf,400,2,realized degree sequence,14,0.035,26.0
+realized_degree_ccdf,400,2,realized degree sequence,15,0.0375,25.0
+realized_degree_ccdf,400,2,realized degree sequence,16,0.04,24.0
+realized_degree_ccdf,400,2,realized degree sequence,17,0.0425,24.0
+realized_degree_ccdf,400,2,realized degree sequence,18,0.045,23.0
+realized_degree_ccdf,400,2,realized degree sequence,19,0.0475,23.0
+realized_degree_ccdf,400,2,realized degree sequence,20,0.05,23.0
+absolute_spectral_ccdf,399,2,Barabasi-Albert,1,0.002506265664160401,8.355526933697256
+absolute_spectral_ccdf,399,2,Barabasi-Albert,2,0.005012531328320802,7.99721900698442
+absolute_spectral_ccdf,399,2,Barabasi-Albert,3,0.007518796992481203,7.696831438275723
+absolute_spectral_ccdf,399,2,Barabasi-Albert,4,0.010025062656641603,7.4824173151543425
+absolute_spectral_ccdf,399,2,Barabasi-Albert,5,0.012531328320802004,7.130736325087991
+absolute_spectral_ccdf,399,2,Barabasi-Albert,6,0.015037593984962405,6.8292802160163095
+absolute_spectral_ccdf,399,2,Barabasi-Albert,7,0.017543859649122806,6.678993517960577
+absolute_spectral_ccdf,399,2,Barabasi-Albert,8,0.020050125313283207,6.601096136844254
+absolute_spectral_ccdf,399,2,Barabasi-Albert,9,0.022556390977443608,6.511080372307341
+absolute_spectral_ccdf,399,2,Barabasi-Albert,10,0.02506265664160401,6.463677198224623
+absolute_spectral_ccdf,399,2,Barabasi-Albert,11,0.02756892230576441,6.275335808842629
+absolute_spectral_ccdf,399,2,Barabasi-Albert,12,0.03007518796992481,6.27351887489781
+absolute_spectral_ccdf,399,2,Barabasi-Albert,13,0.03258145363408521,6.1355481281631405
+absolute_spectral_ccdf,399,2,Barabasi-Albert,14,0.03508771929824561,6.044448352547158
+absolute_spectral_ccdf,399,2,Barabasi-Albert,15,0.03759398496240601,5.9658710496526375
+absolute_spectral_ccdf,399,2,Barabasi-Albert,16,0.040100250626566414,5.887195639453444
+absolute_spectral_ccdf,399,2,Barabasi-Albert,17,0.042606516290726815,5.864041102485135
+absolute_spectral_ccdf,399,2,Barabasi-Albert,18,0.045112781954887216,5.7953161122802355
+absolute_spectral_ccdf,399,2,Barabasi-Albert,19,0.047619047619047616,5.676060323878197
+absolute_spectral_ccdf,399,2,Barabasi-Albert,20,0.05012531328320802,5.6477620215999895
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,1,0.002506265664160401,69.81483033974027
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,2,0.005012531328320802,63.955511845672866
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,3,0.007518796992481203,59.24121418922953
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,4,0.010025062656641603,55.98656887812152
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,5,0.012531328320802004,50.84740053792939
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,6,0.015037593984962405,46.639068268871775
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,7,0.017543859649122806,44.6089544129594
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,8,0.020050125313283207,43.57447020786014
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,9,0.022556390977443608,42.3941676146459
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,10,0.02506265664160401,41.77912292284891
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,11,0.02756892230576441,39.37983951374258
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,12,0.03007518796992481,39.35703907369909
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,13,0.03258145363408521,37.64495083300622
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,14,0.03508771929824561,36.53535588661005
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,15,0.03759398496240601,35.59161738108346
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,16,0.040100250626566414,34.659072497199645
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,17,0.042606516290726815,34.38697805163508
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,18,0.045112781954887216,33.5856888412549
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,19,0.047619047619047616,32.21766080030426
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert,20,0.05012531328320802,31.897215852627202
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,1,0.002506265664160401,8.306553577661779
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,2,0.005012531328320802,7.916181974865584
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,3,0.007518796992481203,7.758854705528074
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,4,0.010025062656641603,7.2624920731712255
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,5,0.012531328320802004,7.197580012087666
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,6,0.015037593984962405,7.125874426039266
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,7,0.017543859649122806,6.938205682372817
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,8,0.020050125313283207,6.921777866583271
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,9,0.022556390977443608,6.803017667764806
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,10,0.02506265664160401,6.631634895229866
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,11,0.02756892230576441,6.526852568044712
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,12,0.03007518796992481,6.33084285355997
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,13,0.03258145363408521,6.244249221964652
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,14,0.03508771929824561,6.0891691071248495
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,15,0.03759398496240601,5.96253922185415
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,16,0.040100250626566414,5.901232332702551
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,17,0.042606516290726815,5.818536275133644
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,18,0.045112781954887216,5.808634858385245
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,19,0.047619047619047616,5.659711200803337
+absolute_spectral_ccdf,399,2,Barabasi-Albert degree-preserving rewired,20,0.05012531328320802,5.592524435303185
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,1,0.002506265664160401,68.9988323385657
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,2,0.005012531328320802,62.665937059186774
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,3,0.007518796992481203,60.19982634149513
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,4,0.010025062656641603,52.74379111287489
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,5,0.012531328320802004,51.80515803040389
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,6,0.015037593984962405,50.778086335680435
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,7,0.017543859649122806,48.138698090910445
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,8,0.020050125313283207,47.91100883432206
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,9,0.022556390977443608,46.2810493879201
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,10,0.02506265664160401,43.97858138363044
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,11,0.02756892230576441,42.59980444499185
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,12,0.03007518796992481,40.079571236471345
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,13,0.03258145363408521,38.99064834600616
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,14,0.03508771929824561,37.07798041516364
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,15,0.03759398496240601,35.55187397214909
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,16,0.040100250626566414,34.82454304453399
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,17,0.042606516290726815,33.8553643850461
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,18,0.045112781954887216,33.74023891804818
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,19,0.047619047619047616,32.032330876498754
+squared_eigenvalue_ccdf,399,2,Barabasi-Albert degree-preserving rewired,20,0.05012531328320802,31.276329559463203

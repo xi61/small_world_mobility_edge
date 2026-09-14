@@ -1,0 +1,76 @@
+{
+  "analysis_version": "pa_extreme_positive_edge_crossfit_cdf_v1",
+  "augmentation_graph_count": 805,
+  "authoritative_source_analysis_version": "pa_mobility_edge_gap_first_v2_atom_segmented",
+  "base_graph_count": 500,
+  "g_max": 2000,
+  "gap_rule": "strictly within graph and atom segment; no graph or atom bridge",
+  "graph_count": 1305,
+  "graph_local_coordinate": "gap-first midpoint rank (i+1/2)/M retained per graph",
+  "graph_seed_base": 28100,
+  "historical_chung_lu_coordinate_alignment": "ensemble empirical-CDF energy coordinate",
+  "m": 10,
+  "minimum_displayed_positive_gaps": 100,
+  "minimum_observed_positive_gap_yield_per_graph": 0.08888888888888889,
+  "model": {
+    "model_family": "nonlinear",
+    "parameter_name": "attachment_zeta",
+    "parameter_value": 1.05
+  },
+  "n": 5000,
+  "perron_removed": true,
+  "preferred_contributing_graphs": 50,
+  "quantile_coordinate": "held-out five-fold training-only ensemble empirical-CDF at gap midpoint energy",
+  "ratio_rule": "raw adjacent-gap ratio before unfolding",
+  "requested_intervals": [
+    [
+      0.995,
+      0.996
+    ],
+    [
+      0.996,
+      0.997
+    ],
+    [
+      0.997,
+      0.998
+    ],
+    [
+      0.998,
+      0.999
+    ],
+    [
+      0.999,
+      0.9995
+    ],
+    [
+      0.9995,
+      0.9999
+    ],
+    [
+      0.9999,
+      0.99995
+    ],
+    [
+      0.99995,
+      1.0
+    ]
+  ],
+  "reuse_classification": "AUGMENT_GRAPHS_ONLY",
+  "source_cache_checksum_table": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/extreme_positive_edge_quantiles/nonlinear/nonlinear_attachment_zeta_1p05/source_cache_checksums.csv",
+  "ultrafine_resolution_audit": {
+    "ensemble_crossfit_cdf_coordinate": "mathematically resolvable; empirical support recorded per interval",
+    "graph_local_rank_coordinate": "finer than one-graph rank lattice and not used for bin assignment",
+    "intervals": [
+      [
+        0.9999,
+        0.99995
+      ],
+      [
+        0.99995,
+        1.0
+      ]
+    ]
+  },
+  "unfolding": "five-fold graph-level cross-fitted empirical CDF"
+}

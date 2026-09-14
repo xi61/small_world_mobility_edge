@@ -1,0 +1,44 @@
+{
+  "diagnostic": "rank_gap_reaggregate_from_saved_spectra",
+  "local_quantile_bins": [
+    [
+      0.998,
+      0.9982
+    ],
+    [
+      0.9982,
+      0.9984
+    ],
+    [
+      0.9984,
+      0.9986
+    ],
+    [
+      0.9986,
+      0.9988
+    ],
+    [
+      0.9988,
+      0.999
+    ],
+    [
+      0.999,
+      0.9993
+    ],
+    [
+      0.9993,
+      0.9996
+    ],
+    [
+      0.9996,
+      0.9999
+    ]
+  ],
+  "n": 5000,
+  "num_spacing_graphs": 500,
+  "reason": "Use per-graph rank gap bins so fine quantile windows pool gaps across all graphs instead of skipping graphs with no ensemble-energy hits.",
+  "source_spectrum_partials": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_spacing_tau0p8_ccdf_20260715/outputs/chung_lu/power_law_tail_zoom_500/n_5000/tau_0p8_avgdeg_20p0/spectrum_partials",
+  "target_mean_degree": 20.0,
+  "tau": 0.8,
+  "timestamp": "2026-07-15T09:00:57.370189Z"
+}

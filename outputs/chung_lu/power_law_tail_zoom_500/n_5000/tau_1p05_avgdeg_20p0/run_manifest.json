@@ -1,0 +1,92 @@
+{
+  "aggregation_timestamp": "2026-07-15T07:58:25.026903Z",
+  "code_version": null,
+  "component_mode": "full",
+  "cutoff_coefficient": 1.0,
+  "cutoff_mode": "structural",
+  "density_bandwidth_scale": 1.0,
+  "density_graph_seed": 31540,
+  "density_local_count_half_width": 0.2,
+  "density_method": "variable_local_count",
+  "density_num_bins": 120,
+  "density_num_points": 2001,
+  "density_sensitivity_local_count_half_widths": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "density_sequence_seed": 16305,
+  "diagnostic": "chunked_spectrum_spacing_aggregate",
+  "local_quantile_bins": [
+    [
+      0.998,
+      0.9982
+    ],
+    [
+      0.9982,
+      0.9984
+    ],
+    [
+      0.9984,
+      0.9986
+    ],
+    [
+      0.9986,
+      0.9988
+    ],
+    [
+      0.9988,
+      0.999
+    ],
+    [
+      0.999,
+      0.9993
+    ],
+    [
+      0.9993,
+      0.9996
+    ],
+    [
+      0.9996,
+      0.9999
+    ]
+  ],
+  "local_quantiles": [
+    0.005,
+    0.01,
+    0.025,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    0.9,
+    0.95,
+    0.975,
+    0.99,
+    0.995
+  ],
+  "local_target_eigenvalues_per_graph": 25,
+  "local_unfolding_method": "cdf",
+  "min_eigenvalues": 10,
+  "model": "power_law_chung_lu",
+  "n": 5000,
+  "num_density_graphs": 0,
+  "num_spacing_graphs": 500,
+  "num_spectrum_partial_files": 500,
+  "output_profile": "local_spacing_only_chunked_spectrum_aggregate",
+  "remove_exact_zero_eigenvalues": true,
+  "reuse_spacing_graphs_for_density": true,
+  "sequence_mode": "quantile",
+  "spacing_graph_seed": 27307,
+  "spacing_sequence_seed": 14267,
+  "tail_density_quantile_cutoff": 0.95,
+  "tail_local_count_half_width": 0.08,
+  "target_mean_degree": 20.0,
+  "tau": 1.05,
+  "timestamp": "2026-07-15T07:58:25.010851Z",
+  "w_max": null,
+  "w_min": 1.0,
+  "window_mode": "nonoverlapping_quantile_bins",
+  "zero_eigenvalue_atol": 1e-08
+}

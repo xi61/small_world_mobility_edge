@@ -1,0 +1,96 @@
+{
+  "all_labeled_degrees_preserved": true,
+  "comparison": "paired_with_realized_chung_lu",
+  "component_mode": "full",
+  "cutoff_coefficient": 1.0,
+  "cutoff_mode": "structural",
+  "git_commit": null,
+  "graph_seed_base": 27182,
+  "implementation": "degree_preserving_double_edge_swap",
+  "max_tries_factor": 20,
+  "maximum_edge_overlap_fraction": 0.4162811655151697,
+  "mean_edge_overlap_fraction": 0.41331285960000647,
+  "minimum_edge_overlap_fraction": 0.408707837053348,
+  "model": "fixed_degree_configuration_model",
+  "n": 5000,
+  "number_of_graphs": 20,
+  "quantile_bins": [
+    [
+      0.998,
+      0.9982
+    ],
+    [
+      0.9982,
+      0.9984
+    ],
+    [
+      0.9984,
+      0.9986
+    ],
+    [
+      0.9986,
+      0.9988
+    ],
+    [
+      0.9988,
+      0.999
+    ],
+    [
+      0.999,
+      0.9993
+    ],
+    [
+      0.9993,
+      0.9996
+    ],
+    [
+      0.9996,
+      0.9999
+    ]
+  ],
+  "rewire_seed_base": 17320,
+  "sampling_caveat": "finite double-edge-swap chains are not claimed to be provably uniform",
+  "sequence_mode": "quantile",
+  "sequence_seed_base": 14142,
+  "spacing_normalization": "rank_gap_pooled_mean_separately_by_model",
+  "spacing_window_mode": "rank_gap_nonoverlapping_quantile_bins",
+  "swaps_per_edge": 10,
+  "target_mean_degree": 20.0,
+  "tau": 1.5,
+  "tau_convention": "density_exponent_ccdf_tau_minus_one",
+  "timestamp": "2026-07-15T11:03:10.931281Z",
+  "w_max": null,
+  "w_min": 1.0,
+  "weight_diagnostics": {
+    "admissibility_holds": true,
+    "admissibility_margin": -3.709137672558427e-07,
+    "cutoff_coefficient": 1.0,
+    "cutoff_mode": "structural",
+    "estimated_tau_after_cutoff": 1.9359354518239154,
+    "estimated_tau_before_cutoff": 1.5000846733625899,
+    "estimated_tau_tail": 1.9359354518239154,
+    "final_lower_bound": 1.0,
+    "final_max": 316.22776601683796,
+    "final_mean": 19.99999999992582,
+    "final_upper_cap": 316.22776601683796,
+    "fraction_at_lower_bound": 0.434,
+    "fraction_at_upper_cap": 0.0318,
+    "max_weight_squared": 100000.00000000001,
+    "number_clipped_high": 159,
+    "number_clipped_low": 2170,
+    "power_of_n_cap": null,
+    "raw_max": 99999999.99999999,
+    "raw_min": 1.0002000300040004,
+    "requested_w_max": null,
+    "requested_w_min": 1.0,
+    "scaling_constant": 0.3204200907421182,
+    "sequence_mode": "quantile",
+    "structural_cap": 316.22776601683796,
+    "target_mean_degree": 20.0,
+    "target_mean_weight": 20.0,
+    "tau": 1.5,
+    "total_weight": 99999.9999996291
+  },
+  "zero_eigenvalue_atol": 1e-08,
+  "zero_removal_rule": "remove values isclose to zero"
+}

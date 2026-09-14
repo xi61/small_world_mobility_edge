@@ -1,0 +1,7 @@
+analysis_version,gaps,model,model_key,q_high,q_low,ratios,relative_gap_below_1e_minus_10,relative_gap_below_1e_minus_12,relative_gap_below_1e_minus_8,smallest_positive_gap
+pa_abnormal_edge_followup_v1,6391,affine alpha=1.05,affine_alpha_1p05,0.996,0.995,6302,0,0,0,0.009382483990329149
+pa_abnormal_edge_followup_v1,6235,affine alpha=1.05,affine_alpha_1p05,0.997,0.996,6276,0,0,0,0.0031015961294968974
+pa_abnormal_edge_followup_v1,6199,affine alpha=1.05,affine_alpha_1p05,0.998,0.997,6302,0,0,0,0.004317775257490553
+pa_abnormal_edge_followup_v1,12626,affine alpha=1.05,affine_alpha_1p05,0.997,0.995,12578,0,0,0,0.0031015961294968974
+pa_abnormal_edge_followup_v1,18825,affine alpha=1.05,affine_alpha_1p05,0.998,0.995,18880,0,0,0,0.0031015961294968974
+pa_abnormal_edge_followup_v1,102,affine alpha=1.05,affine_alpha_1p05,0.99995,0.9999,21,0,0,0,0.020310199850662514

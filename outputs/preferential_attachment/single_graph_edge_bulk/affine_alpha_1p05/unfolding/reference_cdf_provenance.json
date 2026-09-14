@@ -1,0 +1,8 @@
+{
+  "held_out_graph_count": 100,
+  "method": "existing five-fold graph-level cross-fitted variable-local-count CDF",
+  "path": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_1p05/unfolding/crossfit_k5/fold_0.npz",
+  "selected_graph_index_held_out": true,
+  "sha256": "7b819501afa4b051386889ffd2fa0d7677b6e148c0efc49bac3e6ff9761015fc",
+  "training_graph_count": 400
+}

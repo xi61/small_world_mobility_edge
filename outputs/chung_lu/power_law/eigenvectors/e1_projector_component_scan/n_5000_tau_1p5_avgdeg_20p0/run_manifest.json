@@ -1,0 +1,78 @@
+{
+  "atom_atol": 1e-08,
+  "atom_energies": [
+    -1.0,
+    1.0
+  ],
+  "code_version": null,
+  "diagnostic": "same_seed_basis_invariant_e1_projector_full_lcc_2core_scan",
+  "displayed_tau": 1.5,
+  "effective_density_exponent_passed_to_generator": 1.5,
+  "execution_provenance": {
+    "held_duplicate_hoffman_job": "14311713",
+    "mode": "local_parallel_resumable_fallback",
+    "source_files_sha256": {
+      "src/small_world_mobility_edge/chung_lu_e1_projector_core_scan.py": "92ef2cbe4766741b2dc615ef15c7a0ff312b869c814d9326cda0fd2e9d07a38a",
+      "src/small_world_mobility_edge/chung_lu_eigenvector_percentile_scan.py": "3c7946fd04b157875909025cc2310d9940cbc4a1c7859c922114a32375d09902",
+      "tools/local_chung_lu_component_audit.py": "46389104c1a95f012f72a15034c5f7026d158ae352e5c3f9649c217dc6bf3d36"
+    }
+  },
+  "full_projector_method": "direct sum of connected-component projectors",
+  "graph_seed_base": 27352,
+  "largest_component_2_core_definition": "networkx k_core(largest_component, k=2)",
+  "model": "power_law_chung_lu",
+  "n": 5000,
+  "num_graphs": 500,
+  "num_partial_files": 250,
+  "ordinary_basis_ipr_is_secondary_and_basis_dependent": true,
+  "output_is_additive": true,
+  "post_aggregation_validation": {
+    "all_graph_ids_0_through_499_present": true,
+    "full_minus_lcc_multiplicity_equals_isolated_k2_count_on_all_graphs": {
+      "minus_1": true,
+      "plus_1": true
+    },
+    "isolated_k2_total": 3544,
+    "minus_1_total_multiplicity": {
+      "full_graph": 3770,
+      "largest_component": 226,
+      "largest_component_2_core": 13
+    },
+    "number_of_graph_structure_rows": 1500,
+    "plus_1_total_multiplicity": {
+      "full_graph": 3758,
+      "largest_component": 214,
+      "largest_component_2_core": 0
+    },
+    "same_graph_and_sequence_seeds_as_percentile_scan": true
+  },
+  "projector_definition": "P_E=sum_{|lambda-E|<=atol} v v^T",
+  "projector_diagonal_is_basis_invariant": true,
+  "projector_mass_levels": [
+    0.5,
+    0.8,
+    0.9,
+    0.95
+  ],
+  "projector_top_r_values": [
+    1,
+    2,
+    5,
+    10,
+    20,
+    50,
+    100,
+    200
+  ],
+  "same_underlying_graph_seeds_as_q0p683_scan": true,
+  "sequence_seed_base": 14312,
+  "structures_in_order": [
+    "full_graph",
+    "largest_connected_component",
+    "largest_component_2_core"
+  ],
+  "target_mean_degree": 20.0,
+  "tau_convention": "density_exponent_ccdf_tau_minus_one",
+  "timestamp": "2026-08-13T03:51:44.587239Z",
+  "zero_atol_for_reported_continuous_quantiles": 1e-08
+}

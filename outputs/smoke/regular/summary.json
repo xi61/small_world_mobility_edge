@@ -1,0 +1,27 @@
+{
+  "component_mode": "full",
+  "degree_parameter": 6,
+  "density_exponent_tau": null,
+  "files": [
+    "graph_summary.csv",
+    "localization.csv",
+    "density_diagnostics.png",
+    "spacing_diagnostics.png",
+    "localization_diagnostics.png"
+  ],
+  "gap_ratio_count": 471,
+  "histogram_density_integral": 1.0000000000000029,
+  "local_count_density_integral": 1.0000000000000007,
+  "mean_gap_ratio": 0.528487399855586,
+  "mean_n_times_ipr": 2.876796367982966,
+  "mean_normalized_gap_count": 474,
+  "model": "regular",
+  "n_requested": 160,
+  "num_graphs": 3,
+  "raw_gap_count": 474,
+  "seed": 20260913,
+  "spectral_filter": "remove one trivial eigenvalue d",
+  "unfolded_gap_count": 474,
+  "unfolding": "Kesten-McKay CDF",
+  "within_graph_spacing_construction": true
+}

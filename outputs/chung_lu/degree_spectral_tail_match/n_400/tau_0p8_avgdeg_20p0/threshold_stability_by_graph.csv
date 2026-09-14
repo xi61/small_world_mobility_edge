@@ -1,0 +1,31 @@
+alpha_hill,alpha_regression,alpha_regression_r2,beta_hill,beta_minus_2alpha_hill,beta_over_2alpha_hill,beta_regression,beta_regression_r2,degree_tail_count,degree_xmin,gamma_hill,gamma_minus_alpha_hill,gamma_regression,gamma_regression_r2,graph_index,lambda_squared_tail_count,lambda_squared_xmin,model_variant,spectral_tail_count,spectral_xmin,tail_lower_quantile,target_mean_degree,tau,tau_convention
+14.903712239075535,12.210647699141246,0.9877068038573927,10.950005452632377,-18.857419025518695,0.3673583224427445,11.336034467517626,0.9110582701283557,21,87.0,5.4750027263161885,-9.428709512759347,5.668017233758809,0.9110582701283556,0,20,65.1161211687031,Chung-Lu,20,8.069456063992362,0.95,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,0,16,nan,Chung-Lu,16,nan,0.96,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,0,12,nan,Chung-Lu,12,nan,0.97,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,0,10,nan,Chung-Lu,10,nan,0.976,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,0,8,nan,Chung-Lu,8,nan,0.98,20.0,0.8,experimental_ccdf_exponent
+14.903712239075535,12.210647699141246,0.9877068038573927,9.714323209453577,-20.093101268697495,0.32590280373180863,10.538002558447715,0.9423227300718696,21,87.0,4.857161604726791,-10.046550634348744,5.269001279223858,0.9423227300718696,0,20,74.4751129080374,Fixed-degree configuration model,20,8.62989645986772,0.95,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,0,16,nan,Fixed-degree configuration model,16,nan,0.96,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,0,12,nan,Fixed-degree configuration model,12,nan,0.97,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,0,10,nan,Fixed-degree configuration model,10,nan,0.976,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,0,8,nan,Fixed-degree configuration model,8,nan,0.98,20.0,0.8,experimental_ccdf_exponent
+23.78251866512591,19.326930579136786,0.9826573657766356,10.937892192661588,-36.62714513759023,0.22995655646642338,11.836305066056772,0.9636601308873722,21,88.0,5.4689460963307965,-18.313572568795113,5.9181525330283815,0.9636601308873722,1,20,65.12028654024866,Chung-Lu,20,8.069714154804286,0.95,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,1,16,nan,Chung-Lu,16,nan,0.96,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,1,12,nan,Chung-Lu,12,nan,0.97,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,1,10,nan,Chung-Lu,10,nan,0.976,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,1,8,nan,Chung-Lu,8,nan,0.98,20.0,0.8,experimental_ccdf_exponent
+23.78251866512591,19.326930579136786,0.9826573657766356,9.314358987252765,-38.25067834299905,0.19582364505638145,10.144980361148608,0.971000034137459,21,88.0,4.657179493626383,-19.125339171499526,5.072490180574304,0.971000034137459,1,20,76.04969352053514,Fixed-degree configuration model,20,8.72064754020796,0.95,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,1,16,nan,Fixed-degree configuration model,16,nan,0.96,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,1,12,nan,Fixed-degree configuration model,12,nan,0.97,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,1,10,nan,Fixed-degree configuration model,10,nan,0.976,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,1,8,nan,Fixed-degree configuration model,8,nan,0.98,20.0,0.8,experimental_ccdf_exponent
+12.424571771149132,17.326655149282132,0.8903854631612519,9.88862234123725,-14.960521201061015,0.397946203836153,10.105746412243935,0.961045755445984,21,87.0,4.944311170618625,-7.4802606005305075,5.052873206121967,0.961045755445984,2,20,66.40838134309546,Chung-Lu,20,8.149133778696694,0.95,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,2,16,nan,Chung-Lu,16,nan,0.96,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,2,12,nan,Chung-Lu,12,nan,0.97,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,2,10,nan,Chung-Lu,10,nan,0.976,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,2,8,nan,Chung-Lu,8,nan,0.98,20.0,0.8,experimental_ccdf_exponent
+12.424571771149132,17.326655149282132,0.8903854631612519,9.578033183154075,-15.27111035914419,0.38544721538793986,10.302786486339135,0.962558619661661,21,87.0,4.789016591577038,-7.635555179572094,5.151393243169568,0.962558619661661,2,20,76.56949202467015,Fixed-degree configuration model,20,8.750399535145247,0.95,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,2,16,nan,Fixed-degree configuration model,16,nan,0.96,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,2,12,nan,Fixed-degree configuration model,12,nan,0.97,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,2,10,nan,Fixed-degree configuration model,10,nan,0.976,20.0,0.8,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,2,8,nan,Fixed-degree configuration model,8,nan,0.98,20.0,0.8,experimental_ccdf_exponent

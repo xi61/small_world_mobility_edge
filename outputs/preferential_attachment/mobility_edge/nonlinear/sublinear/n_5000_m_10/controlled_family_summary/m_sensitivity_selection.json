@@ -1,0 +1,97 @@
+{
+  "all_parameter_audit": [
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 320,
+      "maximum_coarse_n_times_ipr": 36.16835038502301,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 0.0,
+      "score": 45.210437981278766
+    },
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 352,
+      "maximum_coarse_n_times_ipr": 44.40065545792381,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 0.25,
+      "score": 55.500819322404766
+    },
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 384,
+      "maximum_coarse_n_times_ipr": 53.46095432527859,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 0.4,
+      "score": 66.82619290659824
+    },
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 416,
+      "maximum_coarse_n_times_ipr": 61.85019433338214,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 0.5,
+      "score": 77.31274291672767
+    },
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 432,
+      "maximum_coarse_n_times_ipr": 74.23875554273512,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 0.6,
+      "score": 92.7984444284189
+    },
+    {
+      "category": "IPR_ONLY",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 480,
+      "maximum_coarse_n_times_ipr": 108.66783176658433,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 0.75,
+      "score": 108.66783176658433
+    },
+    {
+      "category": "IPR_ONLY",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 544,
+      "maximum_coarse_n_times_ipr": 184.84908662447944,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 0.9,
+      "score": 184.84908662447944
+    }
+  ],
+  "interpretation": "selection identifies a sensitivity target, not a mobility edge",
+  "parameter_name": "attachment_zeta",
+  "selected_record": {
+    "category": "IPR_ONLY",
+    "eligible": true,
+    "exclusion_reasons": [],
+    "fine_window_count": 544,
+    "maximum_coarse_n_times_ipr": 184.84908662447944,
+    "mean_zero_multiplicity_fraction": 0.0,
+    "parameter_value": 0.9,
+    "score": 184.84908662447944
+  },
+  "selected_value": 0.9,
+  "selection_rule": {
+    "eligible_categories": [
+      "IPR_AND_R_SHIFT",
+      "IPR_ONLY"
+    ],
+    "maximum_zero_atom_fraction": 0.05,
+    "requires_fine_spacing_windows": true,
+    "score": "maximum_coarse_n_times_ipr times 1.25 for IPR_AND_R_SHIFT, else times 1",
+    "tie_break": "smaller parameter value"
+  }
+}

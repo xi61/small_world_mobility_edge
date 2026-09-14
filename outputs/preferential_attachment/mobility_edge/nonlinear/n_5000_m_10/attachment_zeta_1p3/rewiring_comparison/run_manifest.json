@@ -1,0 +1,131 @@
+{
+  "canonical_parameter": {
+    "name": "attachment_zeta",
+    "value": 1.3
+  },
+  "difference_definition": "rewired_minus_original",
+  "exact_labeled_degree_preservation_verified_for_all_graphs": true,
+  "graph_seed_base": 28100,
+  "interpretation": "rewiring preserves the realized labeled degree sequence; changes isolate organization beyond degrees, subject to finite-swap-chain mixing",
+  "m": 10,
+  "n": 5000,
+  "num_graphs": 500,
+  "original_candidate_regions": [
+    {
+      "analysis_version": "pa_mobility_edge_gap_first_v2_atom_segmented",
+      "bulk_median_n_times_ipr": 3.5117631019904527,
+      "bulk_median_raw_r_positive_conditioned": 0.5310385509711231,
+      "bulk_median_top50_mass": 0.10077223138144634,
+      "category": "IPR_AND_R_SHIFT",
+      "criteria": {
+        "atom_zero_gap_fraction": 0.1,
+        "ipr_ratio_threshold": 2.0,
+        "minimum_consecutive_bins": 3,
+        "r_shift_threshold": 0.04,
+        "top50_ratio_threshold": 1.35
+      },
+      "maximum_ipr_over_bulk": 141.04255770681985,
+      "maximum_top50_over_bulk": 5.292003043694382,
+      "number_of_consecutive_bins": 23,
+      "q_high": 0.046,
+      "q_low": 0.0
+    },
+    {
+      "analysis_version": "pa_mobility_edge_gap_first_v2_atom_segmented",
+      "bulk_median_n_times_ipr": 3.5117631019904527,
+      "bulk_median_raw_r_positive_conditioned": 0.5310385509711231,
+      "bulk_median_top50_mass": 0.10077223138144634,
+      "category": "IPR_ONLY",
+      "criteria": {
+        "atom_zero_gap_fraction": 0.1,
+        "ipr_ratio_threshold": 2.0,
+        "minimum_consecutive_bins": 3,
+        "r_shift_threshold": 0.04,
+        "top50_ratio_threshold": 1.35
+      },
+      "maximum_ipr_over_bulk": 122.94604034031042,
+      "maximum_top50_over_bulk": 5.161808750663713,
+      "number_of_consecutive_bins": 23,
+      "q_high": 1.0,
+      "q_low": 0.9540000000000001
+    }
+  ],
+  "paired_by_graph_index_and_graph_seed": true,
+  "paired_global_spectrum_summary": {
+    "exact_labeled_degree_match_for_all_graphs": true,
+    "mean_delta_lower_edge": -0.39945902897481245,
+    "mean_delta_upper_nonperron_edge": -0.817096702238762,
+    "mean_mean_absolute_rank_matched_eigenvalue_difference": 0.18029587867308225,
+    "mean_nonperron_esd_KS_distance": 0.023479095819163832,
+    "mean_original_minus_one_multiplicity": 0.0,
+    "mean_original_plus_one_multiplicity": 0.0,
+    "mean_original_zero_multiplicity": 0.0,
+    "mean_rewired_minus_one_multiplicity": 0.0,
+    "mean_rewired_plus_one_multiplicity": 0.0,
+    "mean_rewired_zero_multiplicity": 0.0,
+    "mean_rms_rank_matched_eigenvalue_difference": 0.21179698549236417,
+    "paired_graph_count": 500,
+    "se_delta_lower_edge": 0.016421830204497095,
+    "se_delta_upper_nonperron_edge": 0.014544065312003866,
+    "se_mean_absolute_rank_matched_eigenvalue_difference": 0.00022947537831702133,
+    "se_nonperron_esd_KS_distance": 3.1018019827640364e-05,
+    "se_original_minus_one_multiplicity": 0.0,
+    "se_original_plus_one_multiplicity": 0.0,
+    "se_original_zero_multiplicity": 0.0,
+    "se_rewired_minus_one_multiplicity": 0.0,
+    "se_rewired_plus_one_multiplicity": 0.0,
+    "se_rewired_zero_multiplicity": 0.0,
+    "se_rms_rank_matched_eigenvalue_difference": 0.00026305640267157074
+  },
+  "rewire_seed_base": 29100,
+  "rewired_candidate_regions": [
+    {
+      "analysis_version": "pa_mobility_edge_gap_first_v2_atom_segmented",
+      "bulk_median_n_times_ipr": 3.304272381156225,
+      "bulk_median_raw_r_positive_conditioned": 0.5308097413751616,
+      "bulk_median_top50_mass": 0.09435244985207328,
+      "category": "IPR_AND_R_SHIFT",
+      "criteria": {
+        "atom_zero_gap_fraction": 0.1,
+        "ipr_ratio_threshold": 2.0,
+        "minimum_consecutive_bins": 3,
+        "r_shift_threshold": 0.04,
+        "top50_ratio_threshold": 1.35
+      },
+      "maximum_ipr_over_bulk": 165.57517635621792,
+      "maximum_top50_over_bulk": 5.729572016554642,
+      "number_of_consecutive_bins": 21,
+      "q_high": 0.042,
+      "q_low": 0.0
+    },
+    {
+      "analysis_version": "pa_mobility_edge_gap_first_v2_atom_segmented",
+      "bulk_median_n_times_ipr": 3.304272381156225,
+      "bulk_median_raw_r_positive_conditioned": 0.5308097413751616,
+      "bulk_median_top50_mass": 0.09435244985207328,
+      "category": "IPR_ONLY",
+      "criteria": {
+        "atom_zero_gap_fraction": 0.1,
+        "ipr_ratio_threshold": 2.0,
+        "minimum_consecutive_bins": 3,
+        "r_shift_threshold": 0.04,
+        "top50_ratio_threshold": 1.35
+      },
+      "maximum_ipr_over_bulk": 136.7978708605422,
+      "maximum_top50_over_bulk": 5.541663196315678,
+      "number_of_consecutive_bins": 20,
+      "q_high": 1.0,
+      "q_low": 0.96
+    }
+  ],
+  "rewiring": {
+    "degree_preservation": "exact labeled degree equality required",
+    "max_tries_factor": 20,
+    "method": "networkx.double_edge_swap",
+    "swaps_per_edge": 10
+  },
+  "source_directories": [
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_10/attachment_zeta_1p3",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/n_5000_m_10/attachment_zeta_1p3/rewired"
+  ]
+}

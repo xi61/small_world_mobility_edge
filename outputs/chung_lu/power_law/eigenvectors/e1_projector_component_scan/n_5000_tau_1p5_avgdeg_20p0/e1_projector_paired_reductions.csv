@@ -1,0 +1,4 @@
+comparison,number_of_graphs,mean_removed_minus_1_multiplicity,se_removed_minus_1_multiplicity,fraction_of_minus_1_multiplicity_removed,fraction_graphs_with_reduction_minus_1,mean_removed_plus_1_multiplicity,se_removed_plus_1_multiplicity,fraction_of_plus_1_multiplicity_removed,fraction_graphs_with_reduction_plus_1
+full_to_largest,500,7.088,0.11952021655071017,0.940053050397878,1.0,7.088,0.11952021655071017,0.9430548163916977,1.0
+largest_to_2_core,500,0.426,0.030902393367369833,0.9424778761061947,0.332,0.428,0.030651444045005256,1.0,0.334
+full_to_2_core,500,7.514,0.12368591030840026,0.996551724137931,1.0,7.516,0.12355573657293357,1.0,1.0

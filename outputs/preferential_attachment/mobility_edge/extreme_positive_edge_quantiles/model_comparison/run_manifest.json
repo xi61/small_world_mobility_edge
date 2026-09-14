@@ -1,0 +1,76 @@
+{
+  "absolute_values_saved_in": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/extreme_positive_edge_quantiles/model_comparison/extreme_edge_model_by_interval_summary.csv",
+  "all_existing_models_reuse_classification": "REPOSTPROCESS_ONLY",
+  "analysis_version": "pa_extreme_positive_edge_crossfit_cdf_v1",
+  "models": [
+    {
+      "model_family": "affine_linear",
+      "parameter_name": "degree_ccdf_alpha",
+      "parameter_value": 2.0
+    },
+    {
+      "model_family": "affine_linear",
+      "parameter_name": "degree_ccdf_alpha",
+      "parameter_value": 1.5
+    },
+    {
+      "model_family": "affine_linear",
+      "parameter_name": "degree_ccdf_alpha",
+      "parameter_value": 1.25
+    },
+    {
+      "model_family": "affine_linear",
+      "parameter_name": "degree_ccdf_alpha",
+      "parameter_value": 1.05
+    },
+    {
+      "model_family": "nonlinear",
+      "parameter_name": "attachment_zeta",
+      "parameter_value": 1.05
+    },
+    {
+      "model_family": "nonlinear",
+      "parameter_name": "attachment_zeta",
+      "parameter_value": 1.2
+    },
+    {
+      "model_family": "nonlinear",
+      "parameter_name": "attachment_zeta",
+      "parameter_value": 1.5
+    }
+  ],
+  "requested_intervals": [
+    [
+      0.995,
+      0.996
+    ],
+    [
+      0.996,
+      0.997
+    ],
+    [
+      0.997,
+      0.998
+    ],
+    [
+      0.998,
+      0.999
+    ],
+    [
+      0.999,
+      0.9995
+    ],
+    [
+      0.9995,
+      0.9999
+    ],
+    [
+      0.9999,
+      0.99995
+    ],
+    [
+      0.99995,
+      1.0
+    ]
+  ]
+}

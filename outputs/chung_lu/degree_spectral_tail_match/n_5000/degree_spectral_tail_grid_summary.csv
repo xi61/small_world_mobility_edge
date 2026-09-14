@@ -1,0 +1,2 @@
+mean_alpha_hill,mean_beta_minus_2alpha_hill,mean_beta_over_2_hill,mean_gamma_hill,mean_gamma_minus_alpha_hill,number_of_partials,output_dir,tau
+2.122949384300598,0.6361705690094281,2.4410346688053126,2.4410346688053126,0.31808528450471396,5,<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match/n_5000/tau_2p0_avgdeg_20p0,2.0

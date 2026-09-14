@@ -1,0 +1,50 @@
+{
+  "code_version": "00a2c251371886d1ec8e7798bfdf1dd21995ac21",
+  "component_mode": "full",
+  "cutoff_coefficient": 1.0,
+  "cutoff_mode": "structural",
+  "eigsh_maxiter": 20000,
+  "eigsh_ncv_factor": 3,
+  "eigsh_tol": 1e-08,
+  "graph_seed_base": 27182,
+  "k_per_side": 30,
+  "max_tries_factor": 20,
+  "model": "power_law_chung_lu_degree_spectral_tail_match",
+  "n": 400,
+  "notes": [
+    "This is a tail-distribution experiment, not a spacing/unfolding experiment.",
+    "Perron eigenvalue is saved but excluded from primary spectral-tail fits.",
+    "Spectral CCDF denominators use N-1, not the number of sparse eigenvalues retained.",
+    "final_upper_cap is a cap on expected weights, not a hard spectral bound."
+  ],
+  "num_graphs": 3,
+  "output_dir": "<REPO_ROOT>/outputs/chung_lu/degree_spectral_tail_match",
+  "rewire_seed_base": 17320,
+  "run_fixed_degree_control": true,
+  "sequence_mode": "quantile",
+  "sequence_seed_base": 14142,
+  "swaps_per_edge": 10,
+  "tail_lower_quantiles": [
+    0.95,
+    0.96,
+    0.97,
+    0.976,
+    0.98
+  ],
+  "target_mean_degree": 20.0,
+  "target_tail_count": 30,
+  "tau": 2.5,
+  "tau_convention": "experimental_ccdf_exponent",
+  "tau_convention_resolution": "tau is the experimental CCDF exponent P(W >= t) ~ t^-tau; the checked-in Chung-Lu baseline still uses density exponent, so this experiment calls it with effective tau = tau + 1",
+  "tau_values": [
+    0.8,
+    1.05,
+    1.5,
+    2.0,
+    2.5
+  ],
+  "timestamp": "2026-07-20T07:02:09.895791Z",
+  "validate_dense": false,
+  "w_max": null,
+  "w_min": 1.0
+}

@@ -1,0 +1,40 @@
+[
+  {
+    "analysis_version": "pa_mobility_edge_gap_first_v2_atom_segmented",
+    "bulk_median_n_times_ipr": 3.304272381156225,
+    "bulk_median_raw_r_positive_conditioned": 0.5308097413751616,
+    "bulk_median_top50_mass": 0.09435244985207328,
+    "category": "IPR_AND_R_SHIFT",
+    "criteria": {
+      "atom_zero_gap_fraction": 0.1,
+      "ipr_ratio_threshold": 2.0,
+      "minimum_consecutive_bins": 3,
+      "r_shift_threshold": 0.04,
+      "top50_ratio_threshold": 1.35
+    },
+    "maximum_ipr_over_bulk": 165.57517635621792,
+    "maximum_top50_over_bulk": 5.729572016554642,
+    "number_of_consecutive_bins": 21,
+    "q_high": 0.042,
+    "q_low": 0.0
+  },
+  {
+    "analysis_version": "pa_mobility_edge_gap_first_v2_atom_segmented",
+    "bulk_median_n_times_ipr": 3.304272381156225,
+    "bulk_median_raw_r_positive_conditioned": 0.5308097413751616,
+    "bulk_median_top50_mass": 0.09435244985207328,
+    "category": "IPR_ONLY",
+    "criteria": {
+      "atom_zero_gap_fraction": 0.1,
+      "ipr_ratio_threshold": 2.0,
+      "minimum_consecutive_bins": 3,
+      "r_shift_threshold": 0.04,
+      "top50_ratio_threshold": 1.35
+    },
+    "maximum_ipr_over_bulk": 136.7978708605422,
+    "maximum_top50_over_bulk": 5.541663196315678,
+    "number_of_consecutive_bins": 20,
+    "q_high": 1.0,
+    "q_low": 0.96
+  }
+]

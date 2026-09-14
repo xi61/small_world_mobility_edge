@@ -1,0 +1,66 @@
+{
+  "active_parameter_pairs": [
+    [
+      1.5,
+      20.0
+    ]
+  ],
+  "code_version": null,
+  "component_mode": "full",
+  "cutoff_coefficient": 1.0,
+  "cutoff_mode": "structural",
+  "diagnostic": "paired_rank_quantile_spacing_ipr",
+  "graph_seed": 27352,
+  "local_quantile_bins": [
+    [
+      0.5,
+      0.7
+    ],
+    [
+      0.7,
+      0.85
+    ],
+    [
+      0.85,
+      0.92
+    ],
+    [
+      0.92,
+      0.96
+    ],
+    [
+      0.96,
+      0.98
+    ],
+    [
+      0.98,
+      0.99
+    ],
+    [
+      0.99,
+      0.995
+    ],
+    [
+      0.995,
+      0.998
+    ]
+  ],
+  "min_graphs_with_gaps": 20,
+  "min_pooled_gap_ratios": 100,
+  "min_pooled_gaps_for_spacing": 200,
+  "model": "power_law_chung_lu",
+  "n": 5000,
+  "num_graphs": 500,
+  "num_partial_files": 100,
+  "remove_exact_zero_eigenvalues": true,
+  "run_full_grid": false,
+  "sequence_mode": "quantile",
+  "sequence_seed": 14312,
+  "target_mean_degree": 20.0,
+  "tau": 1.5,
+  "timestamp": "2026-07-15T09:40:21.972142Z",
+  "unfolding_method": "within_graph_bin_mean_gap",
+  "w_max": null,
+  "w_min": 1.0,
+  "zero_eigenvalue_atol": 1e-08
+}

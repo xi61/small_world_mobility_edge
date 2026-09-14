@@ -1,44 +1,68 @@
 # Results inventory
 
-The repository separates runnable scientific code from historical production
-artifacts.  A missing cache does not mean the generator or analysis is absent.
+This repository is the canonical aggregate for the random-regular,
+Erdős--Rényi, Chung--Lu, fixed-realized-degree, and preferential-attachment
+work. It contains both runnable scientific code and the compact finalized
+results copied back from Hoffman.
 
-## Tracked snapshots
+## Published result trees
 
-The existing Git history contains selected, compact snapshots under
-`outputs/`:
+| Model or artifact | Published path | Contents and provenance |
+|---|---|---|
+| Random simple `k`-regular | `outputs/smoke/regular/` | Verified reference run: graph invariants, empirical density, local spacing/ratios, and localization. No separate large Hoffman regular run was present in the downloaded workspaces. |
+| Erdős--Rényi | `outputs/erdos_renyi/` | Density, local-spacing histograms and summaries, largest-component runs, and extreme-edge outputs. |
+| Chung--Lu | `outputs/chung_lu/` | Constant-weight and power-law density/spacing outputs, eigenvector scans, exact-`E=1` resonance/projector analyses, joint spacing--IPR results, and degree/spectral-tail matching. |
+| Fixed realized-degree control | `outputs/configuration_model/` | Paired Chung--Lu versus exact-labeled-degree double-edge-swap summaries, histograms, and manifest. |
+| Preferential attachment | `outputs/preferential_attachment/` | BA pilots; affine-linear and nonlinear production families; rewired controls; coarse/fine mobility-edge summaries; extreme-edge, abnormal-band, and single-graph edge/bulk diagnostics. |
+| PA report package | `docs/reports/pa_three_model_edge_bulk_conclusive_report/` | Upload-ready TeX, all 84 referenced recorded figures, tables, a figure manifest, and the compiled PDF. Build auxiliaries and duplicate ZIP/PDF copies are omitted. |
 
-- random-regular local-density and spacing figures;
-- Erdős--Rényi density/local-spacing figures and an extreme-edge summary;
-- Chung--Lu power-law density/local-spacing figures and numerical summaries.
+The run manifests and output tables are authoritative for graph counts,
+parameters, seeds, component rules, atom filtering, and normalization. Module
+defaults may describe a later experiment and should not be used to reinterpret
+an older output.
 
-These files are illustrative historical outputs.  Their run manifests and
-tables, when present, are the authority for their settings; current module
-defaults may describe later experiments.
+## Research reports
 
-## Runnable without historical data
+- `docs/eigenvector_mobility_edge.md`: Chung--Lu localization and finite-size
+  mobility-edge interpretation.
+- `docs/eigenvalue_eigenvector_resonance_alignment.md`: alignment of the
+  eigenvalue and eigenvector diagnostics near the `E=1` resonance.
+- `docs/preferential_attachment_chung_lu_experiment_handoff.md`: detailed
+  PA/Chung--Lu comparison and design history.
+- `docs/preferential_attachment_mobility_edge_execution.md`: production
+  conventions and original Hoffman execution recipe.
+- `docs/preferential_attachment_mobility_edge_execution_report.md`: final PA
+  implementation and scientific result report.
 
-The following workflows can generate fresh seeded results from source:
+These reports have distinct roles and are indexed here rather than repeated in
+the README.
 
-- random-regular generation, density, unfolding, spacing, gap ratios, and IPR;
-- ER full-graph/LCC density and spacing plus sparse extreme-edge diagnostics;
-- Chung--Lu weight generation, density/spacing, localization,
-  resonance/projector, and degree/spectral-tail workflows;
-- exact-realized-degree double-edge-swap comparisons;
-- PA generation and the dense/sparse diagnostic workflows described in the
-  PA package README;
-- the shared quick non-PA integration runner.
+## Reproducible but not tracked as Git objects
 
-## Historical data not published
+The local checkout also contains large restart and per-graph products. They are
+excluded from the Git publication tier:
 
-Full production spectra, scheduler logs, chunk caches, copied cluster working
-directories, large report build trees, and later PA/Chung--Lu production
-results are not committed.  Cache-dependent postprocessors require the
-corresponding external result directory and should fail clearly when it is not
-supplied.  The public repository therefore supports rerunning a simulation but
-does not promise byte-for-byte reproduction of every archived production
-figure.
+- `partials/` and `replay_partials/` task checkpoints;
+- per-window `.npz` arrays and cached eigensystem products;
+- high-volume per-graph `.csv.gz` tables;
+- scheduler logs, Matplotlib/XDG caches, and `.DS_Store` files;
+- directories explicitly marked `superseded`;
+- the manifest-only interrupted ER `N=5000`, average-degree-3 full-graph run.
 
-New outputs are written under `outputs/` and are ignored by Git.  Publish a new
-small result only after recording its configuration, seeds, code commit,
-filtering rules, sample counts, and normalization.
+These exclusions keep the repository below GitHub's recommended size while
+preserving all finalized figures, compact tables, manifests, and reports.
+They do not remove a graph generator or analysis path. The Python modules and
+the chunk/aggregate utilities under `tools/` reproduce the excluded
+intermediates from saved parameters and seeds.
+
+## Provenance and integrity
+
+Hoffman outputs were copied into their existing canonical paths without
+renaming result files. Existing files were not overwritten during aggregation.
+Where a workflow emitted checksums, software versions, graph IDs, seeds, or SGE
+metadata, those records remain with the output. The transfer, audit, validation,
+and aggregation entry points are indexed in `docs/hoffman_reproduction.md`.
+
+When publishing a new result, retain its manifest, compact summary tables, and
+final figures. Keep its resumable cache beneath the ignored output tree unless
+it is intentionally distributed as a separate release asset.

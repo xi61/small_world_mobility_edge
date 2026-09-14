@@ -1,0 +1,6 @@
+analysis_version,gaps,model,model_key,q_high,q_low,ratios,relative_gap_below_1e_minus_10,relative_gap_below_1e_minus_12,relative_gap_below_1e_minus_8,smallest_positive_gap
+pa_abnormal_edge_followup_v1,9369,superlinear zeta=1.50,superlinear_zeta_1p5,0.996,0.995,9367,0,0,0,0.0035826011912636346
+pa_abnormal_edge_followup_v1,9449,superlinear zeta=1.50,superlinear_zeta_1p5,0.997,0.996,9414,0,0,0,0.015312528237288348
+pa_abnormal_edge_followup_v1,9542,superlinear zeta=1.50,superlinear_zeta_1p5,0.998,0.997,9405,0,0,0,0.005814471752405126
+pa_abnormal_edge_followup_v1,18818,superlinear zeta=1.50,superlinear_zeta_1p5,0.997,0.995,18781,0,0,0,0.0035826011912636346
+pa_abnormal_edge_followup_v1,28360,superlinear zeta=1.50,superlinear_zeta_1p5,0.998,0.995,28186,0,0,0,0.0035826011912636346

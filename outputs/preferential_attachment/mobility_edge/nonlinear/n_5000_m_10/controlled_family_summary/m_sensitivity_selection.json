@@ -1,0 +1,79 @@
+{
+  "all_parameter_audit": [
+    {
+      "category": "IPR_ONLY",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 624,
+      "maximum_coarse_n_times_ipr": 342.5942690086387,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 1.05,
+      "score": 342.5942690086387
+    },
+    {
+      "category": "IPR_ONLY",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 640,
+      "maximum_coarse_n_times_ipr": 416.7630128798056,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 1.1,
+      "score": 416.7630128798056
+    },
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 704,
+      "maximum_coarse_n_times_ipr": 433.4400465559198,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 1.2,
+      "score": 541.8000581948997
+    },
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": true,
+      "exclusion_reasons": [],
+      "fine_window_count": 736,
+      "maximum_coarse_n_times_ipr": 495.3080499651691,
+      "mean_zero_multiplicity_fraction": 0.0,
+      "parameter_value": 1.3,
+      "score": 619.1350624564614
+    },
+    {
+      "category": "IPR_AND_R_SHIFT",
+      "eligible": false,
+      "exclusion_reasons": [
+        "zero-atom fraction is unavailable or too large"
+      ],
+      "fine_window_count": 1024,
+      "maximum_coarse_n_times_ipr": 686.8219283152075,
+      "mean_zero_multiplicity_fraction": 0.059003800760152034,
+      "parameter_value": 1.5,
+      "score": 858.5274103940094
+    }
+  ],
+  "interpretation": "selection identifies a sensitivity target, not a mobility edge",
+  "parameter_name": "attachment_zeta",
+  "selected_record": {
+    "category": "IPR_AND_R_SHIFT",
+    "eligible": true,
+    "exclusion_reasons": [],
+    "fine_window_count": 736,
+    "maximum_coarse_n_times_ipr": 495.3080499651691,
+    "mean_zero_multiplicity_fraction": 0.0,
+    "parameter_value": 1.3,
+    "score": 619.1350624564614
+  },
+  "selected_value": 1.3,
+  "selection_rule": {
+    "eligible_categories": [
+      "IPR_AND_R_SHIFT",
+      "IPR_ONLY"
+    ],
+    "maximum_zero_atom_fraction": 0.05,
+    "requires_fine_spacing_windows": true,
+    "score": "maximum_coarse_n_times_ipr times 1.25 for IPR_AND_R_SHIFT, else times 1",
+    "tie_break": "smaller parameter value"
+  }
+}

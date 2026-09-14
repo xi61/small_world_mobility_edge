@@ -1,0 +1,241 @@
+eigenvalue_magnitude,graph_index,model_variant,rank,side,sqrt_degree
+7.4366451554726485,0,Barabasi-Albert,1,positive_nonperron,7.810249675906654
+6.922514234912386,0,Barabasi-Albert,2,positive_nonperron,7.211102550927978
+6.756959644801783,0,Barabasi-Albert,3,positive_nonperron,6.708203932499369
+6.657412966873557,0,Barabasi-Albert,4,positive_nonperron,6.6332495807108
+6.4704872024668525,0,Barabasi-Albert,5,positive_nonperron,6.48074069840786
+6.22923584261314,0,Barabasi-Albert,6,positive_nonperron,6.244997998398398
+6.095659695753228,0,Barabasi-Albert,7,positive_nonperron,6.082762530298219
+5.93154772017974,0,Barabasi-Albert,8,positive_nonperron,5.830951894845301
+5.79733479242031,0,Barabasi-Albert,9,positive_nonperron,5.5677643628300215
+5.672249579282113,0,Barabasi-Albert,10,positive_nonperron,5.477225575051661
+5.494195286593072,0,Barabasi-Albert,11,positive_nonperron,5.477225575051661
+5.206052748299427,0,Barabasi-Albert,12,positive_nonperron,5.477225575051661
+5.11486169217023,0,Barabasi-Albert,13,positive_nonperron,5.291502622129181
+5.030593140382976,0,Barabasi-Albert,14,positive_nonperron,5.291502622129181
+4.9405518295180135,0,Barabasi-Albert,15,positive_nonperron,5.291502622129181
+4.894585349016397,0,Barabasi-Albert,16,positive_nonperron,5.196152422706632
+4.858511315211361,0,Barabasi-Albert,17,positive_nonperron,5.0990195135927845
+4.746858348281233,0,Barabasi-Albert,18,positive_nonperron,5.0
+4.636601899580173,0,Barabasi-Albert,19,positive_nonperron,4.795831523312719
+4.54564980134756,0,Barabasi-Albert,20,positive_nonperron,4.795831523312719
+8.466980666268638,0,Barabasi-Albert,1,negative_absolute,7.810249675906654
+7.908520158490995,0,Barabasi-Albert,2,negative_absolute,7.211102550927978
+7.602437637735417,0,Barabasi-Albert,3,negative_absolute,6.708203932499369
+7.184231489934432,0,Barabasi-Albert,4,negative_absolute,6.6332495807108
+6.928255604230043,0,Barabasi-Albert,5,negative_absolute,6.48074069840786
+6.512423167630085,0,Barabasi-Albert,6,negative_absolute,6.244997998398398
+6.365689530721172,0,Barabasi-Albert,7,negative_absolute,6.082762530298219
+6.156192168749404,0,Barabasi-Albert,8,negative_absolute,5.830951894845301
+5.978261353624917,0,Barabasi-Albert,9,negative_absolute,5.5677643628300215
+5.808216386521431,0,Barabasi-Albert,10,negative_absolute,5.477225575051661
+5.6567203309970395,0,Barabasi-Albert,11,negative_absolute,5.477225575051661
+5.469580316201154,0,Barabasi-Albert,12,negative_absolute,5.477225575051661
+5.243787847249161,0,Barabasi-Albert,13,negative_absolute,5.291502622129181
+5.171269588690355,0,Barabasi-Albert,14,negative_absolute,5.291502622129181
+5.079548115959355,0,Barabasi-Albert,15,negative_absolute,5.291502622129181
+4.968165412313582,0,Barabasi-Albert,16,negative_absolute,5.196152422706632
+4.891146167924124,0,Barabasi-Albert,17,negative_absolute,5.0990195135927845
+4.739636791767088,0,Barabasi-Albert,18,negative_absolute,5.0
+4.663479793057426,0,Barabasi-Albert,19,negative_absolute,4.795831523312719
+4.612631570720639,0,Barabasi-Albert,20,negative_absolute,4.795831523312719
+7.982580741387479,0,Barabasi-Albert degree-preserving rewired,1,positive_nonperron,7.810249675906654
+6.973367634145312,0,Barabasi-Albert degree-preserving rewired,2,positive_nonperron,7.211102550927978
+6.925306741295645,0,Barabasi-Albert degree-preserving rewired,3,positive_nonperron,6.708203932499369
+6.866632830845509,0,Barabasi-Albert degree-preserving rewired,4,positive_nonperron,6.6332495807108
+6.538244948542676,0,Barabasi-Albert degree-preserving rewired,5,positive_nonperron,6.48074069840786
+6.302773491625236,0,Barabasi-Albert degree-preserving rewired,6,positive_nonperron,6.244997998398398
+6.051809460729763,0,Barabasi-Albert degree-preserving rewired,7,positive_nonperron,6.082762530298219
+5.941092071648528,0,Barabasi-Albert degree-preserving rewired,8,positive_nonperron,5.830951894845301
+5.790783495760951,0,Barabasi-Albert degree-preserving rewired,9,positive_nonperron,5.5677643628300215
+5.644596692724919,0,Barabasi-Albert degree-preserving rewired,10,positive_nonperron,5.477225575051661
+5.356737470215046,0,Barabasi-Albert degree-preserving rewired,11,positive_nonperron,5.477225575051661
+5.307477406134681,0,Barabasi-Albert degree-preserving rewired,12,positive_nonperron,5.477225575051661
+5.212244642169781,0,Barabasi-Albert degree-preserving rewired,13,positive_nonperron,5.291502622129181
+5.041184930645222,0,Barabasi-Albert degree-preserving rewired,14,positive_nonperron,5.291502622129181
+4.902028443868966,0,Barabasi-Albert degree-preserving rewired,15,positive_nonperron,5.291502622129181
+4.766221869642592,0,Barabasi-Albert degree-preserving rewired,16,positive_nonperron,5.196152422706632
+4.72304583311416,0,Barabasi-Albert degree-preserving rewired,17,positive_nonperron,5.0990195135927845
+4.611288595841111,0,Barabasi-Albert degree-preserving rewired,18,positive_nonperron,5.0
+4.581942195869242,0,Barabasi-Albert degree-preserving rewired,19,positive_nonperron,4.795831523312719
+4.530627818204033,0,Barabasi-Albert degree-preserving rewired,20,positive_nonperron,4.795831523312719
+8.298788663026123,0,Barabasi-Albert degree-preserving rewired,1,negative_absolute,7.810249675906654
+7.927392261513166,0,Barabasi-Albert degree-preserving rewired,2,negative_absolute,7.211102550927978
+7.264176701456983,0,Barabasi-Albert degree-preserving rewired,3,negative_absolute,6.708203932499369
+6.982604986396925,0,Barabasi-Albert degree-preserving rewired,4,negative_absolute,6.6332495807108
+6.75951656801228,0,Barabasi-Albert degree-preserving rewired,5,negative_absolute,6.48074069840786
+6.550172042543285,0,Barabasi-Albert degree-preserving rewired,6,negative_absolute,6.244997998398398
+6.246545806412344,0,Barabasi-Albert degree-preserving rewired,7,negative_absolute,6.082762530298219
+5.972859918483954,0,Barabasi-Albert degree-preserving rewired,8,negative_absolute,5.830951894845301
+5.920348211099131,0,Barabasi-Albert degree-preserving rewired,9,negative_absolute,5.5677643628300215
+5.795781940280733,0,Barabasi-Albert degree-preserving rewired,10,negative_absolute,5.477225575051661
+5.61214954117629,0,Barabasi-Albert degree-preserving rewired,11,negative_absolute,5.477225575051661
+5.453164051714944,0,Barabasi-Albert degree-preserving rewired,12,negative_absolute,5.477225575051661
+5.43214404010085,0,Barabasi-Albert degree-preserving rewired,13,negative_absolute,5.291502622129181
+5.146813059556841,0,Barabasi-Albert degree-preserving rewired,14,negative_absolute,5.291502622129181
+5.060846840035957,0,Barabasi-Albert degree-preserving rewired,15,negative_absolute,5.291502622129181
+5.005228759322598,0,Barabasi-Albert degree-preserving rewired,16,negative_absolute,5.196152422706632
+4.862272787711973,0,Barabasi-Albert degree-preserving rewired,17,negative_absolute,5.0990195135927845
+4.852800807604405,0,Barabasi-Albert degree-preserving rewired,18,negative_absolute,5.0
+4.756171815002634,0,Barabasi-Albert degree-preserving rewired,19,negative_absolute,4.795831523312719
+4.713794621043989,0,Barabasi-Albert degree-preserving rewired,20,negative_absolute,4.795831523312719
+8.298706735433553,1,Barabasi-Albert,1,positive_nonperron,8.426149773176359
+7.40079989255538,1,Barabasi-Albert,2,positive_nonperron,8.12403840463596
+7.280803061643751,1,Barabasi-Albert,3,positive_nonperron,7.3484692283495345
+6.913087489089531,1,Barabasi-Albert,4,positive_nonperron,6.855654600401044
+6.691839498422765,1,Barabasi-Albert,5,positive_nonperron,6.708203932499369
+6.541448975684348,1,Barabasi-Albert,6,positive_nonperron,6.6332495807108
+6.155388728836486,1,Barabasi-Albert,7,positive_nonperron,6.244997998398398
+5.9036534922426736,1,Barabasi-Albert,8,positive_nonperron,6.082762530298219
+5.806052689051598,1,Barabasi-Albert,9,positive_nonperron,6.0
+5.448158381045209,1,Barabasi-Albert,10,positive_nonperron,5.916079783099616
+5.364802291513716,1,Barabasi-Albert,11,positive_nonperron,5.916079783099616
+5.227238024677578,1,Barabasi-Albert,12,positive_nonperron,5.477225575051661
+5.133436330919125,1,Barabasi-Albert,13,positive_nonperron,5.291502622129181
+4.995861250091853,1,Barabasi-Albert,14,positive_nonperron,5.291502622129181
+4.958464323279092,1,Barabasi-Albert,15,positive_nonperron,5.0
+4.8002418524409185,1,Barabasi-Albert,16,positive_nonperron,4.898979485566356
+4.696665122252832,1,Barabasi-Albert,17,positive_nonperron,4.898979485566356
+4.646362534067084,1,Barabasi-Albert,18,positive_nonperron,4.898979485566356
+4.603191380597043,1,Barabasi-Albert,19,positive_nonperron,4.58257569495584
+4.42959073188249,1,Barabasi-Albert,20,positive_nonperron,4.58257569495584
+8.704850336566784,1,Barabasi-Albert,1,negative_absolute,8.426149773176359
+8.040724843488697,1,Barabasi-Albert,2,negative_absolute,8.12403840463596
+7.630982987853121,1,Barabasi-Albert,3,negative_absolute,7.3484692283495345
+7.295524809857017,1,Barabasi-Albert,4,negative_absolute,6.855654600401044
+6.991810150894816,1,Barabasi-Albert,5,negative_absolute,6.708203932499369
+6.74938699986181,1,Barabasi-Albert,6,negative_absolute,6.6332495807108
+6.542146092622674,1,Barabasi-Albert,7,negative_absolute,6.244997998398398
+6.4230366215709145,1,Barabasi-Albert,8,negative_absolute,6.082762530298219
+6.234313864562582,1,Barabasi-Albert,9,negative_absolute,6.0
+5.757324234419775,1,Barabasi-Albert,10,negative_absolute,5.916079783099616
+5.714246968945937,1,Barabasi-Albert,11,negative_absolute,5.916079783099616
+5.5443467790439955,1,Barabasi-Albert,12,negative_absolute,5.477225575051661
+5.418630880872646,1,Barabasi-Albert,13,negative_absolute,5.291502622129181
+5.266811534525288,1,Barabasi-Albert,14,negative_absolute,5.291502622129181
+5.128302957216748,1,Barabasi-Albert,15,negative_absolute,5.0
+5.036079707251697,1,Barabasi-Albert,16,negative_absolute,4.898979485566356
+4.856387903898125,1,Barabasi-Albert,17,negative_absolute,4.898979485566356
+4.699905226353299,1,Barabasi-Albert,18,negative_absolute,4.898979485566356
+4.611766419795315,1,Barabasi-Albert,19,negative_absolute,4.58257569495584
+4.569189987078622,1,Barabasi-Albert,20,negative_absolute,4.58257569495584
+8.2025566424892,1,Barabasi-Albert degree-preserving rewired,1,positive_nonperron,8.426149773176359
+7.385239091225119,1,Barabasi-Albert degree-preserving rewired,2,positive_nonperron,8.12403840463596
+7.32483432248521,1,Barabasi-Albert degree-preserving rewired,3,positive_nonperron,7.3484692283495345
+6.843396039508752,1,Barabasi-Albert degree-preserving rewired,4,positive_nonperron,6.855654600401044
+6.702150504813924,1,Barabasi-Albert degree-preserving rewired,5,positive_nonperron,6.708203932499369
+6.428363856924487,1,Barabasi-Albert degree-preserving rewired,6,positive_nonperron,6.6332495807108
+6.277644356848706,1,Barabasi-Albert degree-preserving rewired,7,positive_nonperron,6.244997998398398
+5.9891400127675,1,Barabasi-Albert degree-preserving rewired,8,positive_nonperron,6.082762530298219
+5.848604392754258,1,Barabasi-Albert degree-preserving rewired,9,positive_nonperron,6.0
+5.6883427398537085,1,Barabasi-Albert degree-preserving rewired,10,positive_nonperron,5.916079783099616
+5.537134121272768,1,Barabasi-Albert degree-preserving rewired,11,positive_nonperron,5.916079783099616
+5.379375223673977,1,Barabasi-Albert degree-preserving rewired,12,positive_nonperron,5.477225575051661
+5.29733979466649,1,Barabasi-Albert degree-preserving rewired,13,positive_nonperron,5.291502622129181
+5.0331174592621535,1,Barabasi-Albert degree-preserving rewired,14,positive_nonperron,5.291502622129181
+4.915733596101745,1,Barabasi-Albert degree-preserving rewired,15,positive_nonperron,5.0
+4.772830254810801,1,Barabasi-Albert degree-preserving rewired,16,positive_nonperron,4.898979485566356
+4.545682068474202,1,Barabasi-Albert degree-preserving rewired,17,positive_nonperron,4.898979485566356
+4.437989078861593,1,Barabasi-Albert degree-preserving rewired,18,positive_nonperron,4.898979485566356
+4.396252146706277,1,Barabasi-Albert degree-preserving rewired,19,positive_nonperron,4.58257569495584
+4.276599773200607,1,Barabasi-Albert degree-preserving rewired,20,positive_nonperron,4.58257569495584
+8.788848425673855,1,Barabasi-Albert degree-preserving rewired,1,negative_absolute,8.426149773176359
+8.305067038688533,1,Barabasi-Albert degree-preserving rewired,2,negative_absolute,8.12403840463596
+7.782912256085128,1,Barabasi-Albert degree-preserving rewired,3,negative_absolute,7.3484692283495345
+7.374222832506811,1,Barabasi-Albert degree-preserving rewired,4,negative_absolute,6.855654600401044
+7.1248700168343,1,Barabasi-Albert degree-preserving rewired,5,negative_absolute,6.708203932499369
+6.908339076109204,1,Barabasi-Albert degree-preserving rewired,6,negative_absolute,6.6332495807108
+6.571065666107693,1,Barabasi-Albert degree-preserving rewired,7,negative_absolute,6.244997998398398
+6.236655507001887,1,Barabasi-Albert degree-preserving rewired,8,negative_absolute,6.082762530298219
+6.2067172759911315,1,Barabasi-Albert degree-preserving rewired,9,negative_absolute,6.0
+5.843525396638617,1,Barabasi-Albert degree-preserving rewired,10,negative_absolute,5.916079783099616
+5.613173375769012,1,Barabasi-Albert degree-preserving rewired,11,negative_absolute,5.916079783099616
+5.572119801726385,1,Barabasi-Albert degree-preserving rewired,12,negative_absolute,5.477225575051661
+5.197199858301881,1,Barabasi-Albert degree-preserving rewired,13,negative_absolute,5.291502622129181
+5.156460114904887,1,Barabasi-Albert degree-preserving rewired,14,negative_absolute,5.291502622129181
+5.008951955471736,1,Barabasi-Albert degree-preserving rewired,15,negative_absolute,5.0
+4.809577420834715,1,Barabasi-Albert degree-preserving rewired,16,negative_absolute,4.898979485566356
+4.701226585719082,1,Barabasi-Albert degree-preserving rewired,17,negative_absolute,4.898979485566356
+4.667888860686802,1,Barabasi-Albert degree-preserving rewired,18,negative_absolute,4.898979485566356
+4.558045804330081,1,Barabasi-Albert degree-preserving rewired,19,negative_absolute,4.58257569495584
+4.495774451294192,1,Barabasi-Albert degree-preserving rewired,20,negative_absolute,4.58257569495584
+7.4824173151543425,2,Barabasi-Albert,1,positive_nonperron,8.12403840463596
+6.678993517960577,2,Barabasi-Albert,2,positive_nonperron,6.928203230275509
+6.601096136844254,2,Barabasi-Albert,3,positive_nonperron,6.928203230275509
+6.511080372307341,2,Barabasi-Albert,4,positive_nonperron,6.708203932499369
+6.27351887489781,2,Barabasi-Albert,5,positive_nonperron,6.557438524302
+6.044448352547158,2,Barabasi-Albert,6,positive_nonperron,6.164414002968976
+5.887195639453444,2,Barabasi-Albert,7,positive_nonperron,5.916079783099616
+5.7953161122802355,2,Barabasi-Albert,8,positive_nonperron,5.744562646538029
+5.6477620215999895,2,Barabasi-Albert,9,positive_nonperron,5.744562646538029
+5.514031152154819,2,Barabasi-Albert,10,positive_nonperron,5.477225575051661
+5.393553438052319,2,Barabasi-Albert,11,positive_nonperron,5.477225575051661
+5.208070872264877,2,Barabasi-Albert,12,positive_nonperron,5.385164807134504
+5.11318056069246,2,Barabasi-Albert,13,positive_nonperron,5.291502622129181
+5.023738795238285,2,Barabasi-Albert,14,positive_nonperron,5.0990195135927845
+4.988048798141182,2,Barabasi-Albert,15,positive_nonperron,5.0
+4.890036895221181,2,Barabasi-Albert,16,positive_nonperron,4.898979485566356
+4.8084916480434625,2,Barabasi-Albert,17,positive_nonperron,4.898979485566356
+4.701074327495915,2,Barabasi-Albert,18,positive_nonperron,4.795831523312719
+4.651322969039485,2,Barabasi-Albert,19,positive_nonperron,4.795831523312719
+4.588192770051795,2,Barabasi-Albert,20,positive_nonperron,4.795831523312719
+8.355526933697256,2,Barabasi-Albert,1,negative_absolute,8.12403840463596
+7.99721900698442,2,Barabasi-Albert,2,negative_absolute,6.928203230275509
+7.696831438275723,2,Barabasi-Albert,3,negative_absolute,6.928203230275509
+7.130736325087991,2,Barabasi-Albert,4,negative_absolute,6.708203932499369
+6.8292802160163095,2,Barabasi-Albert,5,negative_absolute,6.557438524302
+6.463677198224623,2,Barabasi-Albert,6,negative_absolute,6.164414002968976
+6.275335808842629,2,Barabasi-Albert,7,negative_absolute,5.916079783099616
+6.1355481281631405,2,Barabasi-Albert,8,negative_absolute,5.744562646538029
+5.9658710496526375,2,Barabasi-Albert,9,negative_absolute,5.744562646538029
+5.864041102485135,2,Barabasi-Albert,10,negative_absolute,5.477225575051661
+5.676060323878197,2,Barabasi-Albert,11,negative_absolute,5.477225575051661
+5.601194352002693,2,Barabasi-Albert,12,negative_absolute,5.385164807134504
+5.5306664813804005,2,Barabasi-Albert,13,negative_absolute,5.291502622129181
+5.441825260279268,2,Barabasi-Albert,14,negative_absolute,5.0990195135927845
+5.264447901496554,2,Barabasi-Albert,15,negative_absolute,5.0
+5.136040905622992,2,Barabasi-Albert,16,negative_absolute,4.898979485566356
+4.915052249085537,2,Barabasi-Albert,17,negative_absolute,4.898979485566356
+4.821657988983586,2,Barabasi-Albert,18,negative_absolute,4.795831523312719
+4.751356386209837,2,Barabasi-Albert,19,negative_absolute,4.795831523312719
+4.705314467791686,2,Barabasi-Albert,20,negative_absolute,4.795831523312719
+7.916181974865584,2,Barabasi-Albert degree-preserving rewired,1,positive_nonperron,8.12403840463596
+7.197580012087666,2,Barabasi-Albert degree-preserving rewired,2,positive_nonperron,6.928203230275509
+6.938205682372817,2,Barabasi-Albert degree-preserving rewired,3,positive_nonperron,6.928203230275509
+6.803017667764806,2,Barabasi-Albert degree-preserving rewired,4,positive_nonperron,6.708203932499369
+6.526852568044712,2,Barabasi-Albert degree-preserving rewired,5,positive_nonperron,6.557438524302
+6.33084285355997,2,Barabasi-Albert degree-preserving rewired,6,positive_nonperron,6.164414002968976
+6.0891691071248495,2,Barabasi-Albert degree-preserving rewired,7,positive_nonperron,5.916079783099616
+5.818536275133644,2,Barabasi-Albert degree-preserving rewired,8,positive_nonperron,5.744562646538029
+5.659711200803337,2,Barabasi-Albert degree-preserving rewired,9,positive_nonperron,5.744562646538029
+5.57078985270005,2,Barabasi-Albert degree-preserving rewired,10,positive_nonperron,5.477225575051661
+5.51753462106231,2,Barabasi-Albert degree-preserving rewired,11,positive_nonperron,5.477225575051661
+5.409648548913431,2,Barabasi-Albert degree-preserving rewired,12,positive_nonperron,5.385164807134504
+5.228716583001553,2,Barabasi-Albert degree-preserving rewired,13,positive_nonperron,5.291502622129181
+5.116665663117958,2,Barabasi-Albert degree-preserving rewired,14,positive_nonperron,5.0990195135927845
+4.965209560593442,2,Barabasi-Albert degree-preserving rewired,15,positive_nonperron,5.0
+4.801882389037425,2,Barabasi-Albert degree-preserving rewired,16,positive_nonperron,4.898979485566356
+4.729957605866624,2,Barabasi-Albert degree-preserving rewired,17,positive_nonperron,4.898979485566356
+4.5951853790992505,2,Barabasi-Albert degree-preserving rewired,18,positive_nonperron,4.795831523312719
+4.514191922604701,2,Barabasi-Albert degree-preserving rewired,19,positive_nonperron,4.795831523312719
+4.462993976748295,2,Barabasi-Albert degree-preserving rewired,20,positive_nonperron,4.795831523312719
+8.306553577661779,2,Barabasi-Albert degree-preserving rewired,1,negative_absolute,8.12403840463596
+7.758854705528074,2,Barabasi-Albert degree-preserving rewired,2,negative_absolute,6.928203230275509
+7.2624920731712255,2,Barabasi-Albert degree-preserving rewired,3,negative_absolute,6.928203230275509
+7.125874426039266,2,Barabasi-Albert degree-preserving rewired,4,negative_absolute,6.708203932499369
+6.921777866583271,2,Barabasi-Albert degree-preserving rewired,5,negative_absolute,6.557438524302
+6.631634895229866,2,Barabasi-Albert degree-preserving rewired,6,negative_absolute,6.164414002968976
+6.244249221964652,2,Barabasi-Albert degree-preserving rewired,7,negative_absolute,5.916079783099616
+5.96253922185415,2,Barabasi-Albert degree-preserving rewired,8,negative_absolute,5.744562646538029
+5.901232332702551,2,Barabasi-Albert degree-preserving rewired,9,negative_absolute,5.744562646538029
+5.808634858385245,2,Barabasi-Albert degree-preserving rewired,10,negative_absolute,5.477225575051661
+5.592524435303185,2,Barabasi-Albert degree-preserving rewired,11,negative_absolute,5.477225575051661
+5.433940491860811,2,Barabasi-Albert degree-preserving rewired,12,negative_absolute,5.385164807134504
+5.387783048831298,2,Barabasi-Albert degree-preserving rewired,13,negative_absolute,5.291502622129181
+5.254136044532646,2,Barabasi-Albert degree-preserving rewired,14,negative_absolute,5.0990195135927845
+5.1232882943340465,2,Barabasi-Albert degree-preserving rewired,15,negative_absolute,5.0
+4.989719172200207,2,Barabasi-Albert degree-preserving rewired,16,negative_absolute,4.898979485566356
+4.922616063822694,2,Barabasi-Albert degree-preserving rewired,17,negative_absolute,4.898979485566356
+4.871240523633379,2,Barabasi-Albert degree-preserving rewired,18,negative_absolute,4.795831523312719
+4.783500293371336,2,Barabasi-Albert degree-preserving rewired,19,negative_absolute,4.795831523312719
+4.756790346128882,2,Barabasi-Albert degree-preserving rewired,20,negative_absolute,4.795831523312719

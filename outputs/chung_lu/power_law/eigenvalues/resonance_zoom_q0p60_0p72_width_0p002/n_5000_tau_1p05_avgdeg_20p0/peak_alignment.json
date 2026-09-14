@@ -1,0 +1,13 @@
+{
+  "atom_to_ipr_peak_quantile_difference": 0.0,
+  "degenerate_gap_peak_energy": 1.008411300467806,
+  "degenerate_gap_peak_fraction": 0.7620137299771167,
+  "degenerate_gap_peak_quantile": 0.635,
+  "degenerate_gap_to_ipr_peak_quantile_difference": 0.0020000000000000018,
+  "eigenvalue_atom_peak_energy": 1.00484942574884,
+  "eigenvalue_atom_peak_fraction": 0.7842143374366402,
+  "eigenvalue_atom_peak_quantile": 0.633,
+  "eigenvector_ipr_peak_energy": 1.00484942574884,
+  "eigenvector_ipr_peak_n_times_ipr": 1750.7796696754751,
+  "eigenvector_ipr_peak_quantile": 0.633
+}

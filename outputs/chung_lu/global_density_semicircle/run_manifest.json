@@ -1,0 +1,25 @@
+{
+  "code_version": "00a2c251371886d1ec8e7798bfdf1dd21995ac21",
+  "component_mode": "full",
+  "cutoff_coefficient": 1.0,
+  "cutoff_mode": "structural",
+  "density_method": "local_count",
+  "diagnostic": "chung_lu_global_density_semicircle",
+  "local_count_half_width": 0.08,
+  "n": 2000,
+  "normalization": "lambda / sqrt(target_mean_degree), Perron eigenvalue excluded",
+  "num_graphs": 10,
+  "sequence_mode": "quantile",
+  "target_mean_degrees": [
+    10.0,
+    20.0
+  ],
+  "tau_values": [
+    5.0,
+    10.0,
+    20.0
+  ],
+  "timestamp": "2026-07-13T08:59:13.968438Z",
+  "w_max": null,
+  "w_min": 1.0
+}

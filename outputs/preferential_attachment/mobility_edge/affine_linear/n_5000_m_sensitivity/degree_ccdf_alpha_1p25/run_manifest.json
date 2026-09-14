@@ -1,0 +1,23 @@
+{
+  "controlled_parameter": "m",
+  "family": "affine_linear",
+  "fixed_parameter": {
+    "name": "degree_ccdf_alpha",
+    "value": 1.25
+  },
+  "interpretation": "m changes the graph density (mean degree approximately 2m); this is not degree matched",
+  "m_values": [
+    2,
+    5,
+    10,
+    20
+  ],
+  "n": 5000,
+  "one_factor_at_a_time": true,
+  "source_directories": [
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_2/degree_ccdf_alpha_1p25",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_5/degree_ccdf_alpha_1p25",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_10/degree_ccdf_alpha_1p25",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/affine_linear/n_5000_m_20/degree_ccdf_alpha_1p25"
+  ]
+}

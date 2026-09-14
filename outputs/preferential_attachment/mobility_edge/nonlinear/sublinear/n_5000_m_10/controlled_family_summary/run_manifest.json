@@ -1,0 +1,26 @@
+{
+  "attachment_regime": "sublinear",
+  "controlled_parameter": "attachment_zeta",
+  "family": "nonlinear",
+  "m": 10,
+  "n": 5000,
+  "one_factor_at_a_time": true,
+  "source_directories": [
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/sublinear/n_5000_m_10/attachment_zeta_0p0",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/sublinear/n_5000_m_10/attachment_zeta_0p25",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/sublinear/n_5000_m_10/attachment_zeta_0p4",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/sublinear/n_5000_m_10/attachment_zeta_0p5",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/sublinear/n_5000_m_10/attachment_zeta_0p6",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/sublinear/n_5000_m_10/attachment_zeta_0p75",
+    "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/outputs/preferential_attachment/mobility_edge/nonlinear/sublinear/n_5000_m_10/attachment_zeta_0p9"
+  ],
+  "values": [
+    0.0,
+    0.25,
+    0.4,
+    0.5,
+    0.6,
+    0.75,
+    0.9
+  ]
+}

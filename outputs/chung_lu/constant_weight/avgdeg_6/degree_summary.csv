@@ -1,0 +1,3 @@
+model,average_degree,number_of_graphs,target_mean_degree,mean_realized_degree,sd_realized_degree,mean_num_components,mean_largest_component_size,mean_isolated_vertices,mean_analyzed_dimension
+erdos_renyi,6,12,6,6.021166666666666,0.06730910155034867,6.416666666666667,1994.5833333333333,5.416666666666667,1994.5833333333333
+chung_lu,6,12,6,5.981916666666667,0.06526652815164678,5.333333333333333,1995.5833333333333,4.25,1995.5833333333333

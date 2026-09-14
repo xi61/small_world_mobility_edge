@@ -1,0 +1,40 @@
+job_id,stage,model_parameter,graph_range,tasks,failed_records,nonzero_exits,final_status,retry_note
+14534086,sublinear smoke,array smoke cases,small N smoke,2,0,0,SUCCESS,
+14534098,sublinear smoke aggregate,smoke family,small N smoke,1,0,0,SUCCESS,
+14534099,extreme-edge base postprocess,4 affine + 3 superlinear,existing G=500 caches,1,0,1,FAILED_RETRIED,manifest schema validation correctly rejected source
+14534114,sublinear production array,zeta=0,0-499,100,0,0,SUCCESS,
+14534115,sublinear production array,zeta=0.25,0-499,100,0,0,SUCCESS,
+14534116,sublinear production array,zeta=0.40,0-499,100,0,0,SUCCESS,
+14534117,sublinear production array,zeta=0.50,0-499,100,0,0,SUCCESS,
+14534118,sublinear production array,zeta=0.60,0-499,100,0,0,SUCCESS,
+14534119,sublinear production array,zeta=0.75,0-499,100,0,0,SUCCESS,
+14534120,sublinear production array,zeta=0.90,0-499,100,0,0,SUCCESS,
+14534126,sublinear aggregate,zeta=0,0-499,1,0,0,SUCCESS,
+14534127,sublinear aggregate,zeta=0.25,0-499,1,0,0,SUCCESS,
+14534129,sublinear aggregate,zeta=0.40,0-499,1,0,0,SUCCESS,
+14534130,sublinear aggregate,zeta=0.50,0-499,1,0,0,SUCCESS,
+14534131,sublinear aggregate,zeta=0.60,0-499,1,0,0,SUCCESS,
+14534132,sublinear aggregate,zeta=0.75,0-499,1,0,0,SUCCESS,
+14534133,sublinear aggregate,zeta=0.90,0-499,1,0,0,SUCCESS,
+14534139,sublinear family summary,all sublinear,aggregated G=500 products,1,0,1,FAILED_RETRIED,old Hoffman Matplotlib mathtext rejected sqrt label
+14535125,sublinear family summary retry,all sublinear,aggregated G=500 products,1,0,0,SUCCESS,aggregation-only retry; no spectra recomputed
+14534140,superlinear hub-edge initial,zeta=1.05,0-499 replay + cached spectra,1,0,0,SUPERSEDED,top-rank comparator defect produced NaN top-10 relation
+14534141,superlinear hub-edge initial,zeta=1.10,0-499 replay + cached spectra,1,0,0,SUPERSEDED,top-rank comparator defect produced NaN top-10 relation
+14534142,superlinear hub-edge initial,zeta=1.20,0-499 replay + cached spectra,1,0,0,SUPERSEDED,top-rank comparator defect produced NaN top-10 relation
+14534143,superlinear hub-edge initial,zeta=1.30,0-499 replay + cached spectra,1,0,0,SUPERSEDED,top-rank comparator defect produced NaN top-10 relation
+14534144,superlinear hub-edge initial,zeta=1.50,0-499 replay + cached spectra,1,0,0,SUPERSEDED,top-rank comparator defect produced NaN top-10 relation
+14534248,superlinear hub-edge corrected,zeta=1.05,0-499 replay + cached spectra,1,0,0,SUCCESS,no eigenspectrum recomputation
+14534249,superlinear hub-edge corrected,zeta=1.10,0-499 replay + cached spectra,1,0,0,SUCCESS,no eigenspectrum recomputation
+14534250,superlinear hub-edge corrected,zeta=1.20,0-499 replay + cached spectra,1,0,0,SUCCESS,no eigenspectrum recomputation
+14534252,superlinear hub-edge corrected,zeta=1.30,0-499 replay + cached spectra,1,0,0,SUCCESS,no eigenspectrum recomputation
+14534253,superlinear hub-edge corrected,zeta=1.50,0-499 replay + cached spectra,1,0,0,SUCCESS,no eigenspectrum recomputation
+14534176,extreme-edge base postprocess retry,4 affine + 3 superlinear,existing G=500 caches,1,0,1,FAILED_RETRIED,old Hoffman Matplotlib set_ticks API mismatch after numerical products
+14534268,extreme-edge base postprocess corrected,4 affine + 3 superlinear,existing G=500 caches,1,0,0,SUCCESS,no eigenspectrum recomputation
+14534322,extreme-edge augmentation,affine alpha=2.00,500-1524,205,0,0,SUCCESS,target G=1525
+14534323,extreme-edge augmentation,affine alpha=1.50,500-1839,268,0,0,SUCCESS,target G=1840
+14534324,extreme-edge augmentation,affine alpha=1.25,500-1739,248,0,0,SUCCESS,target G=1740
+14534325,extreme-edge augmentation,affine alpha=1.05,500-1999,300,0,0,SUCCESS,G_max=2000
+14534326,extreme-edge augmentation,superlinear zeta=1.05,500-1304,161,0,0,SUCCESS,target G=1305
+14534327,extreme-edge augmentation,superlinear zeta=1.20,500-1999,300,0,0,SUCCESS,G_max=2000
+14534328,extreme-edge augmentation,superlinear zeta=1.50,500-1999,300,0,0,SUCCESS,G_max=2000
+14534329,extreme-edge final aggregate,4 affine + 3 superlinear,base + augmentation caches,1,0,0,SUCCESS,wallclock 167.607 s; maxvmem 3.541G

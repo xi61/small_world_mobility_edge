@@ -1,0 +1,4 @@
+# Preserve generated CSV bytes (including historical CRLF line endings) and
+# avoid enormous textual diffs for result tables.
+outputs/**/*.csv -text -diff
+docs/reports/**/*.csv -text -diff

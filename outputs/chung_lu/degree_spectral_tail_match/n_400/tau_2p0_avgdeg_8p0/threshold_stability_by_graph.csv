@@ -1,0 +1,16 @@
+alpha_hill,alpha_regression,alpha_regression_r2,beta_hill,beta_minus_2alpha_hill,beta_over_2alpha_hill,beta_regression,beta_regression_r2,degree_tail_count,degree_xmin,gamma_hill,gamma_minus_alpha_hill,gamma_regression,gamma_regression_r2,graph_index,lambda_squared_tail_count,lambda_squared_xmin,model_variant,spectral_tail_count,spectral_xmin,tail_lower_quantile,target_mean_degree,tau,tau_convention
+2.450587051312784,2.3286877889219872,0.9573018027657267,5.793492111248555,0.8923180086229872,1.1820620916414641,6.8858296327789095,0.9405500066840536,21,20.0,2.8967460556242774,0.4461590043114936,3.442914816389455,0.9405500066840535,0,20,30.906692001720046,Chung-Lu,20,5.559378742424377,0.95,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,0,16,nan,Chung-Lu,16,nan,0.96,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,0,12,nan,Chung-Lu,12,nan,0.97,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,0,10,nan,Chung-Lu,10,nan,0.976,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,0,8,nan,Chung-Lu,8,nan,0.98,8.0,2.0,experimental_ccdf_exponent
+2.228957050849059,2.013028494678086,0.9210863470743224,6.560787189162635,2.102873087464517,1.4717168252890935,6.520594663181555,0.9237931821605827,21,18.0,3.2803935945813185,1.0514365437322595,3.2602973315907793,0.9237931821605829,1,20,30.793479218997575,Chung-Lu,20,5.549187257517769,0.95,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,1,16,nan,Chung-Lu,16,nan,0.96,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,1,12,nan,Chung-Lu,12,nan,0.97,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,1,10,nan,Chung-Lu,10,nan,0.976,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,1,8,nan,Chung-Lu,8,nan,0.98,8.0,2.0,experimental_ccdf_exponent
+2.051448340652797,2.2219983626421898,0.9310091881890447,5.682685966899643,1.5797892855940496,1.3850424244880915,6.686923181585118,0.8727114329078022,21,18.0,2.8413429834498216,0.7898946427970248,3.34346159079256,0.8727114329078025,2,20,29.693681148843936,Chung-Lu,20,5.449190871023324,0.95,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,17,nan,nan,nan,nan,nan,2,16,nan,Chung-Lu,16,nan,0.96,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,13,nan,nan,nan,nan,nan,2,12,nan,Chung-Lu,12,nan,0.97,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,10,nan,nan,nan,nan,nan,2,10,nan,Chung-Lu,10,nan,0.976,8.0,2.0,experimental_ccdf_exponent
+nan,nan,nan,nan,nan,nan,nan,nan,9,nan,nan,nan,nan,nan,2,8,nan,Chung-Lu,8,nan,0.98,8.0,2.0,experimental_ccdf_exponent
