@@ -1,0 +1,631 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.82in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{caption,subcaption,float}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+\def\UrlBreaks{\do\/\do-\do\_\do.}
+\Urlmuskip=0mu plus 1mu
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\yes}{\textcolor{green!45!black}{complete}}
+\newcommand{\no}{\textcolor{red!65!black}{unavailable}}
+\newcommand{\caution}{\textcolor{orange!70!black}{inconclusive}}
+\newcommand{\figpath}[1]{figures/#1}
+\setlist[itemize]{leftmargin=1.5em,itemsep=0.25em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.7em,itemsep=0.25em,topsep=0.35em}
+\captionsetup{font=small,labelfont=bf}
+\renewcommand{\arraystretch}{1.12}
+\setlength{\emergencystretch}{3em}
+
+\title{Localization Geometry, Local-Mode Coupling, and Uniform Diagonal Disorder\\
+on Affine Preferential-Attachment Graphs}
+\author{Computational evidence report}
+\date{Evidence refreshed 2026-09-24}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This report consolidates two completed numerical studies on the same family of affine linear preferential-attachment (PA) graphs.  The clean study diagonalizes the raw adjacency matrix, measures localization, spacing, and graph geometry, and then tests an a-posteriori local-region/local-mode explanation of adjacent non-Perron eigenpairs.  The paired disorder study diagonalizes
+\(H(a)=A+a\operatorname{diag}(\xi)\), with one fixed iid \(\xi_v\sim\mathrm{Uniform}[-1,1)\) per graph reused over eight raw amplitudes.  All 14 clean graph cases and all 112 graph-amplitude operators are complete.  Clean edge eigenvectors are substantially more concentrated than bulk eigenvectors in many finite cases, especially at \(N=10{,}000\) and small nominal tail parameter.  The local-mode workflow supplied one qualified multimode representation but no qualified spatial two-mode explanation among 1,568 fixed targets.  Strong diagonal disorder increases whole-spectrum and central-band concentration, while the already hub-concentrated upper edge responds non-monotonically across graph parameters.  Gap-ratio trends are likewise non-monotone.  These data do not establish an asymptotic mobility edge, a universal disorder transition, or a validated tunneling-amplitude-to-spacing comparison.
+\end{abstract}
+
+\section*{Coverage and evidence status}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}YrrrrrY@{}}
+\toprule
+Study unit & Requested & Completed & Validated & Failed & Pending & Unavailable or scientifically unresolved \\
+\midrule
+Clean PA graph cases, Part 1 & 14 & 14 & 14 & 0 & 0 & Ensemble replication; asymptotic scaling beyond two sizes \\
+Clean PA graph cases, Part 2 & 14 & 14 & 14 & 0 & 0 & Predictive two-mode explanation: 0 accepted \\
+Fixed adjacent-pair targets & 1,568 & 1,568 & 1,568 processed & 0 computational & 0 & 1,567 have no qualified full-dictionary explanation \\
+Dictionary sensitivity rows & 12,342 & 12,342 & 1 qualified & 0 computational & 0 & 12,341 inadequate or unresolved \\
+Spatial two-mode rows & 12,342 & 12,342 & 0 qualified & 0 computational & 0 & No accepted coupling-to-spacing comparison \\
+Schur/effective rows & 0 eligible & 0 & 0 & 0 & 0 & No strict-reference spatial pair met eligibility \\
+PA diagonal-disorder operators & 112 & 112 & 112 & 0 & 0 & No noisy local-mode/tunneling analysis \\
+Positive-amplitude eigensystems & 98 & 98 & 98 & 0 & 0 & Ensemble uncertainty: one graph and one field per condition \\
+\bottomrule
+\end{tabularx}
+\caption{Current evidence, not an older audit snapshot.  ``Validated'' for a numerical unit means that the implemented numerical checks passed; it does not mean that a physical hypothesis was accepted.  The clean workflow additionally passed 18 unit tests and 14 controlled-validation rows.  The disorder workflow passed 9 unit tests.}
+\label{tab:coverage}
+\end{table}
+
+The following SHA-256 identities are shown in 16-character groups.  The clean scientific source and configuration identity is:
+\begin{center}\small\texttt{ff36916b3b1552ce 2c81de603e3c84e3}\\
+\texttt{f94ebf1c29ef2afc 1405d8877eedb012}\end{center}
+The final clean reporting identity is:
+\begin{center}\small\texttt{9b9db67ab5636a67 e2362874522ec9ef}\\
+\texttt{4d5684904bdef4cc aa38b1f9cdbdea50}\end{center}
+The diagonal-disorder executed source/configuration identity is:
+\begin{center}\small\texttt{2c173b5daa380c20 72d7b06976db5981}\\
+\texttt{30b330e58ca02466 47cc7998a52cbfd9}\end{center}
+All job manifests inspected for this report are final \code{COMPLETE} records.  No submitted or queued job is counted as a result.
+
+\section{Scientific questions and scope}
+
+The motivating question is Cook's question:
+\begin{quote}
+``There's a heuristic on transition when tunneling amplitude becomes comparable to eigenvalue spacing. How do these compare in the small world model, for eigenvectors corresponding to adjacent eigenvalues near the edge?''
+\end{quote}
+
+The present calculations answer only a PA analogue of part of that question.  They ask whether adjacent non-Perron PA eigenvectors near and away from the edge have concentrated mass, whether their concentration sets are geometrically related, and whether a frozen local-mode reference span can reconstruct the observed pair.  They also measure ordinary localization and spacing diagnostics after adding diagonal disorder to the same graphs.  They do \emph{not} define or simulate a separate small-world ensemble, and PA is not silently identified with such an ensemble.  The diagonal-disorder diagnostics do not by themselves answer the clean-PA tunneling question.
+
+The relevant comparison paper is Alt, Ducatez, and Knowles, ``Delocalization Transition for Critical Erd\H{o}s--R\'enyi Graphs,'' published in 2021 \cite{AltDucatezKnowles2021}.  In its Section 1.1 the authors study the adjacency matrix of \(\mathbb{G}(N,d/N)\), normalized as \(A/\sqrt d\), on the giant component, with the Perron state excluded.  At critical degree \(d=b\log N\), resonant high-degree vertices generate concentration centers; after a small pruning, separated balls around those centers support approximately radial, exponentially decaying profiles.  Their heuristic compares exponentially decaying tunneling across graph distance with the local level spacing.  Appendix A.1 shows a single \(N=10{,}000\), \(b=0.6\) scatter plot of energy against \(\lVert\psi\rVert_\infty\).  Our study borrows the questions about mass concentration, graph distance, and local reference modes.  It does not import the paper's pruning, critical-ER degree law, normalized edge \(\pm2\), theorems, or phase boundaries into raw PA adjacency data.
+
+\section{Models, parameters, and numerical conventions}
+
+\subsection{Affine linear PA graphs}
+
+For each \((N,\alpha)\), the generator starts from the complete graph on \(m+1=11\) vertices.  A new vertex is added sequentially and connects to exactly \(m=10\) distinct existing vertices.  At each addition, the target set is drawn by weighted sampling \emph{without replacement} with
+\[
+  \Pr(v\text{ selected})\propto d_v+\delta,
+  \qquad \delta=m(\alpha-2).
+\]
+The result is a simple undirected \code{networkx.Graph} on vertex labels \(0,\ldots,N-1\), with no self-loops or repeated edges.  The implemented \(\alpha\) is a nominal degree-CCDF exponent under this affine convention; it is neither an empirically fitted finite-graph exponent nor the exponent in a nonlinear kernel \(d_v^\alpha\).  The executed grid is
+\[
+N\in\{500,10{,}000\},\quad
+\alpha\in\{1.05,1.10,1.25,1.50,2.00,2.50,3.00\},
+\]
+with one graph per condition.  Graph seeds are deterministically derived from base seed 20260924, \(N\), and the grid index; exact seeds and edge hashes are stored in every case manifest.
+
+The clean operator is the raw, uncentered, unweighted, unnormalized adjacency matrix \(A\).  Full float64 eigenvalues and eigenvectors were computed with a dense symmetric eigensolver and stored in ascending eigenvalue order.  Column \(i\) of the retained eigenvector matrix corresponds to ascending eigenvalue \(i\) and original vertex row \(v\).  Results in this report use descending algebraic ranks
+\(\lambda_1\geq\cdots\geq\lambda_N\), so descending rank \(j\) maps to ascending index \(N-j\).  The Perron pair is retained and labelled rank 1; all ``non-Perron'' windows start at rank 2.
+
+\subsection{Paired uniform diagonal disorder}
+
+For every retained graph, the disorder operator is
+\[
+  H(a)=A+\operatorname{diag}(V_1(a),\ldots,V_N(a)),\qquad
+  V_v(a)=a\xi_v,quad \xi_v\overset{\mathrm{iid}}{\sim}\mathrm{Uniform}[-1,1).
+\]
+The raw amplitudes are
+\(a\in\{0,0.5,1,2,4,8,16,32\}\).  The same deterministic \(\xi\) realization is reused across all amplitudes on a fixed graph, so the amplitudes are paired and correlated; different graph cases use distinct derived seeds.  There is no scaling of \(A\), no degree-dependent amplitude, no amplitude ratio, and no cumulative perturbation.  Graph edge hashes, the identity vertex order, potential seeds, and raw float64 \(\xi\) hashes are checked and propagated through the manifests.  Positive-amplitude runs retain complete ascending eigenvalues and full float64 eigenvectors; \(a=0\) references the authoritative clean cache rather than duplicating it.
+
+\subsection{Shared observables and window conventions}
+
+For a normalized eigenvector \(\psi_j\), define
+\[
+ p_j(v)=|\psi_j(v)|^2,\qquad
+ \operatorname{IPR}_j=\sum_v p_j(v)^2,\qquad
+ N\operatorname{IPR}_j=N\sum_v p_j(v)^2.
+\]
+If \(p_{j,(1)}\geq\cdots\geq p_{j,(N)}\), the cumulative top-coordinate mass and mass-support size are
+\[
+ M_j(k)=\sum_{\ell=1}^k p_{j,(\ell)},\qquad
+ s_j(q)=\min\{k:M_j(k)\geq q\},
+\]
+with \(q=0.5,0.8,0.9,0.95\).  The maximum absolute coordinate is
+\(\lVert\psi_j\rVert_\infty=\sqrt{p_{j,(1)}}\); it is not the maximum coordinate \emph{mass} \(p_{j,(1)}\).  For two states,
+\[
+ O_{ij}=\sum_v\min\{p_i(v),p_j(v)\}
+\]
+is full mass overlap.  It ignores signs and is distinct from top-\(k\) vertex intersection and from a region-set overlap coefficient; orthogonal eigenvectors can have large \(O_{ij}\).
+
+Adjacent gaps and ratios use the original consecutive spectrum:
+\[
+ g_j=\lambda_j-\lambda_{j+1},\qquad
+ r_j=\frac{\min(g_j,g_{j+1})}{\max(g_j,g_{j+1})}.
+\]
+A \(0/0\) ratio is undefined.  The primary window policy requires the entire gap or triplet to lie strictly inside the window.  A window of \(k\) consecutive levels therefore contains \(k-1\) internal gaps and \(k-2\) internal ratios.  Mean-gap rescaling in a histogram is explicitly within-window normalization; it is neither operator rescaling nor ensemble unfolding \cite{AtasEtAl2013}.
+
+Numerical multiplicity is detected at a scale proportional to machine epsilon, matrix dimension, and spectral scale.  Clean Part-1 spacing summaries exclude unresolved gaps and triplets touching the numerical zero atom without bridging across removed levels.  The older clean per-vector localization rows still contain solver-basis IPRs within exact degeneracies and must be treated as basis dependent.  In the paired disorder pipeline, \(a=0\) instead uses a stable zero cluster: the counts inside tolerances \(\tau/10,\tau,10\tau\) must agree and contain at least two states, where
+\[
+ \tau=32\,\epsilon_{\mathrm{mach}}\,N\max(1,\max_j|\lambda_j|).
+\]
+The diagonal of the zero-subspace projector is retained and individual solver vectors in that atom are excluded from primary comparisons.  At \(a>0\), the clean atom mask is not propagated; only realized numerical multiplicity is used.
+
+\section{Clean PA Part 1: localization, spacings, and spatial geometry}
+
+\subsection{Finite-sample localization landscape}
+
+Table~\ref{tab:clean-summary} reports complete graph-level summaries.  ``Upper'' is the non-Perron rank window 2--51; ``bulk'' is the central 40--60 percent rank band; ``lower'' is the last 50 algebraic ranks.  The gap ratio is the filtered raw ratio in the upper window, with 48 valid internal triplets in every row shown.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}rrrrrrrrr@{}}
+\toprule
+\(N\) & \(\alpha\) & upper mean \(N\mathrm{IPR}\) & bulk mean \(N\mathrm{IPR}\) & lower mean \(N\mathrm{IPR}\) & upper mean \(r\) & targets & dictionaries any/ref & full/two-mode pass \\
+\midrule
+500 & 1.05 & 17.36 & 7.184 & 19.59 & 0.5149 & 95 & 8/0 & 0/0 \\
+500 & 1.10 & 11.83 & 8.469 & 15.81 & 0.5049 & 95 & 0/0 & 0/0 \\
+500 & 1.25 & 8.462 & 4.578 & 11.54 & 0.4825 & 95 & 95/0 & 0/0 \\
+500 & 1.50 & 6.993 & 3.936 & 9.011 & 0.5301 & 95 & 95/0 & 0/0 \\
+500 & 2.00 & 5.446 & 3.523 & 7.111 & 0.5318 & 95 & 95/0 & 0/0 \\
+500 & 2.50 & 5.020 & 3.609 & 6.259 & 0.4496 & 95 & 95/0 & 0/0 \\
+500 & 3.00 & 4.874 & 3.422 & 5.534 & 0.5700 & 95 & 95/0 & 0/0 \\
+\midrule
+10000 & 1.05 & 1213 & 9.225 & 1144 & 0.5506 & 129 & 129/0 & 0/0 \\
+10000 & 1.10 & 1028 & 11.52 & 855.1 & 0.5693 & 129 & 129/0 & 0/0 \\
+10000 & 1.25 & 688.1 & 5.238 & 645.1 & 0.5572 & 129 & 129/0 & 0/0 \\
+10000 & 1.50 & 492.1 & 3.958 & 546.4 & 0.4796 & 129 & 129/0 & 1/0 \\
+10000 & 2.00 & 215.6 & 3.655 & 274.9 & 0.5281 & 129 & 129/0 & 0/0 \\
+10000 & 2.50 & 177.0 & 3.575 & 258.1 & 0.5128 & 129 & 129/0 & 0/0 \\
+10000 & 3.00 & 80.73 & 3.515 & 101.6 & 0.5512 & 129 & 129/0 & 0/0 \\
+\bottomrule
+\end{tabular}}
+\caption{Clean finite-sample localization, spacing, and Part-2 coverage.  ``Any/ref'' counts targets with a dictionary under any sensitivity setting and at the strict mass-informed reference setting \((x,y,r)=(0.80,0.20,2)\), respectively.  A large edge \(N\mathrm{IPR}\) is evidence of finite-size concentration, not by itself a localized phase.}
+\label{tab:clean-summary}
+\end{table}
+
+The strongest contrast occurs at \(N=10{,}000\) and small \(\alpha\): upper and lower means are hundreds to more than one thousand, while the bulk is of order 4--12.  At \(N=500\), edge concentration is enhanced but much milder.  This two-size, one-realization-per-condition design does not distinguish a stable thermodynamic regime from strong finite-size hub concentration.  In particular, no mobility edge is inferred from the visual separation alone.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.98\textwidth]{\figpath{localization_energy_nipr.png}}
+\caption{Clean energy-resolved \(N\mathrm{IPR}\).  Every point is a state from one graph per \((N,\alpha)\); panel summaries are descriptive, not ensemble means.}
+\label{fig:clean-nipr}
+\end{figure}
+
+\subsection{Raw spacings, cumulative windows, and coordinate mass}
+
+The gap-ratio means in Table~\ref{tab:clean-summary} vary across \(\alpha\), but the upper-window values alone do not diagnose Poisson or GOE statistics.  There are only 48 internal ratios per graph in that window, the graphs are not replicated, and strong eigenvector concentration can coexist with level repulsion.  Raw gaps, filtered ratios, and within-window mean-rescaled histograms are all retained separately.
+
+\begin{figure}[p]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth]{\figpath{gap_ratio_windows.png}}
+\caption{Raw filtered gap ratios by window.}
+\end{subfigure}\hfill
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth]{\figpath{gap_histograms_mean_rescaled.png}}
+\caption{Within-window mean-rescaled raw gaps.}
+\end{subfigure}
+\caption{Clean spacing diagnostics.  The right panel's rescaling does not unfold the spectrum globally and does not change the operator.}
+\label{fig:clean-spacing}
+\end{figure}
+
+The cumulative upper-edge windows are 10, 25, 50, 100, 200, 300, 400, and 500 states at \(N=500\), with 650, 800, and 1,000 added at \(N=10{,}000\).  Literal and non-Perron versions are distinct.  The requested non-Perron top-500 window at \(N=500\) is clipped to 499 states, ending at descending rank 500.  The first-ten-gap table uses eleven levels and stores both endpoint ranks and energies.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.94\textwidth]{\figpath{first_ten_nonperron_cumulative_mass.png}}
+\caption{Clean cumulative coordinate mass for the first ten non-Perron states.  Curves and companion tables use coordinate counts 10, 15, 20, 30, and 50; literal top-ten records, which include the Perron state, are stored separately.}
+\label{fig:clean-mass}
+\end{figure}
+
+\subsection{Graph geometry}
+
+For each selected eigenvector, the ten vertices with largest coordinate mass are mapped back to original vertex IDs.  The output retains original degree, induced-subgraph degree, induced edges, connected-component labels, all 45 unordered distances inside the top-ten set, and distances computed in the full original graph.  An induced distance can be infinite even when the full-graph distance is finite because a shortest path may pass through a vertex outside the selected ten.  Cross-state tables retain all \(10\times10\) distances, top-ten intersection count, dominant-vertex distance, whole-vector mass overlap, and a mass-weighted finite-distance summary.  These diagnostics do not assume one center per eigenvector.
+
+\section{Clean PA Part 2: ordered tunneling diagnostic procedure and results}
+
+This section separates the implemented a-posteriori diagnostic from an independent prediction.  The exact target eigenvectors determine centers, region coverage, and in some branches local-mode selection.  Consequently, successful reconstruction says that the chosen local span can explain the exact pair after the fact; it is not out-of-sample evidence that the pair was predicted.
+
+\subsection{Step A: fix adjacent target eigenpairs and inspect their mass}
+
+\begin{enumerate}
+\item The full clean eigensystem is ranked before any coupling ratio or fit is inspected.
+\item Every adjacent pair starting at descending rank 2 through 50 is selected.  Additional upper bands and global quantile windows contribute three deterministic, evenly spaced pair starts per nonempty band/window.  The Perron state is excluded.
+\item The target record freezes graph hash, ranks, ascending indices, energies, observed raw gap, selection roles, and exact-vector IDs.
+\item Both vectors are then described using \(N\mathrm{IPR}\), support sizes, dominant coordinates, top-ten overlap, full mass overlap, and original-graph distances.
+\end{enumerate}
+
+Actual coverage is 95 targets per \(N=500\) graph and 129 per \(N=10{,}000\) graph, for 1,568 targets in total.  The implementation records that selection did not use coupling or later model success.  A near-degenerate pair is flagged at the numerical resolution, but the current code treats only the two-vector pair rather than expanding to a complete multiplicity cluster; this is a known limitation.
+
+\subsection{Step B: define centers and candidate concentration regions}
+
+For each exact target vector, graph-neighbor mass maxima are sought among its 50 largest-mass coordinates.  A candidate is rejected if a neighbor has larger mass; exact ties go to the smaller vertex ID.  If no inspected coordinate survives, the global maximum is used as a recorded fallback.  Candidate centers from both vectors are pooled.
+
+At radius \(r\in\{1,2,3\}\), let \(B_r(c)\) be the original-graph ball around center \(c\).  For a union \(S\), define
+\[
+ M_j(S)=\sum_{v\in S}p_j(v),\qquad f(S)=|S|/N.
+\]
+The deterministic greedy rule repeatedly adds the feasible ball that most reduces the two-vector coverage deficit, with tie breaks by added volume and center ID.  It requires \(M_j(S)\geq x\) for \emph{each} vector and \(f(S)\leq y\), counting shared vertices once, with at most eight centers.  It scans
+\[
+ x\in\{0.70,0.80,0.90,0.95\},\qquad
+ y\in\{0.05,0.10,0.20,0.30\}.
+\]
+The nominal reference is \((x,y,r)=(0.80,0.20,2)\).  It is a sensitivity anchor, not a theorem or a fitted transition.  Selected balls are also grouped when
+\[
+ \frac{|B_a\cap B_b|}{\min(|B_a|,|B_b|)}\geq0.5.
+\]
+Grouping uses connected components of the overlap graph, so merging is transitive; masses and union volume are recomputed after merging.  Every rejection and stopping reason is retained.  The historical comparator instead starts from the 50 highest-degree vertices, groups their balls, imposes a per-region volume cap, and is explicitly not mass-certified.
+
+The full global adjacency matrix is never pruned or changed by this region selection.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.94\textwidth]{\figpath{region_coverage_xy.png}}
+\caption{Fraction of examined targets meeting both per-vector mass coverage and the union-volume cap across the \((x,y)\) grid.  Zero strict-reference dictionaries result after applying the recorded reference construction, even though 216 targets admit some mass-informed dictionary under a sensitivity variant.}
+\label{fig:coverage-xy}
+\end{figure}
+
+\subsection{Iterative Step C+F.1: local eigenproblems and reference modes}
+
+For each retained region \(S_a\), the implementation forms the principal submatrix
+\(A_a=A[S_a,S_a]\).  Internal edges are retained and boundary edges are omitted from this local Dirichlet problem; the global \(A\) remains intact.  It solves
+\[
+ A_a\chi_{a\ell}=\epsilon_{a\ell}\chi_{a\ell},\qquad
+ \|\chi_{a\ell}\|_2=1,
+\]
+and zero-extends \(\chi_{a\ell}\) at its original vertex IDs to a full vector \(\phi_{a\ell}\).  The reference modes are eigensolver outputs, not least-squares-optimized vectors.
+
+The tested counts are 1, 2, 3, 5, 8, 12, and 20 modes per region, clipped to dimension and extended through a local degeneracy at the cutoff.  Counts 32 and 64 are conditionally attempted when union mass is at least 0.90 but 20-mode capture remains below 0.90.  Upper targets use largest-algebraic local eigenvalues; bulk/lower targets use local eigenvalues nearest the exact-pair mean energy.  Dense local solves are used up to dimension 384, otherwise sparse extremal or shift-invert solves are used.  Local caches are keyed by vertex-set hash, method, target energy, requested count, and tolerance.
+
+\subsection{Iterative Step C+F.2: construct \(U\) and measure adequacy}
+
+The retained zero-extended columns form \(W\).  Ordered, twice-reorthogonalized residual Gram--Schmidt produces an \(N\times r\) matrix \(U\), with relative cutoff \(10^{-8}\), transformation from \(W\) to \(U\), kept/discarded raw indices, Gram eigenvalues, and \(\|U^TU-I_r\|\) saved.  Thus
+\(P=UU^T\) is a rank-\(r\) projector, not \(I_N\).  At most 256 raw modes are retained.
+
+For each exact target,
+\[
+ c_j=U^T\psi_j,\quad \psi_j^{\rm proj}=Uc_j,\quad
+ C_j=\|c_j\|^2,\quad \|\psi_j-Uc_j\|^2=1-C_j.
+\]
+The implementation checks nested capture and \(C_j\leq M_j(S_{\rm union})\).  Union mass, all-mode capture, pair-only capture, and within-union unrepresented mass \(M_j(S_{\rm union})-C_j\) are separately named.  High capture is representational adequacy; it is not evidence of weak coupling.
+
+\subsection{Iterative Step C+F.3: reduced action, prediction, and matching}
+
+The full operator acts on the reference basis through
+\[
+ K=U^TAU,qquad R=AU-UK=(I-UU^T)AU.
+\]
+The code symmetrizes \(K\), diagonalizes \(Ky_s=\mu_sy_s\), lifts
+\(\widehat\psi_s=Uy_s\), and verifies
+\[
+ A\widehat\psi_s-\mu_s\widehat\psi_s=Ry_s.
+\]
+Predicted states are matched one-to-one to the fixed exact pair by maximizing squared overlap within an energy window whose half-width is the maximum of an absolute floor \(10^{-8}\), five observed gaps, and 2 percent of the full spectral span.  Outputs include competing matches, predicted energies, gap, squared overlaps, region masses including interference, and residuals.  The recorded relative predicted-state residual is divided by \(\max(1,|\mu_s|)\); no operator-norm-scaled alternative was implemented.  Near-degenerate exact pairs switch off individual-overlap acceptance, but a complete cluster-projector match beyond the two target vectors is not implemented.
+
+\subsection{Iterative Step C+F.4: enlargement and quality screens}
+
+Regions are frozen while mode counts increase through nested spans.  Capture must not decrease.  Changes due to the region sensitivity grid remain distinguishable from changes due to mode count.  The implemented provisional screens are:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{0.92\textwidth}{@{}YcY@{}}
+\toprule
+Screen & Threshold & Meaning \\
+\midrule
+Minimum all-mode capture & \(\min(C_1,C_2)\geq0.90\) & Both targets represented by the full retained span \\
+Sensitivity capture & \(\min(C_1,C_2)\geq0.95\) & Stricter descriptive sensitivity flag \\
+Individual squared overlap & each \(\geq0.90\) when meaningful & Matched lifted states resemble targets \\
+Relative gap error & \(\leq0.10\) & Predicted pair gap agrees to 10 percent \\
+Maximum region-mass error & \(\leq0.05\) & Predicted spatial weights agree \\
+Spatial-pair orientation & diagonal assigned masses each \(\geq0.80\) & Pair basis retains region identity \\
+Exact eigenpair residual & \(\leq10^{-8}\) & Full eigensystem accuracy gate \\
+\bottomrule
+\end{tabularx}
+\caption{Implemented quality screens.  A full-dictionary pass applies the first five relevant screens.  A spatial two-mode pass additionally requires an interpretable pair and adequate pair-only capture.}
+\label{tab:screens}
+\end{table}
+
+Across all variants, 1,386 of 1,568 targets have at least one dictionary, 216 have a mass-informed dictionary, and zero have a dictionary at the strict mass-informed reference setting.  Exactly 1 of 12,342 dictionary rows passes all full-dictionary screens; 0 of 12,342 pass the spatial two-mode screens.  This is one multimode a-posteriori explanation and no validated two-mode explanation.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.95\textwidth]{\figpath{capture_and_gap_prediction.png}}
+\caption{Clean nested-dictionary capture and gap prediction for rows passing the full-dictionary screens.  The extremely sparse accepted set is itself a result and should not be visually generalized to the full target population.}
+\label{fig:capture-gap}
+\end{figure}
+
+\subsection{Iterative Step C+F.5: interpretable coupling and Schur diagnostic}
+
+When two raw regional modes remain linearly independent, symmetric Gram orthogonalization is used to preserve their spatial orientation as far as possible.  For the orthonormal pair \((u_a,u_b)\),
+\[
+ E_a=u_a^TAu_a,\quad E_b=u_b^TAu_b,\quad
+ t_{\rm direct}=u_a^TAu_b,
+\]
+\[
+ \delta_{\rm ref}=|E_a-E_b|,\qquad
+ \Delta_{\rm obs}=\lambda_j-\lambda_{j+1},\qquad
+ \Delta_{\rm pred}=\sqrt{\delta_{\rm ref}^2+4|t_{\rm direct}|^2}.
+\]
+The code reports \(|t|/\delta_{\rm ref}\) and \(|t|/\Delta_{\rm obs}\) only when denominators are resolved.  These are distinct energy scales.  An observed interacting gap is not an uncoupled detuning, and the off-diagonal entry of an arbitrarily rotated reduced basis is not automatically an identifiable tunneling amplitude.
+
+The optional Schur calculation would use orthogonal complement \(Q=I-UU^T\) and, equivalently,
+\[
+ H_{\rm eff}(z)=zI-\left[U^T(zI-A)^{-1}U\right]^{-1},
+ \qquad z=E+i\eta.
+\]
+It evaluates left, mean, and right reference energies with
+\(\eta/\max(1,|E_a|,|E_b|)\in\{0.1,0.01,0.001\}\), records solve residual and projected-resolvent condition number, and separates the direct matrix, mediated correction, and total complex effective matrix.  In production, however, eligibility required a spatially interpretable row at the strict reference setting and maximum main mode count.  There were zero eligible rows, hence no production Schur value.  Mediated tunneling is unresolved.  The implementation did not produce a dedicated ledger enumerating Schur omissions target by target, which is a provenance gap.
+
+\subsection{Worked target pair: a multimode fit, not a two-mode success}
+
+The only row passing the full-dictionary screens is the \(N=10{,}000\), \(\alpha=1.5\) graph, target \path{pair_rank_00002_00003}, under the historical degree-ranked construction with two requested modes per region.  Table~\ref{tab:worked-pair} preserves the exact numerical values.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Quantity & Rank 2 / left & Rank 3 / right \\
+\midrule
+Energy & 30.76240799157345 & 30.24154358444347 \\
+Observed adjacent gap & \multicolumn{2}{c}{0.5208644071299808} \\
+\(N\mathrm{IPR}\) & 1294.8551326658333 & 1147.3604709955302 \\
+Maximum vertex (original ID) & 10 & 11 \\
+Maximum absolute coordinate & 0.593750244689836 & 0.5691984509352761 \\
+Maximum coordinate mass & 0.35253935306924006 & 0.32398687654711794 \\
+\(s(0.50),s(0.80),s(0.90),s(0.95)\) & 48, 884, 1524, 2265 & 45, 874, 1607, 2226 \\
+Relative exact residual & \(1.6402\times10^{-15}\) & \(1.9278\times10^{-15}\) \\
+\midrule
+Dominant-vertex distance & \multicolumn{2}{c}{1} \\
+Top-ten intersection & \multicolumn{2}{c}{5 vertices} \\
+Whole-vector mass overlap & \multicolumn{2}{c}{0.3297478925623174} \\
+Union mass & 0.9873384822779544 & 0.9888110855585223 \\
+All-mode capture & 0.9591204483397445 & 0.9664187435874447 \\
+Matched squared overlap & 0.9375375949323185 & 0.9389336760117897 \\
+\bottomrule
+\end{tabular}}
+\caption{Exact-pair and full-dictionary data for the one qualified multimode row.  Two requested modes across eight retained regions produce 16 raw modes and orthonormal rank 16, not a two-state model.  The predicted gap is 0.5296999402528115 (relative error 0.0169632), and maximum region-mass error is 0.0406508.}
+\label{tab:worked-pair}
+\end{table}
+
+For the separately extracted spatial pair in the same dictionary, symmetric orthogonalization gives
+\(E_a=36.97385484456086\), \(E_b=37.269118524195285\),
+\(|t_{\rm direct}|=10.16735496589606\), and
+\(\delta_{\rm ref}=0.2952636796344237\).  Thus
+\(|t|/\delta_{\rm ref}=34.4348\) and
+\(|t|/\Delta_{\rm obs}=19.5202\), but the two-mode predicted gap is 20.336853459929248, its relative gap error is 38.0444, minimum pair-only capture is only 0.4297197971013157, and maximum regional-mass error is 0.316846.  The direct inter-region edge count is 9,906.  These values are not evidence for a physical tunneling ratio: they show that this pair of reference columns is a poor two-mode reduction embedded in a successful 16-dimensional a-posteriori span.
+
+\subsection{Step C+F.6: join to Part 1}
+
+The joined target and dictionary tables retain graph identity, ranks, energies, observed gap, geometric overlaps and distances, region masses and hashes, mode counts, Gram diagnostics, all-mode and pair-only capture, predicted energy/gap/weights, direct coupling, and final status.  Figure~\ref{fig:join} shows the graph-level descriptive join.  It is not a correlation analysis: there is one graph per condition and only one accepted multimode target.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.94\textwidth]{\figpath{localization_interaction_case_linkage.png}}
+\caption{Descriptive join between clean upper-edge localization and the fraction of fixed targets with a qualified full-dictionary explanation.  The accepted fraction is zero in 13 cases and nonzero in one; it does not define a phase boundary.}
+\label{fig:join}
+\end{figure}
+
+\section{Anderson-type diagonal-noise study and matched comparisons}
+
+\subsection{Executed design and numerical validation}
+
+All 112 logical operators are complete: 14 clean baselines and 98 positive-amplitude operators.  The operator is reconstructed fresh for every \(a\), with diagonal exactly \(a\xi\) and off-diagonal entries exactly those of \(A\).  Checks cover symmetry, diagonal bounds, unchanged off-diagonal count and squared sum, trace and squared-trace identities, eigenpair residuals, column norms, sampled orthogonality, localization bounds, graph/potential hashes, and required outputs.  Across the 112 operator summaries, the maximum relative eigenpair residual ranges from \(6.58\times10^{-15}\) to \(1.46\times10^{-13}\), well below the \(10^{-8}\) gate.  Residuals use \(H(a)\psi-\lambda\psi\), normalized by \(\max(1,|\lambda|)\).  Graph distance and degree diagnostics still use the original \(A\); diagonal potentials are not edges.
+
+\subsection{Whole-spectrum endpoint comparison}
+
+\begin{table}[H]
+\centering
+\scriptsize
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+\(N\) & \(\alpha\) & median \(N\mathrm{IPR}\), \(a=0\) & median \(N\mathrm{IPR}\), \(a=32\) & multiplier & clean zero atom \\
+\midrule
+500 & 1.05 & 8.655 & 73.16 & 8.45 & 166 \\
+500 & 1.10 & 4.678 & 61.62 & 13.2 & 47 \\
+500 & 1.25 & 3.948 & 56.33 & 14.3 & 0 \\
+500 & 1.50 & 3.596 & 56.17 & 15.6 & 0 \\
+500 & 2.00 & 3.355 & 53.83 & 16.0 & 0 \\
+500 & 2.50 & 3.337 & 54.03 & 16.2 & 0 \\
+500 & 3.00 & 3.271 & 51.08 & 15.6 & 0 \\
+\midrule
+10000 & 1.05 & 13.27 & 250.9 & 18.9 & 3752 \\
+10000 & 1.10 & 5.368 & 178.4 & 33.2 & 1528 \\
+10000 & 1.25 & 3.882 & 123.9 & 31.9 & 0 \\
+10000 & 1.50 & 3.568 & 107.8 & 30.2 & 0 \\
+10000 & 2.00 & 3.422 & 103.4 & 30.2 & 0 \\
+10000 & 2.50 & 3.374 & 104.9 & 31.1 & 0 \\
+10000 & 3.00 & 3.339 & 106.2 & 31.8 & 0 \\
+\bottomrule
+\end{tabular}
+\caption{Whole-spectrum median \(N\mathrm{IPR}\) at the clean and strongest-disorder endpoints.  Clean zero-atom solver vectors are excluded from primary individual-state summaries, explaining the reduced usable counts at \(\alpha=1.05\) and 1.10.}
+\label{tab:disorder-whole}
+\end{table}
+
+Strong disorder increases the whole-spectrum median in every graph.  The central band also becomes more concentrated wherever an individual clean-state comparison is defined.  The edge response is more subtle because the clean PA edge can already be strongly hub-concentrated.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}rYrrr@{}}
+\toprule
+\(N\) & Window & \(N\mathrm{IPR}\) multiplier, \(a=32/a=0\) & median \(s(0.80)\), \(a=0\) & median \(s(0.80)\), \(a=32\) \\
+\midrule
+500 & non-Perron top 50 & 4.44--13.8 & 97--136 & 9--13.5 \\
+500 & central \code{qrank\_10} & 12.8--14.9 & 110--148 & 11.5--18 \\
+10000 & non-Perron top 50 & 0.639--4.15 & 546--1080 & 81--356 \\
+10000 & central \code{qrank\_10} & 23.7--27.9 & 2070--2920 & 138--305 \\
+\bottomrule
+\end{tabularx}
+\caption{Endpoint ranges across \(\alpha\).  The corresponding mean-gap-ratio changes are, by row, \([-0.0658,0.123]\), \([-0.105,0.0545]\), \([-0.0616,0.119]\), and \([-0.0229,0.0125]\).}
+\label{tab:disorder-windows}
+\end{table}
+
+At \(N=10{,}000\), the non-Perron top-50 \(N\mathrm{IPR}\) decreases at \(a=32\) relative to the already concentrated clean edge for \(\alpha\leq1.5\), while it increases for \(\alpha\geq2\).  This does not mean the strong-disorder states are extended; their 80-percent supports still contract substantially.  Rather, diagonal disorder can redistribute mass away from a clean hub-dominated profile while strongly localizing the broader spectrum.  Rank matching across amplitudes is not continuous eigenstate tracking.
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.96\textwidth]{\figpath{comparison_overview.png}}
+\caption{Matched clean/noisy summary across all 14 graphs and eight amplitudes.  Each amplitude curve on a graph shares the same \(\xi\), so it is a paired path rather than eight independent disorder samples.}
+\label{fig:disorder-overview}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.96\textwidth]{\figpath{cross_alpha_fixed_n_a.png}}
+\caption{Cross-\(\alpha\) comparisons at fixed \(N\) and raw \(a\).  These are case comparisons among single graph realizations, not ensemble confidence bands.}
+\label{fig:disorder-cross-alpha}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth]{\figpath{matched_clean_disorder_N10000_alpha1p05.png}}
+\caption{\(N=10{,}000\), \(\alpha=1.05\).}
+\end{subfigure}\hfill
+\begin{subfigure}{0.49\textwidth}
+\includegraphics[width=\textwidth]{\figpath{matched_clean_disorder_N10000_alpha3.png}}
+\caption{\(N=10{,}000\), \(\alpha=3.00\).}
+\end{subfigure}
+\caption{Representative matched clean/noisy cases.  The left graph has an already extreme clean hub edge and a large clean zero atom; the right graph provides a contrasting less-heavy-tailed PA case.}
+\label{fig:matched-cases}
+\end{figure}
+
+\subsection{Spacing and geometry under disorder}
+
+Gap ratios vary non-monotonically with \(a\), \(\alpha\), and window.  No amplitude is labelled a universal transition, and localization is not used to infer Poisson statistics.  Each case report retains raw gap histograms with bin edges and counts, energy-binned gap ratios under common raw-energy bins for that graph, strict rank-window summaries, first-ten consecutive edge gaps, cumulative coordinate mass, top-coordinate graph degrees, induced-subgraph structure, and original-graph distances.  A secondary \code{center\_with\_external\_guard} ratio policy is retained for audit, but primary summaries use strict internal triplets.
+
+The clean central \code{qrank\_10} individual-state comparison is unavailable at \(\alpha=1.05\) for both sizes because the strict rank window intersects the confirmed zero atom.  The paired report excludes those basis-dependent comparisons rather than relabelling small positive-amplitude eigenvalues as clean atom states.
+
+\section{What the evidence does and does not answer about Cook's question}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{@{}Y Y Y@{}}
+\toprule
+Question component & Supported observation & Evidence limit \\
+\midrule
+Are clean PA edge states concentrated? & Yes, strongly in several finite \(N=10{,}000\) cases relative to bulk. & Two sizes and one graph per condition do not establish a localized phase or scaling exponent. \\
+Do adjacent concentrated states share geometry? & Often descriptively: top-coordinate overlap, mass overlap, and short graph distances are retained. & Shared mass ignores signs and does not identify an uncoupled mode basis. \\
+Can fixed local modes reconstruct target pairs? & One 16-dimensional a-posteriori dictionary passes all provisional screens. & 1/1,568 targets; construction is target informed and historically degree based. \\
+Is an isolated spatial two-mode model validated? & No accepted case. & Failure of this construction does not prove absence of tunneling. \\
+Is \(|t|\) comparable to spacing? & No scientifically accepted ratio is available. & The only large pair ratio belongs to a failed two-mode approximation; Schur rows are absent. \\
+Does diagonal disorder localize PA eigenvectors? & Strong \(a\) greatly increases whole-spectrum and central concentration in every finite case. & One field per graph and two sizes cannot prove an Anderson transition. \\
+Do spacing statistics become universally Poisson? & No; raw gap-ratio trends are non-monotone. & Small edge windows and no ensemble replication preclude a universal-statistics claim. \\
+Does this answer the small-world question? & It supplies a reusable PA diagnostic and negative/inconclusive local-mode evidence. & A separately defined small-world ensemble and its own validated reference-mode analysis are still required. \\
+\bottomrule
+\end{tabularx}
+\caption{Evidence-labelled conclusions.}
+\label{tab:cook-answer}
+\end{table}
+
+The clean workflow \emph{tests whether} a defensible local reference coupling is comparable to spacing; it does not make those quantities comparable by construction.  Here, the diagnostic chain fails before a valid two-mode comparison is reached.  The physically honest answer is therefore that the finite PA data show edge concentration and mass sharing, but the tunneling-amplitude-versus-spacing question remains unresolved.
+
+\section{Limitations and specific remaining work}
+
+\begin{enumerate}
+\item \textbf{Sampling.}  There is one graph per \((N,\alpha)\) and one disorder field per graph.  Add independent graph and potential realizations before estimating uncertainty or scaling.
+\item \textbf{System sizes.}  Two sizes cannot distinguish enhanced finite-size edge concentration from an asymptotic regime.  A finite-size study needs several intermediate and larger \(N\), identical observables, and prespecified fits.
+\item \textbf{Reference construction.}  No strict-reference mass-informed dictionary was produced.  Review why the union-volume and per-vector coverage criteria fail before altering thresholds; retain all failures.
+\item \textbf{Target linkage.}  Current Part-2 joins emphasize \(s(0.80)\); complete joins for \(s(0.50),s(0.90),s(0.95)\) remain to be exported.
+\item \textbf{Degeneracy.}  Pair flags and a two-vector projector are not a complete cluster treatment when multiplicity exceeds two.  Add cluster-wide invariant matching and mass diagnostics.
+\item \textbf{Residual scaling.}  Predicted residuals use \(\max(1,|\mu|)\) only.  Report absolute residuals plus target-energy- and operator-norm-scaled alternatives.
+\item \textbf{Schur provenance.}  Add an eligibility/omission ledger for every target.  No production Schur value exists in the current run, so mediated coupling remains unresolved.
+\item \textbf{Controlled tests.}  Existing tests cover 18 unit cases and 14 validation rows, but explicit end-to-end checks are still missing for zero extension, support-size edge cases, a full local basis, budget stress, restart rejection at every stage, shared-leaf/star geometry, and full-cluster projectors.
+\item \textbf{Noisy tunneling.}  The disorder branch contains ordinary diagnostics only.  A noisy local-mode calculation would require its own target selection, reference basis, degeneracy handling, and acceptance checks; clean failures cannot be transferred.
+\item \textbf{Small-world model.}  To answer Cook's wording literally, specify the small-world graph ensemble, normalization, edge window, and disorder convention, then rerun the validated diagnostics without importing PA conclusions.
+\end{enumerate}
+
+\section{Detailed numerical and reproducibility appendices}
+
+\subsection{Implementation map}
+
+The implementation units used to interpret the retained outputs are:
+\begin{itemize}
+\item \path{src/small_world_mobility_edge/preferential_attachment/linear_pa_two_part.py}: graph loading/generation (line 167), full spectrum (250), Part 1 (807), center selection (959), greedy regions (1014), ordered orthogonalization (1323), dictionary analysis (1650), target analysis (1929), and Schur dispatch (2301).
+\item Affine generator source:\par
+\small\texttt{src/small\_world\_mobility\_edge/preferential\_attachment/}\newline
+\texttt{baseline.py}\normalsize\par
+Function \texttt{generate\_affine\_preferential\_}\newline
+\texttt{attachment\_graph} starts at line 123.
+\item Shared Schur source:\par
+\small\texttt{src/small\_world\_mobility\_edge/random\_schrodinger/}\newline
+\texttt{tunneling.py}\normalsize\par
+Function \texttt{schur\_effective\_operator} starts at line 342.
+\item Frozen disorder execution root:\par
+\small\texttt{outputs/pa\_diagonal\_uniform\_noise\_20260924\_v1/}\newline
+\texttt{execution\_project/}\normalsize\par
+Within that root, source file\par
+\small\texttt{src/small\_world\_mobility\_edge/random\_schrodinger/}\newline
+\texttt{pa\_diagonal\_uniform\_noise.py}\normalsize\par
+contains operator construction (255), eigensystem verification (289), zero-subspace evidence (344), localization (381), spacing (461), and operator execution (785).
+\item Frozen \path{random_schrodinger/handoff_metrics.py}: \code{stable\_zero\_cluster} (line 123).
+\end{itemize}
+The frozen disorder path, rather than a silently merged later working tree, identifies the executed version.
+
+\subsection{Validation evidence}
+
+The clean test log
+\path{outputs/linear_pa_two_part_20260924_v3/logs/tests_14889916.log}
+reports 18 tests, all passing.  The table
+\path{outputs/linear_pa_two_part_20260924_v3/validation/controlled_validation.csv}
+contains 14 passing rows.  Representative exact checks include projector idempotence error
+\(3.14\times10^{-16}\), lifted-residual identity error \(1.45\times10^{-16}\), a strong invariant-space internal coupling 2.5 with zero escape norm, a disconnected omitted-sign-mode capture 0, weak-overlap projected-spectrum disagreement \(4.44\times10^{-16}\), a two-mode versus three-mode control error 1.414 versus 0, and an analytic mediated-coupling value 4.0 with linear solve residual \(2.28\times10^{-16}\).
+
+The disorder test log
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/logs/tests_14888843.log}
+reports 9 tests, all passing.  These include the analytical 2-by-2 residual check, clean-zero-atom/nonzero-amplitude mask separation, strict/no-bridging gap indexing, finite full-graph versus infinite induced distance, localization/support/top-15 mass, operator trace/off-diagonal invariants, potential replay and covariance, restart identity and output completeness, and reporting/completion-matrix smoke coverage.
+
+\subsection{Primary data and report artifacts}
+
+\begin{longtable}{@{}p{0.34\textwidth}p{0.60\textwidth}@{}}
+\toprule
+Artifact & Purpose \\
+\midrule
+\endfirsthead
+\toprule
+Artifact & Purpose \\
+\midrule
+\endhead
+\path{outputs/linear_pa_two_part_20260924_v3/cases} & Authoritative graph caches, full eigensystems, Part-1 tables, per-target Part-2 records, and local-mode arrays. \\
+\path{outputs/linear_pa_two_part_20260924_v3_reporting_v5/report/LINEAR_PA_TWO_PART_REPORT.md} & Final clean narrative and summary table. \\
+\path{outputs/linear_pa_two_part_20260924_v3_reporting_v5/report/tables/all_cases_target_summary.csv.gz} & Fixed-target geometry and coverage status. \\
+\path{outputs/linear_pa_two_part_20260924_v3_reporting_v5/report/tables/all_cases_dictionary_mode_sensitivity.csv.gz} & All 12,342 dictionary sensitivity rows and quality flags. \\
+\path{outputs/linear_pa_two_part_20260924_v3_reporting_v5/report/tables/all_cases_spatial_pair_coupling.csv.gz} & Pair-only energies, couplings, captures, predicted gaps, and failures. \\
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/cases} & Prepared graph/field cases, every amplitude operator, retained eigensystems, diagnostics, and case reports. \\
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/report/tables/completion_matrix_14x8.csv} & Complete logical operator status. \\
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/report/tables/all_cases_operator_summary.csv} & Operator endpoints, residuals, localization, gaps, and atom counts. \\
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/report/tables/selected_scientific_summary.csv} & Whole-spectrum, non-Perron top-50, and central-window comparisons with counts. \\
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/report/RESULTS_INDEX.csv} & Figure/table to manifest and input mapping. \\
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/report/tables/ARRAY_LOCATIONS.csv} & Retained local/Hoffman arrays and hashes. \\
+\bottomrule
+\end{longtable}
+
+\subsection{Reproduction notes}
+
+The clean executed configuration is
+\path{experiments/linear_pa_two_part_20260924/config.json}; the disorder configuration is frozen at
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/execution_project/config/pa_diagonal_uniform_noise.json}.
+The clean freeze bundle is
+\path{outputs/linear_pa_two_part_20260924_v3/freeze/executed_source_v3/source_configuration_bundle.tar.gz};
+the disorder freeze is under
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/freeze/executed_source_v3/}.
+The respective Hoffman ledgers are
+\path{outputs/linear_pa_two_part_20260924_v3/JOB_LEDGER.csv}
+and
+\path{outputs/pa_diagonal_uniform_noise_20260924_v1/JOB_LEDGER.csv}.
+
+This document is reporting-only.  It reuses existing PNG figures and numerical tables and launches no graph simulation or eigendecomposition.  From this directory, the source can be compiled with
+\begin{verbatim}
+tectonic PA_and_Anderson_report.tex
+\end{verbatim}
+Tectonic resolves the accompanying \code{PA\_and\_Anderson\_report.bib}.  The copied PNG assets are in \path{figures/}; their authoritative originals remain under the two output roots above.
+
+\clearpage
+\bibliographystyle{plain}
+\bibliography{PA_and_Anderson_report}
+
+\end{document}

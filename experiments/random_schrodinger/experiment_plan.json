@@ -1,0 +1,83 @@
+{
+  "analysis_version": "random_schrodinger_v1",
+  "hoffman_root": "<HOFFMAN_SCRATCH>/random_schrodinger_20260921",
+  "historical_operator": {
+    "name": "unscaled adjacency",
+    "formula": "B=A",
+    "scalar_normalization_c": 1.0,
+    "regularizer": null
+  },
+  "stage1": {
+    "source_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_single_graph_20260901/outputs",
+    "models": [
+      "affine_alpha_1p05",
+      "nonlinear_zeta_1p5",
+      "affine_alpha_2p0"
+    ],
+    "smoke_baseline_samples": 2,
+    "production_baseline_samples": 100,
+    "baseline_seed": 945101
+  },
+  "er_benchmark": {
+    "ensemble": "G(N,d/N)",
+    "d": "0.6*log(N)",
+    "operator": "A/sqrt(d)",
+    "component": "largest_connected_component",
+    "pilot": {
+      "N": 1000,
+      "seed": 21901001,
+      "label": "pilot"
+    },
+    "published_size": {
+      "N": 10000,
+      "seed": 21901001,
+      "label": "published_size"
+    },
+    "post_pilot_sweep_design": {
+      "status": "designed_not_initially_submitted",
+      "N": [1000, 2500, 5000],
+      "d_over_log_N": [0.5, 0.6, 0.8],
+      "independent_graph_seeds": [21901001, 21901002, 21901003],
+      "rule": "Each graph is diagonalized and spaced separately; no cross-graph adjacency gaps. Full-spectrum runs only qualify as Figure-10-style coverage."
+    }
+  },
+  "tunneling": {
+    "paper_er_parameters": {
+      "mu": 0.02,
+      "kappa": 0.1,
+      "operator": "A/sqrt(d)",
+      "center_sets": "2024 equations (1.6), (2.1), (2.2)",
+      "approximate_state": "Definition 2.1"
+    },
+    "effective_local_reference": {
+      "radii": [1, 2, 3],
+      "boundary": "Dirichlet induced ball",
+      "mode": "nearest adjacent-pair mean energy",
+      "orthogonalization": "symmetric Lowdin",
+      "schur_eta": [0.01, 0.001]
+    },
+    "first_applications": [
+      "ER pilot",
+      "cached affine PA alpha=2",
+      "matched simple Chung-Lu with density tau=3"
+    ],
+    "small_world": {
+      "status": "blocked",
+      "reason": "No explicit small-world generator was found in the audited repository; Watts-Strogatz was not introduced."
+    }
+  },
+  "disorder_pilot": {
+    "operator": "H(a)=A+a*diag(xi)",
+    "xi": "iid NumPy Generator.uniform(-1,1), half-open convention",
+    "frozen_s_ref": "sqrt(20)",
+    "a_over_s_ref": [0, 0.1, 0.25, 0.5, 1, 2, 4, 8],
+    "source_models": [
+      "affine_alpha_1p05",
+      "nonlinear_zeta_1p5",
+      "affine_alpha_2p0"
+    ],
+    "potential_seeds": [931701, 931702],
+    "paired_across_a": true,
+    "post_disorder_rescaling": false
+  }
+}

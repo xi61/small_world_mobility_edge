@@ -1,0 +1,45 @@
+{
+  "analysis_version": "random_schrodinger_correction_20260922_v1",
+  "output_root": "<HOFFMAN_SCRATCH>/random_schrodinger_correction_20260922_v1",
+  "project_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/project",
+  "original_production_root": "<HOFFMAN_SCRATCH>/random_schrodinger_20260921",
+  "source_cache_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_single_graph_20260901/outputs",
+  "preservation_policy": "read original caches and outputs; write only below output_root",
+  "stage1": {
+    "models": [
+      "affine_alpha_1p05",
+      "nonlinear_zeta_1p5",
+      "affine_alpha_2p0"
+    ],
+    "radii": [1, 2, 3],
+    "peak_separations": [2, 3, 4],
+    "shortest_path_check": "all 45 top-10 pairs for upper-edge ranks 1 through 11",
+    "reported_center_scope": "all centers in every radius/separation sensitivity row"
+  },
+  "disorder": {
+    "models": [
+      "affine_alpha_1p05",
+      "nonlinear_zeta_1p5",
+      "affine_alpha_2p0"
+    ],
+    "potential_seeds": [931701, 931702],
+    "amplitude_ratios": [0, 0.1, 0.25, 0.5, 1, 2, 4, 8],
+    "consistent_windows": ["q25_width51", "q50_width51", "q75_width51"],
+    "zero_tolerance": "max(100*eps*N*max(1,||H||_2), 1e-12*max(1,||H||_2))",
+    "positive_disorder_residual_check": "reconstruct H=A+a*diag(xi) and check all saved selected eigenpairs"
+  },
+  "tunneling": {
+    "controlled_fixture_tolerance": 1e-8,
+    "structural_center_rule": "degree descending then analyzed vertex ID, greedy graph-distance separation at least 3",
+    "radii": [1, 2],
+    "subspace_diagnostics": ["K=U*HU", "R=HU-UK", "individual residual", "internal coupling", "external leakage"],
+    "schur_eta": [0.1, 0.01, 0.001],
+    "paper_er_original": {"N": 1000, "seed": 21901001, "mu": 0.02, "kappa": 0.1},
+    "paper_er_exploratory_mu": [0.05, 0.1, 0.2, 0.3],
+    "maximum_paper_centers": 6
+  },
+  "replication_sweep": {
+    "status": "designed_only_not_submitted",
+    "gate": "corrected diagnostics and controlled validations must pass before launch"
+  }
+}

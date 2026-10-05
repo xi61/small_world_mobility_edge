@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If this software supports your work, please cite the repository and the exact commit used."
+title: "Spectral Localization in Sparse Random Graphs"
+type: software
+authors:
+  - family-names: "He"
+    given-names: "Xi"
+version: 0.3.0
+date-released: 2026-10-05
+repository-code: "https://github.com/xi61/small_world_mobility_edge"
+license: LicenseRef-Proprietary
+keywords:
+  - random graphs
+  - spectral localization
+  - mobility edge
+  - preferential attachment
+  - Anderson model

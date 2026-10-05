@@ -1,0 +1,78 @@
+{
+  "experiment_id": "linear_pa_two_part_20260924_pilot_v3",
+  "scope": "controlled end-to-end clean affine PA pilot",
+  "base_seed": 20260924,
+  "alpha_grid": [2.0],
+  "sizes": [80],
+  "model": {
+    "m": 10,
+    "initial_graph": "complete_graph_on_m_plus_1_nodes",
+    "operator": "unscaled_simple_undirected_adjacency",
+    "degree_tail_convention": "degree_CCDF_alpha",
+    "offset_formula": "delta=m*(alpha-2)",
+    "sampling": "sequential weighted sampling without replacement among existing vertices"
+  },
+  "solver": {
+    "dense_driver": "evd",
+    "residual_block_size": 32,
+    "orthogonality_sample_size": 80,
+    "relative_eigenpair_residual_tolerance": 1e-8,
+    "multiplicity_tolerance_factor": 64.0
+  },
+  "part1": {
+    "support_mass_fractions": [0.5, 0.8, 0.9, 0.95],
+    "quantile_edges": [0.0, 0.01, 0.05, 0.1, 0.2, 0.4, 0.6, 0.8, 0.9, 0.95, 0.99, 1.0],
+    "cumulative_upper_counts": {"80": [10, 25, 50, 80]},
+    "detailed_literal_ranks": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "detailed_nonperron_ranks": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "coordinate_counts": [10, 15, 20, 30, 50]
+  },
+  "part2": {
+    "primary_nonperron_first_rank": 2,
+    "primary_nonperron_last_rank": 6,
+    "samples_per_remaining_band_or_window": 1,
+    "maximum_upper_count_by_size": {"80": 79},
+    "mass_center_top_coordinate_count": 30,
+    "radii": [1],
+    "x_grid": [0.3, 0.5],
+    "y_grid": [0.6, 1.0],
+    "reference_x": 0.5,
+    "reference_y": 1.0,
+    "maximum_selected_centers": 8,
+    "group_overlap_threshold": 0.5,
+    "degree_baseline_center_count": 50,
+    "degree_baseline_radii": [1],
+    "mode_counts": [1, 2, 3, 5],
+    "extended_mode_counts": [8],
+    "maximum_total_modes": 64,
+    "local_dense_dimension_limit": 384,
+    "local_degeneracy_relative_tolerance": 1e-9,
+    "gram_relative_cutoff": 1e-8,
+    "gram_cutoff_sensitivity": [1e-6, 1e-8, 1e-10],
+    "spatial_orientation_minimum_assigned_mass": 0.8,
+    "matching_energy_window_spectral_fraction": 0.02,
+    "matching_energy_window_gap_factor": 5.0,
+    "matching_energy_window_absolute_floor": 1e-8,
+    "run_energy_window_variant_for_upper_edge": false
+  },
+  "acceptance": {
+    "minimum_capture": 0.9,
+    "minimum_capture_sensitivity": 0.95,
+    "minimum_squared_overlap": 0.9,
+    "maximum_relative_gap_error": 0.1,
+    "maximum_region_mass_absolute_error": 0.05,
+    "maximum_exact_relative_residual": 1e-8
+  },
+  "schur": {
+    "maximum_cases_per_graph": 1,
+    "relative_regularizers": [0.1, 0.01],
+    "evaluation_energies": "reference_left_mean_right",
+    "near_pole_condition_number": 10000000000.0
+  },
+  "execution": {
+    "one_graph_per_n_alpha": true,
+    "save_full_eigenvectors": true,
+    "part2_analysis_role": "a_posteriori_explanatory_target_informed",
+    "historical_outputs_are_read_only": true
+  }
+}

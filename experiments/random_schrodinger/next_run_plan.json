@@ -1,0 +1,64 @@
+{
+  "status": "DESIGNED_NOT_SUBMITTED",
+  "basis": {
+    "completed_pilot_root": "<HOFFMAN_SCRATCH>/random_schrodinger_20260921",
+    "completed_aggregate": "outputs/random_schrodinger_20260921/outputs/report/stage3_potential_level_summary.csv",
+    "evidence": [
+      "Across all three fixed N=5000 graphs, interior mean IPR is smallest near a/s_ref=0.25-0.5 and rises strongly between a/s_ref=1 and 8.",
+      "At large a, upper-edge centers preferentially have positive xi and lower-edge centers negative xi, while their degrees remain above average.",
+      "The completed pilot has two potentials but only one graph per model, so graph-level and finite-size uncertainty are missing.",
+      "Radius-two local reference states usually fail the residual criterion; follow-up tunneling work must change or enrich the approximate-state basis before interpreting coupling ratios."
+    ]
+  },
+  "operator": {
+    "formula": "H(a)=A+a*diag(xi)",
+    "adjacency_scale_c": 1.0,
+    "xi": "iid NumPy Generator.uniform(-1,1), paired across a within a sweep",
+    "frozen_s_ref": "sqrt(20)",
+    "post_disorder_rescaling": false
+  },
+  "priority_graph_replication": {
+    "purpose": "add graph-level uncertainty at the pilot size before any transition claim",
+    "N": 5000,
+    "m": 10,
+    "models": [
+      "affine_alpha_1p05",
+      "nonlinear_zeta_1p5",
+      "affine_alpha_2p0"
+    ],
+    "new_graph_seeds_per_model": [942001, 942002],
+    "potential_seeds_per_graph": [932101, 932102],
+    "a_over_s_ref": [0, 0.5, 1, 2, 4, 8],
+    "execution": "bounded job arrays with per-amplitude checkpoint/resume; retain the completed cached graph as the first graph-level observation"
+  },
+  "gated_finite_size_followup": {
+    "status": "RUN_ONLY_AFTER_PRIORITY_REPLICATION",
+    "gate": "run if the graph-replicated summaries retain a rise in interior IPR between a/s_ref=1 and 8",
+    "primary_model": "affine_alpha_2p0",
+    "reason": "it has the lowest baseline interior IPR and the cleanest large-a potential-sign selection in the pilot",
+    "N": [2500, 5000, 10000],
+    "graph_seeds_per_size": [943001, 943002, 943003],
+    "potential_seeds_per_graph": [933101, 933102],
+    "a_over_s_ref": [0, 0.5, 1, 2, 4, 8],
+    "analysis_rules": [
+      "form spacings within each graph and potential realization only",
+      "keep rank windows separate from fixed-energy or quantile windows",
+      "report graph-level and potential-level uncertainty separately",
+      "do not label a critical disorder or mobility edge unless the trend is stable across sizes and graphs",
+      "full-spectrum claims require full spectral coverage; partial window runs must be labeled partial"
+    ]
+  },
+  "tunneling_method_followup": {
+    "status": "METHOD_DEVELOPMENT_BEFORE_SCALEUP",
+    "required_changes": [
+      "increase or adapt local neighborhoods until residual convergence is demonstrated",
+      "include additional resonant centers when the two-state Gram or residual checks fail",
+      "compare radius and eta sensitivity before interpreting Schur-mediated coupling",
+      "retain failed residual cases as inconclusive rather than as measured tunneling evidence"
+    ]
+  },
+  "small_world": {
+    "status": "BLOCKED_CONFIGURATION",
+    "reason": "No explicit distinct SW generator exists in the audited repository; do not introduce Watts-Strogatz without a supplied definition."
+  }
+}

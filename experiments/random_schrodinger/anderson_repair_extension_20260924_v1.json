@@ -1,0 +1,116 @@
+{
+  "configuration_version": "anderson_repair_extension_20260924_v1",
+  "created_date": "2026-09-24",
+  "scope": "Anderson/random Schrodinger only: PA diagonal disorder plus a separate random 3-regular benchmark; clean-PA coupling is excluded",
+  "remote_run_root": "<HOFFMAN_SCRATCH>/random_schrodinger_repair_and_extension_20260924_v1",
+  "remote_project_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_pa_mobility_20260823/project",
+  "historical_pilot_root": "<HOFFMAN_SCRATCH>/random_schrodinger_20260921/outputs/pa_disorder_pilot",
+  "corrected_root": "<HOFFMAN_SCRATCH>/random_schrodinger_correction_20260922_v2",
+  "retained_pa_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_single_graph_20260901/outputs",
+  "operator": {
+    "formula": "H(a)=A+a*diag(xi)",
+    "adjacency_hopping": 1.0,
+    "post_disorder_rescaling": false,
+    "potential_law": "xi iid Uniform[-1,1) from NumPy Generator(PCG64)",
+    "paired_across_amplitudes": true,
+    "vertex_order": "original identity labels 0..N-1"
+  },
+  "windows": {
+    "edge_bands": [[1, 10], [11, 25], [26, 50]],
+    "upper_baseline_band": [2, 11],
+    "fine_edge_bands": [[1, 5], [6, 10]],
+    "quantiles": [0.25, 0.5, 0.75],
+    "quantile_total_width": 0.02,
+    "pilot_corrected_width_count": 51,
+    "pa_physical_half_width_in_s_ref": 0.1,
+    "rrg_physical_half_width": 0.1,
+    "guard_levels_per_side": 1,
+    "gap_triplet_middle_level_in_window": true
+  },
+  "localization": {
+    "top_k": [1, 5, 10, 20, 30, 50, 100, 200],
+    "support_mass_fractions": [0.5, 0.8, 0.9, 0.95],
+    "geometry_edge_ranks": [1, 10],
+    "top_geometry_coordinate_count": 10,
+    "shell_max_radius": 5,
+    "coordinate_tie_break": "descending mass then ascending analyzed/original vertex ID"
+  },
+  "atom_policy": {
+    "enabled_only_at_a_zero": true,
+    "stable_tolerance_rule": "32*eps*N*max(1,max_abs_eigenvalue), sensitivity tol/10,tol,10tol",
+    "exclude_triplets_touching_atom_without_bridging": true,
+    "individual_vector_metrics_inside_atom": "unavailable_for_physical_comparison",
+    "retain_projector_diagonal": true
+  },
+  "pilot": {
+    "models": ["affine_alpha_1p05", "nonlinear_zeta_1p5", "affine_alpha_2p0"],
+    "graph_seeds": [4011773341, 1912200482, 3479052237],
+    "potential_seeds": [931701, 931702],
+    "amplitude_ratios": [0.0, 0.1, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0],
+    "s_ref": 4.4721359549995796,
+    "postprocess_only": true,
+    "deduplicate_a_zero_by_graph": true,
+    "targeted_baseline_supplement": {
+      "q25_width_count": 51,
+      "q75_width_count": 51,
+      "affine_alpha_2p0_q50_missing_only": true,
+      "heavy_tail_q50_policy": "reuse_projector_subspace_evidence_no_arbitrary_vectors"
+    }
+  },
+  "fresh_pa": {
+    "n_values": [1250, 2500, 5000],
+    "m": 10,
+    "graph_replicates": 3,
+    "potential_replicates": 2,
+    "amplitude_ratios": [0.0, 0.5, 2.0, 8.0],
+    "s_ref": 4.4721359549995796,
+    "models": [
+      {"model_key": "affine_alpha_1p05", "kind": "affine", "degree_ccdf_alpha": 1.05},
+      {"model_key": "nonlinear_zeta_1p5", "kind": "nonlinear", "attachment_zeta": 1.5},
+      {"model_key": "affine_alpha_2p0", "kind": "affine", "degree_ccdf_alpha": 2.0}
+    ],
+    "graph_seed_table": {
+      "affine_alpha_1p05": {"1250": [260924101, 260924102, 260924103], "2500": [260925101, 260925102, 260925103], "5000": [260926101, 260926102, 260926103]},
+      "nonlinear_zeta_1p5": {"1250": [260934101, 260934102, 260934103], "2500": [260935101, 260935102, 260935103], "5000": [260936101, 260936102, 260936103]},
+      "affine_alpha_2p0": {"1250": [260944101, 260944102, 260944103], "2500": [260945101, 260945102, 260945103], "5000": [260946101, 260946102, 260946103]}
+    },
+    "potential_seed_rule": "potential_seed=graph_seed+100000000+potential_replicate_1based",
+    "baseline_once_per_graph": true,
+    "full_spectrum_and_scalar_arrays": true,
+    "retain_vectors_for": "both edge ranks 1-50, guards, width-0.02 q25/q50/q75, and |E|<=0.1*s_ref; omit individual vectors inside stable a=0 atom",
+    "dense_solver": {"library": "scipy.linalg.eigh", "driver": "evd", "check_finite": false}
+  },
+  "rrg": {
+    "degree": 3,
+    "n_values": [1250, 2500, 5000],
+    "graph_replicates": 3,
+    "potential_replicates": 2,
+    "amplitudes": [0.0, 4.0, 8.0, 10.0, 16.0],
+    "graph_seed_table": {"1250": [360924101, 360924102, 360924103], "2500": [360925101, 360925102, 360925103], "5000": [360926101, 360926102, 360926103]},
+    "potential_seed_rule": "potential_seed=graph_seed+100000000+potential_replicate_1based",
+    "connectedness_policy": "resample with seed+attempt for at most 100 attempts until connected; record every attempt",
+    "central_window": [-0.1, 0.1],
+    "solver_interval_initial": [-0.2, 0.2],
+    "solver": {"library": "scipy.linalg.eigh", "driver": "evr", "selection": "subset_by_value", "interval_semantics": "(low,high]"},
+    "literature_convention": "box disorder [-W/2,W/2] means W=2a; degree 3 and E=0; Tikhonov-Mirlin 2019 reports W_c=18.17+-0.01",
+    "conditional_a9_rule": "add a=9 for all 18 streams if initial a=8 versus a=10 graph-level results straddle the midpoint (Poisson+GOE)/2 in mean raw r, reverse the sign of the log-size slope of median participation fraction, or differ by at least 0.03 in mean r; only after all base tasks pass and measured resources fit the base requests",
+    "conditional_a9_max_new_instances": 18
+  },
+  "statistics": {
+    "nesting": "potentials within graph; amplitudes paired within stream",
+    "primary_uncertainty_unit": "graph",
+    "unfolding_reference": "leave out the entire target graph, including all of its potentials",
+    "poisson_mean_raw_gap_ratio": 0.3862943611198906,
+    "goe_reference": 0.53,
+    "goe_surmise_reference": 0.5359,
+    "claims_policy": "descriptive finite-size evidence only; no mobility-edge, transition, or critical-exponent claim"
+  },
+  "validation": {
+    "maximum_relative_residual": 1e-08,
+    "maximum_norm_error": 1e-08,
+    "maximum_sampled_orthogonality_error": 1e-07,
+    "selected_index_eigenvalue_tolerance": 1e-08,
+    "rrg_full_reference_n": 1250,
+    "cache_identity_includes": ["source_configuration_id", "config_sha256", "graph_hash", "potential_hash", "operator", "N", "amplitude", "solver", "selected_windows", "tolerances"]
+  }
+}

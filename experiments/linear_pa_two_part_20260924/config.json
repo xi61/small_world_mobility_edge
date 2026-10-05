@@ -1,0 +1,81 @@
+{
+  "experiment_id": "linear_pa_two_part_20260924_v3",
+  "scope": "clean affine linear preferential attachment only",
+  "base_seed": 20260924,
+  "alpha_grid": [1.05, 1.1, 1.25, 1.5, 2.0, 2.5, 3.0],
+  "sizes": [500, 10000],
+  "model": {
+    "m": 10,
+    "initial_graph": "complete_graph_on_m_plus_1_nodes",
+    "operator": "unscaled_simple_undirected_adjacency",
+    "degree_tail_convention": "degree_CCDF_alpha",
+    "offset_formula": "delta=m*(alpha-2)",
+    "sampling": "sequential weighted sampling without replacement among existing vertices"
+  },
+  "solver": {
+    "dense_driver": "evd",
+    "residual_block_size": 128,
+    "orthogonality_sample_size": 256,
+    "relative_eigenpair_residual_tolerance": 1e-8,
+    "multiplicity_tolerance_factor": 64.0
+  },
+  "part1": {
+    "support_mass_fractions": [0.5, 0.8, 0.9, 0.95],
+    "quantile_edges": [0.0, 0.001, 0.0025, 0.005, 0.01, 0.025, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.975, 0.99, 0.995, 0.9975, 0.999, 1.0],
+    "cumulative_upper_counts": {
+      "500": [10, 25, 50, 100, 200, 300, 400, 500],
+      "10000": [10, 25, 50, 100, 200, 300, 400, 500, 650, 800, 1000]
+    },
+    "detailed_literal_ranks": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "detailed_nonperron_ranks": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    "coordinate_counts": [10, 15, 20, 30, 50]
+  },
+  "part2": {
+    "primary_nonperron_first_rank": 2,
+    "primary_nonperron_last_rank": 51,
+    "samples_per_remaining_band_or_window": 3,
+    "maximum_upper_count_by_size": {"500": 499, "10000": 1000},
+    "mass_center_top_coordinate_count": 50,
+    "radii": [1, 2, 3],
+    "x_grid": [0.7, 0.8, 0.9, 0.95],
+    "y_grid": [0.05, 0.1, 0.2, 0.3],
+    "reference_x": 0.8,
+    "reference_y": 0.2,
+    "maximum_selected_centers": 8,
+    "group_overlap_threshold": 0.5,
+    "degree_baseline_center_count": 50,
+    "degree_baseline_radii": [1, 2],
+    "mode_counts": [1, 2, 3, 5, 8, 12, 20],
+    "extended_mode_counts": [32, 64],
+    "maximum_total_modes": 256,
+    "local_dense_dimension_limit": 384,
+    "local_degeneracy_relative_tolerance": 1e-9,
+    "gram_relative_cutoff": 1e-8,
+    "gram_cutoff_sensitivity": [1e-6, 1e-8, 1e-10],
+    "spatial_orientation_minimum_assigned_mass": 0.8,
+    "matching_energy_window_spectral_fraction": 0.02,
+    "matching_energy_window_gap_factor": 5.0,
+    "matching_energy_window_absolute_floor": 1e-8,
+    "run_energy_window_variant_for_upper_edge": false
+  },
+  "acceptance": {
+    "minimum_capture": 0.9,
+    "minimum_capture_sensitivity": 0.95,
+    "minimum_squared_overlap": 0.9,
+    "maximum_relative_gap_error": 0.1,
+    "maximum_region_mass_absolute_error": 0.05,
+    "maximum_exact_relative_residual": 1e-8
+  },
+  "schur": {
+    "maximum_cases_per_graph": 3,
+    "relative_regularizers": [0.1, 0.01, 0.001],
+    "evaluation_energies": "reference_left_mean_right",
+    "near_pole_condition_number": 10000000000.0
+  },
+  "execution": {
+    "one_graph_per_n_alpha": true,
+    "save_full_eigenvectors": true,
+    "part2_analysis_role": "a_posteriori_explanatory_target_informed",
+    "historical_outputs_are_read_only": true
+  }
+}

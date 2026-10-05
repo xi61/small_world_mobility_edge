@@ -199,16 +199,37 @@ python3 -m small_world_mobility_edge.preferential_attachment.experiments \
 
 ## Supported model--diagnostic combinations
 
-| Diagnostic | Regular | ER | Chung--Lu | Fixed-degree control | PA |
-|---|:---:|:---:|:---:|:---:|:---:|
-| Dense global spectrum/density | yes | yes | yes | yes | selected runs |
-| Sparse extreme eigenpairs | no production path | yes | tail path | tail path | yes |
-| Local energy/quantile spacing | yes | yes | yes | rank-gap tail | rank-gap and mobility-edge paths |
-| GOE/Poisson reference curves | yes | yes | yes | yes | yes |
-| IPR/participation versus spectrum | yes | edge path | extensive | paired tail | extensive |
-| Atom/resonance/projector audit | no | zero audit | yes | no | abnormal-band audit |
-| Degree/spectral-tail fit | no | degree scaling only | yes | paired control | yes |
-| Top-coordinate/induced-subgraph audit | no | edge vectors | yes | coordinate decay | yes |
+| Diagnostic | Regular | ER | Chung--Lu | Fixed-degree control | PA | PA disorder / RRG Anderson |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| Dense global spectrum/density | yes | yes | yes | yes | selected runs | yes |
+| Sparse extreme eigenpairs | no production path | yes | tail path | tail path | yes | selected-window path |
+| Local energy/quantile spacing | yes | yes | yes | rank-gap tail | rank-gap and mobility-edge paths | yes |
+| GOE/Poisson reference curves | yes | yes | yes | yes | yes | yes |
+| IPR/participation versus spectrum | yes | edge path | extensive | paired tail | extensive | extensive |
+| Atom/resonance/projector audit | no | zero audit | yes | no | abnormal-band audit | clean-atom policy |
+| Degree/spectral-tail fit | no | degree scaling only | yes | paired control | yes | source graph only |
+| Top-coordinate/induced-subgraph audit | no | edge vectors | yes | coordinate decay | yes | yes |
+| Paired diagonal-disorder sweep | no | benchmark path | no | no | yes | yes |
+
+### Clean affine-PA local modes and diagonal disorder
+
+`preferential_attachment/linear_pa_two_part.py` implements the full-spectrum
+clean affine-PA study and its a-posteriori graph-region/local-mode diagnostics.
+Its production grid is `N in {500,10000}`, `m=10`, and nominal degree-CCDF
+`alpha in {1.05,1.1,1.25,1.5,2,2.5,3}` with one deterministic graph per
+condition. Part 2 keeps exact-eigenvector-informed region selection explicit;
+capture is not described as an independent prediction.
+
+`random_schrodinger/pa_diagonal_uniform_noise.py` reuses those exact graph
+caches and applies `H(a)=A+a*diag(xi)` for raw amplitudes
+`{0,0.5,1,2,4,8,16,32}`. One iid uniform field is paired across amplitudes on
+each graph. Clean zero-atom solver vectors are masked from primary individual-
+state comparisons; positive-disorder states use numerical multiplicity rather
+than the clean mask.
+
+`random_schrodinger/anderson_rrg_benchmark.py` is a separate random 3-regular
+benchmark with its own graph/potential seed tables and literature convention.
+It is not pooled with PA and does not convert the PA graph into a regular graph.
 
 “No production path” means no dedicated historical experiment was found; the
 small smoke runner may still calculate a generic diagnostic without implying

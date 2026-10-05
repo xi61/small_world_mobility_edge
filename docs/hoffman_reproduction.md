@@ -46,6 +46,10 @@ code means using the package requirements and test suite.
 | PA rewiring/structure | rewiring and production-aggregate modules | production chunks plus `hoffman_aggregate_pa_structural_replay.sh` | `hoffman_pa_structural_replay_aggregate.py`, `hoffman_pa_rewiring_comparison.sh` |
 | PA extreme/abnormal edge | extreme-edge and abnormal-edge modules | `hoffman_pa_extreme_edge_augmentation.sh`, `hoffman_pa_abnormal_edge_sparse.sh`, `hoffman_pa_abnormal_edge_reanalysis.sh`, `hoffman_pa_abnormal_band_microscope.sh` | matching aggregate, validation, and report builders under `tools/` |
 | PA single-graph edge/bulk | `preferential_attachment/single_graph_edge_bulk.py` | `hoffman_pa_single_graph_edge_bulk.sh` and `.py` | `summarize_pa_single_graph_edge_bulk.py` and `build_pa_single_graph_pdf_report.py` |
+| Clean affine-PA two-part | `preferential_attachment/linear_pa_two_part.py` | `hoffman_submit_linear_pa_two_part_pipeline.sh` and part-specific wrappers | `hoffman_linear_pa_two_part_aggregate.sh`, `linear_pa_two_part_reporting.py` |
+| PA diagonal uniform noise | `random_schrodinger/pa_diagonal_uniform_noise.py` | freeze plus `hoffman_pa_diagonal_uniform_noise.py` operator jobs | `pa_diagonal_uniform_noise_reporting.py` case/global aggregation |
+| Random 3-regular Anderson | `random_schrodinger/anderson_rrg_benchmark.py` | `hoffman_anderson_rrg.sh`, `hoffman_anderson_rrg_a9.sh` | `hoffman_anderson_aggregate.sh`, `anderson_reporting.py` |
+| Geometry/tunneling corrections | `random_schrodinger/geometry.py`, `tunneling_correction.py` | `hoffman_random_schrodinger_correction_*.sh` | `hoffman_random_schrodinger_corrections.py` and aggregate wrapper |
 
 ## PA production example
 

@@ -15,11 +15,18 @@ results copied back from Hoffman.
 | Fixed realized-degree control | `outputs/configuration_model/` | Paired Chung--Lu versus exact-labeled-degree double-edge-swap summaries, histograms, and manifest. |
 | Preferential attachment | `outputs/preferential_attachment/` | BA pilots; affine-linear and nonlinear production families; rewired controls; coarse/fine mobility-edge summaries; extreme-edge, abnormal-band, and single-graph edge/bulk diagnostics. |
 | PA report package | `docs/reports/pa_three_model_edge_bulk_conclusive_report/` | Upload-ready TeX, all 84 referenced recorded figures, tables, a figure manifest, and the compiled PDF. Build auxiliaries and duplicate ZIP/PDF copies are omitted. |
+| Clean affine-PA / diagonal-disorder report | `docs/reports/PA_and_Anderson_report_20260924/` | TeX, bibliography, compiled PDF, and 12 recorded figures (11 referenced plus one retained alternate case figure). |
 
 The run manifests and output tables are authoritative for graph counts,
 parameters, seeds, component rules, atom filtering, and normalization. Module
 defaults may describe a later experiment and should not be used to reinterpret
 an older output.
+
+The full clean affine-PA and diagonal-disorder production trees are not copied
+into Git because they contain dense eigenvector matrices and per-operator
+tables measured in gigabytes. Their complete scientific/report code,
+configurations, controlled tests, recorded report figures, and figure-to-input
+map are included.
 
 ## Research reports
 

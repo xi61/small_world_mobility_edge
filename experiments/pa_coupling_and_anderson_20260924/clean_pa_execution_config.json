@@ -1,0 +1,115 @@
+{
+  "acceptance_gates": {
+    "enlargement_gap_relative_tolerance": 0.1,
+    "enlargement_weight_absolute_tolerance": 0.05,
+    "maximum_conditional_weight_absolute_error": 0.05,
+    "maximum_leakage_over_external_separation": 0.1,
+    "maximum_leakage_over_external_separation_sensitivity": 0.05,
+    "maximum_relative_gap_error": 0.1,
+    "minimum_captured_mass": 0.9,
+    "minimum_captured_mass_sensitivity": 0.95
+  },
+  "continuation": {
+    "computed_upper_eigenpair_count": 64,
+    "eta_couple_values": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "gap_change_refinement_factor": 4.0,
+    "maximum_cases_per_graph": 2,
+    "maximum_eta_points": 25,
+    "minimum_tracking_overlap": 0.5,
+    "partition": "fixed disjoint structural regions plus background; every inter-block adjacency entry multiplied by eta_couple"
+  },
+  "models": [
+    {
+      "attachment_offset": -9.5,
+      "attachment_zeta": 1.0,
+      "family": "affine_linear",
+      "graph_seed": 4011773341,
+      "initial_graph": "complete_graph_on_m_plus_1_nodes",
+      "m": 10,
+      "model_key": "affine_alpha_1p05",
+      "n": 5000,
+      "parameter_name": "degree_ccdf_alpha",
+      "parameter_value": 1.05,
+      "simple_undirected": true,
+      "task_id": 1
+    },
+    {
+      "attachment_offset": 0.0,
+      "attachment_zeta": 1.0,
+      "family": "affine_linear",
+      "graph_seed": 3479052237,
+      "initial_graph": "complete_graph_on_m_plus_1_nodes",
+      "m": 10,
+      "model_key": "affine_alpha_2p0",
+      "n": 5000,
+      "parameter_name": "degree_ccdf_alpha",
+      "parameter_value": 2.0,
+      "simple_undirected": true,
+      "task_id": 2
+    },
+    {
+      "attachment_offset": 0.0,
+      "attachment_zeta": 1.5,
+      "family": "nonlinear",
+      "graph_seed": 1912200482,
+      "initial_graph": "complete_graph_on_m_plus_1_nodes",
+      "m": 10,
+      "model_key": "nonlinear_zeta_1p5",
+      "n": 5000,
+      "parameter_name": "attachment_zeta",
+      "parameter_value": 1.5,
+      "simple_undirected": true,
+      "task_id": 3
+    }
+  ],
+  "operator": "unscaled simple undirected adjacency in original vertex order",
+  "paused_scope": [
+    "diagonal_disorder",
+    "random_3_regular_anderson"
+  ],
+  "perron_handling": "rank 1 retained for baseline metrics but excluded from adjacent non-Perron candidate matching (ranks 2 through 50)",
+  "reference_dictionary": {
+    "boundary_condition": "induced Dirichlet",
+    "enlarged_local_mode_count": 5,
+    "gram_relative_cutoff": 1e-08,
+    "gram_relative_cutoff_sensitivity": [
+      1e-06,
+      1e-08,
+      1e-10
+    ],
+    "local_mode_counts": [
+      3,
+      5
+    ],
+    "maximum_merged_region_fraction": 0.2,
+    "maximum_retained_modes": 128,
+    "overlap_coefficient_merge_threshold": 0.5,
+    "primary_local_mode_count": 3,
+    "primary_radius": 1,
+    "radii": [
+      1,
+      2
+    ],
+    "structural_vertex_count": 50
+  },
+  "remote_root": "<HOFFMAN_SCRATCH>/random_schrodinger_pa_coupling_and_anderson_20260924_v1",
+  "run_label": "clean_pa_coupling_20260924_v1",
+  "schur": {
+    "epsilon_resolvent_values": [
+      0.1,
+      0.01,
+      0.001
+    ],
+    "maximum_cases_per_graph": 3,
+    "parameter_distinction": "epsilon_resolvent regularizes the resolvent and is never eta_couple"
+  },
+  "scope": "clean PA retained-graph geometry, structural reference modes, predictive validation, Schur diagnostics, and fixed-partition coupling continuation only",
+  "source_root": "<HOFFMAN_SCRATCH>/small_world_mobility_edge_single_graph_20260901/outputs"
+}

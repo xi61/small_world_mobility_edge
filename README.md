@@ -1,24 +1,30 @@
-# Small-World Mobility Edge
+# Spectral Localization in Sparse Random Graphs
 
-Numerical experiments for spectral density, level statistics, and eigenvector
-localization in sparse random graphs. This is the single aggregate repository
-for random simple `k`-regular, Erdős--Rényi, Chung--Lu, fixed-realized-degree,
-and preferential-attachment experiments. It contains the generators,
-diagnostic and Hoffman reproduction pipelines, compact finalized results, and
-the preferential-attachment report package.
+Reproducible numerical experiments for eigenvalue statistics, eigenvector
+localization, local-mode interactions, and diagonal disorder on sparse random
+graphs. The repository collects the complete local implementation used across
+the project: random regular, Erdős–Rényi, Chung–Lu, exact-degree rewired
+controls, preferential attachment, affine-PA local-mode analysis, PA diagonal
+disorder, and the random 3-regular Anderson benchmark.
 
-## Install and verify
+The project name is historical. No distinct Watts–Strogatz model is silently
+substituted for “small world”; the implemented ensembles are named explicitly
+below.
+
+## Quick start
 
 Python 3.11 or newer is required.
 
 ```bash
+git clone https://github.com/xi61/small_world_mobility_edge.git
+cd small_world_mobility_edge
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install -e .
 python3 -m unittest discover -s tests -v
 ```
 
-Run the four non-PA model/control paths at a modest size:
+Run the cross-model dense smoke test:
 
 ```bash
 python3 -m small_world_mobility_edge.model_smoke \
@@ -26,71 +32,108 @@ python3 -m small_world_mobility_edge.model_smoke \
   --output-dir outputs/smoke
 ```
 
-The smoke runner writes graph invariants, normalized empirical density,
-within-graph spacing and adjacent-gap-ratio summaries, and eigenvalue-aligned
-IPR plots. It is a quick integration check; the specialized modules and
-Hoffman entry points are the production paths.
+Run the PA and paired diagonal-disorder pilots:
 
-## Repository map
+```bash
+python3 -m small_world_mobility_edge.preferential_attachment.experiments \
+  --smoke-test --output-dir outputs/smoke/pa
+python3 tools/run_pa_diagonal_uniform_noise_smoke.py \
+  --output-dir outputs/smoke/pa_diagonal_uniform_noise
+python3 tools/run_anderson_rrg_smoke.py \
+  --output-dir outputs/smoke/anderson_rrg
+```
 
-- `src/small_world_mobility_edge/`: model generators and scientific analysis.
-- `tools/`: chunk, aggregate, transfer, cache-audit, validation, and report
-  entry points used for the Hoffman runs.
-- `outputs/smoke/regular/`: the available random-regular reference result.
-- `outputs/erdos_renyi/`: ER density, local-spacing, and edge outputs.
-- `outputs/chung_lu/`: Chung--Lu density, spacing, localization, resonance,
-  projector, and degree/spectral-tail outputs.
-- `outputs/configuration_model/`: exact-realized-degree rewiring controls paired
-  with Chung--Lu samples.
-- `outputs/preferential_attachment/`: BA, affine-linear, nonlinear, rewired,
-  mobility-edge, extreme-edge, and single-graph edge/bulk outputs.
-- `docs/reports/pa_three_model_edge_bulk_conclusive_report/`: self-contained
-  TeX source, recorded figures/tables, and compiled PA report PDF.
+These are integration checks, not substitutes for the recorded production
+runs. `make test`, `make smoke`, `make smoke-pa`, `make smoke-disorder`,
+`make smoke-anderson`, and `make validate` provide the same entry points.
 
-The [results inventory](docs/results_inventory.md) states which outputs are
-tracked and which high-volume artifacts are regenerated. The
-[Hoffman reproduction guide](docs/hoffman_reproduction.md) maps scheduler
-wrappers to each model family. The [experiment catalog](docs/experiment_catalog.md)
-records filtering, normalization, seed, exponent, and model--diagnostic
-conventions.
+## Implemented models and analyses
 
-## Capability map
+| Model or comparison | Operator / graph | Primary code | Reproducible entry point |
+|---|---|---|---|
+| Random simple regular | adjacency of a simple `k`-regular graph | `regular_baseline.py` | `model_smoke --model regular` |
+| Erdős–Rényi | `G(n,p)`, full graph or largest component | `erdos_renyi_baseline.py`, `erdos_renyi_extreme_edge.py` | `model_smoke --model erdos-renyi` |
+| Chung–Lu | expected-degree graph with constant or Pareto weights | `chung_lu_baseline.py` and diagnostic modules | `model_smoke --model chung-lu` |
+| Fixed realized degree | finite simple double-edge-swap chain | `fixed_degree_configuration_baseline.py` | `model_smoke --model fixed-degree-rewire` |
+| Preferential attachment | BA, affine linear, nonlinear, and Holme–Kim | `preferential_attachment/` | `preferential_attachment.experiments --smoke-test` |
+| Clean affine-PA local modes | raw adjacency, full spectrum, graph-ball reference modes | `linear_pa_two_part.py` and reporting module | `tools/hoffman_linear_pa_two_part.py` |
+| PA diagonal disorder | `H(a)=A+a diag(xi)`, `xi ~ Uniform[-1,1)` | `pa_diagonal_uniform_noise.py` and reporting module | `tools/run_pa_diagonal_uniform_noise_smoke.py` or production wrapper |
+| Random 3-regular Anderson | regular adjacency plus uniform diagonal disorder | `anderson_rrg_benchmark.py`, `anderson_reporting.py` | `tools/run_anderson_rrg_smoke.py` or production wrappers |
+| Geometry / tunneling studies | induced graph balls, local bases, Schur diagnostics | `random_schrodinger/geometry.py`, `tunneling*.py`, `handoff_*.py` | matching `tools/hoffman_*` workflows |
 
-| Model/comparison | Generator | Diagnostics entry point | Small example | Status |
-|---|---|---|---|---|
-| Random simple `k`-regular | [`regular_baseline.py`](src/small_world_mobility_edge/regular_baseline.py) | [`regular_baseline_experiments.py`](src/small_world_mobility_edge/regular_baseline_experiments.py), [`local_spacing_by_energy.py`](src/small_world_mobility_edge/local_spacing_by_energy.py) | `python3 -m small_world_mobility_edge.model_smoke --model regular` | Generator, Kesten--McKay unfolding, density, spacing, ratios, and IPR implemented |
-| Erdős--Rényi `G(n,p)` | [`erdos_renyi_baseline.py`](src/small_world_mobility_edge/erdos_renyi_baseline.py) | [`erdos_renyi_spacing_by_energy.py`](src/small_world_mobility_edge/erdos_renyi_spacing_by_energy.py), [`erdos_renyi_extreme_edge.py`](src/small_world_mobility_edge/erdos_renyi_extreme_edge.py) | `python3 -m small_world_mobility_edge.model_smoke --model erdos-renyi --component-mode largest_connected_component` | Full graph/LCC, ensemble density, local spacing, and sparse edge eigenpairs implemented |
-| Power-law Chung--Lu | [`chung_lu_baseline.py`](src/small_world_mobility_edge/chung_lu_baseline.py) | [`chung_lu_spacing_by_energy.py`](src/small_world_mobility_edge/chung_lu_spacing_by_energy.py), [`chung_lu_eigenvector_percentile_scan.py`](src/small_world_mobility_edge/chung_lu_eigenvector_percentile_scan.py) | `python3 -m small_world_mobility_edge.model_smoke --model chung-lu --tau 2.5` | Weight modes, mean solve, cutoffs, density/spacing, localization, resonance, and projector diagnostics implemented |
-| Fixed realized-degree control | [`fixed_degree_configuration_baseline.py`](src/small_world_mobility_edge/fixed_degree_configuration_baseline.py) | [`fixed_degree_configuration_joint_tail.py`](src/small_world_mobility_edge/fixed_degree_configuration_joint_tail.py) | `python3 -m small_world_mobility_edge.model_smoke --model fixed-degree-rewire` | Exact labeled degrees preserved by finite double-edge swaps; no independent stub-pairing sampler exists locally |
-| Degree/spectral-tail matching | Chung--Lu and PA generators above | [`chung_lu_degree_spectral_tail_match.py`](src/small_world_mobility_edge/chung_lu_degree_spectral_tail_match.py), [`preferential_attachment/experiments.py`](src/small_world_mobility_edge/preferential_attachment/experiments.py) | `python3 -m small_world_mobility_edge.chung_lu_degree_spectral_tail_match --smoke-test --n 400 --tau 2.5 --degree 8 --num-graphs 3 --k-per-side 40 --target-tail-count 20 --output-dir outputs/smoke/tail` | Degree CCDF, fitted exponents, cutoff sensitivity, spectral CCDF, rank match, and optional rewired control implemented |
-| Preferential attachment | [`preferential_attachment/baseline.py`](src/small_world_mobility_edge/preferential_attachment/baseline.py) | [`preferential_attachment/experiments.py`](src/small_world_mobility_edge/preferential_attachment/experiments.py) and related modules | `python3 -m small_world_mobility_edge.preferential_attachment.experiments --smoke-test --output-dir outputs/smoke/pa` | BA, affine linear, nonlinear, Holme--Kim, rewired controls, and compatible PA--Chung--Lu comparisons retained |
+The [experiment catalog](docs/experiment_catalog.md) documents component
+selection, normalization, spectral windows, atom handling, exponent
+conventions, and supported diagnostic combinations. The
+[reproducibility guide](docs/reproducibility.md) separates quick checks,
+production reruns, and reproduction from archived caches.
 
-## Important conventions
+## Reports and figures
 
-- Spacings are always formed inside each graph; only the resulting gaps or
-  summaries are pooled across graphs.
-- Eigenvalue-density histograms, local-count density estimates, and spacing
-  histograms are different objects and are named separately in outputs.
-- Regular graphs drop one trivial adjacency eigenvalue `d`. ER, Chung--Lu,
-  and PA workflows record or remove the Perron eigenpair according to each
-  experiment, and zero-atom handling is explicit in manifests.
-- Chung--Lu's canonical `tau` is a density exponent, so its weight CCDF has
-  exponent `tau - 1`. Affine PA uses the degree-CCDF exponent `alpha`.
-  Nonlinear attachment uses the kernel exponent `zeta`; these parameters are
-  not interchangeable.
-- The fixed-degree control is a simple graph produced by
-  `networkx.double_edge_swap`. It has no self-loops or parallel edges and
-  preserves every labeled degree, but a finite swap chain is not claimed to be
-  a uniform configuration-model sample or to preserve connectivity.
+Two self-contained report packages are tracked:
 
-## Output policy
+- `docs/reports/pa_three_model_edge_bulk_conclusive_report/`: TeX, compiled
+  PDF, tables, and all 84 referenced figures for the three-model PA
+  edge/bulk study.
+- `docs/reports/PA_and_Anderson_report_20260924/`: TeX, bibliography,
+  compiled PDF, and the clean affine-PA plus diagonal-disorder figures.
 
-Final plots, summary tables, manifests, research notes, and the report package
-are tracked. New runs still write beneath `outputs/`, which remains ignored by
-default so an accidental rerun cannot add gigabytes to Git.
+Every packaged image is mapped to its generator, input tier, configuration,
+command template, and checksum in
+[`docs/figure_reproduction.csv`](docs/figure_reproduction.csv). Verify and
+refresh that map with:
 
-The tracked publication tier deliberately excludes scheduler logs, cache
-directories, `partials/`, `replay_partials/`, superseded runs, per-window
-`.npz` checkpoints, and high-volume per-graph `.csv.gz` tables. Those are
-restart or analysis intermediates, not omitted model code; the source and
-`tools/` pipelines regenerate them. See the results inventory for exact scope.
+```bash
+python3 tools/audit_report_figures.py --write
+```
+
+The recorded production images are committed so the reports render without
+multi-gigabyte eigensystem caches. With those external caches available,
+`tools/package_combined_report_figures.py` rebuilds the combined figure bundle.
+
+## Reproducibility contract
+
+- Graph, potential, and rewiring seeds are explicit in configurations,
+  manifests, or graph-level tables.
+- Spacings are formed within individual graph spectra; eigenvalues from
+  different graphs are never sorted together to manufacture gaps.
+- Raw gaps, mean-rescaled gaps, analytical unfolding, and empirical-CDF
+  unfolding are distinct quantities in code and output names.
+- Perron removal, component choice, zero-atom masks, multiplicity tolerances,
+  and rank conventions are recorded per experiment.
+- Historical run outputs are read-only inputs. New runs write to ignored
+  `outputs/` or user-supplied run roots.
+- The file-level [source inventory](docs/source_inventory.csv) records hashes,
+  roles, and whether an item came from the public base, authoritative research
+  workspace, immutable executed snapshot, or publication assembly.
+
+See [provenance](docs/provenance.md), [data availability](docs/data_availability.md),
+and the [release validation record](docs/release_validation.md).
+
+## Repository layout
+
+- `src/small_world_mobility_edge/`: scientific generators and analyses.
+- `tests/`: deterministic unit and controlled-fixture tests.
+- `experiments/`: frozen model grids, seeds, thresholds, and run policies.
+- `tools/`: local and Hoffman/SGE execution, validation, aggregation, transfer,
+  reporting, and release-audit entry points.
+- `scripts/`: report-construction utilities.
+- `outputs/`: selected compact historical results; new output is ignored.
+- `docs/reports/`: self-contained publication report packages.
+- `docs/history/`: dated research/audit records retained as provenance, not as
+  current instructions.
+
+## Scientific limitations
+
+The checked-in results are finite-size computational evidence. Several PA and
+disorder grids contain only one graph or one potential stream per condition;
+those comparisons do not establish a universal mobility edge, critical
+disorder, or asymptotic phase transition. The exact-degree control preserves
+the labeled degree sequence but a finite swap chain is not claimed to be a
+uniform configuration-model sample. The local-mode workflow is explicitly
+a-posteriori where exact eigenvectors select regions or modes.
+
+## License and citation
+
+No open-source reuse license is granted; see [`LICENSE`](LICENSE). Cite the
+repository and exact commit used; machine-readable metadata is in
+[`CITATION.cff`](CITATION.cff).
