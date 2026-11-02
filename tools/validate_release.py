@@ -12,11 +12,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {
-    "", ".bib", ".cff", ".cfg", ".csv", ".json", ".md", ".py", ".sh", ".tex", ".toml", ".txt", ".yaml", ".yml"
+    "", ".bib", ".cff", ".cfg", ".csv", ".html", ".json", ".md", ".py", ".sh", ".tex", ".toml", ".txt", ".yaml", ".yml"
 }
 PRIVATE_PATTERNS = {
     "macOS user path": re.compile("/" + r"Users/[^/<$\s]+/"),
-    "named cluster account": re.compile(r"/u/(?:scratch|home)/[a-zA-Z][a-zA-Z0-9_-]+/"),
+    "named cluster account": re.compile(r"/u/(?:scratch|home)/(?:[a-zA-Z]/)?[a-zA-Z][a-zA-Z0-9_-]+/"),
     "private key material": re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
     "common secret assignment": re.compile(r"(?i)(?:api[_-]?key|access[_-]?token|password)\s*[:=]\s*['\"][^<'\"]{12,}"),
 }
@@ -62,8 +62,8 @@ def main() -> None:
             json.load(handle)
 
     shell_files = [str(path.relative_to(ROOT)) for path in files if path.suffix == ".sh"]
-    if shell_files:
-        subprocess.run(["bash", "-n", *shell_files], cwd=ROOT, check=True)
+    for shell_file in shell_files:
+        subprocess.run(["bash", "-n", shell_file], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "tools/audit_report_figures.py"], cwd=ROOT, check=True)
 
     required = (

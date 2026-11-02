@@ -1,0 +1,3 @@
+pair_name,negative_mode,positive_mode,negative_index,positive_index,negative_energy,positive_energy,energy_sum,squared_mass_overlap,squared_mass_cosine,negative_dominant_vertex,positive_dominant_vertex,dominant_center_agreement,signed_inner_product_not_used_for_spatial_overlap
+target_pair,negative_target,positive_target,21,9978,-31.832597538163,31.6195395463436,-0.213057991819404,0.921222712750338,0.999812543854275,17,17,True,-1.11022302462516e-15
+companion_pair,negative_companion,positive_companion,22,9977,-27.6422809515023,27.2660671040804,-0.376213847421923,0.922372298541797,0.999801071666232,40,40,True,-9.99200722162641e-16

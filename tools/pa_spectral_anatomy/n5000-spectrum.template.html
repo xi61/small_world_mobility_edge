@@ -1,0 +1,180 @@
+<div id="pa-n5000-spectrum-v1">
+  <style>
+    #pa-n5000-spectrum-v1 { color: var(--foreground); width: 100%; }
+    #pa-n5000-spectrum-v1 .viz-controls { margin-bottom: 8px; }
+    #pa-n5000-spectrum-v1 .series-row { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 4px 0 10px; }
+    #pa-n5000-spectrum-v1 .series-toggle { appearance: none; background: transparent; border: 0; color: var(--foreground); padding: 4px 0; cursor: pointer; }
+    #pa-n5000-spectrum-v1 .series-toggle[aria-pressed="false"] { opacity: 0.42; }
+    #pa-n5000-spectrum-v1 .swatch { display: inline-block; width: 11px; height: 11px; margin-right: 5px; vertical-align: -1px; }
+    #pa-n5000-spectrum-v1 .chart-wrap { width: 100%; margin-top: 8px; }
+    #pa-n5000-spectrum-v1 svg { display: block; width: 100%; }
+    #pa-n5000-spectrum-v1 .axis text, #pa-n5000-spectrum-v1 .axis-title, #pa-n5000-spectrum-v1 .panel-note { fill: var(--foreground); font-size: 12px; }
+    #pa-n5000-spectrum-v1 .grid line { stroke: var(--border); stroke-opacity: 0.55; }
+    #pa-n5000-spectrum-v1 .grid path { display: none; }
+    #pa-n5000-spectrum-v1 rect[data-chart-frame] { fill: transparent; stroke: var(--border); }
+    #pa-n5000-spectrum-v1 .tooltip { position: absolute; pointer-events: none; z-index: 5; background: var(--popover); color: var(--popover-foreground); border: 1px solid var(--border); padding: 7px 9px; border-radius: 6px; opacity: 0; }
+    #pa-n5000-spectrum-v1 .chart-hit { fill: transparent; pointer-events: all; }
+    #pa-n5000-spectrum-v1 .guide { stroke: var(--foreground); stroke-opacity: 0.5; stroke-width: 1; pointer-events: none; }
+    #pa-n5000-spectrum-v1 .focal-guide { stroke: var(--viz-series-2); stroke-width: 1; stroke-opacity: 0.62; }
+    @media (max-width: 520px) {
+      #pa-n5000-spectrum-v1 .series-row { display: grid; grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+
+  <h1>N=5,000 exact spectrum and localization</h1>
+  <div class="viz-controls" aria-label="Energy view">
+    <button type="button" class="btn btn-primary" data-view="full" aria-pressed="true">Full spectrum</button>
+    <button type="button" class="btn" data-view="center" aria-pressed="false">Central spectrum</button>
+    <button type="button" class="btn" data-view="negative" aria-pressed="false">Negative edge</button>
+    <button type="button" class="btn" data-view="positive" aria-pressed="false">Positive edge</button>
+  </div>
+  <div class="series-row" aria-label="Visible eigenpair categories">
+    <button type="button" class="series-toggle" data-series="regular" aria-pressed="true"><span class="swatch" style="background:var(--viz-series-1)"></span>Nonzero, non-Perron</button>
+    <button type="button" class="series-toggle" data-series="focal" aria-pressed="true"><span class="swatch" style="background:var(--viz-series-2)"></span>Eight target-quartet modes</button>
+    <button type="button" class="series-toggle" data-series="zero" aria-pressed="true"><span class="swatch" style="background:var(--muted-foreground)"></span>Zero eigenspace</button>
+    <button type="button" class="series-toggle" data-series="perron" aria-pressed="true"><span class="swatch" style="background:var(--viz-series-3)"></span>Perron</button>
+  </div>
+
+  <div class="chart-wrap">
+    <h3>Individual eigenpairs — no localization bin mean</h3>
+    <svg id="pa-spectrum-scatter" role="img" aria-label="Scatter plot of exact eigenvalue energy against individual N times IPR for all 10,000 eigenpairs"></svg>
+  </div>
+  <div class="chart-wrap">
+    <h3>Freedman–Diaconis histogram — count means eigenvalues in one energy interval</h3>
+    <svg id="pa-spectrum-hist" role="img" aria-label="Histogram counts for 3,155 nonzero non-Perron eigenvalues using target-independent Freedman-Diaconis bins"></svg>
+  </div>
+  <div class="text-small text-muted">N=5,000 · α=1.05 · seed 4011773341 · 1,844 zero modes and the Perron mode are excluded only from the histogram · zero-eigenspace IPR values depend on the stored basis.</div>
+  <div class="tooltip" role="tooltip"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script>
+    (() => {
+      const root = document.getElementById("pa-n5000-spectrum-v1");
+      const points = __POINTS_JSON__.map(d => ({ rank: d[0], energy: d[1], nipr: d[2], category: d[3] }));
+      const bins = __BINS_JSON__.map(d => ({ left: d[0], right: d[1], count: d[2] }));
+      const tooltip = root.querySelector(".tooltip");
+      const visible = new Map([["regular", true], ["focal", true], ["zero", true], ["perron", true]]);
+      const focalEnergy = points.filter(d => d.category === "focal").map(d => d.energy);
+      const fullExtent = d3.extent(points, d => d.energy);
+      const views = {
+        full: [fullExtent[0], fullExtent[1]],
+        center: [-4, 4],
+        negative: [-42, -30],
+        positive: [30, 39]
+      };
+      let currentView = "full";
+
+      const categoryColor = category => ({
+        regular: "var(--viz-series-1)",
+        focal: "var(--viz-series-2)",
+        zero: "var(--muted-foreground)",
+        perron: "var(--viz-series-3)"
+      })[category];
+
+      function tickCount(width) { return width < 450 ? 4 : 7; }
+      function showTooltip(event, html) {
+        tooltip.innerHTML = html;
+        const box = root.getBoundingClientRect();
+        tooltip.style.left = `${event.clientX - box.left + 12}px`;
+        tooltip.style.top = `${event.clientY - box.top + 12}px`;
+        tooltip.style.opacity = 1;
+      }
+      function hideTooltip() { tooltip.style.opacity = 0; }
+
+      function drawScatter() {
+        const svg = d3.select(root.querySelector("#pa-spectrum-scatter"));
+        svg.selectAll("*").remove();
+        const width = Math.max(320, root.querySelector("#pa-spectrum-scatter").parentElement.clientWidth);
+        const height = width < 520 ? 330 : 370;
+        const margin = { top: 12, right: 20, bottom: 52, left: 76 };
+        svg.attr("viewBox", `0 0 ${width} ${height}`).attr("height", height);
+        const x = d3.scaleLinear().domain(views[currentView]).nice().range([margin.left, width - margin.right]);
+        const yExtent = d3.extent(points, d => d.nipr);
+        const y = d3.scaleLog().domain([Math.max(1, yExtent[0] * 0.9), yExtent[1] * 1.14]).range([height - margin.bottom, margin.top]);
+        const inView = points.filter(d => d.energy >= x.domain()[0] && d.energy <= x.domain()[1] && visible.get(d.category));
+
+        svg.append("rect").attr("data-chart-frame", "true").attr("x", margin.left).attr("y", margin.top).attr("width", width - margin.left - margin.right).attr("height", height - margin.top - margin.bottom);
+        svg.append("g").attr("class", "grid").attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5).tickSize(-(width - margin.left - margin.right)).tickFormat(""));
+        svg.append("g").attr("class", "axis").attr("transform", `translate(0,${height - margin.bottom})`).call(d3.axisBottom(x).ticks(tickCount(width)));
+        svg.append("g").attr("class", "axis").attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(5, "~g"));
+        svg.append("text").attr("class", "axis-title").attr("data-axis", "x").attr("x", (margin.left + width - margin.right) / 2).attr("y", height - 10).attr("text-anchor", "middle").text("Raw-adjacency energy E = λ");
+        svg.append("text").attr("class", "axis-title").attr("data-axis", "y").attr("transform", "rotate(-90)").attr("x", -(margin.top + height - margin.bottom) / 2).attr("y", 18).attr("text-anchor", "middle").text("Individual N × IPR (log scale)");
+
+        focalEnergy.forEach(value => {
+          if (value >= x.domain()[0] && value <= x.domain()[1]) svg.append("line").attr("class", "focal-guide").attr("x1", x(value)).attr("x2", x(value)).attr("y1", margin.top).attr("y2", height - margin.bottom);
+        });
+        const radius = d => d.category === "focal" ? 4.8 : d.category === "perron" ? 4.2 : d.category === "zero" ? 1.2 : 1.7;
+        const opacity = d => d.category === "zero" ? 0.10 : d.category === "regular" ? 0.48 : 0.95;
+        svg.append("g").selectAll("circle").data(inView).join("circle")
+          .attr("cx", d => x(d.energy)).attr("cy", d => y(d.nipr)).attr("r", radius)
+          .attr("fill", d => categoryColor(d.category)).attr("opacity", opacity);
+
+        const guide = svg.append("line").attr("class", "guide").attr("y1", margin.top).attr("y2", height - margin.bottom).style("display", "none");
+        const overlay = svg.append("rect").attr("class", "chart-hit").attr("data-chart-hit", "true").attr("x", margin.left).attr("y", margin.top).attr("width", width - margin.left - margin.right).attr("height", height - margin.top - margin.bottom);
+        const screenPoints = inView.map(d => [x(d.energy), y(d.nipr), d]);
+        const delaunay = d3.Delaunay.from(screenPoints, d => d[0], d => d[1]);
+        overlay.on("pointermove", event => {
+          if (!screenPoints.length) return;
+          const [mx, my] = d3.pointer(event, svg.node());
+          const found = screenPoints[delaunay.find(mx, my)][2];
+          guide.style("display", null).attr("x1", x(found.energy)).attr("x2", x(found.energy));
+          showTooltip(event, `<strong>rank ${found.rank.toLocaleString()}</strong><br>energy ${d3.format(".12g")(found.energy)}<br>N×IPR ${d3.format(",.6f")(found.nipr)}<br>${found.category}`);
+        }).on("pointerleave", () => { guide.style("display", "none"); hideTooltip(); });
+      }
+
+      function drawHistogram() {
+        const svg = d3.select(root.querySelector("#pa-spectrum-hist"));
+        svg.selectAll("*").remove();
+        const width = Math.max(320, root.querySelector("#pa-spectrum-hist").parentElement.clientWidth);
+        const height = width < 520 ? 295 : 330;
+        const margin = { top: 12, right: 20, bottom: 52, left: 76 };
+        svg.attr("viewBox", `0 0 ${width} ${height}`).attr("height", height);
+        const x = d3.scaleLinear().domain(views[currentView]).nice().range([margin.left, width - margin.right]);
+        const shown = bins.filter(d => d.right >= x.domain()[0] && d.left <= x.domain()[1] && d.count > 0);
+        const maxCount = d3.max(shown, d => d.count) || 1;
+        const y = d3.scaleLog().domain([1, Math.max(2, maxCount)]).nice().range([height - margin.bottom, margin.top]);
+        svg.append("rect").attr("data-chart-frame", "true").attr("x", margin.left).attr("y", margin.top).attr("width", width - margin.left - margin.right).attr("height", height - margin.top - margin.bottom);
+        svg.append("g").attr("class", "grid").attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(4, "~g").tickSize(-(width - margin.left - margin.right)).tickFormat(""));
+        svg.append("g").attr("class", "axis").attr("transform", `translate(0,${height - margin.bottom})`).call(d3.axisBottom(x).ticks(tickCount(width)));
+        svg.append("g").attr("class", "axis").attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(4, "~g"));
+        svg.append("text").attr("class", "axis-title").attr("data-axis", "x").attr("x", (margin.left + width - margin.right) / 2).attr("y", height - 10).attr("text-anchor", "middle").text("Raw-adjacency energy E = λ");
+        svg.append("text").attr("class", "axis-title").attr("data-axis", "y").attr("transform", "rotate(-90)").attr("x", -(margin.top + height - margin.bottom) / 2).attr("y", 18).attr("text-anchor", "middle").text("Eigenvalue count per bin (log scale)");
+        svg.append("g").selectAll("rect.bin").data(shown).join("rect").attr("class", "bin")
+          .attr("x", d => x(d.left)).attr("width", d => Math.max(0.7, x(d.right) - x(d.left) - 0.25))
+          .attr("y", d => y(d.count)).attr("height", d => height - margin.bottom - y(d.count))
+          .attr("fill", "var(--viz-series-1)").attr("opacity", 0.72);
+        focalEnergy.forEach(value => {
+          if (value >= x.domain()[0] && value <= x.domain()[1]) svg.append("line").attr("class", "focal-guide").attr("x1", x(value)).attr("x2", x(value)).attr("y1", margin.top).attr("y2", height - margin.bottom);
+        });
+        svg.append("text").attr("class", "panel-note").attr("x", margin.left + 6).attr("y", margin.top + 16).text("FD width = 0.406867; the negative quartet splits 1–2–1 and the positive quartet splits 2–2");
+        svg.append("rect").attr("class", "chart-hit").attr("data-chart-hit", "true").attr("x", margin.left).attr("y", margin.top).attr("width", width - margin.left - margin.right).attr("height", height - margin.top - margin.bottom)
+          .on("pointermove", event => {
+            const [mx] = d3.pointer(event, svg.node());
+            const energyValue = x.invert(mx);
+            const i = d3.bisector(d => d.left).center(shown, energyValue);
+            const found = shown[Math.max(0, Math.min(shown.length - 1, i))];
+            if (found) showTooltip(event, `<strong>${found.count} eigenvalue${found.count === 1 ? "" : "s"}</strong><br>[${d3.format(".8f")(found.left)}, ${d3.format(".8f")(found.right)})`);
+          }).on("pointerleave", hideTooltip);
+      }
+
+      function redraw() { drawScatter(); drawHistogram(); }
+      root.querySelectorAll("[data-view]").forEach(button => button.addEventListener("click", () => {
+        currentView = button.dataset.view;
+        root.querySelectorAll("[data-view]").forEach(other => {
+          const active = other === button;
+          other.setAttribute("aria-pressed", String(active));
+          other.classList.toggle("btn-primary", active);
+        });
+        redraw();
+      }));
+      root.querySelectorAll("[data-series]").forEach(button => button.addEventListener("click", () => {
+        const key = button.dataset.series;
+        visible.set(key, !visible.get(key));
+        button.setAttribute("aria-pressed", String(visible.get(key)));
+        drawScatter();
+      }));
+      new ResizeObserver(redraw).observe(root);
+      redraw();
+    })();
+  </script>
+</div>

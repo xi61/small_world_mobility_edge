@@ -1,0 +1,115 @@
+<div id="pa-zero-retained-v1">
+  <style>
+    #pa-zero-retained-v1 { color: var(--foreground); width: 100%; }
+    #pa-zero-retained-v1 .hist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    #pa-zero-retained-v1 .chart-wrap { min-width: 0; }
+    #pa-zero-retained-v1 svg { display: block; width: 100%; }
+    #pa-zero-retained-v1 .axis text, #pa-zero-retained-v1 .axis-title, #pa-zero-retained-v1 .chart-note { fill: var(--foreground); font-size: 12px; }
+    #pa-zero-retained-v1 .grid line { stroke: var(--border); stroke-opacity: 0.55; }
+    #pa-zero-retained-v1 .grid path { display: none; }
+    #pa-zero-retained-v1 rect[data-chart-frame] { fill: transparent; stroke: var(--border); }
+    #pa-zero-retained-v1 .tooltip { position: absolute; pointer-events: none; z-index: 5; background: var(--popover); color: var(--popover-foreground); border: 1px solid var(--border); padding: 7px 9px; border-radius: 6px; opacity: 0; }
+    #pa-zero-retained-v1 .hit { fill: transparent; pointer-events: all; }
+    @media (max-width: 650px) { #pa-zero-retained-v1 .hist-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <h1>Exact multiplicity versus histogram-bin occupancy</h1>
+  <div class="chart-wrap">
+    <h3>Exact energies near zero</h3>
+    <svg id="pa-exact-multiplicity" role="img" aria-label="Exact eigenvalue multiplicities near zero, showing one zero eigenvalue group of multiplicity 3752 and simple nonzero levels"></svg>
+  </div>
+  <div class="hist-grid">
+    <div class="chart-wrap">
+      <h3>Zero atom removed</h3>
+      <svg id="pa-zero-removed" role="img" aria-label="Central spectral histogram after removing zero eigenvalues"></svg>
+    </div>
+    <div class="chart-wrap">
+      <h3>Zero atom retained</h3>
+      <svg id="pa-zero-retained" role="img" aria-label="Central spectral histogram retaining all zero eigenvalues"></svg>
+    </div>
+  </div>
+  <div class="text-small text-muted">N=10,000 · fixed Freedman–Diaconis width 0.315860 in both histograms · Perron omitted · hover bars for count and individual-mode N×IPR summaries.</div>
+  <div class="tooltip" role="tooltip"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script>
+    (() => {
+      const root = document.getElementById("pa-zero-retained-v1");
+      const groups = __GROUPS_JSON__;
+      const removed = __REMOVED_JSON__;
+      const retained = __RETAINED_JSON__;
+      const tooltip = root.querySelector(".tooltip");
+
+      function ticks(width) { return width < 440 ? 4 : 6; }
+      function showTooltip(event, html) {
+        tooltip.innerHTML = html;
+        const box = root.getBoundingClientRect();
+        tooltip.style.left = `${event.clientX - box.left + 12}px`;
+        tooltip.style.top = `${event.clientY - box.top + 12}px`;
+        tooltip.style.opacity = 1;
+      }
+      function hideTooltip() { tooltip.style.opacity = 0; }
+
+      function setupSvg(selector, height) {
+        const element = root.querySelector(selector);
+        const width = Math.max(320, element.parentElement.clientWidth);
+        const svg = d3.select(element);
+        svg.selectAll("*").remove();
+        svg.attr("viewBox", `0 0 ${width} ${height}`).attr("height", height);
+        return { svg, width, height, margin: { top: 12, right: 18, bottom: 50, left: 72 } };
+      }
+
+      function axes(scaffold, x, y, xLabel, yLabel) {
+        const { svg, width, height, margin } = scaffold;
+        svg.append("rect").attr("data-chart-frame", "true").attr("x", margin.left).attr("y", margin.top).attr("width", width - margin.left - margin.right).attr("height", height - margin.top - margin.bottom);
+        svg.append("g").attr("class", "grid").attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(4, "~g").tickSize(-(width - margin.left - margin.right)).tickFormat(""));
+        svg.append("g").attr("class", "axis").attr("transform", `translate(0,${height - margin.bottom})`).call(d3.axisBottom(x).ticks(ticks(width)));
+        svg.append("g").attr("class", "axis").attr("transform", `translate(${margin.left},0)`).call(d3.axisLeft(y).ticks(4, "~g"));
+        svg.append("text").attr("class", "axis-title").attr("data-axis", "x").attr("x", (margin.left + width - margin.right) / 2).attr("y", height - 10).attr("text-anchor", "middle").text(xLabel);
+        svg.append("text").attr("class", "axis-title").attr("data-axis", "y").attr("transform", "rotate(-90)").attr("x", -(margin.top + height - margin.bottom) / 2).attr("y", 18).attr("text-anchor", "middle").text(yLabel);
+      }
+
+      function drawMultiplicity() {
+        const s = setupSvg("#pa-exact-multiplicity", 275);
+        const x = d3.scaleLinear().domain([-2.5, 2.5]).range([s.margin.left, s.width - s.margin.right]);
+        const y = d3.scaleLog().domain([1, 6000]).range([s.height - s.margin.bottom, s.margin.top]);
+        axes(s, x, y, "Exact energy E = λ", "Exact-value multiplicity (log scale)");
+        const points = s.svg.append("g").selectAll("circle").data(groups).join("circle")
+          .attr("cx", d => x(d.energy)).attr("cy", d => y(d.multiplicity))
+          .attr("r", d => Math.abs(d.energy) < 1e-8 ? 5 : 1.8)
+          .attr("fill", d => Math.abs(d.energy) < 1e-8 ? "var(--viz-series-2)" : "var(--muted-foreground)")
+          .attr("opacity", d => Math.abs(d.energy) < 1e-8 ? 1 : 0.55);
+        points.on("pointermove", (event, d) => showTooltip(event, `<strong>energy ${d3.format(".12g")(d.energy)}</strong><br>exact multiplicity ${d.multiplicity.toLocaleString()}`)).on("pointerleave", hideTooltip);
+        s.svg.append("text").attr("class", "chart-note").attr("x", x(0) + 8).attr("y", y(3752) + 4).text("λ=0: multiplicity 3,752");
+      }
+
+      function drawHistogram(selector, data, zeroRetained) {
+        const s = setupSvg(selector, 300);
+        const shown = data.filter(d => d.right >= -2.5 && d.left <= 2.5 && d.count > 0);
+        const x = d3.scaleLinear().domain([-2.5, 2.5]).range([s.margin.left, s.width - s.margin.right]);
+        const maxCount = d3.max(shown, d => d.count) || 1;
+        const y = d3.scaleLog().domain([1, Math.max(2, maxCount)]).nice().range([s.height - s.margin.bottom, s.margin.top]);
+        axes(s, x, y, "Energy E = λ", "Eigenvalue count per bin (log scale)");
+        const bars = s.svg.append("g").selectAll("rect.bin").data(shown).join("rect").attr("class", "bin")
+          .attr("x", d => x(d.left)).attr("width", d => Math.max(0.8, x(d.right) - x(d.left) - 0.5))
+          .attr("y", d => y(d.count)).attr("height", d => s.height - s.margin.bottom - y(d.count))
+          .attr("fill", zeroRetained ? "var(--viz-series-3)" : "var(--viz-series-1)").attr("opacity", 0.78);
+        bars.on("pointermove", (event, d) => {
+          const stats = d.mean_nipr == null ? "no retained modes" : `mean N×IPR ${d3.format(",.3f")(d.mean_nipr)}<br>median ${d3.format(",.3f")(d.median_nipr)}<br>range ${d3.format(",.3f")(d.min_nipr)}–${d3.format(",.3f")(d.max_nipr)}`;
+          showTooltip(event, `<strong>${d.count.toLocaleString()} eigenvalues</strong><br>[${d3.format(".6f")(d.left)}, ${d3.format(".6f")(d.right)})<br>${stats}`);
+        }).on("pointerleave", hideTooltip);
+        s.svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", s.margin.top).attr("y2", s.height - s.margin.bottom).attr("stroke", "var(--viz-series-2)").attr("stroke-width", 1);
+        const central = shown.find(d => d.left <= 0 && d.right > 0);
+        if (central) s.svg.append("text").attr("class", "chart-note").attr("x", x(0) + 6).attr("y", Math.max(s.margin.top + 14, y(central.count) - 6)).text(`central-bin count ${central.count.toLocaleString()}`);
+      }
+
+      function redraw() {
+        drawMultiplicity();
+        drawHistogram("#pa-zero-removed", removed, false);
+        drawHistogram("#pa-zero-retained", retained, true);
+      }
+      new ResizeObserver(redraw).observe(root);
+      redraw();
+    })();
+  </script>
+</div>

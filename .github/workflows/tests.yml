@@ -19,5 +19,6 @@ jobs:
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e .
       - run: python -m unittest discover -s tests -v
+      - run: python tools/run_pa_multifractality_smoke.py --output-dir outputs/smoke/pa_multifractality
       - run: python tools/audit_report_figures.py
       - run: python tools/validate_release.py

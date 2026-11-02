@@ -1,0 +1,88 @@
+{
+  "analysis_id": "pa_multifractality_20261021_v1",
+  "description": "Paper-matched generalized-IPR and singularity-spectrum analysis of retained affine preferential-attachment adjacency eigensystems.",
+  "source_experiment": {
+    "experiment_id": "linear_pa_two_part_20260924_v3",
+    "scientific_source_configuration_sha256": "ff36916b3b1552ce2c81de603e3c84e3f94ebf1c29ef2afc1405d8877eedb012",
+    "operator": "unscaled simple undirected adjacency",
+    "m": 10,
+    "degree_tail_convention": "degree_CCDF_alpha",
+    "attachment_offset_formula": "delta=m*(alpha-2)",
+    "realizations_per_n_alpha": 1
+  },
+  "sizes": [500, 10000],
+  "alpha_grid": [1.05, 1.1, 1.25, 1.5, 2.0, 2.5, 3.0],
+  "moments": {
+    "q_min": 0.0,
+    "q_max": 3.0,
+    "q_step": 0.02,
+    "average": "typical_geometric"
+  },
+  "selection": {
+    "band_size": 50,
+    "multiplicity_tolerance_factor": 64.0,
+    "local_gap_radius": 25,
+    "top_r": 20,
+    "high_degree_fraction": 0.01
+  },
+  "alpha_histogram": {
+    "minimum": 0.0,
+    "maximum": 6.0,
+    "width": 0.05
+  },
+  "log10_scaled_mass_histogram": {
+    "minimum": -16.0,
+    "maximum": 4.5,
+    "width": 0.1
+  },
+  "windows": [
+    {
+      "id": "negative_edge_ranks_1_50",
+      "kind": "ascending_rank",
+      "first_rank": 1,
+      "count": 50
+    },
+    {
+      "id": "lower_bulk_q10",
+      "kind": "quantile",
+      "center": 0.1,
+      "count": 50
+    },
+    {
+      "id": "lower_bulk_q25",
+      "kind": "quantile",
+      "center": 0.25,
+      "count": 50
+    },
+    {
+      "id": "central_bulk_q50",
+      "kind": "quantile",
+      "center": 0.5,
+      "count": 50
+    },
+    {
+      "id": "upper_bulk_q75",
+      "kind": "quantile",
+      "center": 0.75,
+      "count": 50
+    },
+    {
+      "id": "upper_bulk_q90",
+      "kind": "quantile",
+      "center": 0.9,
+      "count": 50
+    },
+    {
+      "id": "near_positive_edge_q95",
+      "kind": "quantile",
+      "center": 0.95,
+      "count": 50
+    },
+    {
+      "id": "positive_edge_nonperron_ranks_2_51",
+      "kind": "descending_rank",
+      "first_rank": 2,
+      "count": 50
+    }
+  ]
+}

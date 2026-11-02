@@ -50,6 +50,7 @@ code means using the package requirements and test suite.
 | PA diagonal uniform noise | `random_schrodinger/pa_diagonal_uniform_noise.py` | freeze plus `hoffman_pa_diagonal_uniform_noise.py` operator jobs | `pa_diagonal_uniform_noise_reporting.py` case/global aggregation |
 | Random 3-regular Anderson | `random_schrodinger/anderson_rrg_benchmark.py` | `hoffman_anderson_rrg.sh`, `hoffman_anderson_rrg_a9.sh` | `hoffman_anderson_aggregate.sh`, `anderson_reporting.py` |
 | Geometry/tunneling corrections | `random_schrodinger/geometry.py`, `tunneling_correction.py` | `hoffman_random_schrodinger_correction_*.sh` | `hoffman_random_schrodinger_corrections.py` and aggregate wrapper |
+| Cached PA multifractality | `preferential_attachment/multifractality.py` | `hoffman_submit_pa_multifractality.sh` | `hoffman_pa_multifractality.py aggregate`; [exact environment and cache schema](experiments/pa_multifractality.md) |
 
 ## PA production example
 

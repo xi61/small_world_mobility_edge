@@ -46,6 +46,8 @@ def role(relative: str) -> str:
         return "execution or reporting utility"
     if relative.startswith("experiments/"):
         return "experiment configuration"
+    if relative.startswith("docs/results/") and suffix in {".png", ".csv", ".json"}:
+        return "compact recorded result"
     if relative.startswith("docs/reports/") and suffix in {".png", ".pdf", ".csv"}:
         return "recorded report artifact"
     if relative.startswith("docs/") or relative in {"README.md", "LICENSE", "CITATION.cff"}:
@@ -56,6 +58,10 @@ def role(relative: str) -> str:
 
 
 def provenance(relative: str) -> str:
+    if "multifractality" in relative or relative.startswith(("tools/pa_spectral_anatomy/", "tools/audit_pa_noncentral_targets.py", "docs/results/")):
+        return "October research import; see october_import_provenance.csv and publication notes"
+    if relative.startswith(("docs/models/", "docs/experiments/", "docs/publication_update_20261102", "tools/run_pa_multifractality_smoke.py", "tools/plot_published_anatomy.py", "tests/test_publication_artifacts.py", "docs/october_import_provenance.csv")):
+        return "November publication assembly"
     diagonal = {
         "src/small_world_mobility_edge/random_schrodinger/pa_diagonal_uniform_noise.py",
         "src/small_world_mobility_edge/random_schrodinger/pa_diagonal_uniform_noise_reporting.py",
@@ -91,7 +97,7 @@ def provenance(relative: str) -> str:
     )
     if relative.startswith(imported_prefixes):
         return "authoritative research workspace"
-    return "existing public checkout at base commit 67f3f56"
+    return "prepared local release; public baseline was 00a2c25, not 67f3f56"
 
 
 def main() -> None:

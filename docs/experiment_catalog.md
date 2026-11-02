@@ -237,6 +237,14 @@ historical validation for that model.
 
 ## Reproducibility and aggregation
 
+The newer mathematical detail is organized into [single-graph geometry](experiments/single_graph_geometry.md),
+[hub interactions](experiments/hub_interactions.md),
+[multifractality](experiments/pa_multifractality.md),
+[PA diagonal disorder](experiments/pa_diagonal_disorder.md), and
+[the replicated Anderson benchmark](experiments/anderson_benchmark.md).
+These pages identify the actual graph grids, formulas, saved results, and
+which reproduction commands require external eigensystem caches.
+
 Production modules record explicit graph, weight-sequence, and rewire seed
 streams in manifests or graph-level tables.  Gaps and localization statistics
 retain graph identifiers through aggregation.  Plotting and CSV/JSON export

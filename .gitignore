@@ -11,6 +11,8 @@ htmlcov/
 .mypy_cache/
 .ruff_cache/
 results/
+!docs/results/
+!docs/results/**
 outputs/
 output/
 /reports/

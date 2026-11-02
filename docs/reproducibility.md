@@ -28,6 +28,7 @@ make smoke
 make smoke-pa
 make smoke-disorder
 make smoke-anderson
+make smoke-multifractality
 ```
 
 The first command covers regular, Erdős–Rényi, Chung–Lu, and exact-degree
@@ -40,6 +41,17 @@ coverage against a full dense spectrum, and records localization/gap tables.
 
 All examples write under ignored `outputs/`. Matplotlib uses a noninteractive
 backend in production/report modules.
+The multifractality example creates real affine-PA graphs at N=64 and 128,
+checks their eigenpair residuals, writes small caches, and exercises both
+case analysis and cross-size aggregation. It is not a production estimate.
+
+### October results from committed tables
+
+The [multifractality guide](experiments/pa_multifractality.md) gives an
+aggregate command requiring no external arrays. The
+[anatomy scripts](../tools/pa_spectral_anatomy/README.md) list the exact
+external-input schemas for cache-level regeneration of graph pictures.
+The [result index](results/README.md) maps the new figures to their generators.
 
 ## 3. Reproduce production experiments
 

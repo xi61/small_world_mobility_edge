@@ -1,4 +1,4 @@
-.PHONY: install install-reports test smoke smoke-pa smoke-disorder smoke-anderson inventory figures validate
+.PHONY: install install-reports test smoke smoke-pa smoke-disorder smoke-anderson smoke-multifractality inventory figures validate
 
 install:
 	python3 -m pip install -e .
@@ -20,6 +20,9 @@ smoke-disorder:
 
 smoke-anderson:
 	python3 tools/run_anderson_rrg_smoke.py --output-dir outputs/smoke/anderson_rrg
+
+smoke-multifractality:
+	python3 tools/run_pa_multifractality_smoke.py --output-dir outputs/smoke/pa_multifractality
 
 inventory:
 	python3 tools/build_source_inventory.py

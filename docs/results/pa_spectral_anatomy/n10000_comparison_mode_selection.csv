@@ -1,0 +1,5 @@
+mode_name,selection_rule,production_bin_index,candidate_count,selected_ascending_index_0based,selected_energy,selected_n_times_ipr
+negative_outer_comparison,minimum finite N*IPR among simple modes in the nearest occupied flanking production bin; ascending index breaks ties,20,4,17,-38.8444818123237,764.380251224528
+negative_inner_comparison,minimum finite N*IPR among simple modes in the nearest occupied flanking production bin; ascending index breaks ties,23,10,24,-24.3521518469944,933.23992053573
+positive_inner_comparison,minimum finite N*IPR among simple modes in the nearest occupied flanking production bin; ascending index breaks ties,32,10,9975,24.0790239846464,1173.24355243459
+positive_outer_comparison,minimum finite N*IPR among simple modes in the nearest occupied flanking production bin; ascending index breaks ties,35,4,9981,37.9232019298035,1102.64214768402

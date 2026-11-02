@@ -1,0 +1,40 @@
+{
+  "analysis_id": "pa_multifractality_20261021_v1",
+  "analysis_version": "pa_multifractality_v1",
+  "case": {
+    "degree_ccdf_alpha": 1.1,
+    "n": 10000
+  },
+  "caveats": [
+    "Individual eigenvectors in an exactly degenerate eigenspace are basis-dependent; such rows are flagged.",
+    "Overlapping spectral windows are separate views and must not be pooled as independent samples.",
+    "Single-size entropy dimensions and f(alpha) have finite-size bias; use aggregate scaling estimates for inference."
+  ],
+  "configuration_sha256": "fc636d0995b280df5a08ea30fe94714bd37c626dfd1655ee68ef871c049b86fa",
+  "finished_at_utc": "2026-10-21T07:19:54.679327+00:00",
+  "method": {
+    "alpha_i": "-log(|psi_i|^2)/log(N)",
+    "band_size": 50,
+    "iq": "I_q=sum_i |psi_i|^(2q)",
+    "q_step": 0.02,
+    "single_size_f_alpha": "1+log(histogram probability density)/log(N)",
+    "typical_iq": "exp(mean over selected eigenvectors of log I_q)"
+  },
+  "output_row_counts": {
+    "eigenvector_diagnostics": 400,
+    "scaled_mass_histogram": 1640,
+    "singularity_spectrum_single_size": 960,
+    "spectral_window_summary": 8,
+    "typical_moments": 1208
+  },
+  "source_case_dir": "external_data/linear_pa_two_part_20260924_v3/cases/N_10000/alpha_1p1",
+  "source_spectral_cache_identity": "325abbcf079bdc46f40d0b0b879558acd46c6ee4fe737f64cdf308d8a1a05838",
+  "source_values_shape": [
+    10000
+  ],
+  "source_vectors_shape": [
+    10000,
+    10000
+  ],
+  "status": "COMPLETE"
+}

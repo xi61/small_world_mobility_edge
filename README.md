@@ -7,6 +7,28 @@ the project: random regular, Erdős–Rényi, Chung–Lu, exact-degree rewired
 controls, preferential attachment, affine-PA local-mode analysis, PA diagonal
 disorder, and the random 3-regular Anderson benchmark.
 
+## Browse by model
+
+[Regular / ER](docs/models/regular_and_er.md) ·
+[Chung–Lu](docs/models/chung_lu.md) ·
+[Fixed-degree / tail matching](docs/models/fixed_degree.md) ·
+[Preferential attachment](docs/models/preferential_attachment.md) ·
+[Disorder / Anderson](docs/models/disorder_and_anderson.md)
+
+### Latest experiments
+
+| Experiment | Mathematics, settings, findings, and reproduction |
+|---|---|
+| Single-graph spectral geometry | [Exact levels, near-zero modes, mass sets, graph shells, and zero projectors](docs/experiments/single_graph_geometry.md) |
+| Hub interactions | [Hub pairs, overlap, local-mode matrices, and the tunneling test](docs/experiments/hub_interactions.md) |
+| PA multifractality | [Generalized IPR, typical moments, size exponents, and singularity spectra](docs/experiments/pa_multifractality.md) |
+| PA diagonal disorder | [The 112-operator, fixed-graph amplitude sweep](docs/experiments/pa_diagonal_disorder.md) |
+| Anderson comparison | [Replicated PA disorder and the separate random-regular benchmark](docs/experiments/anderson_benchmark.md) |
+
+The [November publication audit](docs/publication_update_20261102.md) records
+what was absent from public `main`, what already existed in an unpushed local
+release, and what was imported from the October experiments.
+
 The project name is historical. No distinct Watts–Strogatz model is silently
 substituted for “small world”; the implemented ensembles are named explicitly
 below.
@@ -41,11 +63,14 @@ python3 tools/run_pa_diagonal_uniform_noise_smoke.py \
   --output-dir outputs/smoke/pa_diagonal_uniform_noise
 python3 tools/run_anderson_rrg_smoke.py \
   --output-dir outputs/smoke/anderson_rrg
+python3 tools/run_pa_multifractality_smoke.py \
+  --output-dir outputs/smoke/pa_multifractality
 ```
 
 These are integration checks, not substitutes for the recorded production
 runs. `make test`, `make smoke`, `make smoke-pa`, `make smoke-disorder`,
 `make smoke-anderson`, and `make validate` provide the same entry points.
+The two-size multifractality check is also available as `make smoke-multifractality`.
 
 ## Implemented models and analyses
 
@@ -60,6 +85,8 @@ runs. `make test`, `make smoke`, `make smoke-pa`, `make smoke-disorder`,
 | PA diagonal disorder | `H(a)=A+a diag(xi)`, `xi ~ Uniform[-1,1)` | `pa_diagonal_uniform_noise.py` and reporting module | `tools/run_pa_diagonal_uniform_noise_smoke.py` or production wrapper |
 | Random 3-regular Anderson | regular adjacency plus uniform diagonal disorder | `anderson_rrg_benchmark.py`, `anderson_reporting.py` | `tools/run_anderson_rrg_smoke.py` or production wrappers |
 | Geometry / tunneling studies | induced graph balls, local bases, Schur diagnostics | `random_schrodinger/geometry.py`, `tunneling*.py`, `handoff_*.py` | matching `tools/hoffman_*` workflows |
+| PA multifractality | cached clean-PA eigenvectors; generalized moments and size scaling | `preferential_attachment/multifractality.py` | `tools/hoffman_pa_multifractality.py` |
+| Exact-spectrum / hub audit | original N=5000 and N=10000 realizations, not ensembles | `tools/audit_pa_noncentral_targets.py`, `tools/pa_spectral_anatomy/` | [commands and input schemas](tools/pa_spectral_anatomy/README.md) |
 
 The [experiment catalog](docs/experiment_catalog.md) documents component
 selection, normalization, spectral windows, atom handling, exponent
@@ -89,6 +116,10 @@ python3 tools/audit_report_figures.py --write
 The recorded production images are committed so the reports render without
 multi-gigabyte eigensystem caches. With those external caches available,
 `tools/package_combined_report_figures.py` rebuilds the combined figure bundle.
+
+October tables and figures are under [`docs/results/`](docs/results/README.md).
+All 14 multifractality case tables are included: its aggregate curves can be
+regenerated without downloading the full eigenvector matrices.
 
 ## Reproducibility contract
 
