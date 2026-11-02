@@ -1,6 +1,6 @@
 # Publication audit — November 2, 2026
 
-Status: prepared and verified locally; GitHub publication is pending write access.
+Status: published to [xi61/small_world_mobility_edge](https://github.com/xi61/small_world_mobility_edge) on `main`.
 
 ## What was missing from GitHub
 
@@ -54,11 +54,11 @@ Bounded smoke tests and regeneration of aggregate curves from committed
 tables validate the public execution paths. See the updated
 [validation record](release_validation.md) for commands and outcomes.
 
-## Publication access check
+## Publication
 
-The terminal's HTTPS Git transport has no configured login. The connected
-GitHub integration can read this repository but a Git-data write returned
-HTTP 403, “Resource not accessible by integration.” No remote branch or file
-was changed. Publication requires authenticated Git or a connection with
-repository-content write permission; credentials should not be pasted into
-the project or chat.
+The initial GitHub integration write failed with HTTP 403. After browser
+authorization of GitHub CLI as `xi61`, the complete prepared release was
+published to the existing repository's `main`. The four prepared commits
+through `11e6a48` were fast-forwarded from `00a2c25`, retaining the earlier
+project history and including both the older experiments and the latest
+geometry, hub-interaction, multifractality, and disorder analyses.

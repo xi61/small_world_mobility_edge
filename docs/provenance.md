@@ -47,5 +47,5 @@ by `tools/build_source_inventory.py`.
   placeholders or environment variables.
 
 The assembly branch is `codex/reproducible-release-20261005`. The November
-update is ready locally; publication to the existing repository's `main`
-is pending authenticated write access. See the [publication audit](publication_update_20261102.md).
+update was published to the existing repository's `main` by fast-forwarding
+`00a2c25` through `11e6a48`. See the [publication audit](publication_update_20261102.md).
