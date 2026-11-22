@@ -7,6 +7,15 @@ the project: random regular, Erdős–Rényi, Chung–Lu, exact-degree rewired
 controls, preferential attachment, affine-PA local-mode analysis, PA diagonal
 disorder, and the random 3-regular Anderson benchmark.
 
+## Research report
+
+[**Random-graph spectra and eigenvector localization**](docs/reports/project_summary_20261103/Project_Summary.pdf)  
+*Xi He — unpublished research report, November 2026 (29 pages).*
+
+A consolidated account of the models, experimental pipeline, numerical findings,
+and limitations, from Erdős–Rényi and Chung–Lu controls to preferential attachment,
+local-mode geometry, and diagonal-disorder comparisons.
+
 ## Browse by model
 
 [Regular / ER](docs/models/regular_and_er.md) ·
