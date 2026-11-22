@@ -10,7 +10,7 @@ disorder, and the random 3-regular Anderson benchmark.
 ## Research report
 
 [**Random-graph spectra and eigenvector localization**](docs/reports/project_summary_20261103/Project_Summary.pdf)  
-*Xi He — unpublished research report, November 2026 (29 pages).*
+*Xi He — Research report, November 2026 (29 pages).*
 
 A consolidated account of the models, experimental pipeline, numerical findings,
 and limitations, from Erdős–Rényi and Chung–Lu controls to preferential attachment,
